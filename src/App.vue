@@ -1,15 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- Navigation -->
+    <NavigationBar></NavigationBar>
+
+    <!-- Button clicks -->
+    <!-- <button @click="consoleLog()">'consoleLog()'</button><br/>
+    <button @click="getRandomUser()">'getRandomUser()'</button> -->
+
+    <!-- Router View -->
+    <router-view></router-view>    
+
+    <!-- <GCU></GCU> -->
+    
+  </div>  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavigationBar from './components/NavigationBar.vue';
+//import GCU from './components/GCU.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    consoleLog() 
+    {
+      console.log('Hello User, \'consoleLog()\' function works!');
+    },
+    async getRandomUser() 
+    {
+      const res = await fetch('https://randomuser.me/api');
+      const { results } = await res.json();
+      console.log(results); 
+    }
+  },
   components: {
-    HelloWorld
+    NavigationBar,
+    //GCU,
   }
 }
 </script>

@@ -10,14 +10,14 @@
     <!-- Router View -->
     <router-view></router-view>    
 
-    <!-- <GCU></GCU> -->
-    
+    <GCU></GCU>
+
   </div>  
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-//import GCU from './components/GCU.vue';
+import GCU from './components/GCU.vue';
 
 export default {
   name: 'App',
@@ -40,7 +40,7 @@ export default {
   },
   components: {
     NavigationBar,
-    //GCU,
+    GCU,
   }
 }
 </script>

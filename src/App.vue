@@ -1,23 +1,14 @@
 <template>
   <div>
-    <!-- Navigation -->
     <NavigationBar v-show="true"></NavigationBar>
 
-    <!-- Button clicks -->
-    <!-- <button @click="consoleLog()">'consoleLog()'</button><br/>
-    <button @click="getRandomUser()">'getRandomUser()'</button> -->
-
-    <!-- Router View -->
     <router-view></router-view>    
-
-    <!-- <GCU></GCU> -->
 
   </div>  
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-//import GCU from './components/GCU.vue';
 
 export default {
   name: 'App',
@@ -27,20 +18,10 @@ export default {
     }
   },
   methods: {
-    consoleLog() 
-    {
-      console.log('Hello User, \'consoleLog()\' function works!');
-    },
-    async getRandomUser() 
-    {
-      const res = await fetch('https://randomuser.me/api');
-      const { results } = await res.json();
-      console.log(results); 
-    }
+    
   },
   components: {
     NavigationBar,
-    //GCU,
   }
 }
 </script>
@@ -53,7 +34,6 @@ export default {
   font-weight: bold;
   font-style: normal;
 }
-
 a {
     color:#635bff;
     font-size:125%;

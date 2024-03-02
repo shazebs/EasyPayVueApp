@@ -6,7 +6,7 @@
             <div><input class="signup-input" type="email" v-model="email" placeholder="Email"/></div>
             <div><input class="signup-input" type="text" v-model="username" placeholder="Username"/></div>
             <div><input class="signup-input" type="password" v-model="password" placeholder="Password"/></div>
-            <div><input class="signup-input" type="password" v-model="password_confirm" placeholder="Re-type Password"/></div>
+            <div><input class="signup-input" type="password" v-model="password_retry" placeholder="Re-type Password"/></div>
             <div><textarea class="signup-textarea" type="text" v-model="stripeApiKey" placeholder="Stripe API Key"></textarea></div>
             <div><button class="signup-button" type="submit">Join EasyPay! :)</button></div>
         </form>
@@ -15,27 +15,30 @@
 </template>
 
 <script>
+import axios from 'axios'; 
+
 export default {
     name: 'SignupPage',
     data() {
         return {
             email: '',
             password: '',
-            password_confirm: '',
+            password_retry: '',
             stripeApiKey: '',
             username: '',
         }
     },
     methods: {
-        handleSignup() {
-            const data = {
+        async handleSignup() {
+            const response = await axios.post('easypay', {
                 email: this.email,
                 username: this.username,
                 password: this.password,
                 password_confirm: this.password_confirm,
                 stripeApiKey: this.stripeApiKey
-            }
-            console.log(data);
+            });
+            console.log(response); 
+            //this.$router.push('/login');
         }
     }
 };
@@ -54,7 +57,6 @@ export default {
     font-size:1.05rem;
     margin-top:5px;
     padding:5px 10px;
-
     transition:all 0.2s ease;
 }
 .signup-button:hover {

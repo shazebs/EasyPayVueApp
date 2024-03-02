@@ -1,32 +1,72 @@
 <template>
-    <div align="left">
-        <h1>Login</h1>
+    <div class="login-page">
+        <h1 style="color:#635bff; margin:0px; margin-bottom:10px;">Login</h1>
 
-        <input type="text" name="username" placeholder="Username"/>
-        <br/>
-        <input type="password" name="password" placeholder="Password"/>
-        <br/>
-        <button>Login</button>
-
-        <h3 v-if="$route.params.username">{{ $route.params.username }}</h3>
-        <h3 v-else>Username DNE</h3>
-        <h4 v-if="$route.params.id">{{ $route.params.id }}</h4>
-        <h4 v-else>Id DNE</h4>
+        <form @submit.prevent="handleLogin()" class="login-form">
+            <div><input class="login-input" type="text" v-model="username" placeholder="Username"/></div>
+            <div><input class="login-input" type="password" v-model="password" placeholder="Password"/></div>
+            <div><button class="login-button" type="submit">Login to EasyPay!</button></div>
+        </form>
 
     </div>
 </template>
 
 <script>
+import axios from 'axios'; 
+
 export default {
     name: 'LoginPage',
     data() {
         return {
-            title: 'Hello?'
+           email: '',
+           password: '',
+           username: ''
         }
     },
-
+    methods: {
+        async handleLogin() {
+            const response = await axios.post('login', {
+                email: this.email,
+                password: this.password,
+                username: this.username
+            });
+            console.log(response);
+        }
+    }
 };
 </script>
 
 <style scoped>
+.login-form {
+    display:flex;
+    flex-direction:column;
+}
+.login-button {
+    background: transparent;
+    border:2px solid #635bff;
+    border-radius:4px;
+    color:#635bff;
+    font-size:1.05rem;
+    margin-top:5px;
+    padding:5px 10px;
+    transition:all 0.2s ease;
+}
+.login-button:hover {
+    cursor:pointer;
+    background:#635bff;
+    color:white;
+    transition:all 0.2s ease;
+}
+.login-form div {
+    margin:5px 0px;
+}
+.login-input {
+    font-size:1.05rem;
+    width:300px;
+}
+.login-page {
+    margin:0px;
+    padding-top:10px;
+    text-align:center;
+}
 </style>

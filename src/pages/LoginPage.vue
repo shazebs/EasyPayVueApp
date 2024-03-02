@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import axios from 'axios'; 
+//import axios from 'axios'; 
 
 export default {
     name: 'LoginPage',
@@ -24,14 +24,19 @@ export default {
         }
     },
     methods: {
-        async handleLogin() {
-            const response = await axios.post('login', {
-                email: this.email,
-                password: this.password,
-                username: this.username
-            });
-            console.log(response);
+        handleLogin() {
+            alert('Try signing up first before logging in!');
         }
+        // async handleLogin() {
+        //     const response = await axios.post('login', {
+        //         email: this.email,
+        //         password: this.password,
+        //         username: this.username
+        //     });
+        //     console.log(response);
+        //     localStorage.setItem('token', response.data.token);
+        //     this.$router.push('/');
+        // }
     }
 };
 </script>

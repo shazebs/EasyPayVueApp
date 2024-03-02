@@ -1,10 +1,8 @@
 <template>
     <header>
-        <div style="line-height:1.75; padding:10px;">
-            <router-link to="/">Index</router-link><br/>
-            <router-link to="/login">Login</router-link><br/>
-            <router-link to="/signup">Signup</router-link><br/>
-        </div>
+        <router-link to="/">Home</router-link>
+        <router-link to="/login">Login</router-link> 
+        <router-link to="/signup">Signup</router-link>
     </header>
 </template>
 
@@ -15,7 +13,12 @@ export default {
 </script>
 
 <style scoped>
-    a {
-        color:#635bff;
-    }
+    header {
+        border-bottom:2px dashed black;
+        border-top:2px dashed black;
+        display:flex;
+        justify-content: space-evenly;   
+        margin:auto;
+        padding:8px 0px;    
+    }    
 </style>

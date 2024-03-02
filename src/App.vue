@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Navigation -->
-    <NavigationBar></NavigationBar>
+    <NavigationBar v-show="true"></NavigationBar>
 
     <!-- Button clicks -->
     <!-- <button @click="consoleLog()">'consoleLog()'</button><br/>
@@ -10,14 +10,14 @@
     <!-- Router View -->
     <router-view></router-view>    
 
-    <GCU></GCU>
+    <!-- <GCU></GCU> -->
 
   </div>  
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-import GCU from './components/GCU.vue';
+//import GCU from './components/GCU.vue';
 
 export default {
   name: 'App',
@@ -40,18 +40,29 @@ export default {
   },
   components: {
     NavigationBar,
-    GCU,
+    //GCU,
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+a {
+    color:#635bff;
+    font-size:125%;
+    text-decoration:none;
+    transition: all 0.2s ease;
+}
+a:hover {
+  color:dodgerblue;
+  text-decoration:underline;
+  transition: all 0.2s ease;
 }
 </style>

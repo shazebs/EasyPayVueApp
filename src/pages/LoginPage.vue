@@ -19,7 +19,12 @@
 <script>
 export default {
     name: 'LoginPage',
-    
+    data() {
+        return {
+            title: 'Hello?'
+        }
+    },
+
 };
 </script>
 

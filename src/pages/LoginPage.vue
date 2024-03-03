@@ -5,6 +5,8 @@
 
         <h3 v-if="loginStatus" :class="loginStatus.success ? 'success' : 'error'">{{ loginStatus.message }}</h3>
 
+        <h3 v-if="registerSuccess" class="success">You have successfully registered and can log in!</h3>
+
         <form @submit.prevent="handleLogin()" class="login-form">
             <div><input class="login-input" type="text" v-model="username" placeholder="Username" required/></div>
             <div><input class="login-input" type="password" v-model="password" placeholder="Password" required/></div>
@@ -37,6 +39,7 @@ export default {
                 });         
                 
                 this.$store.dispatch('user', response.data.user); 
+                this.$store.dispatch('registerSuccess', false);
                 this.$router.push('/');
             } 
             catch (error) {
@@ -46,7 +49,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['user'])
+        ...mapState(['user', 'registerSuccess'])
     }
 };
 </script>

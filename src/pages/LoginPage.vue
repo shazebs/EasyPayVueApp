@@ -1,47 +1,63 @@
 <template>
     <div class="login-page">
+
         <h1 style="color:#635bff; margin:0px; margin-bottom:10px;">Login</h1>
 
+        <h3 v-if="loginStatus" :class="loginStatus.success ? 'success' : 'error'">{{ loginStatus.message }}</h3>
+
         <form @submit.prevent="handleLogin()" class="login-form">
-            <div><input class="login-input" type="text" v-model="username" placeholder="Username"/></div>
-            <div><input class="login-input" type="password" v-model="password" placeholder="Password"/></div>
-            <div><button class="login-button" type="submit">Login to EasyPay!</button></div>
+            <div><input class="login-input" type="text" v-model="username" placeholder="Username" required/></div>
+            <div><input class="login-input" type="password" v-model="password" placeholder="Password" required/></div>
+            <div><button class="login-button" type="submit">Access EasyPay!</button></div>
         </form>
 
     </div>
 </template>
 
 <script>
-//import axios from 'axios'; 
+import axios from 'axios'; 
+import {mapState} from 'vuex'; 
 
 export default {
     name: 'LoginPage',
     data() {
         return {
-           email: '',
-           password: '',
-           username: ''
+            username: '',
+            password: '',
+            loginStatus: null
         }
     },
     methods: {
-        handleLogin() {
-            alert('Try signing up first before logging in!');
+        async handleLogin() {                
+            this.loginStatus = this.$store.state.user;                
+            try {  
+                const response = await axios.post('login', {
+                    username: this.username,
+                    password: this.password,
+                });         
+                
+                this.$store.dispatch('user', response.data.user); 
+                this.$router.push('/');
+            } 
+            catch (error) {
+                this.loginStatus = error.response.data;
+                this.$store.dispatch('user', error.response.data.user);
+            }
         }
-        // async handleLogin() {
-        //     const response = await axios.post('login', {
-        //         email: this.email,
-        //         password: this.password,
-        //         username: this.username
-        //     });
-        //     console.log(response);
-        //     localStorage.setItem('token', response.data.token);
-        //     this.$router.push('/');
-        // }
+    },
+    computed: {
+        ...mapState(['user'])
     }
 };
 </script>
 
 <style scoped>
+.appear {
+    transition:all 5s ease-in-out;
+}
+.error {
+    color:red;
+}
 .login-form {
     display:flex;
     flex-direction:column;
@@ -73,5 +89,8 @@ export default {
     margin:0px;
     padding-top:10px;
     text-align:center;
+}
+.success {
+    color:limegreen;
 }
 </style>

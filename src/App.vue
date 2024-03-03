@@ -1,27 +1,35 @@
 <template>
   <div>
-    <NavigationBar v-show="true"></NavigationBar>
+    <NavigationBar />
 
-    <router-view></router-view>    
+    <router-view />
 
   </div>  
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-//import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'App',
   data() {
-    return {
-      user:null
+    return {};
+  },
+  async created() {
+    try {
+      const response = await axios.post('login', {
+        username: 'easypay_admin',
+        password: 'password1234'
+      });
+
+      this.$store.dispatch('user', response.data.user); 
+    }    
+    catch (error)
+    {
+      this.$store.dispatch('user', error.response.data.user);
     }
   },
-  // async created() {
-  //   const response = await axios.get('user');
-  //   this.user = response.data;
-  // },
   methods: {
     
   },

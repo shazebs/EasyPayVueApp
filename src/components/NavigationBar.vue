@@ -1,14 +1,29 @@
 <template>
     <header>
         <router-link to="/">Home</router-link>
-        <router-link to="/login">Login</router-link> 
-        <router-link to="/signup">Signup</router-link>
+        <router-link to="/login" v-if="!user">Login</router-link> 
+        <router-link to="/signup" v-if="!user">Signup</router-link>
+        <a href="javascript:void(0)" @click="handleLogout()" v-if="user">Logout</a>
     </header>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'; 
+
 export default {
     name: 'NavigationBar',
+    methods: {
+        handleLogout() {
+            if (confirm("Are you sure you want to logout?"))
+            {
+                this.$store.dispatch('user', null);
+                this.$router.push('/login'); 
+            }
+        }
+    },
+    computed: {
+        ...mapGetters(['user'])
+    }
 }
 </script>
 

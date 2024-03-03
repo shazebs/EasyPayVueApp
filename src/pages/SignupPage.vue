@@ -15,7 +15,7 @@
 </template>
 
 <script>
-//import axios from 'axios'; 
+import axios from 'axios'; 
 
 export default {
     name: 'SignupPage',
@@ -29,20 +29,18 @@ export default {
         }
     },
     methods: {
-        handleSignup() {
-            alert('SIGN-UP functionality not yet operational');
+        async handleSignup() {
+            const response = await axios.post('register', {
+                email: this.email,
+                username: this.username,
+                password: this.password,
+                stripe_key: this.stripeApiKey
+            });
+
+            console.log(response); 
+            
+            //this.$router.push('/login');
         }
-        // async handleSignup() {
-        //     const response = await axios.post('easypay', {
-        //         email: this.email,
-        //         username: this.username,
-        //         password: this.password,
-        //         password_confirm: this.password_confirm,
-        //         stripeApiKey: this.stripeApiKey
-        //     });
-        //     console.log(response); 
-        //     this.$router.push('/login');
-        // }
     }
 };
 </script>

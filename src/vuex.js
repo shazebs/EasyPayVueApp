@@ -1,11 +1,11 @@
-import Vuex from 'vuex'; 
+import { createStore } from 'vuex'; 
 
 const state = {
     user: null,
     registerSuccess: false
 };
 
-const store = new Vuex.Store({
+const store = new createStore({
     state,
     getters: {
         user: (state) => {

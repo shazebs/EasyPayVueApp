@@ -37,13 +37,17 @@ export default {
                     password: this.password,
                     stripe_key: this.stripeApiKey
                 });
+
                 if (response.data.success) {
+                    // for register success UI message on login page 
                     this.$store.dispatch('registerSuccess', true);
+
+                    // direct user to login
                     this.$router.push('/login'); 
                 }
             }
             catch (error) {
-                if (error.response.data.success === false){
+                if (error.response.data.success === false) {
                     alert(error.response.data.message);
                 }
             } 

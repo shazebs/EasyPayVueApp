@@ -3,7 +3,8 @@
         <router-link to="/">Home</router-link>
         <router-link to="/login" v-if="!user">Login</router-link> 
         <router-link to="/signup" v-if="!user">Signup</router-link>
-        <a href="javascript:void(0)" @click="handleLogout()" v-if="user">Logout</a>
+        <!-- <a href="javascript:void(0)" @click="handleLogout()" v-if="user">Logout</a> -->
+        <router-link to="" @click="handleLogout()" v-if="user">Logout</router-link>
     </header>
 </template>
 
@@ -16,7 +17,9 @@ export default {
         handleLogout() {
             if (confirm("Are you sure you want to logout?"))
             {
+                // reset user state
                 this.$store.dispatch('user', null);
+                localStorage.removeItem('token');
                 this.$router.push('/login'); 
             }
         }

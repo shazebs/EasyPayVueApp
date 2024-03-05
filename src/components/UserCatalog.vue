@@ -28,7 +28,7 @@
                 <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>
 
                 <section style="text-align:center;">
-                    <button class="x-button" type="submit" style="margin-top:20px; width:75px;">Submit</button>
+                    <button class="x-button" type="submit" style="margin-top:20px;">Submit</button>
                 </section>
             </div>
 
@@ -152,6 +152,9 @@ export default {
     @media (max-width:500px) {
         .form-control-label {
             justify-content:start;
+        }
+        .form-control-label {
+            width:95%;
         }
     }
 </style>

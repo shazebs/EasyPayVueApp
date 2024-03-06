@@ -47,12 +47,12 @@
                             font-size:1.05rem;
                             line-height:1.25;
                             margin:8px;
+                            max-width:250px;
                             padding:12px 8px;
                             text-align:center;">
                     <div><img :src="item.image" class="catalog-item-image"></div>
                     <div>{{ item.name }}</div>
                     <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
-                    <!-- <div><a class="x-button" :href="dynamic_url" @click.prevent="checkoutItem(item)" target="_blank">Checkout</a></div> -->
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
             </section>               
         </div>
@@ -91,7 +91,7 @@ export default {
                 this.clearSalesOrder(); 
             }
             catch (error) {
-                console.log('submit payment error', error.response.data); 
+                alert(error.response.data.message); 
             }
         },
         removeNonNumbers() {

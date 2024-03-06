@@ -2,7 +2,7 @@
     <div class="user-catalog">
         <form @submit.prevent="submitPayment()">
             <div class="form-control">
-                <img :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto;"/>
+                <img v-if="salesOrder.image !== ''" :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto;"/>
 
                 <!-- Name -->
                 <section class="form-control-label">Name&nbsp;</section>
@@ -25,6 +25,7 @@
                 
                 <section class="form-control-label">Image URL&nbsp;</section>
                 <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>
+                <section><button class="x-button" @click.prevent="clearImage()">Clear Image</button></section>
 
                 <section style="text-align:center;">
                     <button class="x-button" type="submit" style="margin-top:20px;">Submit</button>
@@ -33,27 +34,27 @@
         </form>        
     </div>
 
-    <div style="display:flex; padding:15px 5px;">
+    <div style="display:flex; padding:15px 0px;">
         <div v-if="catalog" style="display:flex; 
                                    flex-wrap:wrap;
                                    justify-content:center; 
                                    width:100%;">
-                <section v-for="(item, index) in catalog" :key="index" 
-                         style="border:2px dashed #635bff; 
-                                border-radius:12px;
-                                display:flex; 
-                                flex-direction:column;
-                                font-size:1.05rem;
-                                line-height:1.25;
-                                margin:8px;
-                                padding:12px 8px;
-                                text-align:center;">
-                        <div><img :src="item.image" style="width:200px; height:auto;"></div>
-                        <div>{{ item.name }}</div>
-                        <div>${{ item.price }} {{ item.currency }}</div>
-                        <div><button class="x-button" @click="checkoutItem()">Checkout</button></div>
-                </section>               
-            </div>
+            <section class="catalog-item" v-for="(item, index) in catalog" :key="index" 
+                        style="border:2px dashed #635bff; 
+                            border-radius:12px;
+                            display:flex; 
+                            flex-direction:column;
+                            font-size:1.05rem;
+                            line-height:1.25;
+                            margin:8px;
+                            padding:12px 8px;
+                            text-align:center;">
+                    <div><img :src="item.image" class="catalog-item-image"></div>
+                    <div>{{ item.name }}</div>
+                    <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
+                    <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
+            </section>               
+        </div>
     </div>
 </template>
 
@@ -85,6 +86,7 @@ export default {
 
                 const response = await axios.post('v2/easypay', this.salesOrder);
                 this.catalog = response.data.catalog;
+                this.clearSalesOrder(); 
             }
             catch (error) {
                 console.log('submit payment error', error.response.data); 
@@ -92,6 +94,24 @@ export default {
         },
         removeNonNumbers() {
             this.salesOrder.price = this.salesOrder.price.replace(/[^0-9,.]/g, '');
+        },
+        clearImage() {
+            this.salesOrder.image = '';
+        },
+        clearSalesOrder() {
+            this.salesOrder.name = '',
+            this.salesOrder.price = '',
+            this.clearImage();
+        },
+        async checkoutItem(item) {
+            try {
+                const response = await axios.post('checkout', item);
+                console.log(response); 
+                window.open(response.data.payment_url, '_blank');
+            } 
+            catch (error) {
+                alert(error.response.data.message); 
+            }
         }
     },
     computed: {
@@ -115,6 +135,10 @@ export default {
 </script>
 
 <style scoped>
+    .catalog-item-image {
+        height: 20vh;
+        width: 20vh; 
+    }
     .user-catalog {
         border:2px dashed #635bff;
         border-radius:12px;
@@ -166,6 +190,13 @@ export default {
         }
         .form-control-label {
             width:95%;
+        }
+        .catalog-item {
+            width:150px;
+        }
+        .catalog-item-image {
+            width:15vh;
+            height:15vh;        
         }
     }
 </style>

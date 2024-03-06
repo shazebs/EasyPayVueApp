@@ -2,7 +2,6 @@
     <div class="user-catalog">
         <form @submit.prevent="submitPayment()">
             <div class="form-control">
-
                 <img :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto;"/>
 
                 <!-- Name -->
@@ -31,18 +30,30 @@
                     <button class="x-button" type="submit" style="margin-top:20px;">Submit</button>
                 </section>
             </div>
+        </form>        
+    </div>
 
-            <div v-if="catalog">
-                <section v-for="(item, index) in catalog" :key="index">
-                    <ul>
-                        <li><img :src="item.image" style="width:200px; height:auto;"></li>
-                        <li>Name: {{ item.name }}</li>
-                        <li>Price: ${{ item.price }}</li>
-                        <li>Currency: {{ item.currency }}</li>
-                    </ul> 
+    <div style="display:flex; padding:15px 5px;">
+        <div v-if="catalog" style="display:flex; 
+                                   flex-wrap:wrap;
+                                   justify-content:center; 
+                                   width:100%;">
+                <section v-for="(item, index) in catalog" :key="index" 
+                         style="border:2px dashed #635bff; 
+                                border-radius:12px;
+                                display:flex; 
+                                flex-direction:column;
+                                font-size:1.05rem;
+                                line-height:1.25;
+                                margin:8px;
+                                padding:12px 8px;
+                                text-align:center;">
+                        <div><img :src="item.image" style="width:200px; height:auto;"></div>
+                        <div>{{ item.name }}</div>
+                        <div>${{ item.price }} {{ item.currency }}</div>
+                        <div><button class="x-button" @click="checkoutItem()">Checkout</button></div>
                 </section>               
             </div>
-        </form>
     </div>
 </template>
 

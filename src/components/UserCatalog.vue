@@ -52,6 +52,7 @@
                     <div><img :src="item.image" class="catalog-item-image"></div>
                     <div>{{ item.name }}</div>
                     <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
+                    <!-- <div><a class="x-button" :href="dynamic_url" @click.prevent="checkoutItem(item)" target="_blank">Checkout</a></div> -->
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
             </section>               
         </div>
@@ -74,7 +75,8 @@ export default {
                 currency: 'USD',
                 image: '',
             },
-            catalog: null
+            catalog: null,
+            dynamic_url: '',
         }
     },
     methods: {
@@ -106,8 +108,7 @@ export default {
         async checkoutItem(item) {
             try {
                 const response = await axios.post('checkout', item);
-                console.log(response); 
-                window.open(response.data.payment_url, '_blank');
+                window.location.href = response.data.payment_url;
             } 
             catch (error) {
                 alert(error.response.data.message); 

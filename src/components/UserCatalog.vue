@@ -179,6 +179,7 @@ export default {
             try {
                 const response = await axios.post('image', formData); 
                 this.salesOrder.image = response.data.image_url; 
+                this.$refs.fileInput.value = null; 
             }
             catch (error) {
                 console.error(error.response); 

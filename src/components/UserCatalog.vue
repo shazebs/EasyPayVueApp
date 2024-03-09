@@ -59,7 +59,7 @@
                             padding:12px 8px;
                             text-align:center;">
                     <div><img :src="item.image" class="catalog-item-image"></div>
-                    <div>{{ item.id }} {{ item.name }}</div>
+                    <div>{{ item.name }}</div>
                     <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
                     <div v-if="true"><button class="x-button" @click="editItem(item)" 

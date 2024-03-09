@@ -2,15 +2,15 @@
     <div class="user-catalog">
         <form @submit.prevent="submitPayment()">
             <div class="form-control" ref="productForm">
-                <img v-if="salesOrder.image !== ''" :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto;"/>
+               <img v-if="salesOrder.image !== ''" :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto; margin-top:10px;"/>
 
                 <!-- Name -->
                 <section class="form-control-label">Name&nbsp;</section>
-                <section style="width:100%;"><input v-model="salesOrder.name" class="form-control-input" type="text" required /></section>
+                <section style=""><input v-model="salesOrder.name" class="form-control-input" type="text" required /></section>
 
                 <!-- Price -->
                 <section class="form-control-label">Price&nbsp;</section>
-                <section style="width:100%;"><input v-model="salesOrder.price" class="form-control-input" @input="removeNonNumbers()" type="text" required /></section>
+                <section style=""><input v-model="salesOrder.price" class="form-control-input" @input="removeNonNumbers()" type="text" required /></section>
 
                 <section>
                     <select class="x-button" v-model="salesOrder.currency" style="font-size:95%; margin-top:10px; width:100px;" requireds>
@@ -24,22 +24,33 @@
                 </section>      
                 
                 <section class="form-control-label">Image URL&nbsp;</section>
-                <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>
-                <section><button class="x-button" @click.prevent="clearImage()">Clear Image</button></section>
+                <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>              
 
+                <form @submit.prevent="uploadImage()" style="margin-top:5px;">
+                    <section><input type="file" ref="fileInput" accept="image/*"/></section>                                        
+                    <section>
+                        <button type="submit" class="x-button">Upload</button>&nbsp;OR&nbsp;
+                        <button class="x-button" @click.prevent="clearImage()" 
+                                        style="color:red; 
+                                               border-color:red;"
+                                        onmouseover="this.style.backgroundColor='red'; 
+                                                     this.style.color='white';"
+                                        onmouseout="this.style.backgroundColor='white';
+                                                    this.style.color='red';">Clear Image &times;</button>
+                    </section>
+                </form>
 
+                <section style="margin-top:20px; text-align:center;">
+                    <button class="x-button" type="submit">Add to Catalog</button>&nbsp;OR&nbsp;
+                    <button class="x-button" @click.prevent="checkoutFromForm()">
+                        Checkout</button>
+                </section>
+                
                 <section style="text-align:center;">
-                    <button class="x-button" type="submit" style="margin-top:20px;">Submit</button>
+                    <button @click.prevent="resetForm()" class="x-button" style="margin-top:20px;">Reset Form</button>
                 </section>
             </div>
         </form>   
-        
-        <hr/>
-
-        <form @submit.prevent="uploadImage()">
-            <input type="file" ref="fileInput" accept="image/*" />
-            <button type="submit">Upload</button>
-        </form>
     </div>
 
     <div style="display:flex; padding:15px 0px;">
@@ -60,16 +71,16 @@
                             text-align:center;">
                     <div><img :src="item.image" class="catalog-item-image"></div>
                     <div>{{ item.name }}</div>
-                    <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
+                    <div style="padding:8px 0px;"><span style="color:green;">$</span>{{ item.price }} {{ item.currency }}</div>
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
-                    <div v-if="true"><button class="x-button" @click="editItem(item)" 
+                    <div v-if="true" style="margin-top:8px;"><button class="x-button" @click="editItem(item)" 
                                         style="color:green; 
                                                border-color:green;" 
                                         onmouseover="this.style.backgroundColor='green'; 
                                                      this.style.color='white';"
                                         onmouseout="this.style.backgroundColor='white';
-                                                    this.style.color='green';">Edit</button></div>
-                    <div><button class="x-button" @click="deleteItem(item)" 
+                                                    this.style.color='green';">Edit</button>&nbsp;OR&nbsp;
+                                    <button class="x-button" @click="deleteItem(item)" 
                                         style="color:red; 
                                                border-color:red;" 
                                         onmouseover="this.style.backgroundColor='red'; 
@@ -98,7 +109,8 @@ export default {
                 currency: 'USD',
                 image: '',
             },
-            catalog: null
+            catalog: null,
+            imageOptOut: false
         }
     },
     methods: {
@@ -137,6 +149,13 @@ export default {
                 alert(error.response.data.message); 
             }
         },
+        checkoutFromForm() {
+            if (this.salesOrder.name === '' | this.salesOrder.Price === '' | this.salesOrder.image === '') {
+                alert('Enter missing fields.'); 
+            } else {
+                this.checkoutItem(this.salesOrder);
+            }
+        },
         editItem(item) {
             this.salesOrder.id = item.id,
             this.salesOrder.name = item.name;
@@ -157,7 +176,7 @@ export default {
         },
         async deleteItem(item) {
             try {
-                if (confirm(`Are you sure you want to delete [${item.name}]?`)) {
+                if (confirm(`Are you sure you want to delete?\n${item.name}`)) {
                     const response = await axios({
                         method: 'delete',
                         url: 'catalog',
@@ -174,6 +193,9 @@ export default {
             }
         },
         async uploadImage() {
+            if (!this.$refs.fileInput.files[0]) {
+                return;
+            }
             const formData = new FormData();
             formData.append("file", this.$refs.fileInput.files[0]);
             try {
@@ -184,6 +206,13 @@ export default {
             catch (error) {
                 console.error(error.response); 
             }
+        },
+        resetForm() {
+            this.salesOrder.id = null;
+            this.salesOrder.name = '';
+            this.salesOrder.price = '';
+            this.salesOrder.currency = 'USD';
+            this.salesOrder.image = '';
         }
     },
     computed: {
@@ -239,13 +268,13 @@ export default {
     }
 
     .x-button {
-    background: transparent;
-    border:2px solid #635bff;
-    border-radius:4px;
-    color:#635bff;
-    font-size:1.05rem;
-    margin-top:5px;
-    padding:5px 10px;
+        background: transparent;
+        border:2px solid #635bff;
+        border-radius:4px;
+        color:#635bff;
+        font-size:1.05rem;
+        margin-top:5px;
+        padding:5px 10px;
     }
         .x-button:hover {
             cursor:pointer;
@@ -256,9 +285,9 @@ export default {
 
     @media (max-width:500px) {
         .form-control-label {
-            justify-content:start;
+            /* justify-content:start; */
         }
-        .form-control-label {
+        .form-control-input {
             width:95%;
         }
         .catalog-item {

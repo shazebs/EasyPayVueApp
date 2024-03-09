@@ -39,7 +39,7 @@ export default {
                 });
 
                 if (response.data.success) {
-                    // for register success UI message on login page 
+                    // for registration success UI message on login page 
                     this.$store.dispatch('registerSuccess', true);
 
                     // direct user to login

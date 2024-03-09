@@ -17,16 +17,16 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import { mapGetters } from 'vuex';
 import UserCatalog from '../components/UserCatalog.vue'; 
 
 export default {
     name: 'HomePage',
-    computed: {
-        ...mapGetters(['user'])
-    },
     components: {
         UserCatalog
+    },
+    computed: {
+        ...mapGetters(['user'])
     }
 }; 
 </script>

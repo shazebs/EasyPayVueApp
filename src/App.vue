@@ -2,7 +2,6 @@
   <div>
 
     <NavigationBar />
-
     <router-view />
 
   </div>  
@@ -14,18 +13,13 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      currentUser: null
-    }
-  },
   components: {
     NavigationBar,
   },
   created() {
     var token = localStorage.getItem('token');
-    this.currentUser = JSON.parse(token); 
-    this.$store.dispatch('user', this.currentUser);
+    if (token) 
+      this.$store.dispatch('user', JSON.parse(token));
   },
   computed: {
     ...mapState(['user'])

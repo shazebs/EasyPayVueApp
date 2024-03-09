@@ -3,13 +3,12 @@
         <router-link to="/">Home</router-link>
         <router-link to="/login" v-if="!user">Login</router-link> 
         <router-link to="/signup" v-if="!user">Signup</router-link>
-        <!-- <a href="javascript:void(0)" @click="handleLogout()" v-if="user">Logout</a> -->
         <router-link to="" @click="handleLogout()" v-if="user">Logout</router-link>
     </header>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'; 
+import { mapGetters } from 'vuex'; 
 
 export default {
     name: 'NavigationBar',
@@ -19,7 +18,11 @@ export default {
             {
                 // reset user state
                 this.$store.dispatch('user', null);
+
+                // remove user token
                 localStorage.removeItem('token');
+
+                // navigate somewhere after logout
                 this.$router.push('/login'); 
             }
         }

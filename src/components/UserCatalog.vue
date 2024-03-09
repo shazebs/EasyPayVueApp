@@ -1,7 +1,7 @@
 <template>
     <div class="user-catalog">
         <form @submit.prevent="submitPayment()">
-            <div class="form-control">
+            <div class="form-control" ref="productForm">
                 <img v-if="salesOrder.image !== ''" :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto;"/>
 
                 <!-- Name -->
@@ -51,9 +51,24 @@
                             padding:12px 8px;
                             text-align:center;">
                     <div><img :src="item.image" class="catalog-item-image"></div>
-                    <div>{{ item.name }}</div>
+                    <div>{{ item.id }} {{ item.name }}</div>
                     <div style="padding:8px 0px;">${{ item.price }} {{ item.currency }}</div>
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
+                    <div v-if="true"><button class="x-button" @click="editItem(item)" 
+                                        style="color:green; 
+                                               border-color:green;" 
+                                        onmouseover="this.style.backgroundColor='green'; 
+                                                     this.style.color='white';"
+                                        onmouseout="this.style.backgroundColor='white';
+                                                    this.style.color='green';">Edit</button></div>
+                    <div><button class="x-button" @click="deleteItem(item)" 
+                                        style="color:red; 
+                                               border-color:red;" 
+                                        onmouseover="this.style.backgroundColor='red'; 
+                                                     this.style.color='white';"
+                                        onmouseout="this.style.backgroundColor='white';
+                                                    this.style.color='red';">Delete</button></div>
+
             </section>               
         </div>
     </div>
@@ -67,16 +82,15 @@ export default {
     name: 'UserCatalog',
     data() {
         return {
-            return_url: 'https://localhost:8080/',
             salesOrder: {
+                id: null,
                 username: '',
                 name: '',
                 price: '',
                 currency: 'USD',
                 image: '',
             },
-            catalog: null,
-            dynamic_url: '',
+            catalog: null
         }
     },
     methods: {
@@ -85,6 +99,7 @@ export default {
                 this.salesOrder.price = parseFloat(this.salesOrder.price);
                 this.salesOrder.price = Math.round(this.salesOrder.price * 100) / 100;
                 this.salesOrder.username = this.currentUser.username;
+                this.salesOrder.name.trim();
 
                 const response = await axios.post('v2/easypay', this.salesOrder);
                 this.catalog = response.data.catalog;
@@ -113,6 +128,42 @@ export default {
             catch (error) {
                 alert(error.response.data.message); 
             }
+        },
+        editItem(item) {
+            this.salesOrder.id = item.id,
+            this.salesOrder.name = item.name;
+            this.salesOrder.price = item.price;
+            this.salesOrder.currency = item.currency;
+            this.salesOrder.image = item.image;
+
+            this.$nextTick(() => {
+                const productForm = this.$refs.productForm;
+                if (productForm){
+                    productForm.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center', // 'start', 'center', 'end', or 'nearest'
+                        inline: 'nearest' 
+                    });
+                }
+            });
+        },
+        async deleteItem(item) {
+            try {
+                if (confirm(`Are you sure you want to delete [${item.name}]?`)) {
+                    const response = await axios({
+                        method: 'delete',
+                        url: 'catalog',
+                        data: item
+                    });
+                    if (response.data.success) {
+                        this.catalog = response.data.catalog; 
+                    }
+                }
+            }
+            catch (error)
+            {
+                console.error('Error deleting item:', error.response ? error.response.data : error.message);
+            }
         }
     },
     computed: {
@@ -125,11 +176,10 @@ export default {
             const response = await axios.post('catalog', {
                 username: this.currentUser.username
             });
-
             this.catalog = response.data.catalog;
         }
         catch (error) {
-            console.log('created user catalog error', error);
+            console.log(error);
         }
     }
 }
@@ -154,7 +204,6 @@ export default {
         width:100%;
     }
     .form-control-label {
-        /* align-items:center; */
         color:#635bff;
         display:flex;
         font-size:1.1rem;

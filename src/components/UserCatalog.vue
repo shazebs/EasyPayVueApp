@@ -134,6 +134,7 @@ export default {
         },
         clearImage() {
             this.salesOrder.image = '';
+            this.resetLayout();
         },
         clearSalesOrder() {
             this.salesOrder.name = '',
@@ -163,16 +164,7 @@ export default {
             this.salesOrder.currency = item.currency;
             this.salesOrder.image = item.image;
 
-            this.$nextTick(() => {
-                const productForm = this.$refs.productForm;
-                if (productForm){
-                    productForm.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center', // 'start', 'center', 'end', or 'nearest'
-                        inline: 'nearest' 
-                    });
-                }
-            });
+            this.resetLayout();
         },
         async deleteItem(item) {
             try {
@@ -213,6 +205,20 @@ export default {
             this.salesOrder.price = '';
             this.salesOrder.currency = 'USD';
             this.salesOrder.image = '';
+
+            this.resetLayout();
+        },
+        resetLayout() {
+            this.$nextTick(() => {
+                const productForm = this.$refs.productForm;
+                if (productForm){
+                    productForm.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center', // 'start', 'center', 'end', or 'nearest'
+                        inline: 'nearest' 
+                    });
+                }
+            });
         }
     },
     computed: {

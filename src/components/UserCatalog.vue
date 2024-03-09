@@ -27,11 +27,19 @@
                 <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>
                 <section><button class="x-button" @click.prevent="clearImage()">Clear Image</button></section>
 
+
                 <section style="text-align:center;">
                     <button class="x-button" type="submit" style="margin-top:20px;">Submit</button>
                 </section>
             </div>
-        </form>        
+        </form>   
+        
+        <hr/>
+
+        <form @submit.prevent="uploadImage()">
+            <input type="file" ref="fileInput" accept="image/*" />
+            <button type="submit">Upload</button>
+        </form>
     </div>
 
     <div style="display:flex; padding:15px 0px;">
@@ -163,6 +171,17 @@ export default {
             catch (error)
             {
                 console.error('Error deleting item:', error.response ? error.response.data : error.message);
+            }
+        },
+        async uploadImage() {
+            const formData = new FormData();
+            formData.append("file", this.$refs.fileInput.files[0]);
+            try {
+                const response = await axios.post('image', formData); 
+                this.salesOrder.image = response.data.image_url; 
+            }
+            catch (error) {
+                console.error(error.response); 
             }
         }
     },

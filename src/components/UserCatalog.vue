@@ -2,19 +2,34 @@
     <div class="user-catalog">
         <form @submit.prevent="submitPayment()">
             <div class="form-control" ref="productForm">
-               <img v-if="salesOrder.image !== ''" :src="salesOrder.image" style="border-radius:8px; width:100%; max-width:400px; height:auto; margin:auto; margin-top:10px;"/>
+                <!-- Image -->
+               <img v-if="salesOrder.image !== ''" 
+                    :src="salesOrder.image" 
+                    style="border-radius:8px; 
+                           height:auto;
+                           margin:auto; 
+                           margin-top:10px;
+                           max-width:400px;
+                           width:100%;"/>
 
                 <!-- Name -->
-                <section class="form-control-label">Name&nbsp;</section>
-                <section style=""><input v-model="salesOrder.name" class="form-control-input" type="text" required /></section>
+                <section class="form-control-label">Name</section>
+                <section><input v-model="salesOrder.name" class="form-control-input" type="text" required/></section>
 
                 <!-- Price -->
-                <section class="form-control-label">Price&nbsp;</section>
-                <section style=""><input v-model="salesOrder.price" class="form-control-input" @input="removeNonNumbers()" type="text" required /></section>
-
+                <section class="form-control-label">Price</section>
+                <section><input v-model="salesOrder.price"  @input="removeNonNumbers()" class="form-control-input" type="text" required/></section>
+                <span v-if="salesOrder.price !== '' & salesOrder.currency === 'USD'" style="color:black;">Profit after <span style="color:#635bff">Stripe</span>'s fee: <span style="color:green;">$</span>{{ netprofit }}</span>
+                
+                <!-- Currencies -->
                 <section>
-                    <select class="x-button" v-model="salesOrder.currency" style="font-size:95%; margin-top:10px; width:100px;" requireds>
-                        <option disabled style="color:white;">Currency</option>
+                    <select required
+                            v-model="salesOrder.currency" 
+                            class="x-button" 
+                            style="font-size:95%; 
+                                   margin-top:10px; 
+                                   width:100px;">
+                        <option disabled>Currency</option>
                         <option>USD</option>
                         <option>AED</option>
                         <option>PKR</option>
@@ -23,13 +38,14 @@
                     </select>
                 </section>      
                 
-                <section class="form-control-label">Image URL&nbsp;</section>
-                <section style="width:100%;"><input v-model="salesOrder.image" class="form-control-input" type="text" required /></section>              
+                <section class="form-control-label">Image URL</section>
+                <section><input v-model="salesOrder.image" class="form-control-input" type="text" required/></section>       
 
                 <form @submit.prevent="uploadImage()" style="margin-top:5px;">
                     <section><input type="file" ref="fileInput" accept="image/*"/></section>                                        
                     <section>
-                        <button type="submit" class="x-button">Upload</button>&nbsp;OR&nbsp;
+                        <button type="submit" class="x-button">Upload</button>
+                        &nbsp;OR&nbsp;
                         <button class="x-button" @click.prevent="clearImage()" 
                                         style="color:red; 
                                                border-color:red;"
@@ -42,36 +58,40 @@
 
                 <section style="margin-top:20px; text-align:center;">
                     <button class="x-button" type="submit">Add to Catalog</button>&nbsp;OR&nbsp;
-                    <button class="x-button" @click.prevent="checkoutFromForm()">
-                        Checkout</button>
+                    <button class="x-button" @click.prevent="checkoutFromForm()">Checkout</button>
                 </section>
                 
-                <section style="text-align:center;">
-                    <button @click.prevent="resetForm()" class="x-button" style="margin-top:20px;">Reset Form</button>
+                <section style="margin-top:20px; text-align:center;">
+                    <button @click.prevent="resetForm()" class="x-button">Reset Form</button>
                 </section>
+
             </div>
         </form>   
     </div>
 
-    <div style="display:flex; padding:15px 0px;">
-        <div v-if="catalog" style="display:flex; 
-                                   flex-wrap:wrap;
-                                   justify-content:center; 
-                                   width:100%;">
+    <div style="display:flex; 
+                padding:15px 0px;">
+        <div v-if="catalog" 
+             style="display:flex; 
+                    flex-wrap:wrap;
+                    justify-content:center; 
+                    width:100%;">
             <section class="catalog-item" v-for="(item, index) in catalog" :key="index" 
                         style="border:2px dashed #635bff; 
-                            border-radius:12px;
-                            display:flex; 
-                            flex-direction:column;
-                            font-size:1.05rem;
-                            line-height:1.25;
-                            margin:8px;
-                            max-width:250px;
-                            padding:12px 8px;
-                            text-align:center;">
+                               border-radius:12px;
+                               display:flex; 
+                               flex-direction:column;
+                               font-size:1.05rem;
+                               line-height:1.25;
+                               margin:8px;
+                               max-width:250px;
+                               padding:12px 8px;
+                               text-align:center;">
                     <div><img :src="item.image" class="catalog-item-image"></div>
                     <div>{{ item.name }}</div>
-                    <div style="padding:8px 0px;"><span style="color:green;">$</span>{{ item.price }} {{ item.currency }}</div>
+                    <div style="padding:8px 0px;">Listed Price:<br/><span style="color:green;">$</span>{{ item.price }} <span style="color:green">{{ item.currency }}</span></div>
+                    <div style="padding-bottom:10px;" v-if="item.currency === 'USD'">Profit after <span style="color:#635bff">Stripe</span>'s fee:<br/><span style="color:red;">$</span>{{ calculateProfit(item.price) }}</div>
+                    
                     <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
                     <div v-if="true" style="margin-top:8px;"><button class="x-button" @click="editItem(item)" 
                                         style="color:green; 
@@ -110,7 +130,7 @@ export default {
                 image: '',
             },
             catalog: null,
-            imageOptOut: false
+            netprofit: 0
         }
     },
     methods: {
@@ -120,7 +140,6 @@ export default {
                 this.salesOrder.price = Math.round(this.salesOrder.price * 100) / 100;
                 this.salesOrder.username = this.currentUser.username;
                 this.salesOrder.name.trim();
-
                 const response = await axios.post('v2/easypay', this.salesOrder);
                 this.catalog = response.data.catalog;
                 this.clearSalesOrder(); 
@@ -131,6 +150,12 @@ export default {
         },
         removeNonNumbers() {
             this.salesOrder.price = this.salesOrder.price.replace(/[^0-9,.]/g, '');
+            this.netprofit = Math.round(this.salesOrder.price * 100) / 100;
+            this.netprofit = this.calculateProfit(this.netprofit);
+        },
+        calculateProfit(price) {
+            let stripeFee = price * 0.029 + 0.3;
+            return Math.round((price - stripeFee) * 100) / 100; 
         },
         clearImage() {
             this.salesOrder.image = '';
@@ -161,9 +186,9 @@ export default {
             this.salesOrder.id = item.id,
             this.salesOrder.name = item.name;
             this.salesOrder.price = item.price;
+            this.netprofit = this.calculateProfit(item.price);
             this.salesOrder.currency = item.currency;
             this.salesOrder.image = item.image;
-
             this.resetLayout();
         },
         async deleteItem(item) {
@@ -205,7 +230,6 @@ export default {
             this.salesOrder.price = '';
             this.salesOrder.currency = 'USD';
             this.salesOrder.image = '';
-
             this.resetLayout();
         },
         resetLayout() {
@@ -268,11 +292,10 @@ export default {
     }
     .form-control-input {
         font-size:1.05rem;
-        max-width:450px;
+        max-width:600px;
         text-align:center;
         width:98%;
     }
-
     .x-button {
         background: transparent;
         border:2px solid #635bff;

@@ -61,13 +61,10 @@ export default {
                     this.$store.dispatch('registerSuccess', false); 
                 }                
 
-                this.$router.push('/'); // go to homepage
+                this.$router.push('/'); 
             } 
             catch (error) {
-                // for displaying UI error message 
                 this.loginStatus = error.response.data; 
-
-                // set user state to null
                 this.$store.dispatch('user', error.response.data.user); 
             }
         }
@@ -79,42 +76,41 @@ export default {
 </script>
 
 <style scoped>
-.error {
-    color:red;
-}
-.login-form {
-    display:flex;
-    flex-direction:column;
-}
-.login-button {
-    background: transparent;
-    border:2px solid #635bff;
-    border-radius:4px;
-    color:#635bff;
-    font-size:1.05rem;
-    margin-top:5px;
-    padding:5px 10px;
-    /* transition:all 0.2s ease; */
-}
-.login-button:hover {
-    cursor:pointer;
-    background:#635bff;
-    color:white;
-    transition:all 0.2s ease;
-}
-.login-form div {
-    margin:5px 0px;
-}
-.login-input {
-    font-size:1.05rem;
-    width:300px;
-}
-.login-page {
-    margin:0px;
-    padding-top:10px;
-    text-align:center;
-}
-.success {
-    color:limegreen;
-}
+    .error {
+        color:red;
+    }
+    .login-form {
+        display:flex;
+        flex-direction:column;
+    }
+    .login-button {
+        background: transparent;
+        border:2px solid #635bff;
+        border-radius:4px;
+        color:#635bff;
+        font-size:1.05rem;
+        margin-top:5px;
+        padding:5px 10px;
+    }
+    .login-button:hover {
+        cursor:pointer;
+        background:#635bff;
+        color:white;
+        transition:all 0.2s ease;
+    }
+    .login-form div {
+        margin:5px 0px;
+    }
+    .login-input {
+        font-size:1.05rem;
+        width:300px;
+    }
+    .login-page {
+        margin:0px;
+        padding-top:10px;
+        text-align:center;
+    }
+    .success {
+        color:limegreen;
+    }
 </style>

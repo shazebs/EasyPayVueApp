@@ -1,115 +1,144 @@
 <template>
-    <div class="user-catalog">
-        <form @submit.prevent="submitPayment()">
-            <div class="form-control" ref="productForm">
-                <!-- Image -->
-               <img v-if="salesOrder.image !== ''" 
-                    :src="salesOrder.image" 
-                    style="border-radius:8px; 
-                           height:auto;
-                           margin:auto; 
-                           margin-top:10px;
-                           max-width:400px;
-                           width:100%;"/>
+    <div>
+        <h2 style="margin:12px 0px 0px 0px; text-align:center;">Create a Product</h2>
+        
+        <div class="user-catalog">
+            <form @submit.prevent="submitPayment()">
+                <div class="form-control" ref="productForm">
+                    <!-- Image -->
+                    <img v-if="salesOrder.image !== ''" 
+                        :src="salesOrder.image" 
+                        style="border-radius:8px; 
+                               height:auto;
+                               margin:auto; 
+                               margin-top:10px;
+                               max-width:400px;
+                               width:100%;"/>
 
-                <!-- Name -->
-                <section class="form-control-label">Name</section>
-                <section><input v-model="salesOrder.name" class="form-control-input" type="text" required/></section>
+                    <!-- Name -->
+                    <section class="form-control-label">Product Name:</section>
+                    <section><input v-model="salesOrder.name" class="form-control-input" type="text" placeholder="..." required/></section>
 
-                <!-- Price -->
-                <section class="form-control-label">Price</section>
-                <section><input v-model="salesOrder.price"  @input="removeNonNumbers()" class="form-control-input" type="text" required/></section>
-                <span v-if="salesOrder.price !== '' & salesOrder.currency === 'USD'" style="color:black;">Profit after <span style="color:#635bff">Stripe</span>'s fee: <span style="color:green;">$</span>{{ netprofit }}</span>
-                
-                <!-- Currencies -->
-                <section>
-                    <select required
-                            v-model="salesOrder.currency" 
-                            class="x-button" 
-                            style="font-size:95%; 
-                                   margin-top:10px; 
-                                   width:100px;">
-                        <option disabled>Currency</option>
-                        <option>USD</option>
-                        <option>AED</option>
-                        <option>PKR</option>
-                        <option>INR</option>
-                        <option>EUR</option>
-                    </select>
-                </section>      
-                
-                <section class="form-control-label">Image URL</section>
-                <section><input v-model="salesOrder.image" class="form-control-input" type="text" required/></section>       
-
-                <form @submit.prevent="uploadImage()" style="margin-top:5px;">
-                    <section><input type="file" ref="fileInput" accept="image/*"/></section>                                        
-                    <section>
-                        <button type="submit" class="x-button">Upload</button>
-                        &nbsp;OR&nbsp;
-                        <button class="x-button" @click.prevent="clearImage()" 
-                                        style="color:red; 
-                                               border-color:red;"
-                                        onmouseover="this.style.backgroundColor='red'; 
-                                                     this.style.color='white';"
-                                        onmouseout="this.style.backgroundColor='white';
-                                                    this.style.color='red';">Clear Image &times;</button>
-                    </section>
-                </form>
-
-                <section style="margin-top:20px; text-align:center;">
-                    <button class="x-button" type="submit">Add to Catalog</button>&nbsp;OR&nbsp;
-                    <button class="x-button" @click.prevent="checkoutFromForm()">Checkout</button>
-                </section>
-                
-                <section style="margin-top:20px; text-align:center;">
-                    <button @click.prevent="resetForm()" class="x-button">Reset Form</button>
-                </section>
-
-            </div>
-        </form>   
-    </div>
-
-    <div style="display:flex; 
-                padding:15px 0px;">
-        <div v-if="catalog" 
-             style="display:flex; 
-                    flex-wrap:wrap;
-                    justify-content:center; 
-                    width:100%;">
-            <section class="catalog-item" v-for="(item, index) in catalog" :key="index" 
-                        style="border:2px dashed #635bff; 
-                               border-radius:12px;
-                               display:flex; 
-                               flex-direction:column;
-                               font-size:1.05rem;
-                               line-height:1.25;
-                               margin:8px;
-                               max-width:250px;
-                               padding:12px 8px;
-                               text-align:center;">
-                    <div><img :src="item.image" class="catalog-item-image"></div>
-                    <div>{{ item.name }}</div>
-                    <div style="padding:8px 0px;">Listed Price:<br/><span style="color:green;">$</span>{{ item.price }} <span style="color:green">{{ item.currency }}</span></div>
-                    <div style="padding-bottom:10px;" v-if="item.currency === 'USD'">Profit after <span style="color:#635bff">Stripe</span>'s fee:<br/><span style="color:red;">$</span>{{ calculateProfit(item.price) }}</div>
+                    <!-- Price -->
+                    <section class="form-control-label">Listing Price:</section>
+                    <section><input v-model="salesOrder.price"  @input="removeNonNumbers()" class="form-control-input" type="text" placeholder="$0.00" required/></section>
+                    <span v-if="salesOrder.price !== '' & salesOrder.currency === 'USD'" style="color:black;">Profit after <span style="color:#635bff">Stripe</span>'s fee: <span style="color:green;">$</span>{{ netprofit }}</span>
                     
-                    <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
-                    <div v-if="true" style="margin-top:8px;"><button class="x-button" @click="editItem(item)" 
-                                        style="color:green; 
-                                               border-color:green;" 
-                                        onmouseover="this.style.backgroundColor='green'; 
-                                                     this.style.color='white';"
-                                        onmouseout="this.style.backgroundColor='white';
-                                                    this.style.color='green';">Edit</button>&nbsp;OR&nbsp;
-                                    <button class="x-button" @click="deleteItem(item)" 
-                                        style="color:red; 
-                                               border-color:red;" 
-                                        onmouseover="this.style.backgroundColor='red'; 
-                                                     this.style.color='white';"
-                                        onmouseout="this.style.backgroundColor='white';
-                                                    this.style.color='red';">Delete</button></div>
+                    <!-- Currencies -->
+                    <section>
+                        <select required
+                                v-model="salesOrder.currency" 
+                                class="x-button" 
+                                style="font-size:95%; 
+                                       margin-top:10px; 
+                                       width:100px;">
+                            <option disabled style="color:white;">Currency</option>
+                            <option>USD</option>
+                            <option>AED</option>
+                            <option>PKR</option>
+                            <option>INR</option>
+                            <option>EUR</option>
+                        </select>
+                    </section>      
+                    
+                    <!-- Photo image url field -->
+                    <section class="form-control-label">Image URL</section>
+                    <section><input v-model="salesOrder.image" class="form-control-input" type="text" placeholder="Upload a photo or paste URL" required/></section>       
 
-            </section>               
+                    <!-- photo upload form -->
+                    <form @submit.prevent="uploadImage()" style="margin-top:5px;">
+                        <!-- photo input feature -->
+                        <section><input type="file" ref="fileInput" accept="image/*"/></section>                                        
+                        <section>
+                            <!-- upload photo button -->
+                            <button type="submit" class="x-button">Upload</button>
+                            &nbsp;OR&nbsp;
+                            <!-- Clear image url button -->
+                            <button class="x-button" 
+                                    @click.prevent="clearImage()" 
+                                    style="color:red; 
+                                           border-color:red;"
+                                    onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
+                                    onmouseout="this.style.backgroundColor='white'; this.style.color='red';">
+                                Clear Image &times;</button>
+                        </section>
+                    </form>
+
+                    <section style="margin-top:20px; text-align:center;">
+                        <!-- add item to catalog button -->
+                        <button class="x-button" type="submit">Add to Catalog</button>&nbsp;OR&nbsp;
+                        <!-- checkout product from product form button -->
+                        <button class="x-button" @click.prevent="checkoutFromForm()">Checkout</button>
+                    </section>
+                    
+                    <!-- reset product form button -->
+                    <section style="margin-top:20px; text-align:center;">
+                        <button @click.prevent="resetForm()" class="x-button">Reset Form</button>
+                    </section>
+
+                </div>
+            </form>   
         </div>
+        
+        <div style="display:flex; 
+                    padding:15px 0px;">
+            <!-- catalog items container -->
+            <div v-if="catalog" 
+                style="display:flex; 
+                        flex-wrap:wrap;
+                        justify-content:center; 
+                        width:100%;">
+
+                <!-- product card -->
+                <section class="catalog-item" v-for="(item, index) in catalog" :key="index" 
+                            style="border:2px dashed #635bff; 
+                                border-radius:12px;
+                                display:flex; 
+                                flex-direction:column;
+                                font-size:1.05rem;
+                                line-height:1.25;
+                                margin:8px;
+                                max-width:250px;
+                                padding:12px 8px;
+                                text-align:center;">
+
+                        <!-- product card image -->
+                        <div><img :src="item.image" class="catalog-item-image"></div>
+
+                        <!-- product card name -->
+                        <div>{{ item.name }}</div>
+                        
+                        <!-- product card price -->
+                        <div style="padding:8px 0px;">Listed Price:<br/><span style="color:green;">$</span>{{ item.price }} <span style="color:green">{{ item.currency }}</span></div>
+                        
+                        <!-- product card profit after stripe fee -->
+                        <div style="padding-bottom:10px;" v-if="item.currency === 'USD'">Profit after <span style="color:#635bff">Stripe</span>'s fee:<br/><span style="color:red;">$</span>{{ calculateProfit(item.price) }}</div>
+                        
+                        <!-- Product card checkout button -->
+                        <div><button class="x-button" @click="checkoutItem(item)">Checkout</button></div>
+
+                        <div v-if="true" style="margin-top:8px;">
+                            <!-- product card Edit button -->
+                            <button class="x-button" 
+                                    @click="editItem(item)" 
+                                    style="color:green; 
+                                           border-color:green;" 
+                                    onmouseover="this.style.backgroundColor='green'; this.style.color='white';"
+                                    onmouseout="this.style.backgroundColor='white'; this.style.color='green';">
+                                Edit</button>&nbsp;OR&nbsp;
+                            <!-- product card Delete button -->
+                            <button class="x-button" 
+                                    @click="deleteItem(item)" 
+                                    style="color:red; 
+                                           border-color:red;" 
+                                    onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
+                                    onmouseout="this.style.backgroundColor='white'; this.style.color='red';">
+                                Delete</button>
+                        </div>
+                </section>               
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -168,7 +197,17 @@ export default {
         },
         async checkoutItem(item) {
             try {
-                const response = await axios.post('checkout', item);
+                const response = await axios.post('checkout', {
+                    id: item.id,
+                    username: item.username,
+                    name: item.name,
+                    price: item.price,
+                    currency: item.currency,
+                    image: item.image,
+                    return_url: `${window.location.protocol}//${window.location.host}${window.location.pathname}`
+                });
+
+                // navigate to stripe checkout page url 
                 window.location.href = response.data.payment_url;
             } 
             catch (error) {
@@ -179,6 +218,7 @@ export default {
             if (this.salesOrder.name === '' | this.salesOrder.Price === '' | this.salesOrder.image === '') {
                 alert('Enter missing fields.'); 
             } else {
+                this.salesOrder.username = this.currentUser.username;
                 this.checkoutItem(this.salesOrder);
             }
         },
@@ -216,7 +256,7 @@ export default {
             const formData = new FormData();
             formData.append("file", this.$refs.fileInput.files[0]);
             try {
-                const response = await axios.post('image', formData); 
+                const response = await axios.post('images', formData); 
                 this.salesOrder.image = response.data.image_url; 
                 this.$refs.fileInput.value = null; 
             }
@@ -313,9 +353,6 @@ export default {
         }
 
     @media (max-width:500px) {
-        .form-control-label {
-            /* justify-content:start; */
-        }
         .form-control-input {
             width:95%;
         }

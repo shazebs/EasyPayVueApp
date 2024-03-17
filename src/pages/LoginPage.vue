@@ -11,8 +11,8 @@
         <!-- 'Account not found' message -->
         <h3 v-if="loginStatus" :class="loginStatus.success ? 'success' : 'error'">{{ loginStatus.message }}</h3>
 
-        <!-- User registered message -->
-        <h3 v-if="registerSuccess" class="success">You have successfully registered and can log in!</h3>
+        <!-- 'User registered' message -->
+        <h3 v-if="registerSuccess !== ''" class="success">{{ registerSuccess }}</h3>
 
         <!-- Login Form -->
         <form @submit.prevent="handleLogin()" class="login-form">
@@ -52,15 +52,16 @@ export default {
                     password: this.password,
                 });            
 
-                // set user after successful login
+                // set user state after successful login
                 this.$store.dispatch('user', response.data.user); 
                 localStorage.setItem('token', JSON.stringify(response.data.user)); 
 
                 // turn off registerSuccess message
                 if (this.registerSuccess) {
-                    this.$store.dispatch('registerSuccess', false); 
+                    this.$store.dispatch('registerSuccess', ''); 
                 }                
 
+                // Go to home page after logging in
                 this.$router.push('/'); 
             } 
             catch (error) {

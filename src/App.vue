@@ -18,8 +18,7 @@ export default {
   },
   created() {
     var token = localStorage.getItem('token');
-    if (token) 
-      this.$store.dispatch('user', JSON.parse(token));
+    if (token) this.$store.dispatch('user', JSON.parse(token));
   },
   computed: {
     ...mapState(['user'])

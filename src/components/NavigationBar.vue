@@ -3,6 +3,8 @@
         <router-link to="/">Home</router-link>
         <router-link to="/login" v-if="!user">Login</router-link> 
         <router-link to="/signup" v-if="!user">Signup</router-link>
+        <router-link to="/account" v-if="user">Account</router-link>
+        <router-link to="/about">About</router-link>
         <router-link to="" @click="handleLogout()" v-if="user">Logout</router-link>
     </header>
 </template>
@@ -23,7 +25,7 @@ export default {
                 localStorage.removeItem('token');
 
                 // navigate somewhere after logout
-                this.$router.push('/login'); 
+                this.$router.push('/'); 
             }
         }
     },
@@ -34,12 +36,12 @@ export default {
 </script>
 
 <style scoped>
-header {
-    border-bottom:2px dashed black;
-    border-top:2px dashed black;
-    display:flex;
-    justify-content: space-evenly;   
-    margin:auto;
-    padding:8px 0px;    
-}    
+    header {
+        border-bottom:2px dashed black;
+        border-top:2px dashed black;
+        display:flex;
+        justify-content: space-evenly;   
+        margin:auto;
+        padding:8px 0px;    
+    }    
 </style>

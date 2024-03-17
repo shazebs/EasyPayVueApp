@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 const state = {
     user: null,
-    registerSuccess: false
+    registerSuccess: ''
 };
 
 const store = new createStore({

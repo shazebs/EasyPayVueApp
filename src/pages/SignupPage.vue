@@ -60,8 +60,6 @@ export default {
         async handleSignup() {
             if (!this.checkValidations()) return;
             try {
-                await this.getEncryptionKey();
-
                 // make signup registration request to EasyPay API
                 const response = await axios.post('register', {
                     email: this.email,

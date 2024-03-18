@@ -6,10 +6,36 @@
             About
         </h1>
 
-        <h2>What is <span style="color:#635bff">Stripe EasyPay</span>?</h2>
-        <blockquote>Hello?</blockquote>
+        <h2 align="center">What is <span style="color:#635bff">Stripe EasyPay</span>?</h2>
+        <blockquote style="line-height:1.85;">Sometimes you need to receive payment from someone, but you can’t because: they are too far away, they don’t have cash, they can’t pay now but can pay later, they only have their card on them, or they don’t use popular money-transfer apps like (CashApp, Venmo, Zelle). Most people, if not cash, will have at least their credit or debit card on them. At the same time, people are always on their phone and at any moment can engage in online purchasing. My idea for Stripe EasyPay is for non-coding savvy people to be able to set up secure online credit/debit card payments at the drop of a hat. The problem I want to try and solve is for people who don’t run e-commerce stores or have storefront card-reading machines to be able to quickly secure payments at any time of the day, without any interaction whatsoever, and without hassle. Whether you need to secure a payment in-person, or online, the EasyPay application hopes to make that process better and accessible at any time through the web.</blockquote>
 
-        <section style="margin-top:30px;">
+        <section style="text-align:center;">
+            <h2>GitHub Repositories</h2>
+            <p><a href="https://github.com/shazebs/EasyPayVueApp" target="_blank">EasyPay Vue App</a></p>
+            <p><a href="https://github.com/shazebs/EasyPayApi" target="_blank">EasyPay C# API</a></p>
+        </section>
+
+        <section style="margin-top:30px; text-align:center;">
+            <h2 align="center">EasyPay Architecture</h2>
+            <img src="https://easypaytestblobstorage.blob.core.windows.net/photos/203a1ceb-f7b2-4d7d-9351-a7756dfb95e4.png" style="width:100%;" />
+        </section>
+
+        <section style="margin-top:30px; text-align:center;">
+            <h2 align="center">Sitemap</h2>
+            <img src="https://easypaytestblobstorage.blob.core.windows.net/photos/d49150bb-c2a9-4794-ac01-44e4d6cabaa1.png" style="width:100%;" />
+        </section>
+
+        <section style="margin-top:30px; text-align:center;">
+            <h2 align="center">Agile Process Flow</h2>
+            <img src="https://easypaytestblobstorage.blob.core.windows.net/photos/b590dce9-ddd5-48a8-a0f6-7dee43bbdc6c.png" style="width:100%;" />
+        </section>
+
+        <section style="margin-top:30px; text-align:center;">
+            <h2 align="center">Database Entity Relationship Diagram</h2>
+            <img src="https://easypaytestblobstorage.blob.core.windows.net/photos/7332a6a5-29f6-4913-94e2-02c1b4fab439.png" style="width:100%;" />
+        </section>
+
+        <section style="margin-top:30px; text-align:center;">
             <h2>UML Relationship Diagram</h2>
             <img src="https://easypaytestblobstorage.blob.core.windows.net/photos/9d807737-729a-415b-9f71-400a13e85eed.png" style="width:100%;" />
         </section>
@@ -383,5 +409,8 @@ export default {
     }
     .methods-list {
         line-height:1.85;
+    }
+    img {
+        max-width:900px;
     }
 </style>

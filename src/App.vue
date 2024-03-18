@@ -1,9 +1,7 @@
 <template>
   <div>
-
     <NavigationBar />
     <router-view />
-
   </div>  
 </template>
 
@@ -15,14 +13,14 @@ export default {
   name: 'App',
   components: {
     NavigationBar,
+  },  
+  computed: {
+    ...mapState(['user'])
   },
   created() {
     var token = localStorage.getItem('token');
     if (token) this.$store.dispatch('user', JSON.parse(token));
   },
-  computed: {
-    ...mapState(['user'])
-  }
 }
 </script>
 
@@ -33,7 +31,6 @@ export default {
     font-weight: bold;
     font-style: normal;
   }
-
   a {
       color:#635bff;
       font-size:125%;

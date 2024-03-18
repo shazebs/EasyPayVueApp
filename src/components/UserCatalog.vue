@@ -163,37 +163,19 @@ export default {
         }
     },
     methods: {
-        async submitPayment() {
-            try {
-                this.salesOrder.price = parseFloat(this.salesOrder.price);
-                this.salesOrder.price = Math.round(this.salesOrder.price * 100) / 100;
-                this.salesOrder.username = this.currentUser.username;
-                this.salesOrder.name.trim();
-                const response = await axios.post('v2/easypay', this.salesOrder);
-                this.catalog = response.data.catalog;
-                this.clearSalesOrder(); 
-            }
-            catch (error) {
-                alert(error.response.data.message); 
-            }
-        },
-        removeNonNumbers() {
-            this.salesOrder.price = this.salesOrder.price.replace(/[^0-9,.]/g, '');
-            this.netprofit = Math.round(this.salesOrder.price * 100) / 100;
-            this.netprofit = this.calculateProfit(this.netprofit);
-        },
         calculateProfit(price) {
+            // calculate profit after stripe's fee
             let stripeFee = price * 0.029 + 0.3;
             return Math.round((price - stripeFee) * 100) / 100; 
         },
-        clearImage() {
-            this.salesOrder.image = '';
-            this.resetLayout();
-        },
-        clearSalesOrder() {
-            this.salesOrder.name = '',
-            this.salesOrder.price = '',
-            this.clearImage();
+        checkoutFromForm() {
+            if (this.salesOrder.name === '' | this.salesOrder.Price === '' | this.salesOrder.image === '') {
+                alert('Enter missing fields.'); 
+            } 
+            else {
+                this.salesOrder.username = this.currentUser.username;
+                this.checkoutItem(this.salesOrder);
+            }
         },
         async checkoutItem(item) {
             try {
@@ -214,22 +196,16 @@ export default {
                 alert(error.response.data.message); 
             }
         },
-        checkoutFromForm() {
-            if (this.salesOrder.name === '' | this.salesOrder.Price === '' | this.salesOrder.image === '') {
-                alert('Enter missing fields.'); 
-            } else {
-                this.salesOrder.username = this.currentUser.username;
-                this.checkoutItem(this.salesOrder);
-            }
-        },
-        editItem(item) {
-            this.salesOrder.id = item.id,
-            this.salesOrder.name = item.name;
-            this.salesOrder.price = item.price;
-            this.netprofit = this.calculateProfit(item.price);
-            this.salesOrder.currency = item.currency;
-            this.salesOrder.image = item.image;
+        clearImage() {
+            this.salesOrder.image = '';
+            // scroll to top of product form
             this.resetLayout();
+        },
+        clearSalesOrder() {
+            // reset product form field properties 
+            this.salesOrder.name = '',
+            this.salesOrder.price = '',
+            this.clearImage();
         },
         async deleteItem(item) {
             try {
@@ -239,6 +215,8 @@ export default {
                         url: 'catalog',
                         data: item
                     });
+
+                    // update catalog items after delete
                     if (response.data.success) {
                         this.catalog = response.data.catalog; 
                     }
@@ -249,22 +227,24 @@ export default {
                 console.error('Error deleting item:', error.response ? error.response.data : error.message);
             }
         },
-        async uploadImage() {
-            if (!this.$refs.fileInput.files[0]) {
-                return;
-            }
-            const formData = new FormData();
-            formData.append("file", this.$refs.fileInput.files[0]);
-            try {
-                const response = await axios.post('images', formData); 
-                this.salesOrder.image = response.data.image_url; 
-                this.$refs.fileInput.value = null; 
-            }
-            catch (error) {
-                console.error(error.response); 
-            }
+        editItem(item) {
+            // load product form with selected catalog item
+            this.salesOrder.id = item.id,
+            this.salesOrder.name = item.name;
+            this.salesOrder.price = item.price;
+            this.netprofit = this.calculateProfit(item.price);
+            this.salesOrder.currency = item.currency;
+            this.salesOrder.image = item.image;
+            this.resetLayout();
+        },
+        removeNonNumbers() {
+            // restrict non-numbers from price input field
+            this.salesOrder.price = this.salesOrder.price.replace(/[^0-9,.]/g, '');
+            this.netprofit = Math.round(this.salesOrder.price * 100) / 100;
+            this.netprofit = this.calculateProfit(this.netprofit);
         },
         resetForm() {
+            // reset product form input fields 
             this.salesOrder.id = null;
             this.salesOrder.name = '';
             this.salesOrder.price = '';
@@ -283,7 +263,38 @@ export default {
                     });
                 }
             });
-        }
+        },
+        async submitPayment() {
+            try {
+                this.salesOrder.price = parseFloat(this.salesOrder.price);
+                this.salesOrder.price = Math.round(this.salesOrder.price * 100) / 100;
+                this.salesOrder.username = this.currentUser.username;
+                this.salesOrder.name.trim();
+                
+                // make API call to add product to catalog
+                const response = await axios.post('v2/easypay', this.salesOrder);
+                this.catalog = response.data.catalog;
+                this.clearSalesOrder(); 
+            }
+            catch (error) {
+                alert(error.response.data.message); 
+            }
+        },
+        async uploadImage() {
+            if (!this.$refs.fileInput.files[0]) {
+                return;
+            }
+            const formData = new FormData();
+            formData.append("file", this.$refs.fileInput.files[0]);
+            try {
+                const response = await axios.post('images', formData); 
+                this.salesOrder.image = response.data.image_url; 
+                this.$refs.fileInput.value = null; 
+            }
+            catch (error) {
+                console.error(error.response); 
+            }
+        },
     },
     computed: {
         ...mapState({

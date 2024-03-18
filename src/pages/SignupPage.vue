@@ -57,6 +57,32 @@ export default {
         }
     },
     methods: {
+        checkValidations() {                
+            // validate if password fulfills regex requirement
+            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(this.password) === false) {
+                this.errors.password_regex = true;
+                return false;
+            } else {
+                this.errors.password_regex = false;
+            }
+            
+            // validate if passwords match 
+            if (this.password !== this.password_retype) {
+                this.errors.password_match = true;
+                return false;
+            } else {
+                this.errors.password_match = false;
+            }
+            
+            // clear username exists error 
+            this.errors.username_exists = false;
+            this.errors.username_exists_message = null;
+            
+            return true;
+        },
+        closeError(errorKey) {
+            this.errors[errorKey] = false;
+        },
         async handleSignup() {
             if (!this.checkValidations()) return;
             try {
@@ -67,12 +93,12 @@ export default {
                     password: this.password,
                     stripe_key: this.stripeApiKey
                 });
-
+        
                 // best-case scenario for account registration 
                 if (response.data.success) {
                     // for registration success UI message on login page 
                     this.$store.dispatch('registerSuccess', response.data.message);
-
+        
                     // direct user to login
                     this.$router.push('/login'); 
                 }
@@ -95,31 +121,6 @@ export default {
                 }
             } 
         },
-        closeError(errorKey) {
-            this.errors[errorKey] = false;
-        },
-        checkValidations() {                
-            // validate if password fulfills regex requirement
-            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(this.password) === false) {
-                this.errors.password_regex = true;
-                return false;
-            } else {
-                this.errors.password_regex = false;
-            }
-
-            // validate if passwords match 
-            if (this.password !== this.password_retype) {
-                this.errors.password_match = true;
-                return false;
-            } else {
-                this.errors.password_match = false;
-            }
-
-            this.errors.username_exists = false;
-            this.errors.username_exists_message = null;
-
-            return true;
-        }
     }
 };
 </script>

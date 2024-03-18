@@ -13,24 +13,24 @@
 import { mapGetters } from 'vuex'; 
 
 export default {
-    name: 'NavigationBar',
+    name: 'NavigationBar',    
+    computed: {
+        ...mapGetters(['user'])
+    },
     methods: {
         handleLogout() {
             if (confirm("Are you sure you want to logout?"))
             {
-                // reset user state
+                // nullify user state
                 this.$store.dispatch('user', null);
 
                 // remove user token
                 localStorage.removeItem('token');
 
-                // navigate somewhere after logout
+                // navigate to homepage after logout
                 this.$router.push('/'); 
             }
         }
-    },
-    computed: {
-        ...mapGetters(['user'])
     }
 }
 </script>

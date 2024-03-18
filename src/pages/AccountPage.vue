@@ -80,34 +80,56 @@ export default {
     computed: {
         ...mapState(['user'])
     },
-    methods: {
-        async updateUsername() {
-            if (this.username === this.user.username) {
-                alert("That's already your username.");
+    methods: {        
+        checkValidations() {                
+            // validate if password fulfills regex requirement
+            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(this.new_password) === false) {
+                this.errors.password_regex = true;
+                return false;
+            } else {
+                this.errors.password_regex = false;
+            }
+
+            // validate if passwords match 
+            if (this.new_password !== this.retype_password) {
+                this.errors.password_match = true;
+                return false;
+            } else {
+                this.errors.password_match = false;
+            }
+
+            return true;
+        },  
+        closeError(errorKey) {
+            this.errors[errorKey] = false;
+        },          
+        async updateEmail() {
+            if (this.email === this.user.email) {
+                alert("That's already your email.");
                 return;
             }
             try {
                 const response = await axios({
                     method: 'put',
-                    url: 'usernames',
+                    url: 'emails',
                     data: {
-                        current_username: this.user.username,
-                        new_username: this.username,
-                        password: this.username_password
+                        username: this.user.username,
+                        new_email: this.email,
+                        password: this.email_password
                     }
                 });
 
                 if (response.data.success) {
                     // pop-up username successfully changed message
-                    alert(`Username successfully updated from '${this.user.username}' to '${response.data.user.username}'`);
+                    alert(`Successfully updated email from '${this.user.email}' to '${response.data.user.email}'`);
 
                     // set user state after successful login
                     this.$store.dispatch('user', response.data.user); 
                     localStorage.setItem('token', JSON.stringify(response.data.user));
 
                     // reset username change form 
-                    this.username = ''; 
-                    this.username_password = '';
+                    this.email = ''; 
+                    this.email_password = '';
                 }
                 // Alert error message 
                 else {
@@ -150,44 +172,6 @@ export default {
                 console.error(error);
             }            
         },
-        async updateEmail() {
-            if (this.email === this.user.email) {
-                alert("That's already your email.");
-                return;
-            }
-            try {
-                const response = await axios({
-                    method: 'put',
-                    url: 'emails',
-                    data: {
-                        username: this.user.username,
-                        new_email: this.email,
-                        password: this.email_password
-                    }
-                });
-
-                if (response.data.success) {
-                    // pop-up username successfully changed message
-                    alert(`Successfully updated email from '${this.user.email}' to '${response.data.user.email}'`);
-
-                    // set user state after successful login
-                    this.$store.dispatch('user', response.data.user); 
-                    localStorage.setItem('token', JSON.stringify(response.data.user));
-
-                    // reset username change form 
-                    this.email = ''; 
-                    this.email_password = '';
-                }
-                // Alert error message 
-                else {
-                    alert(`${response.data.message}`)
-                }
-            }
-            // Handle any errors that may occur
-            catch (error) {
-                console.error(error);
-            }
-        },
         async updateStripeKey() {
             try {
                 const response = await axios({
@@ -217,35 +201,50 @@ export default {
             catch (error) {
                 console.error(error);
             }
-        },    
-        closeError(errorKey) {
-            this.errors[errorKey] = false;
-        },    
-        checkValidations() {                
-            // validate if password fulfills regex requirement
-            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(this.new_password) === false) {
-                this.errors.password_regex = true;
-                return false;
-            } else {
-                this.errors.password_regex = false;
+        },  
+        async updateUsername() {
+            if (this.username === this.user.username) {
+                alert("That's already your username.");
+                return;
             }
+            try {
+                const response = await axios({
+                    method: 'put',
+                    url: 'usernames',
+                    data: {
+                        current_username: this.user.username,
+                        new_username: this.username,
+                        password: this.username_password
+                    }
+                });
 
-            // validate if passwords match 
-            if (this.new_password !== this.retype_password) {
-                this.errors.password_match = true;
-                return false;
-            } else {
-                this.errors.password_match = false;
+                if (response.data.success) {
+                    // pop-up username successfully changed message
+                    alert(`Username successfully updated from '${this.user.username}' to '${response.data.user.username}'`);
+
+                    // set user state after successful login
+                    this.$store.dispatch('user', response.data.user); 
+                    localStorage.setItem('token', JSON.stringify(response.data.user));
+
+                    // reset username change form 
+                    this.username = ''; 
+                    this.username_password = '';
+                }
+                // Alert error message 
+                else {
+                    alert(`${response.data.message}`)
+                }
             }
-
-            return true;
-        },
+            // Handle any errors that may occur
+            catch (error) {
+                console.error(error);
+            }
+        }
     }
 }
 </script>
 
 <style scoped>
-
     @keyframes slideIn {
         from {
             transform:translateX(-100%);

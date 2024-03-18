@@ -6,7 +6,7 @@ import Signup from './pages/SignupPage.vue';
 import Photos from './components/BlobPhotos.vue'; 
 import About from './pages/AboutPage.vue';
 import Account from './pages/AccountPage.vue';
-import Receipt from './pages/ReceiptPage.vue';
+import Receipt from './components/ReceiptPage.vue';
 
 const routes = [
     { path: '/', component: Home },

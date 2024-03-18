@@ -71,19 +71,6 @@ export default {
         }
     },
     methods: {
-        async getUserCatalog() {
-            try {
-                // make a call to EasyPay API catalog endpoint
-                const response = await axios.post('/catalog', {
-                    username: this.username
-                });
-                // instantiate user's catalog items for display
-                this.userCatalog = response.data.catalog;
-            }
-            catch (error) {
-                alert(error.response.data);
-            }
-        },
         async checkoutItem(item) {
             try {
                 // make a call to EasyPay API single checkout endpoint
@@ -107,14 +94,27 @@ export default {
         currentURL() {
             const currentHost = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
             alert(currentHost);
-        }
+        },
+        async getUserCatalog() {
+            try {
+                // get username's catalog indicated in URL parameter
+                const response = await axios.post('/catalog', {
+                    username: this.username
+                });
+
+                // instantiate username's catalog items for display
+                this.userCatalog = response.data.catalog;
+            }
+            catch (error) {
+                alert(error.response.data);
+            }
+        },
     }
 }; 
 </script>
 
 <style scoped>
     .user-catalog {
-        /* border: 2px dashed black; */
         display:flex;
         flex-wrap:wrap;
         justify-content:center;

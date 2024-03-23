@@ -1,18 +1,21 @@
 <template>
   <div>
     <NavigationBar />
+    <SpinLoader v-if="false" />
     <router-view />
   </div>  
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
+import SpinLoader from './components/SpinLoader.vue';
 import { mapState } from 'vuex'; 
 
 export default {
   name: 'App',
   components: {
     NavigationBar,
+    SpinLoader
   },  
   computed: {
     ...mapState(['user'])

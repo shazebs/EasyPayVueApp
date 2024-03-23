@@ -19,7 +19,7 @@
         <!-- Show seller catalog display if user is not logged in -->
         <div v-if="this.username && !this.user">
             <!-- indicate who's catalog is being viewed -->
-            <h2 v-if="userCatalog.length !== 0" style="margin-bottom:5px; margin-top:12px; text-align:center;">View <span style="color:#635bff;">{{ username }}</span>'s catalog here:</h2>
+            <h2 v-if="userCatalog" style="margin-bottom:5px; margin-top:12px; text-align:center;">View <span style="color:#635bff;">{{ username }}</span>'s catalog here:</h2>
             
             <!-- error message if user has zero catalog items -->
             <h2 v-else style="text-align:center;"><span style="color:#635bff;">{{ username }}</span> has zero catalog items.</h2>
@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             username: null,
-            userCatalog: []
+            userCatalog: null
         }
     },
     components: {
@@ -127,6 +127,7 @@ export default {
         align-items:center;
         margin:8px 5px;
         max-width:175px;
+        min-width:175px;
         padding-bottom:8px;
         text-align:center;
     }

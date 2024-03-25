@@ -6,6 +6,14 @@
             About
         </h1>
 
+        <section style="width:100%; margin: 20px 0px; text-align:center; display:flex; justify-content: center;">
+            <!-- <div></div> -->
+            <div>
+                <iframe class="youtube-embed" src="https://www.youtube.com/embed/fQtak_CDV4s?si=GADFaMzHuP-JBh1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- <div></div> -->
+        </section>
+
         <h2 align="center">What is <span style="color:#635bff">Stripe EasyPay</span>?</h2>
         <blockquote style="line-height:1.85;">Sometimes you need to receive payment from someone, but you can’t because: they are too far away, they don’t have cash, they can’t pay now but can pay later, they only have their card on them, or they don’t use popular money-transfer apps like (CashApp, Venmo, Zelle). Most people, if not cash, will have at least their credit or debit card on them. At the same time, people are always on their phone and at any moment can engage in online purchasing. My idea for Stripe EasyPay is for non-coding savvy people to be able to set up secure online credit/debit card payments at the drop of a hat. The problem I want to try and solve is for people who don’t run e-commerce stores or have storefront card-reading machines to be able to quickly secure payments at any time of the day, without any interaction whatsoever, and without hassle. Whether you need to secure a payment in-person, or online, the EasyPay application hopes to make that process better and accessible at any time through the web.</blockquote>
 
@@ -412,5 +420,15 @@ export default {
     }
     img {
         max-width:900px;
+    }
+    .youtube-embed {
+        width:500px;
+        min-height: 250px;
+    }
+
+    @media (max-width:500px) {
+        .youtube-embed {
+            width:100%;
+        }
     }
 </style>

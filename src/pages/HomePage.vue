@@ -16,9 +16,18 @@
             <UserCatalog />
         </div>
 
-        <!-- Show seller catalog display if user is not logged in -->
+        <!-- Top Sellers container -->
+        <div v-if="!user && sellers" class="top-sellers-container">
+            <h1 style="margin-top:10px; margin-bottom:5px; text-decoration:underline;">Top Sellers</h1>
+            <section v-for="(num_items, seller) in sellers" :key="seller">
+                <a :href="sellerUrl(seller)">{{ seller }}</a> <span style="font-size:105%;">({{ num_items }})</span>
+            </section>
+        </div>
+
+        <!-- Show seller catalog display if user is not logged in and URL parameter is queried -->
         <div v-if="this.username && !this.user">
-            <!-- indicate who's catalog is being viewed -->
+
+            <!-- indicate URL parameter username -->
             <h2 v-if="userCatalog" style="margin-bottom:5px; margin-top:12px; text-align:center;">View <span style="color:#635bff;">{{ username }}</span>'s catalog here:</h2>
             
             <!-- error message if user has zero catalog items -->
@@ -35,6 +44,7 @@
             </section>
         </div>
 
+        <!-- test button -->
         <button v-if="false" @click="currentURL()">Check URL</button>
 
     </div>
@@ -50,7 +60,8 @@ export default {
     data() {
         return {
             username: null,
-            userCatalog: null
+            userCatalog: null,
+            sellers: null
         }
     },
     components: {
@@ -59,7 +70,7 @@ export default {
     computed: {
         ...mapGetters(['user'])
     },
-    mounted() {
+    async mounted() {
         // Access URL parameter when the component is mounted
         this.username = this.$route.params.username;
 
@@ -68,6 +79,17 @@ export default {
             // capitalize the username param's first letter
             this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
             this.getUserCatalog();
+        }
+        // if username param DNE and user not logged in
+        else {
+            try {
+                const response = await axios.get("sellers"); 
+                console.log(response.data); 
+                this.sellers = response.data.sellers; 
+            }
+            catch (error) {
+                alert(error.response.data.message); 
+            }
         }
     },
     methods: {
@@ -93,7 +115,7 @@ export default {
         },
         currentURL() {
             const currentHost = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
-            alert(currentHost);
+            return currentHost; 
         },
         async getUserCatalog() {
             try {
@@ -109,6 +131,9 @@ export default {
                 alert(error.response.data);
             }
         },
+        sellerUrl(seller) {
+            return `${this.currentURL()}${seller}`;
+        }
     }
 }; 
 </script>
@@ -158,4 +183,9 @@ export default {
             color:white;
             transition:all 0.2s ease;
         }
+
+    .top-sellers-container {
+        line-height:1.75;
+        text-align:center;
+    }
 </style>

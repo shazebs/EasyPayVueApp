@@ -1,6 +1,6 @@
 <template>
     <header>
-        <router-link to="/">Home</router-link>
+        <a href="/">Home</a>
         <router-link to="/login" v-if="!user">Login</router-link> 
         <router-link to="/signup" v-if="!user">Signup</router-link>
         <router-link to="/account" v-if="user">Account</router-link>

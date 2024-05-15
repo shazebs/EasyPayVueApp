@@ -7,6 +7,7 @@ import Photos from './components/BlobPhotos.vue';
 import About from './pages/AboutPage.vue';
 import Account from './pages/AccountPage.vue';
 import Receipt from './components/ReceiptPage.vue';
+import Jobs from './components/JobApps.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -16,7 +17,8 @@ const routes = [
     { path: '/photos', component: Photos },
     { path: '/about', component: About },
     { path: '/account', component: Account },
-    { path: '/receipt', component: Receipt }
+    { path: '/receipt', component: Receipt },
+    { path: '/jobs', component: Jobs}
 ];
 
 const router = createRouter({

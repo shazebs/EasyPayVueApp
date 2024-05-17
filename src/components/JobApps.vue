@@ -20,8 +20,7 @@
     <!-- Daily applied count -->
     <section v-if="job_apps">
       <div v-for="(value, key) in job_map" :key="key">
-        <span style="font-weight: 400">{{ key }}</span
-        >: {{ value }}
+        <span style="font-weight: 400">{{ key }}</span>: {{ value }}
       </div>
     </section>
 
@@ -721,8 +720,9 @@ export default {
             "REST service",
             "WIX for installers",
           ],
-          d: true,
+          d: false,
           e: "5/12/2024",
+          f: '5/15/2024'
         },
         {
           a: "Finturf | Glendale, California",
@@ -871,8 +871,9 @@ export default {
             ".NET Core",
             "Microservices",
           ],
-          d: true,
+          d: false,
           e: "5/12/2024",
+          f: '5/16/2024'
         },
         {
           a: "Samsara | United Kingdom (remote)",
@@ -992,8 +993,9 @@ export default {
             "OOD",
             "Architecture",
           ],
-          d: true,
+          d: false,
           e: "5/14/2024",
+          f: '5/16/2024'
         },
         {
           a: "Bright Digital Solutions | Los Angeles, California",
@@ -1106,6 +1108,92 @@ export default {
           d: true,
           e: "5/14/2024",
         },
+        {
+          a: 'Inland Empire Health Plan | Rancho Cucamonga, California',
+          b: 'Developer I - Application Development',
+          c: [
+            '1 year exp',
+            'Web Development',
+            'BS',
+            'AngularJS',
+            'C#',
+            'Java',
+            'WCF',
+            'Web API',
+            'JavaScript',
+            'JQuery',
+            'CSS',
+            'HTML',
+            'MVVM',
+            'MVC',
+            'MS SQL',
+            'Oracle',
+            'MySQL',
+            'IIS'
+          ],
+          d: true,
+          e: '5/15/2024'
+        },
+        {
+          a: 'Electronic Arts | Los Angeles, California',
+          b: 'Build Engineer (Apex Legends)',
+          c: [
+            'BS',
+            'C#',
+            'Java',
+            'OOP',
+            'Groovy',
+            'Python',
+            'Bash',
+            'Jenkins',
+            'TeamCity',
+            'Perforce',
+            'Ansible',
+            'VMWare',
+            'GAAS',
+            'ADX',
+            'Jira',
+          ],
+          d: true,
+          e: '5/15/2024',
+          g: 'https://ea.gr8people.com/my-jobs'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Full Stack Software Engineer (Starlink Operations)',
+          c: ['BS', '1+ years exp', 'OOP', 'Technical Documentation', 'Angular', 'React', 'Docker', 'Kubernetes', 'MS SQL', 'PostgreSQL', 'GIT'],
+          d: true,
+          e: '5/16/2024'
+        },
+        {
+          a: 'UCLA | Los Angeles, California',
+          b: 'Full Stack Developer, Human Resources Information Products',
+          c: ['3 years exp', 'MySQL', 'PostgreSQL', 'MongoDB', '5+ years exp', 'HTML5', 'CSS3', 'JavaScript', 'React', 'Angular', 'Vue', 'Node.js', 'Python', 'Java', 'C#', 'AWS', 'Azure', 'GCP', 'BS'],
+          d: true,
+          e: '5/16/2024'
+        },
+        {
+          a: 'Property Matrix | Culver City, California',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS', 
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Strong work ethic',
+            'Positive Attitude',
+            'Motivation to learn',
+            'Ability to work independently',
+            'High level of professionalism and ethics',
+            'Design and development of software',
+            'Self-starter',
+            'Strong desire to increase efficiencies',
+            'Make an impact while contributing to a cross-functional team',
+            'Display leadership qualities',
+          ],
+          d: true,
+          e: '5/17/2024'
+        },
       ],
       preferred_companies: [
         "SpaceX",
@@ -1122,12 +1210,10 @@ export default {
   methods: {
     getAppliedVsRejectedStatistics() {
       var hash_map = {};
-
       for (const job of this.job_apps) {
         // count inprogress and rejections
         if (job.d) this.statistics.num_inprogress++;
         else this.statistics.num_rejections++;
-
         // count daily jobs applied
         if (job.e in hash_map) hash_map[job.e]++;
         else if (job.e !== undefined) hash_map[job.e] = 1;

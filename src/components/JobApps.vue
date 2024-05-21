@@ -36,8 +36,9 @@
         (<span v-if="japp.d" style="color: limegreen">In Progress</span>
         <span v-else style="color: red">Rejected</span>)
         <!-- Dates applied and rejected -->
+        <br/>
         <i v-if="japp.e">Applied: {{ japp.e }}</i>
-        <i v-if="japp.f">| Rejected: {{ japp.f }}</i>
+        <i v-if="japp.f"> | Rejected: {{ japp.f }}</i>
       </h4>
       <!-- Job requirements -->
       <div style="line-height: 1.75">
@@ -514,8 +515,9 @@ export default {
             "Agile",
             "Scrum",
           ],
-          d: true,
+          d: false,
           e: "5/8/2024",
+          f: '5/17/2024'
         },
         {
           a: "Crowns Now Inc | Remote",
@@ -952,8 +954,9 @@ export default {
             "Design Documents",
             "Deployment",
           ],
-          d: true,
+          d: false,
           e: "5/13/2024",
+          f: '5/17/2024',
           g: "https://career55.sapsf.eu/career?company=nemetschek&site=&lang=en_US&login_ns=login&loginFlowRequired=true&showLogOutMsg=true&brandUrl=&_s.crb=KsT3K8flYTlJ2YnINzPL7H36Vuo0069bfvdogKj0Jb8%253d",
         },
         {
@@ -976,8 +979,9 @@ export default {
             "1-3 years exp",
             "Agile",
           ],
-          d: true,
+          d: false,
           e: "5/14/2024",
+          f: '5/21/2024'
         },
         {
           a: "Jobot | Minneapolis, Minnesota",
@@ -1013,8 +1017,9 @@ export default {
             "React",
             "Angular",
           ],
-          d: true,
+          d: false,
           e: "5/14/2024",
+          f: '5/18/2024'
         },
         {
           a: "CNA National | Scottsdale, Arizona",
@@ -1057,7 +1062,15 @@ export default {
         {
           a: "Phoenix Recruitment | Chicago, Illinois",
           b: "Website Developer",
-          c: ["HTML", "CSS", "Databases", "1+ years exp", "OOP", "SEO", "BS"],
+          c: [
+            "HTML", 
+            "CSS", 
+            "Databases", 
+            "1+ years exp", 
+            "OOP", 
+            "SEO", 
+            "BS"
+          ],
           d: true,
           e: "5/14/2024",
         },
@@ -1194,6 +1207,281 @@ export default {
           d: true,
           e: '5/17/2024'
         },
+        {
+          a: 'GEICO | Chevy Chase, Maryland',
+          b: 'Software Engineer I',
+          c: [
+            'Java',
+            'C++',
+            'C#',
+            'HTML-5',
+            'JavaScript',
+            'TypeScript',
+            'XML',
+            'JSON',
+            'RESTful Web Services',
+            'Powershell Scripting',
+            'SDLC',
+            'BS',
+            'Azure',
+            'Machine Learning',
+            'Data Visualization',
+            'Python',
+            'SQL',
+            'NoSQL',
+            'Container Orchestration',
+            'User requirements',
+            'Web applications',
+            'Coding reviews',
+            'Code quality',
+            'Oral and written ommunication skills',
+            'Algorithms',
+            'Data Structures',
+            'Collaboration with Data Scientists, Architects, and Engineers',
+            'Big Data',
+            'Integration',
+            'Distributed Systems',
+            'Scalable'
+          ],
+          d: true,
+          e: '5/17/2024'
+        },
+        {
+          a: 'UCLA | Los Angeles, California',
+          b: 'Applications Programmer 3',
+          c: [
+            '.NET',
+            'C#',
+            'Angular',
+            'NodeJS',
+            'ReactJS',
+            'SQL',
+            'NoSQL',
+            'CSS',
+            'JavaScript',
+            'Cloud'
+          ],
+          d: true,
+          e: '5/20/2024'
+        },
+        {
+          a: 'Loma Linda University | Loma Linda, California',
+          b: 'Full Stack Developer & Database Manager',
+          c: [
+            'Java',
+            'JavaScript',
+            'SQL',
+            'MySQL',
+            'Office 365',
+            'BS'
+          ],
+          d: true,
+          e: '5/20/2024',
+          g: 'https://egln.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/my-profile'
+        },
+        {
+          a: 'Disney Entertainment & ESPN Technology | Santa Monica, California',
+          b: 'Software Engineer I',
+          c: [
+            'JavaScript',
+            'BS',
+            'Write code',
+            'Web based applications'
+          ],
+          d: true,
+          e: '5/20/2024',
+          g: 'https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/userHome'
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'Software Development Engineer II - Front End Web Developer',
+          c: [
+            'JavaScript',
+            'TypeScript',
+            'React',
+            '2D and 3D data visualization',
+            '2+ years exp',
+            'MySQL',
+            'SQL Server',
+            'Oracle',
+            'SQL',
+            'HTML5',
+            'CSS3',
+            'AngularJS',
+            'JQuery',
+            'Dojo',
+            'REST',
+            'BS',
+            'MS',
+            'GIS',
+            'PostgreSQL',
+            'Kubernetes',
+            'Docker',
+            'Spatial data modeling',
+          ],
+          d: true,
+          e: '5/20/2024'
+        },
+        {
+          a: 'Socure | (Remote) United States',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2-3 years exp',
+            'Java',
+            'Go',
+            'JavaScript',
+            'React',
+            'SQL',
+            'NoSQL',
+            'AWS',
+            'SDLC',
+            'Computer Vision',
+            'Machine Learning',
+            'Data Structures',
+            'Algorithms',
+            'Distributed Systems'
+          ],
+          d: true,
+          e: '5/20/2024',
+        },
+        {
+          a: 'DevDocs | (Remote) United States',
+          b: 'Software Developer with Documentation Experience (SaaS)',
+          c: [
+            'BS',
+            'API documentation',
+            'Swagger',
+            'Postman',
+            'CI/CD',
+            'DevOps',
+            'JavaScript',
+            'TypeScript',
+            'GitHub',
+            'Markdown',
+            'Docs as Code',
+          ],
+          d: true,
+          e: '5/20/2024'
+        },
+        {
+          a: 'Nebula | (Remote) United States',
+          b: 'Dotnet Developer / ASP.NET MVC',
+          c: [
+            'BS',
+            'OOP',
+            '.NET Core',
+            'ASP.NET MVC'
+          ],
+          d: true,
+          e: '5/20/2024'
+        },
+        {
+          a: 'Eventeny | (Remote) United States',
+          b: 'Software Engineer',
+          c: [
+            '1-4 years exp',
+            'BS',
+            'HTML5',
+            'CSS',
+            'JavaScript',
+            'PHP',
+            'Python',
+            'Flutter',
+            'SQL',
+            'Test-driven development',
+          ],
+          d: true,
+          e: '5/20/2024'
+        },
+        {
+          a: 'Super Micro Computer | San Jose, California',
+          b: 'Software Engineer - System Validation',
+          c: [
+            'BS',
+            '3+ years exp',
+            'Python',
+            'JavaScript',
+            'React',
+            'JQuery',
+            'Node',
+            'Git',
+            'Django',
+            'API',
+            'Docker'
+          ],
+          d: true,
+          e: '5/21/2024'
+        },
+        {
+          a: 'ByteDance | San Jose, California',
+          b: 'Fullstack Software Engineer - Authorization',
+          c: [
+            'BS',
+            '3+ years exp',
+            'Golang',
+            'JavaScript',
+            'TypeScript',
+            'HTML',
+            'CSS',
+            'React'
+          ],
+          d: true,
+          e: '5/21/2024',
+          g: 'https://jobs.bytedance.com/en/position/application?spread=A3T3U6W'
+        },
+        {
+          a: 'DocuSign | San Francisco, California',
+          b: 'Software Engineer',
+          c: [
+            'C#',
+            'CI/CD',
+            'Agile',
+            'Scrum',
+            'GIT',
+            'BS',
+            '2+ years exp',
+            'API',
+            '.Net',
+            'Java',
+            'NoSQL',
+            'SaaS eCommerce',
+          ],
+          d: true,
+          e: '5/21/2024'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Application Software Engineer, Data',
+          c: [
+            '2+ years exp',
+            'BS',
+            'Python',
+            'Java',
+            'Scala',
+            'Go',
+            'C#',
+            'Apache Kafka',
+            'Spark',
+            'Flink',
+            'SQL',
+            'HBase',
+            'Hive',
+            'Delta Lake',
+            'PostgreSQL',
+            'CockroachDB',
+            'Grafana',
+            'Jupyter Notebooks',
+            'Metabase',
+            'PowerBI',
+            'Angular',
+            'React',
+            'JavaScript',
+            'Machine learning algorithms'
+          ],
+          d: true,
+          e: '5/21/2024'
+        }
       ],
       preferred_companies: [
         "SpaceX",

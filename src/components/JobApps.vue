@@ -1481,6 +1481,135 @@ export default {
           ],
           d: true,
           e: '5/21/2024'
+        },
+        {
+          a: 'Redbird Flight Simulations | Kyle, Texas',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'C#',
+            '.NET',
+            'Visual Studio',
+            'Elixir',
+            'AWS',
+            'UI/UX',
+            'Databases',
+            'Flutter',
+            'Git',
+            'Unit Tests',
+          ],
+          d: true,
+          e: '5/21/2024'
+        },
+        {
+          a: 'Apple | San Diego, California',
+          b: 'Distributed Activities Software Engineer - Applied Networking',
+          c: [
+            'BS',
+            'OOP',
+            'Test-driven development',
+            'User interfaces',
+            'Functional programming'
+          ],
+          d: true,
+          e: '5/21/2024',
+          g: 'https://jobs.apple.com/app/en-us/profile/roles'
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'C++ Windows Developer II',
+          c: [
+            'C++',
+            'C#',
+            'Asynchronous programming with Task Parallel library',
+            'BS',
+            'DBMS',
+            'MVVM',
+            'Written and verbal communication skills'
+          ],
+          d: true,
+          e: '5/21/2024'
+        },
+        {
+          a: 'Apple | San Diego, California',
+          b: 'Software Build Engineer',
+          c: [
+            'Python',
+            'JavaScript',
+            'Objective-C',
+            'Swift',
+            'Git',
+            'Sublime',
+            'vim',
+            'emacs',
+            'Xcode',
+            'Makefiles',
+            'BS',
+            'MS'
+          ],
+          d: true,
+          e: '5/21/2024',
+          g: 'https://jobs.apple.com/app/en-us/profile/roles'
+        },
+        {
+          a: 'Apple | San Diego, California',
+          b: 'Software Development in Test, OS Battery Life',
+          c: [
+            'BS',
+            'MS',
+            'C++',
+            'Swift',
+            'Objective-C',
+            'Python',
+            'JavaScript',
+            'Test automation',
+            'QA experience',
+            'Analyze, debug, and solve problems',
+            'Communication skills'
+          ],
+          d: true,
+          e: '5/21/2024',
+          g: 'https://jobs.apple.com/app/en-us/profile/roles'
+        },
+        {
+          a: 'Liberty Mutual Insurance | Boston, Massachusetts',
+          b: 'Software Engineer',
+          c: [
+            '3 years exp',
+            'BS',
+            'Scrum',
+            'Kanban',
+            'XP',
+            'REST',
+            'Microservices',
+            'AWS',
+            'Azure',
+            'Google Cloud',
+            'Java',
+            'NodeJS',
+            'Spring Boot',
+            'J2EE',
+            'CI/CD',
+            'DevOps'
+          ],
+          d: true,
+          e: '5/21/2024'
+        },
+        {
+          a: 'Aristocrat Gaming | Reno, Nevada',
+          b: 'Software Engineer',
+          c: [
+            'C++',
+            'C#',
+            'BS',
+            'Object-oriented design',
+            'Debugging',
+            'Agile',
+            'Waterfall',
+            'Code reviews',
+          ],
+          d: true,
+          e: '5/21/2024'
         }
       ],
       preferred_companies: [

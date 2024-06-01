@@ -41,7 +41,7 @@
     </div>
 
     <section style="text-align:center; margin:2%;">
-        <button @click="announceWinner()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
+        <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
         <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:350px;" class="animate"/>
     </section>
 
@@ -93,7 +93,8 @@ export default {
         submitLogin() {
             alert('Sorry! This button doesn\'t work right now.');
         },
-        toggleFanfare() {
+        async toggleFanfare() {
+            await this.announceWinner();
             const audioFanfare = this.$refs.audioFanfare;
             if (audioFanfare) {
                 if (this.isPlaying) {
@@ -104,7 +105,7 @@ export default {
                 this.isPlaying = !this.isPlaying;
             }
         },
-        announceWinner() {
+        async announceWinner() {
             const data = {
                 message: 'announce-winner'
             };
@@ -132,7 +133,6 @@ export default {
             const data = JSON.parse(event.data);
             //alert(data.message);
             if (data.message === 'announce-winner') {
-                this.toggleFanfare();
                 this.showWinner = true;
             }
             console.log(data);

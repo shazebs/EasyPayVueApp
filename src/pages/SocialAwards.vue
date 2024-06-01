@@ -42,6 +42,7 @@ export default {
 
         this.connection.onclose = (event) => {
             console.log(event);
+            alert('You are disconnected, try refreshing the page.');
         }
 
         this.connection.onerror = (error) => {

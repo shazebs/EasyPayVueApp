@@ -42,7 +42,7 @@
 
     <section style="text-align:center; margin:2%;">
         <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
-        <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:350px;" class="animate"/>
+        <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
     </section>
 
     <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>    
@@ -255,6 +255,16 @@ export default {
     }
     @keyframes slideInRight {
         0% {
+            border-radius:1000px;
+            width: 0px;
+            opacity: 0;
+        }
+        100% {
+            border-radius:8px;
+            width: 300px;
+            opacity: 1;
+        }
+        /*0% {
             transform: translateX(100%);
             opacity: 0;
             border-radius:1000px;
@@ -262,7 +272,7 @@ export default {
         100% {
             transform: translateX(0);
             opacity: 1;  
-        }
+        }*/
     }
 
     @media(max-width:600px) {

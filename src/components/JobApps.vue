@@ -805,8 +805,9 @@ export default {
             "Multi-thread",
             "Multi-processes",
           ],
-          d: true,
+          d: false,
           e: "5/12/2024",
+          f: '5/23/2024'
         },
         {
           a: "Trans Astronautica Corporation | Los Angeles, California",
@@ -936,8 +937,9 @@ export default {
             "RESTful API",
             "Microservice",
           ],
-          d: true,
+          d: false,
           e: "5/13/2024",
+          f: '5/22/2024'
         },
         {
           a: "Bluebeam | Pasadena, California",
@@ -1275,8 +1277,9 @@ export default {
             'Office 365',
             'BS'
           ],
-          d: true,
+          d: false,
           e: '5/20/2024',
+          f: '5/23/2024',
           g: 'https://egln.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/my-profile'
         },
         {
@@ -1479,8 +1482,9 @@ export default {
             'JavaScript',
             'Machine learning algorithms'
           ],
-          d: true,
-          e: '5/21/2024'
+          d: false,
+          e: '5/21/2024',
+          f: '5/25/2024'
         },
         {
           a: 'Redbird Flight Simulations | Kyle, Texas',
@@ -1610,6 +1614,112 @@ export default {
           ],
           d: true,
           e: '5/21/2024'
+        },
+        {
+          a: 'TikTok | San Jose, California',
+          b: 'Fullstack Software Engineer - TikTok Account',
+          c: [
+            'BS',
+            '2 years exp',
+            'JavaScript',
+            'HTML',
+            'CSS',
+            'User Interface',
+            'User Experience',
+            'Go',
+            'Java',
+            'C++',
+            'Python',
+            'Distributed systems',
+            'API',
+            'Unit testing',
+            'Authentication',
+            'Access Management',
+            'Identity'
+          ],
+          d: true,
+          e: '5/27/2024'
+        },
+        {
+          a: 'Applied Research Associates, Inc. | Niceville, Florida',
+          b: 'JWS Junior Software Engineer',
+          c: [
+            'C#',
+            'C++',
+            'Git',
+            'Agile',
+            'Test-Driven development (TDD)',
+            'Visual Studio',
+            '.NET',
+            '3D modeling/visualization',
+            '0-2 years exp',
+            'DoD Security Clearance'
+          ],
+          d: true,
+          e: '5/27/2024'
+        },
+        {
+          a: 'Revature | Tucson, Arizona',
+          b: 'Entry Level Software Engineer',
+          c: [
+            'College Degree',
+            'Desire to learn code',
+          ],
+          d: true,
+          e: '5/28/2024'
+        },
+        {
+          a: 'Wayfair | Austin, Texas',
+          b: 'Software Engineer I - Summer 2024',
+          c: [
+            '<1-2 years exp',
+            'BS',
+            'Full stack',
+            'Mobile development',
+            'Debugging code',
+            'OOP languages',
+            'SQL',
+            'Java',
+            'Python',
+            'Machine learning',
+            'Agile environments',
+            'Communication skills',
+            'Cloud platforms'
+          ],
+          d: true,
+          e: '5/28/2024'
+        },
+        {
+          a: 'Cognizant | Lake Forest, California',
+          b: 'Software Engineer - C# .Net Angular (Onsite)',
+          c: [
+            'C#',
+            'Azure',
+            'Microsoft Certifications'
+          ],
+          d: true,
+          e: '5/29/2024'
+        },
+        {
+          a: 'Apollo | El Segundo, California',
+          b: 'Full Stack Engineer Analyst',
+          c: [
+            'BS',
+            '0-2+ years exp',
+            'Python',
+            'C++',
+            'Java',
+            'CI/CD',
+            'GitHub',
+            'Docker',
+            'Jenkins',
+            'Git',
+            'Kafka',
+            'Messaging systems'
+          ],
+          d: true,
+          e: '5/29/2024',
+          g: 'https://athene.wd5.myworkdayjobs.com/en-US/Apollo_Careers/userHome'
         }
       ],
       preferred_companies: [

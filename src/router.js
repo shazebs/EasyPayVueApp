@@ -8,6 +8,7 @@ import About from './pages/AboutPage.vue';
 import Account from './pages/AccountPage.vue';
 import Receipt from './components/ReceiptPage.vue';
 import Jobs from './components/JobApps.vue';
+import Awards from './pages/SocialAwards.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -18,7 +19,8 @@ const routes = [
     { path: '/about', component: About },
     { path: '/account', component: Account },
     { path: '/receipt', component: Receipt },
-    { path: '/jobs', component: Jobs}
+    { path: '/jobs', component: Jobs},
+    { path: '/awards', component: Awards }
 ];
 
 const router = createRouter({

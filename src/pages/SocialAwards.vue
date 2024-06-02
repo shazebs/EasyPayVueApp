@@ -1,5 +1,6 @@
 <template>
     <div style="text-align:center; ">
+        <!-- Social awards title -->
         <h1 class="social-awards-title"><span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span></h1>
 
         <!-- Disconnection error message -->
@@ -10,10 +11,10 @@
             <span @click="closeError('disconnect')">&times;</span>
         </div>
 
+        <!-- User login buttons -->
         <p>Choose your login:</p>
         <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
         <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
-
         <br/>
         <!--<button @click="sendMessage">Send Message</button>-->
     </div>
@@ -21,14 +22,18 @@
     <!-- Login modal -->
     <div v-if="loginModal.toggle == true" class="login-modal">
         <div class="login-modal-content">
+            <!-- header -->
             <section style="display:flex; justify-content: space-evenly; align-items: center; font-size:22px;">
+                <!-- title -->
                 <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">                 
                     <span v-if="loginModal.user === 'Host'" style="color:dodgerblue; font-weight:bolder;">{{ loginModal.user }} Login</span>
                     <span v-if="loginModal.user === 'Voter'" style="color:limegreen; font-weight:bolder;">{{ loginModal.user }} Login</span>
                 </section>
+                <!-- Close button -->
                 <section style="color:red;"><span @click="closeLoginModal()" class="modal-close-button">&times;</span></section>                
             </section>            
-            <hr/>            
+            <hr/>   
+            <!-- Login input form -->         
             <section style="text-align:center; font-size:20px; ">
                 <form @submit.prevent="submitLogin()">
                     <label style="display: inline-block; min-width:55px;">User:</label><input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
@@ -41,26 +46,32 @@
         </div>
     </div>    
 
+    <!-- Announce winner button -->
     <section style="text-align:center; margin:1%;">
         <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
         <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
     </section>
 
+    <!-- Fanfare audio -->
     <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>  
     
-    <section>
-        <div id="live-chat">
+    <!-- Live chat box -->
+    <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()">
         <transition-group name="chat" tag="section">
-            <section v-for="(chat, index) in liveChat.chats" :key="index"><span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span></section>
+            <section v-for="(chat, index) in liveChat.chats" :key="index">
+                <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+            </section>
         </transition-group>
-        </div>
-        <form @submit.prevent="sendNewChat()">
-            <div style="display:flex; align-items: center; margin-top:6px; ">
+    </div>
+    <!-- Chat input -->
+    <form @submit.prevent="sendNewChat()">
+        <div style="display:flex; align-items: center; margin-top:6px; ">
             <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
             <button class="send-chat-button" type="submit">Send</button>
         </div> 
-        </form>        
-    </section>      
+    </form>     
+
+    <button @click="deleteChatExample()">Delete first chat test button</button>
 
 </template>
 
@@ -91,7 +102,8 @@ export default {
                         gender: 'M'
                     }
                 ],
-                newChat: ''
+                newChat: '',
+                autoScroll: true,
             }
         }
     },
@@ -155,22 +167,41 @@ export default {
             const data_string = JSON.stringify(data);
             this.connection.send(data_string);
             this.liveChat.newChat = '';
-        }
+            this.liveChat.autoScroll = true;
+        },
+        deleteChatExample() {
+            this.liveChat.chats.splice(0,1);
+        },
+        scrollToBottom() {
+            const chatContainer = this.$refs.liveChatContainer;
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        },
+        handleChatScroll() {
+            const chatContainer = this.$refs.liveChatContainer;
+            const threshold = 10;
+            const position = chatContainer.scrollTop + chatContainer.clientHeight;
+            const height = chatContainer.scrollHeight;
+            if (position >= height - threshold) {
+                this.liveChat.autoScroll = true;
+            } else {
+                this.liveChat.autoScroll = false;
+            }
+        },
     },
     created() {
         console.log("Starting Connection to WebSocket Server");
         //this.connection = new WebSocket('wss://localhost:7088/ws');
         this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
-        this.connection.onopen = (event) => {
-            console.log(event);
+        this.connection.onopen = (/*event*/) => {
+            //console.log(event);
             console.log("Successfully connected to WebSocket.");
         }
 
         this.connection.onmessage = (event) => {
-            console.log(event);
+            //console.log(event);
             const data = JSON.parse(event.data);
-            console.log('data', data);
+            //console.log('data', data);
             //alert(data.message);
             if (data.message === 'announce-winner') {
                 this.showWinner = true;
@@ -182,6 +213,11 @@ export default {
                     gender: data.gender
                 };
                 this.liveChat.chats.push(newChatData);
+                this.$nextTick(() => {
+                    if (this.liveChat.autoScroll) {
+                        this.scrollToBottom();
+                    }
+                });
             }
         }
 
@@ -194,6 +230,11 @@ export default {
             this.errors.disconnect = true;
         }
     },
+    updated() {
+        this.$nextTick(() => {
+            //this.scrollToBottom();
+        });
+    }
 }
 </script>
 
@@ -301,7 +342,8 @@ export default {
         display: flex;
         flex-direction: column;
         height: 300px;
-        overflow-y: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
         width: 100%;
     }
         #live-chat section {

@@ -22,30 +22,43 @@
     <div v-if="loginModal.toggle == true" class="login-modal">
         <div class="login-modal-content">
             <section style="display:flex; justify-content: space-evenly; align-items: center; font-size:22px;">
-                <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">
+                <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">                 
                     <span v-if="loginModal.user === 'Host'" style="color:dodgerblue; font-weight:bolder;">{{ loginModal.user }} Login</span>
                     <span v-if="loginModal.user === 'Voter'" style="color:limegreen; font-weight:bolder;">{{ loginModal.user }} Login</span>
                 </section>
                 <section style="color:red;"><span @click="closeLoginModal()" class="modal-close-button">&times;</span></section>                
             </section>            
-            <hr/>
-            
+            <hr/>            
             <section style="text-align:center; font-size:20px; ">
-                <label style="display: inline-block; min-width:55px;">User:</label><input style="font-size:18px; text-align: center;"/>
-                <br/>
-                <label style="display: inline-block; min-width:55px;">PIN:</label><input style="font-size:18px; text-align: center;"/>
-                <br/>
-                <button class="submit-login-button" @click="submitLogin()">Access</button>
+                <form @submit.prevent="submitLogin()">
+                    <label style="display: inline-block; min-width:55px;">User:</label><input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
+                    <br/>
+                    <label style="display: inline-block; min-width:55px;">PIN:</label><input required  v-model="loginModal.loginData.pin" style="font-size:18px; text-align:center;"/>
+                    <br/>
+                    <button class="submit-login-button" type="submit">Access</button>
+                </form>                
             </section>
         </div>
-    </div>
+    </div>    
 
     <section style="text-align:center; margin:2%;">
         <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
         <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
     </section>
 
-    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>    
+    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>  
+    
+    <section>
+        <div id="live-chat">
+        <span v-for="(chat, index) in liveChat.chats" :key="index"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+        </div>
+        <form @submit.prevent="sendNewChat()">
+            <div style="display:flex; align-items: center; margin-top:6px; ">
+            <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
+            <button class="send-chat-button" type="submit">Send</button>
+        </div> 
+        </form>        
+    </section>      
 
 </template>
 
@@ -60,10 +73,24 @@ export default {
             },
             loginModal: {
                 toggle: false,
-                user: null
+                user: null,
+                loginData: {
+                    username: '',
+                    pin: ''
+                }
             },
             isPlaying: false,
-            showWinner: false
+            showWinner: false,
+            liveChat: {
+                chats: [
+                    {
+                        user: 'shazebs',
+                        message: 'Join the chat!',
+                        gender: 'M'
+                    }
+                ],
+                newChat: ''
+            }
         }
     },
     methods: {
@@ -73,7 +100,6 @@ export default {
                 client_id: 999
             };
             const data_string = JSON.stringify(data);
-
             if (this.connection.readyState === WebSocket.OPEN) {
                 this.connection.send(data_string);
             } else {
@@ -91,7 +117,8 @@ export default {
             this.loginModal.toggle = false;
         },
         submitLogin() {
-            alert('Sorry! This button doesn\'t work right now.');
+            this.loginModal.toggle = false;
+            console.log(this.loginModal.loginData);
         },
         async toggleFanfare() {
             await this.announceWinner();
@@ -110,12 +137,22 @@ export default {
                 message: 'announce-winner'
             };
             const data_string = JSON.stringify(data);
-
             if (this.connection.readyState === WebSocket.OPEN) {
                 this.connection.send(data_string);
             } else {
                 this.errors.disconnect = true;
             }   
+        },
+        sendNewChat() {
+            const data = {
+                action: 'new-chat',
+                user: 'shazebs',
+                message: this.liveChat.newChat,
+                gender: 'M'
+            };
+            const data_string = JSON.stringify(data);
+            this.connection.send(data_string);
+            this.liveChat.newChat = '';
         }
     },
     created() {
@@ -131,11 +168,19 @@ export default {
         this.connection.onmessage = (event) => {
             console.log(event);
             const data = JSON.parse(event.data);
+            console.log('data', data);
             //alert(data.message);
             if (data.message === 'announce-winner') {
                 this.showWinner = true;
             }
-            console.log(data);
+            else if (data.action === 'new-chat') {
+                const newChatData = {
+                    user: data.user,
+                    message: data.message,
+                    gender: data.gender
+                };
+                this.liveChat.chats.push(newChatData);
+            }
         }
 
         this.connection.onclose = (event) => {
@@ -146,7 +191,7 @@ export default {
             console.log('[websocket error]', error);
             this.errors.disconnect = true;
         }
-    }
+    },
 }
 </script>
 
@@ -221,7 +266,7 @@ export default {
 
     .login-modal-content {
         background-color: #fefefe;
-        margin: 25% auto;
+        margin: 15% auto;
         padding: 20px 20px;
         border: 1px solid #888;
         width: 80%;
@@ -248,6 +293,40 @@ export default {
             cursor:pointer;
         }
 
+    #live-chat {
+        border: 2px solid black;
+        border-radius: 5px; 
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        overflow-y: auto;
+        width: 100%;
+    }
+        #live-chat span {
+            padding:4px;
+        }
+
+    .chat-input {
+        border: 1px solid black;
+        border-radius: 5px; 
+        font-size: 16px;
+        padding: 2px 4px;
+        width: 100%;
+    }
+    .send-chat-button {
+        background: limegreen;
+        border-radius:5px; 
+        font-weight: bold;
+        padding: 3px 6px;
+    }
+
+    .male {
+        color:dodgerblue;
+    }
+    .female {
+        color:pink;
+    }
+
     .animate {
         animation-name: slideInRight; 
         animation-duration: 8s; 
@@ -258,6 +337,9 @@ export default {
             border-radius:1000px;
             width: 0px;
             opacity: 0;
+        }
+        80% {
+            opacity: 0.2;
         }
         100% {
             border-radius:8px;

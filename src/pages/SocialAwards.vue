@@ -41,7 +41,7 @@
         </div>
     </div>    
 
-    <section style="text-align:center; margin:2%;">
+    <section style="text-align:center; margin:1%;">
         <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
         <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
     </section>
@@ -50,7 +50,9 @@
     
     <section>
         <div id="live-chat">
-        <span v-for="(chat, index) in liveChat.chats" :key="index"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+        <transition-group name="chat" tag="section">
+            <section v-for="(chat, index) in liveChat.chats" :key="index"><span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span></section>
+        </transition-group>
         </div>
         <form @submit.prevent="sendNewChat()">
             <div style="display:flex; align-items: center; margin-top:6px; ">
@@ -302,7 +304,7 @@ export default {
         overflow-y: auto;
         width: 100%;
     }
-        #live-chat span {
+        #live-chat section {
             padding:4px;
         }
 
@@ -355,6 +357,14 @@ export default {
             transform: translateX(0);
             opacity: 1;  
         }*/
+    }
+    
+    .chat-enter-active, .chat-leave-active {
+        transition: all 0.5s ease;
+    }
+    .chat-enter-from, .chat-leave-to {
+        opacity: 0;
+        transform: translateX(30px);
     }
 
     @media(max-width:600px) {

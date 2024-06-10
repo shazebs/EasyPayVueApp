@@ -2,7 +2,8 @@ import { createStore } from 'vuex';
 
 const state = {
     user: null,
-    registerSuccess: ''
+    registerSuccess: '',
+    showNav: true
 };
 
 const store = new createStore({
@@ -13,6 +14,9 @@ const store = new createStore({
         },
         registerSuccess: (state) => {
             return state.registerSuccess;
+        },
+        showNav: (state) => {
+            return state.showNav;
         }
     },
     actions: {
@@ -22,6 +26,9 @@ const store = new createStore({
         registerSuccess(context, registerSuccess) {
             context.commit('registerSuccess', registerSuccess); 
         },
+        showNav(context, showNav) {
+            context.commit('showNav', showNav);
+        }
     },
     mutations: {
         user(state, user) {
@@ -30,6 +37,9 @@ const store = new createStore({
         registerSuccess(state, registerSuccess) {
             state.registerSuccess = registerSuccess;
         },
+        showNav(state, showNav) {
+            state.showNav = showNav;
+        }
     }
 });
 

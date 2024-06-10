@@ -11,12 +11,14 @@
             <span @click="closeError('disconnect')">&times;</span>
         </div>
 
-        <!-- User login buttons -->
-        <p>Choose your login:</p>
-        <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
-        <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
-        <br/>
-        <!--<button @click="sendMessage">Send Message</button>-->
+        <!-- User login buttons -->    
+        <div v-if="loginModal.loginStatus == null">
+            <p>Choose your login:</p>
+            <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
+            <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
+            <br/>
+        </div>
+    <!--<button @click="sendMessage">Send Message</button>-->
     </div>
 
     <!-- Login modal -->
@@ -24,16 +26,16 @@
         <div class="login-modal-content">
             <!-- header -->
             <section style="display:flex; justify-content: space-evenly; align-items: center; font-size:22px;">
-                <!-- title -->
+                <!-- Login modal title -->
                 <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">                 
                     <span v-if="loginModal.user === 'Host'" style="color:dodgerblue; font-weight:bolder;">{{ loginModal.user }} Login</span>
                     <span v-if="loginModal.user === 'Voter'" style="color:limegreen; font-weight:bolder;">{{ loginModal.user }} Login</span>
                 </section>
-                <!-- Close button -->
+                <!-- Login modal Close button -->
                 <section style="color:red;"><span @click="closeLoginModal()" class="modal-close-button">&times;</span></section>                
             </section>            
             <hr/>   
-            <!-- Login input form -->         
+            <!-- User login input form -->         
             <section style="text-align:center; font-size:20px; ">
                 <form @submit.prevent="submitLogin()">
                     <label style="display: inline-block; min-width:55px;">User:</label><input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
@@ -50,34 +52,44 @@
     <section style="text-align:center; margin:1%;">
         <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
         <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
-    </section>
-
-    <!-- Fanfare audio -->
-    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>  
+    </section>     
     
-    <!-- Live chat box -->
-    <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()">
-        <transition-group name="chat" tag="section">
-            <section v-for="(chat, index) in liveChat.chats" :key="index">
-                <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
-            </section>
-        </transition-group>
-    </div>
-    <!-- Chat input -->
-    <form @submit.prevent="sendNewChat()">
-        <div style="display:flex; align-items: center; margin-top:6px; ">
-            <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
-            <button class="send-chat-button" type="submit">Send</button>
-        </div> 
-    </form>     
+    <!-- Live chat container -->
+    <div v-if="loginModal.loginData.status">
+        <!-- Live chats -->
+        <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()">
+            <transition-group name="chat" tag="section">
+                <section v-for="(chat, index) in liveChat.chats" :key="index">
+                    <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+                </section>
+            </transition-group>
+        </div>
+        <!-- New chat input -->
+        <form @submit.prevent="sendNewChat()">
+            <div style="display:flex; align-items: center; margin-top:6px; ">
+                <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
+                <button class="send-chat-button" type="submit">Send</button>
+            </div> 
+        </form>     
+    </div>    
 
+    <!-- NOT IMPORTANT -->
+    <!-- Fanfare audio -->
+    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio> 
     <button @click="deleteChatExample()">Delete first chat test button</button>
+    <button @click="getVoterData()">Get Voter Data</button>
 
 </template>
 
 <script>
+//import axios from 'axios';
+import { mapState } from 'vuex';
+
 export default {
     name: 'SocialAwards',
+    computed: {
+        ...mapState(['showNav'])
+    },
     data() {
         return {
             connection: null,
@@ -89,7 +101,8 @@ export default {
                 user: null,
                 loginData: {
                     username: '',
-                    pin: ''
+                    pin: '',
+                    status: null
                 }
             },
             isPlaying: false,
@@ -187,11 +200,21 @@ export default {
                 this.liveChat.autoScroll = false;
             }
         },
+        getVoterData() {
+            const data = {
+                action: 'get-voters'
+            };
+            this.connection.send(JSON.stringify(data));
+        }
     },
     created() {
+        // Turn off navigation bar.
+        if (this.$route.path === '/awards')
+            this.$store.dispatch('showNav', false);
+
         console.log("Starting Connection to WebSocket Server");
-        //this.connection = new WebSocket('wss://localhost:7088/ws');
-        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
+        this.connection = new WebSocket('wss://localhost:7088/ws');
+        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event);
@@ -202,7 +225,6 @@ export default {
             //console.log(event);
             const data = JSON.parse(event.data);
             //console.log('data', data);
-            //alert(data.message);
             if (data.message === 'announce-winner') {
                 this.showWinner = true;
             }
@@ -218,6 +240,10 @@ export default {
                         this.scrollToBottom();
                     }
                 });
+            }
+            else if (data.includes('get-voters')) {
+                const parsedData = JSON.parse(data);
+                console.log('voter data', parsedData);
             }
         }
 

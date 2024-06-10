@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header v-if="showNav">
         <a href="/">Home</a>
         <router-link to="/login" v-if="!user">Login</router-link> 
         <router-link to="/signup" v-if="!user">Signup</router-link>
@@ -15,7 +15,7 @@ import { mapGetters } from 'vuex';
 export default {
     name: 'NavigationBar',    
     computed: {
-        ...mapGetters(['user'])
+        ...mapGetters(['user', 'showNav'])
     },
     methods: {
         handleLogout() {

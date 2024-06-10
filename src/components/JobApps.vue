@@ -11,10 +11,10 @@
     <!-- Num Rejections and Pending -->
     <h4 style="line-height: 1.6">
       Pending:
-      <span style="color: limegreen">{{ statistics.num_inprogress }}</span>
+      <span style="color: limegreen">{{ statistics.num_inprogress }}</span> ({{ ((statistics.num_inprogress / job_apps.length) * 100).toFixed(2) }}%)
       <br />
       Rejections:
-      <span style="color: red">{{ statistics.num_rejections }}</span>
+      <span style="color: red">{{ statistics.num_rejections }}</span> ({{ ((statistics.num_rejections / job_apps.length) * 100).toFixed(2) }}%)
     </h4>
 
     <!-- Daily applied count -->
@@ -451,8 +451,9 @@ export default {
             "3 years experience",
             "APIs",
           ],
-          d: true,
+          d: false,
           e: "5/8/2024",
+          f: ''
         },
         {
           a: "Orange County Water District | Fountain Valley, California",
@@ -468,8 +469,9 @@ export default {
             "3 years experience",
             "Web development",
           ],
-          d: true,
+          d: false,
           e: "5/8/2024",
+          f: '6/4/2024'
         },
         {
           a: "IBISWorld | Los Angeles, California",
@@ -1177,8 +1179,9 @@ export default {
           a: 'SpaceX | Hawthorne, California',
           b: 'Full Stack Software Engineer (Starlink Operations)',
           c: ['BS', '1+ years exp', 'OOP', 'Technical Documentation', 'Angular', 'React', 'Docker', 'Kubernetes', 'MS SQL', 'PostgreSQL', 'GIT'],
-          d: true,
-          e: '5/16/2024'
+          d: false,
+          e: '5/16/2024',
+          f: '6/4/2024'
         },
         {
           a: 'UCLA | Los Angeles, California',
@@ -1245,8 +1248,9 @@ export default {
             'Distributed Systems',
             'Scalable'
           ],
-          d: true,
-          e: '5/17/2024'
+          d: false,
+          e: '5/17/2024',
+          f: '6/4/2024'
         },
         {
           a: 'UCLA | Los Angeles, California',
@@ -1322,8 +1326,9 @@ export default {
             'Docker',
             'Spatial data modeling',
           ],
-          d: true,
-          e: '5/20/2024'
+          d: false,
+          e: '5/20/2024',
+          f: '6/1/2024'
         },
         {
           a: 'Socure | (Remote) United States',
@@ -1720,7 +1725,509 @@ export default {
           d: true,
           e: '5/29/2024',
           g: 'https://athene.wd5.myworkdayjobs.com/en-US/Apollo_Careers/userHome'
-        }
+        },
+        {
+          a: '.Net Software Developer | Florence, Alabama',
+          b: 'Advanced Information Technologies, Inc.',
+          c: [
+            'BS',
+            '1 year exp',
+            'OOP',
+            'Relational databases',
+            'MS SQL Server',
+            'HTTP',
+            'HTML',
+            'CSS',
+            'JS',
+            'Git'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'USC | Los Angeles, California',
+          b: 'Programmer Analyst I',
+          c: [
+            'BS',
+            '0-6 months exp',
+            'Programming and documentation knowledge',
+            'One or more computer programming languages'
+          ],
+          d: true,
+          e: '6/3/2024',
+          g: 'https://usc.wd5.myworkdayjobs.com/en-US/ExternalUSCCareers/userHome'
+        },
+        {
+          a: 'Rober Half | Santa Barbara, California',
+          b: '.NET Developer',
+          c: [
+            '.NET',
+            'ASP.NET',
+            'SQL Server',
+            'SDLC',
+            'GitHub',
+            'Blazor',
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Enterprise Mobility Inc | San Diego, California',
+          b: 'Backend Developer',
+          c: [
+            '4 to 5 years exp',
+            'Must know Spanish language',
+            'OOP',
+            'Springboot',
+            'Node JS',
+            'APIs',
+            'BS',
+            'Databases',
+            'Front-End'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Cambridge Associates LLC | Boston, Massachusetts',
+          b: 'Jr. Developer',
+          c: [
+            '0-2 years exp',
+            'HTML',
+            'Java',
+            'R',
+            'JDBC',
+            'JPA',
+            'Hibernate'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'New Relic | Atlanta, Georgia',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'HTML',
+            'CSS',
+            'Angular',
+            'React',
+            'HTTP',
+            'Test Automation',
+            'Mobile app development'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Outcomes Operating Inc | Dublin, Ohio',
+          b: 'Software Engineer I',
+          c: [
+            'Python',
+            'BS',
+            '1 year exp',
+            'AWS',
+            'Airflow',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Unit Tests'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Dot Foods, Inc. | Mount Sterling, Illinois',
+          b: 'Software Engineer - Warehouse',
+          c: [
+            'BS',
+            '2+ years exp',
+            '.NET',
+            'C#',
+            'COBOL',
+            'Node JS',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Angular',
+            'Jira'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'PayPal | San Jose, California',
+          b: 'Software Engineer - Recent Graduate',
+          c: [
+            'BS',
+            'Unit testing',
+            'Test automation',
+            'Continuous Integration',
+            'TCP/IP',
+            'Kafka',
+            'Java',
+            'Spring Framework',
+            'GIT',
+            'REST',
+            'Asynchronous',
+            'Cryptography',
+            'JS frameworks',
+            'TypeScript',
+            'Kotlin',
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Confluent | Austin, Texas',
+          b: 'Software Engineer',
+          c: [
+            '1+ years exp',
+            'BS',
+            'Go',
+            'C/C++',
+            'AWS',
+            'Azure',
+            'GCP',
+            'Operating Systems',
+            'Kubernetes',
+            'Terraform'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Teradyne | North Reading, Massachusetts',
+          b: 'Software Engineer',
+          c: [
+            '2-5 years exp',
+            'C++',
+            'C#',
+            '.NET',
+            'OOD',
+            'Python',
+            'JSON',
+            'BS',
+            'Internship exp',
+            'Agile',
+            'Git',
+            'Visual Studio',
+            'Windows/Linux',
+            'Data structures and Algorithms',
+          ],
+          d: false,
+          e: '6/3/2024',
+          f: '6/5/2024'
+        },
+        {
+          a: 'American Specialty Health Incorporated | Carmel, Indiana',
+          b: 'Associate Software Engineer',
+          c: [
+            'BS',
+            'OOD',
+            'ASP.Net',
+            'SQL Server',
+            'Agile',
+            'Scrum',
+            'VB.Net',
+            'C#',
+            '6 months exp',
+            'SQL queries',
+            'SDLC'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'EVONA | Colorado, United States',
+          b: 'Junior Backend Software Engineer',
+          c: [
+            'BS',
+            'Agile',
+            'Kanban',
+            'AWS',
+            'Python',
+            'C/C++',
+            'Rust',
+            'Docker',
+            'Kubernetes',
+            'SQL',
+            'NoSQL',
+            'Linux'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'UPS | Parsippany, New Jersey',
+          b: 'Software Development Engineer I',
+          c: [
+            '1-2 year exp',
+            'C#',
+            '.NET',
+            'Angular',
+            'HTML',
+            'SQL',
+            'PL/SQL',
+            'DevOps',
+            'CI/CD',
+            'Agile',
+            'Scrum',
+            'BS'
+          ],
+          d: true,
+          e: '6/3/2024',
+          g: 'https://hcmportal.wd5.myworkdayjobs.com/en-US/Search/userHome'
+        },
+        {
+          a: 'Lockheed Martin Corporation | King of Prussia, Pennsylvania',
+          b: 'Software Engineer - Early Career',
+          c: [
+            'Python',
+            'C++',
+            'Java',
+            'DevSecOps',
+            'BS',
+            'Docker',
+            'Kubernetes',
+            'Gitlab',
+            'MLOps Pipeline',
+            'CI/CD',
+            'C#',
+            'AWS',
+            'Azure',
+            'TS/SCI'
+          ],
+          d: true,
+          e: '6/3/2024',
+          g: 'https://sjobs.brassring.com/TGnewUI/ApplyWithPreLoad?partnerid=25037&siteid=5014&bruid=%5EL3wlJoBsW386AjCOrqxSsdJwb75CeQC%2FnsCJTlaN4fs%3D&reqid=762788&localeid=&tqid=300&aipid=0&pageid=0&noback=&ShowNewPolicy=False&wftype=-1#Applications'
+        },
+        {
+          a: 'DCS Corp | Belcamp, Maryland',
+          b: 'Junior Computer Engineer',
+          c: [
+            'Java',
+            'JavaScript',
+            'Python',
+            'Ruby',
+            'C#',
+            'Agile',
+            'BS',
+            'Secret Security clearance',
+            'C++',
+            'Perl'
+          ],
+          d: true,
+          e: '6/3/2024',
+          g: 'https://phh.tbe.taleo.net/phh04/ats/careers/v2/myJobs?org=DCSCORP2&cws=37'
+        },
+        {
+          a: 'McDonald\'s Corporation | Chicago, Illinois',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            'Java',
+            'C++',
+            'C#',
+            'OOD'
+          ],
+          d: true,
+          e: '6/3/2024'
+        },
+        {
+          a: 'Garmin | Chandler, Arizona',
+          b: 'Software Engineer 1 - Mobile Development',
+          c: [
+            'C',
+            'C++',
+            'C#',
+            'Java',
+            'Assembly language',
+            'BS',
+            '>3.0 GPA',
+            'Pilot certificate',
+            'Kotlin',
+            'SwiftUI',
+            'Objective-C'
+          ],
+          d: false,
+          e: '6/4/2024',
+          f: '6/6/2024'
+        },
+        {
+          a: 'San Diego Zoo Wildlife Alliance | San Diego, California',
+          b: 'Junior Web Developer',
+          c: [
+            'BS',
+            'HTML5',
+            'CSS3',
+            'SASS',
+            'JavaScript',
+            'PHP',
+            'Drupal template engine',
+            'APIs',
+          ],
+          d: false,
+          e: '6/4/2024',
+          f: '6/6/2024'
+        },
+        {
+          a: 'Collinwood Technology Partners | Frisco, Texas',
+          b: 'Junior .NET Developer',
+          c: [
+            '1-3 years exp',
+            '.NET',
+            '.NET Core',
+            'SDLC',
+            'REST APIs',
+            'Azure',
+            'Azure Functions',
+            'Logic Apps',
+            'BS',
+            'GIT',
+            'SQL queries',
+          ],
+          d: true,
+          e: '6/4/2024'
+        },
+        {
+          a: 'Fanatics | (Remote) United States',
+          b: 'Software Engineer I (Java/React)',
+          c: [
+            'Java',
+            'Spring Boot',
+            'Microservices',
+            'React framework',
+            'SCRUM',
+          ],
+          d: true,
+          e: '6/4/2024',
+          g: 'https://fa-exki-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile'
+        },
+        {
+          a: 'LightBox | Irvine, California',
+          b: 'Software Engineer',
+          c: [
+            'OOP',
+            'Data structures and algorithms',
+            'Multi-threaded and asynchronous programming',
+            'Angular',
+            'React',
+            'Vue',
+            'Java',
+            'Scala',
+            'Git',
+            'Gitlab',
+            'SVN',
+            'Python',
+            'TypeScript',
+            'JavaScript',
+            'Spring',
+            'FastAPI',
+            'Flask',
+            'AWS',
+            'Google Vision',
+            'Azure',
+            'Docker containerization and orchestration',
+            'PDF skills'
+          ],
+          d: true,
+          e: '6/5/2024'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Software Engineer (Space Operations)',
+          c: [
+            'BS',
+            '2+ years exp (internships and school projects qualify)',
+            'Python',
+            'JavaScript',
+            'HTML',
+            'CSS',
+            'LitElement',
+            'React',
+            'Angular',
+            'Flask',
+            'Django',
+            'FastAPI',
+            'SQL',
+            'Docker',
+            'CI/CD',
+            'API',
+            'HTTP',
+            'REST',
+          ],
+          d: false,
+          e: '6/5/2024',
+          f: '6/9/2024'
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'Software Development Engineer in Test I (SDET) - 3D Scene Layers',
+          c: [
+            '1+ years exp with C++ or C#',
+            'OOP',
+            'Test Cases',
+            'Selenium WebDriver',
+            'Appium',
+            'Junit',
+            'Cunit',
+            'Jenkins',
+            'Chef',
+            'BS',
+            'Problem-sovling skills to resolve software issues',
+            'XUnit',
+            'JSON',
+            'REST',
+            'JavaScript',
+            '3D visualization',
+            'Esri ArcGIS',
+            'DevOps',
+            'Microsoft Unit Testing Framework',
+          ],
+          d: true,
+          e: '6/9/2024'
+        },
+        {
+          a: 'hangzzz | Los Angeles, California',
+          b: 'Full Stack Developer & Cofounder for Startup',
+          c: [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'React',
+            'Angular',
+            'Node.js',
+            'Python',
+            'Ruby',
+            'Java',
+            'SQL',
+            'NoSQL',
+            'AWS',
+            'Google Cloud',
+            'Git',
+            'GitHub'
+          ],
+          d: true,
+          e: '6/9/2024'
+        },
+        {
+          a: 'Twitch Interactive, Inc. | Seattle, Washington',
+          b: 'Software Engineer - Identity',
+          c: [
+            '1+ years of non-internship exp',
+            'BS',
+            '2+ years working in Service Oriented Architectures',
+            'Authentication',
+            'Authorization',
+            'Federated Identity',
+            'Identity Management',
+            'Data Privacy Management'
+          ],
+          d: true,
+          e: '6/9/2024'
+        },
+
       ],
       preferred_companies: [
         "SpaceX",

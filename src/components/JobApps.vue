@@ -2,10 +2,9 @@
   <div>
     <!-- Title -->
     <h2 style="text-align: center">
-      Software Job Applications Tracker (<span style="color: limegreen">{{
-        job_apps.length
-      }}</span>
-      applied)
+      Software Job Applications Tracker<br/>
+      (<span style="color: limegreen">{{ job_apps.length }}</span> applied over <span style="color:red;">{{ numberOfDays }}</span> days)<br/>
+      (<span style="color:mediumorchid;">{{ appliesPerDay }}</span> applied per day)
     </h2>
 
     <!-- Num Rejections and Pending -->
@@ -57,6 +56,8 @@ export default {
   data() {
     return {
       job_map: null,
+      numberOfDays: 0,
+      appliesPerDay: 0,
       statistics: {
         num_rejections: 0,
         num_inprogress: 0,
@@ -1671,7 +1672,10 @@ export default {
             'Desire to learn code',
           ],
           d: true,
-          e: '5/28/2024'
+          e: '5/28/2024',
+          h: [
+            'Java Software Engineer'
+          ]
         },
         {
           a: 'Wayfair | Austin, Texas',
@@ -2224,10 +2228,593 @@ export default {
             'Identity Management',
             'Data Privacy Management'
           ],
-          d: true,
-          e: '6/9/2024'
+          d: false,
+          e: '6/9/2024',
+          f: '6/11/2024',
+          g: 'https://account.amazon.jobs/en-US'
         },
-
+        {
+          a: 'Confluent | Austin, Texas (Remote)',
+          b: 'Software Engineer',
+          c: [
+            'BS graduate 2023 January - June 2024',
+            'Java',
+            'C++',
+            'C',
+            'Python',
+            'Go',
+            'Interested in building large scale distributed systems',
+            'Data structures and algorithms'
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: "DoorDash | New York, New York",
+          b: 'Software Engineer, Backend (All Levels / All Teams)',
+          c: [
+            'BS',
+            'REST API',
+            'HTTP',
+            'SQL',
+            'NoSQL',
+            'Postgres',
+            'Redis',
+            'ElasticSearch',
+            'RabbitMQ',
+            'Unit Testing'
+          ], 
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'Reli | Cerritos, California',
+          b: 'Junior Software Developer (Hybrid Remote)',
+          c: [
+            'BS',
+            'Python',
+            'eCommerce',
+            'Generate scripts',
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'Joinrs US | (Remote) United States',
+          b: 'Full Stack Developer [Full Remote]',
+          c: [
+            'Frontend and Backend development',
+            'Collaboration in Software Architecture',
+            'Performance Optimization',
+            'API Integration and Web Services',
+            'Security in Development',
+            'Testing and Debugging',
+            'Research and Technological development'
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'SkillStorm | Battle Creek, Michigan',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS',
+            '1 year exp',
+            'Java',
+            'C#',
+            'OOP',
+            'SQL',
+            'Data structures and algorithms',
+            'Ability to obtain Secret Clearance',
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'BeaconFire, Inc. | New York, United States',
+          b: 'Java Software Engineer',
+          c: [
+            'Java',
+            'JavaScript',
+            'OOP',
+            'SQL Server',
+            'Oracle',
+            'APIs',
+            'SDLC',
+            'MS',
+            '0-1 year Java coding',
+            'Spring',
+            'Maven',
+            'Angular',
+            'HTML',
+            'CSS',
+            'RabbitMQ',
+            'JDBC',
+            'Tomcat',
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'First Class Appliance Repair | Los Angeles, California',
+          b: 'Expreienced .NET Developer (Entry Level)',
+          c: [
+            'BS',
+            '.NET',
+            'C#',
+            'ASP.NET',
+            'MVC',
+            'SQL Server',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Agile',
+            'Waterfall'
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'J.B. Hunt Transport Services, Inc. | Lowell, Arkansas',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            'Java',
+            'JavaScript',
+            'TypeScript',
+            'CI/CD',
+            'Troubleshoot Bugs'
+          ],
+          d: true,
+          e: '6/10/2024',
+          g: 'https://jbhunt.wd5.myworkdayjobs.com/en-US/Careers/userHome'
+        },
+        {
+          a: 'Toast | Ontario, Oregon',
+          b: 'Software Engineer II',
+          c: [
+            'OOP',
+            'Full-Stack',
+            'Logging and Metrics',
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'Dexian Inc | San Francisco, California',
+          b: 'F1-OPT Junior Web Developer',
+          c: [
+            'BS',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Bootstrap',
+            'Git',
+            'Responsive web design'
+          ],
+          d: true,
+          e: '6/10/2024'
+        },
+        {
+          a: 'Almo Corporation | Philadelphia, Pennsylvania',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '0-3 years exp',
+            'C#',
+            'Java',
+            'Data structures and Algorithms',
+            'Vault version control',
+          ],
+          d: true,
+          e: '6/10/2024',
+          g: 'https://www.linkedin.com/jobs/view/3945772858/'
+        },
+        {
+          a: 'Sandalwood Engineering & Ergonomics | Redford, Michigan',
+          b: 'Full Stack Developer',
+          c: [
+            'Strong software development background',
+            'C#',
+            'Node.js',
+            'Angular',
+            'CSS',
+            'BS',
+          ],
+          d: true,
+          e: '6/10/2024',
+          g: 'https://www.indeed.com/cmp/Sandalwood-Engineering-&-Ergonomics/jobs?jk=cc074dbe491df599&start=0'
+        },
+        {
+          a: 'Boyd Watterson Asset Management | Cleveland, Ohio',
+          b: 'Junior Programmer Analyst',
+          c: [
+            'BS',
+            'Delphi in a client server',
+            'SQL',
+            'Customer Service skills',
+            'Detail-oriented with strong analytical skills',
+            'Abilitiy to prioritize multiple tasks',
+            'Excellent organization skills'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.indeed.com/cmp/Boyd-Watterson-Asset-Management/jobs?start=0'
+        },
+        {
+          a: 'Los Angeles Community College District | Los Angeles, California',
+          b: 'Applications Developer/Programmer',
+          c: [
+            'BS',
+            'Java',
+            '.Net',
+            'C++',
+            'C#',
+            'PHP',
+            'Python is preferred',
+            '2 years exp'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.indeed.com/cmp/Los-Angeles-Community-College-District/jobs?jk=a7131f5f81f2a477&start=0'
+        },
+        {
+          a: 'Prelim | Los Angeles, California',
+          b: 'Software Engineer In Test (LA Remote)',
+          c: [
+            'Selenium',
+            'Playwright',
+            'JavaScript',
+            'Excellent analytical and problem-solving skills',
+            'Strong attention to detail and a commitment to delivering high-quality software',
+            'Excellent communication and teamwork skills',
+            'Regression testing',
+            'SDLC'
+          ],
+          d: true,
+          e: '6/10/2024',
+          g: 'https://www.indeed.com/cmp/Prelim/jobs'
+        },
+        {
+          a: 'Triller Platform Co | Los Angeles, California',
+          b: 'Jr. Developer - UI/UX',
+          c: [
+            'Use your influence to identify and pursue user-centric outcomes within and across products',
+            'Create design deliverables representative of the design process phase – such as journey maps, wireframes, user flows, UI design and prototypes',
+            'Effectively facilitate multiple cross functional working teams and collaborate across multiple design and product teams',
+            'Develop and contribute to UX strategy and vision for product experiences across digital platforms – influencing investment, collaborations, and the balance of new vs. Iteration',
+          ],
+          d: true,
+          e: '6/11/2024',
+        },
+        {
+          a: 'Logix Federal Credit Union | Valencia, California',
+          b: 'Software Engineer Senior (Full Time Hybrid, CA)',
+          c: [
+            'BS',
+            '5+ years exp',
+            '.NET Framework/Core',
+            'WCF',
+            'microservices',
+            'JavaScript',
+            'JSON',
+            'XML',
+            'Development with SQL Server databases, views, triggers, and stored procedures',
+            'Candidates for this position must provide a recent code sample in ASP.Net or C#'
+          ],
+          d: true,
+          e: '6/11/2024'
+        },
+        {
+          a: 'Europe HR Solutions | (Remote) United States',
+          b: 'Software Engineer for Biotronics3D USA',
+          c: [
+            'BS',
+            'Excellent problem-solving abilities',
+            'Strong organizational and time management skills',
+            'Meticulous attention to detail',
+            'High sense of responsibility and accountability',
+            'Effective communication tailored to various audiences and situations',
+            'Proficiency in .NET and C# development',
+            'Experience with web services security and deployment.',
+            'Familiarity with Azure DevOps Pipelines.',
+            'Expertise in React and TypeScript.',
+            'Knowledge of SQL Server.',
+            'Experience with Agile methodology (Scrum).',
+            'Competence in unit testing.',
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947602946/?alternateChannel=search&refId=4TorL8CLM9n7qolbX8Mlww%3D%3D&trackingId=SRdPufBJK%2FYsGnOkThk19w%3D%3D'
+        },
+        {
+          a: 'Bright Digital Solutions | Los Angeles, California',
+          b: 'Software Engineer (Remote)',
+          c: [
+            'BS',
+            'Java',
+            'Python',
+            'C++',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'React',
+            'Angular',
+            'Data structures and algorithms'
+          ],
+          d: true,
+          e: '6/11/2024'
+        },
+        {
+          a: 'Brillio | (Remote) United States',
+          b: 'NodeJS Backend Developer',
+          c: [
+            'Docker',
+            'Express',
+            'Java',
+            'Spring Boot',
+            'RDBMS',
+            'Typescript',
+            'Nestjs',
+            'jQuery',
+            'MongoDB',
+            'JavaScript (ES6)',
+            'React JS',
+            'Angular JS',
+            'HTML',
+            'CSS'
+          ],
+          d: true,
+          e: '6/11/2024'
+        },
+        {
+          a: 'Career Movement | Los Angeles, California',
+          b: 'Dotnet Developer',
+          c: [
+            'Create and integrate new API\'s',
+            'Troubleshoot, maintain, and enhance existing applications',
+            'Write SQL queries',
+            'C# and .NET',
+            'Web API\'s',
+            'SQL',
+            'Cloud Services'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947414539/?alternateChannel=search&refId=qzFnp3Dv%2BkwWpwlj%2FWCjRA%3D%3D&trackingId=xLSERNj29gTuXmGpR8Evxg%3D%3D&trk=d_flagship3_job_details'
+        },
+        {
+          a: 'Acushnet Company | Carlsbad, California',
+          b: 'Programmer Technician | Titleist',
+          c: [
+            'High school diploma or equivalent required',
+            'A minimum of one year experience modifying programs with VBA and/or SQL is required',
+            'Must have demonstrated troubleshooting skills as it pertains to the necessary databases'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://eiro.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile'
+        },
+        {
+          a: 'Gannett | USA TODAY NETWORK | (Remote) United States',
+          b: 'Website Developer',
+          c: [
+            'Experience in Website Development',
+            'BS',
+            'HTML/HTML5',
+            'CSS/CSS3',
+            'JavaScript',
+            'jQuery',
+            'WordPress',
+            'GIT',
+            'Kanban',
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947177128/?alternateChannel=search&refId=qzFnp3Dv%2BkwWpwlj%2FWCjRA%3D%3D&trackingId=%2Fjdq2bO2MXqKqX5wmwwYGg%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Piper Companies | (Remote) United States',
+          b: 'Backend Software Engineer',
+          c: [
+            '2+ years exp as Database Adminstrator',
+            '1 year exp of SQL Server T-SQL development/programming',
+            'Agile',
+            'SCRUM',
+            'GIT',
+            'BS'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3943032925/?alternateChannel=search&refId=uIFO8uGHLd%2F1bZCwM%2FNJjw%3D%3D&trackingId=zRlNI0z7ebDwpcoAZ8%2B47w%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'State Farm | Tempe, Arizona',
+          b: 'Software Engineer',
+          c: [
+            '.NET',
+            'C#',
+            'ASP.NET',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'SQL Server',
+            'API',
+            'DevOps',
+            'Agile',
+            'AWS'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3943095847/?alternateChannel=search&refId=%2FLvEr3xh%2BAVyC6sYlyfkSg%3D%3D&trackingId=Xt%2B1rgoCsrbLhpMDJf%2BnGg%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'ONE (Open Network Exchange) | Scottsdale, Arizona',
+          b: 'Data Engineer (On-site Scottsdale AZ)',
+          c: [
+            'BS',
+            'SQL',
+            'Python',
+            'Java',
+            'Scala',
+            'AWS',
+            'Azure',
+            'GCP',
+            'Hadoop',
+            'Spark',
+            'ETL processes'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3943043800/?alternateChannel=search&refId=zImN8iUpN7RoZ5607v5KZA%3D%3D&trackingId=az3DTgxASO7JD5u6msASbA%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Epic | Fresno, California',
+          b: 'Web Developer',
+          c: [
+            'BS'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3945917833/?alternateChannel=search&refId=dP55sD4vzsrFaC0rCOiAeA%3D%3D&trackingId=h3%2BNMfYlU9kNwZ9IGi6aVQ%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Codeium | Mountain View, California',
+          b: 'Software Engineer',
+          c: [
+            'Python',
+            'C++',
+            'Go',
+            'TypeScript',
+            'Copilot',
+            'ChatGPT',
+            'AI/ML',
+            'Ability to learn and become an expert quickly'
+          ],
+          d: false,
+          e: '6/11/2024',
+          f: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947627004/?alternateChannel=search&refId=MsHcQa%2F92f0eQD4XJd4qwQ%3D%3D&trackingId=rqeE6%2FdNzy62ZtkQa%2BwOTw%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Synapse | San Francisco, California',
+          b: 'Software Engineer',
+          c: [
+            'Builds AI support experiences for large enterprises and fast growing startups like Eventbrite, ClassPass, Substack, Rippling, BILT, etc'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3945989274/?alternateChannel=search&refId=MsHcQa%2F92f0eQD4XJd4qwQ%3D%3D&trackingId=iqbz5JfmnP8OyQX5Wm0Jvg%3D%3D&trk=d_flagship3_postapply_immediate_premium'
+        },
+        {
+          a: 'Aditi Consulting | Sunnyvale, California',
+          b: 'Systems Engineer II',
+          c: [
+            '0-2 years of experience (Academia or Post Grad - any industry)- degree in life sciences or math preferred',
+            'BS',
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3945788316/?alternateChannel=search&refId=bF6f3lMzT0NQ3AbDHgHF4w%3D%3D&trackingId=C%2FicD0O5SBeUhnSftWcUJw%3D%3D&trk=d_flagship3_postapply_default_confirmation'
+        },
+        {
+          a: 'Vellum | San Francisco, California',
+          b: 'Software Engineer - Backend / Fullstack',
+          c: [
+            'Google Cloud Platform',
+            'Postgres',
+            'Python',
+            'Django',
+            'Flask',
+            'Typescript',
+            'React'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3945768508/?alternateChannel=search&refId=bF6f3lMzT0NQ3AbDHgHF4w%3D%3D&trackingId=T6hUrh%2Bq9BRUljZhXrVQqA%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Sleeper | Las Vegas, New Mexico',
+          b: 'Senior Front-End Web Engineer',
+          c: [
+            '5+ years exp',
+            'Proven ability to develop and implement algorithms or systems in a professional setting, with strong coding skills in Javascript and strong a web technologies skillset',
+            'Highly proactive, with a track record of building processes from scratch and a willingness to challenge traditional risk management paradigms'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947130788/?alternateChannel=search&refId=HRoqW3rjt0Lkx2yW8A5S2A%3D%3D&trackingId=n2%2FQqjCtmmKSf8JaonxVxg%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Actalent | Aurora, Colorado',
+          b: 'Fullstack Software Engineer',
+          c: [
+            '2+ years of Java, C++, or Python 2+ years of JavaScript or TypeScript Experience with React, Spring Boot or Dockerwinnin Experience with DevSecOps and Agile Scrum software development methodology including using tools like Git, Jira and Confluence Experience creating software tests to verify functionality and quality',
+            'Kubernetes'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3947644427/?alternateChannel=search&refId=B1uIYg9E2JqPS5ZJ9U1yPg%3D%3D&trackingId=3nd1gS3gToh%2FPXbM6PiKrw%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Interclypse | Aurora, Colorado',
+          b: 'Software Engineer',
+          c: [
+            'Java/JavaScript',
+            'Spring Framework',
+            'React/React Native/VueJS/EmberJS',
+            'C#/JavaScript',
+            'ASP.NET/.NET Core',
+            'MSSQL/MongoDB'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3946464378/?alternateChannel=search&refId=B1uIYg9E2JqPS5ZJ9U1yPg%3D%3D&trackingId=GRZ3AJQUG2WfUmTi6KZ9nQ%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'TEKsystems | Westlake, Texas',
+          b: 'Full Stack Engineer 60/40',
+          c: [
+            'Java 30%',
+            '70% Angular',
+            'Building SPA\'s from scratch (should\'ve built more than 10 in their career)',
+            'AWS',
+            'Unit Testing'
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3946449540/?alternateChannel=search&refId=SQrKQSWppJGrbN%2BfkiOnTw%3D%3D&trackingId=%2Bw89IIxIhumFGzUI3vd3zA%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Veranex | Orange, California',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Proficiency or knowledge of SOME/NOT ALL the following technologies (JavaScript, Java, C++. C#, HTML/CSS, TypeScript, SQL, Python, Go), Open-Source RDBMS, NoSQL databases, Docker, Kubernetes, AWS tools, and services',
+            'Willingness to work on medical device software in a consulting environment which requires you to work on 2-3 different projects at the same time (and be able to “switch hats” several times during the week).',
+            ' 1 + years of experience in Medical Devices or other Safety Critical software or related field. Proficiency in creating test cases using C++, GTest and GMock framework, or a similar framework.',
+          ],
+          d: true,
+          e: '6/11/2024',
+          g: 'https://www.linkedin.com/jobs/view/3946912391/?alternateChannel=search&refId=Zwy6k%2FjHbSLqGeEiF8i%2Bbg%3D%3D&trackingId=h1XtLaSeZxVORqePA2PSkg%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Cox Automotive Inc. | Austin, Texas',
+          b: 'Software Engineer I',
+          c: [
+            '18 months exp in object-oriented programming (C#, Java, C++, or similar), in a job or through schoolwork',
+            'BS',
+            'SQL',
+            'Cloud experience'
+          ],
+          d: true,
+          e: '6/12/2024',
+          g: [
+            'https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome',
+            'https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome'
+          ]
+        }
       ],
       preferred_companies: [
         "SpaceX",
@@ -2248,15 +2835,20 @@ export default {
         // count inprogress and rejections
         if (job.d) this.statistics.num_inprogress++;
         else this.statistics.num_rejections++;
+
         // count daily jobs applied
-        if (job.e in hash_map) hash_map[job.e]++;
-        else if (job.e !== undefined) hash_map[job.e] = 1;
+        if (job.e in hash_map) 
+          hash_map[job.e]++;
+        else if (job.e !== undefined) 
+          hash_map[job.e] = 1;
       }
       return hash_map;
     },
   },
   mounted() {
     this.job_map = this.getAppliedVsRejectedStatistics();
+    this.numberOfDays = Object.keys(this.job_map).length;
+    this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
   },
 };
 </script>

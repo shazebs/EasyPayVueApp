@@ -149,13 +149,17 @@ export default {
             };
             try {
                 const loginResponse = await axios.post('login-user', data);
-                this.loginModal.loginData.username = loginResponse.data.user_name;
-                this.loginModal.loginData.status = loginResponse.data.user_type;
-                this.loginModal.loginData.id = loginResponse.data.user_id;
-
-                this.liveChat.newChat = 'Joined the chat!';
-                this.sendNewChat();
-                console.log('loginResponse', loginResponse.data);
+                if (loginResponse.data.user_id === -1) {
+                    alert('Invalid Login! Try again.'); 
+                } 
+                else {
+                    this.loginModal.loginData.username = loginResponse.data.user_name;
+                    this.loginModal.loginData.status = loginResponse.data.user_type;
+                    this.loginModal.loginData.id = loginResponse.data.user_id;
+                    this.liveChat.newChat = 'Joined the chat!';
+                    this.sendNewChat();
+                    console.log('loginResponse', loginResponse.data);
+                }                
             }
             catch (error) {
                 alert(`[ERROR]: ${error.data.message}`);
@@ -228,8 +232,8 @@ export default {
             this.$store.dispatch('showNav', false);
 
         console.log("Starting Connection to WebSocket Server");
-        //this.connection = new WebSocket('wss://localhost:7088/ws');
-        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
+        this.connection = new WebSocket('wss://localhost:7088/ws');
+        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event);
@@ -239,7 +243,7 @@ export default {
         this.connection.onmessage = (event) => {
             //console.log(event);
             const data = JSON.parse(event.data);
-            //console.log('data', data);
+            //console.log('onmessage data', data);
             if (data.message === 'announce-winner') {
                 this.showWinner = true;
             }

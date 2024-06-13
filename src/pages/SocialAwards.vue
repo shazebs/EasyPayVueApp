@@ -105,7 +105,8 @@ export default {
                     username: '',
                     pin: '',
                     status: null,
-                    id: null
+                    id: null,
+                    gender: null
                 }
             },
             isPlaying: false,
@@ -232,8 +233,8 @@ export default {
             this.$store.dispatch('showNav', false);
 
         console.log("Starting Connection to WebSocket Server");
-        this.connection = new WebSocket('wss://localhost:7088/ws');
-        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
+        //this.connection = new WebSocket('wss://localhost:7088/ws');
+        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event);

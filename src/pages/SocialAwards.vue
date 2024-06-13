@@ -3,6 +3,10 @@
         <!-- Social awards title -->
         <h1 class="social-awards-title"><span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span></h1>
 
+        <!-- User login status -->
+        <h3 v-if="loginModal.loginData.status == 'Host'">Host <span style="color:limegreen;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+        <h3 v-if="loginModal.loginData.status == 'Voter'">Voter <span style="color:red;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+
         <!-- Disconnection error message -->
         <div class="error-message" v-if="errors.disconnect" :class="{'slide-in': errors.disconnect}">
             <span></span>
@@ -12,13 +16,12 @@
         </div>
 
         <!-- User login buttons -->    
-        <div v-if="loginModal.loginStatus == null">
+        <div v-if="loginModal.loginData.status == null">
             <p>Choose your login:</p>
             <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
             <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
             <br/>
         </div>
-    <!--<button @click="sendMessage">Send Message</button>-->
     </div>
 
     <!-- Login modal -->
@@ -46,16 +49,10 @@
                 </form>                
             </section>
         </div>
-    </div>    
-
-    <!-- Announce winner button -->
-    <section style="text-align:center; margin:1%;">
-        <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/><br/>
-        <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
-    </section>     
+    </div>         
     
     <!-- Live chat container -->
-    <div v-if="loginModal.loginData.status">
+    <div v-if="loginModal.loginData.status != null">
         <!-- Live chats -->
         <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()">
             <transition-group name="chat" tag="section">
@@ -76,13 +73,18 @@
     <!-- NOT IMPORTANT -->
     <!-- Fanfare audio -->
     <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio> 
+    <!--
+    <section style="text-align:center; margin:1%;">
+        <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/>
+        <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
+    </section>
     <button @click="deleteChatExample()">Delete first chat test button</button>
     <button @click="getVoterData()">Get Voter Data</button>
-
+    -->
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 import { mapState } from 'vuex';
 
 export default {
@@ -102,19 +104,14 @@ export default {
                 loginData: {
                     username: '',
                     pin: '',
-                    status: null
+                    status: null,
+                    id: null
                 }
             },
             isPlaying: false,
             showWinner: false,
             liveChat: {
-                chats: [
-                    {
-                        user: 'shazebs',
-                        message: 'Join the chat!',
-                        gender: 'M'
-                    }
-                ],
+                chats: [],
                 newChat: '',
                 autoScroll: true,
             }
@@ -143,9 +140,26 @@ export default {
         closeLoginModal() {
             this.loginModal.toggle = false;
         },
-        submitLogin() {
+        async submitLogin() {
             this.loginModal.toggle = false;
-            console.log(this.loginModal.loginData);
+            const data = {
+                user_name: this.loginModal.loginData.username,
+                user_key: this.loginModal.loginData.pin,
+                user_type: this.loginModal.user
+            };
+            try {
+                const loginResponse = await axios.post('login-user', data);
+                this.loginModal.loginData.username = loginResponse.data.user_name;
+                this.loginModal.loginData.status = loginResponse.data.user_type;
+                this.loginModal.loginData.id = loginResponse.data.user_id;
+
+                this.liveChat.newChat = 'Joined the chat!';
+                this.sendNewChat();
+                console.log('loginResponse', loginResponse.data);
+            }
+            catch (error) {
+                alert(`[ERROR]: ${error.data.message}`);
+            }
         },
         async toggleFanfare() {
             await this.announceWinner();
@@ -173,9 +187,9 @@ export default {
         sendNewChat() {
             const data = {
                 action: 'new-chat',
-                user: 'shazebs',
+                user: this.loginModal.loginData.username,
                 message: this.liveChat.newChat,
-                gender: 'M'
+                user_id: this.loginModal.loginData.id
             };
             const data_string = JSON.stringify(data);
             this.connection.send(data_string);
@@ -196,7 +210,8 @@ export default {
             const height = chatContainer.scrollHeight;
             if (position >= height - threshold) {
                 this.liveChat.autoScroll = true;
-            } else {
+            } 
+            else {
                 this.liveChat.autoScroll = false;
             }
         },
@@ -213,8 +228,8 @@ export default {
             this.$store.dispatch('showNav', false);
 
         console.log("Starting Connection to WebSocket Server");
-        this.connection = new WebSocket('wss://localhost:7088/ws');
-        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
+        //this.connection = new WebSocket('wss://localhost:7088/ws');
+        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event);
@@ -246,11 +261,9 @@ export default {
                 console.log('voter data', parsedData);
             }
         }
-
         this.connection.onclose = (event) => {
             console.log(event);
         }
-
         this.connection.onerror = (error) => {
             console.log('[websocket error]', error);
             this.errors.disconnect = true;

@@ -81,6 +81,7 @@ export default {
             this.getUserCatalog();
         }
         // if username param DNE and user not logged in
+        /*
         else {
             try {
                 const response = await axios.get("sellers"); 
@@ -90,7 +91,7 @@ export default {
             catch (error) {
                 alert(error.response.data.message); 
             }
-        }
+        }*/
     },
     methods: {
         async checkoutItem(item) {

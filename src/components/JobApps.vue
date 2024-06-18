@@ -1618,8 +1618,9 @@ export default {
             'Waterfall',
             'Code reviews',
           ],
-          d: true,
-          e: '5/21/2024'
+          d: false,
+          e: '5/21/2024',
+          f: '6/12/2024',
         },
         {
           a: 'TikTok | San Jose, California',
@@ -1856,8 +1857,9 @@ export default {
             'Angular',
             'Jira'
           ],
-          d: true,
-          e: '6/3/2024'
+          d: false,
+          e: '6/3/2024',
+          f: '6/16/2024'
         },
         {
           a: 'PayPal | San Jose, California',
@@ -1879,8 +1881,9 @@ export default {
             'TypeScript',
             'Kotlin',
           ],
-          d: true,
-          e: '6/3/2024'
+          d: false,
+          e: '6/3/2024',
+          f: '6/12/2024'
         },
         {
           a: 'Confluent | Austin, Texas',
@@ -2189,8 +2192,9 @@ export default {
             'DevOps',
             'Microsoft Unit Testing Framework',
           ],
-          d: true,
-          e: '6/9/2024'
+          d: false,
+          e: '6/9/2024',
+          f: '6/12/2024'
         },
         {
           a: 'hangzzz | Los Angeles, California',
@@ -2276,8 +2280,9 @@ export default {
             'eCommerce',
             'Generate scripts',
           ],
-          d: true,
-          e: '6/10/2024'
+          d: false,
+          e: '6/10/2024',
+          f: '6/13/2024',
         },
         {
           a: 'Joinrs US | (Remote) United States',
@@ -2365,8 +2370,9 @@ export default {
             'CI/CD',
             'Troubleshoot Bugs'
           ],
-          d: true,
+          d: false,
           e: '6/10/2024',
+          f: '6/14/2024',
           g: 'https://jbhunt.wd5.myworkdayjobs.com/en-US/Careers/userHome'
         },
         {
@@ -2741,8 +2747,9 @@ export default {
             'Proven ability to develop and implement algorithms or systems in a professional setting, with strong coding skills in Javascript and strong a web technologies skillset',
             'Highly proactive, with a track record of building processes from scratch and a willingness to challenge traditional risk management paradigms'
           ],
-          d: true,
+          d: false,
           e: '6/11/2024',
+          f: '6/14/2024',
           g: 'https://www.linkedin.com/jobs/view/3947130788/?alternateChannel=search&refId=HRoqW3rjt0Lkx2yW8A5S2A%3D%3D&trackingId=n2%2FQqjCtmmKSf8JaonxVxg%3D%3D&trk=d_flagship3_search_srp_jobs'
         },
         {
@@ -2767,8 +2774,9 @@ export default {
             'ASP.NET/.NET Core',
             'MSSQL/MongoDB'
           ],
-          d: true,
+          d: false,
           e: '6/11/2024',
+          f: '6/14/2024',
           g: 'https://www.linkedin.com/jobs/view/3946464378/?alternateChannel=search&refId=B1uIYg9E2JqPS5ZJ9U1yPg%3D%3D&trackingId=GRZ3AJQUG2WfUmTi6KZ9nQ%3D%3D&trk=d_flagship3_search_srp_jobs'
         },
         {
@@ -2808,8 +2816,9 @@ export default {
             'SQL',
             'Cloud experience'
           ],
-          d: true,
+          d: false,
           e: '6/12/2024',
+          f: '6/',
           g: [
             'https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome',
             'https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome'
@@ -2833,9 +2842,11 @@ export default {
       var hash_map = {};
       for (const job of this.job_apps) {
         // count inprogress and rejections
-        if (job.d) this.statistics.num_inprogress++;
-        else this.statistics.num_rejections++;
-
+        if (job.d) 
+          this.statistics.num_inprogress++;
+        else 
+          this.statistics.num_rejections++;
+        
         // count daily jobs applied
         if (job.e in hash_map) 
           hash_map[job.e]++;

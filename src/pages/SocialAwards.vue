@@ -160,10 +160,23 @@ export default {
                     this.liveChat.newChat = 'Joined the chat!';
                     this.sendNewChat();
                     console.log('loginResponse', loginResponse.data);
+
+                    this.getChatHistory();
                 }                
             }
             catch (error) {
                 alert(`[ERROR]: ${error.data.message}`);
+            }
+        },
+        async getChatHistory() {
+            try {
+                const response = await axios.get('live-chats');
+                console.log('chat history', response.data);
+                this.liveChat.chats = response.data.chats;
+            }
+            catch (error) {
+                alert(`[error] ${error.response.data.message}`);
+                //alert(error.data.message);
             }
         },
         async toggleFanfare() {
@@ -232,13 +245,13 @@ export default {
         if (this.$route.path === '/awards')
             this.$store.dispatch('showNav', false);
 
-        console.log("Starting Connection to WebSocket Server");
+        console.log("[1] Starting Connection to Social Awards WebSocket Server...");
         //this.connection = new WebSocket('wss://localhost:7088/ws');
         this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event);
-            console.log("Successfully connected to WebSocket.");
+            console.log("[2] ...Successfully connected to Social Awards WebSocket.");
         }
 
         this.connection.onmessage = (event) => {
@@ -412,7 +425,7 @@ export default {
         color:dodgerblue;
     }
     .female {
-        color:pink;
+        color:hotpink;
     }
 
     .animate {

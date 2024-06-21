@@ -329,9 +329,9 @@ export default {
 
         console.log("[1] Starting Connection to Social Awards WebSocket Server..."); // debug
 
-        this.connection = new WebSocket('wss://localhost:7088/ws'); // dev
+        //this.connection = new WebSocket('wss://localhost:7088/ws'); // dev
 
-        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws'); // prod
+        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws'); // prod
 
         this.connection.onopen = (/*event*/) => {
             //console.log(event); // debug

@@ -1,28 +1,60 @@
 <template>
-    <div style="text-align:center; ">
-        <!-- Social awards title -->
-        <h1 class="social-awards-title"><span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span></h1>
+<div id="social-awards-page" :class="pageLayout.vertical ? 'social-awards-page-vertical' : 'social-awards-page-horizontal'">
+    <section id="social-awards-stage">
+        <div style="text-align:center; ">
+            <!-- Social awards title -->
+            <h1 id="social-awards-title"><span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span></h1>
 
-        <!-- User login status -->
-        <h3 v-if="loginModal.loginData.status == 'Host'">Host <span style="color:limegreen;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
-        <h3 v-if="loginModal.loginData.status == 'Voter'">Voter <span style="color:red;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+            <!-- User login status -->
+            <h3 v-if="loginModal.loginData.status == 'Host'">Host <span style="color:limegreen;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+            <h3 v-if="loginModal.loginData.status == 'Voter'">Voter <span style="color:red;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
 
-        <!-- Disconnection error message -->
-        <div class="error-message" v-if="errors.disconnect" :class="{'slide-in': errors.disconnect}">
-            <span></span>
-            You are disconnected!<br/>
-            Try refreshing the page.
-            <span @click="closeError('disconnect')">&times;</span>
-        </div>
+            <!-- Disconnection error message -->
+            <div class="error-message" v-if="errors.disconnect" :class="{'slide-in': errors.disconnect}">
+                <span></span>
+                You are disconnected!<br/>
+                Try refreshing the page.
+                <span @click="closeError('disconnect')">&times;</span>
+            </div>
 
-        <!-- User login buttons -->    
-        <div v-if="loginModal.loginData.status == null">
-            <p>Choose your login:</p>
-            <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
-            <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
-            <br/>
-        </div>
-    </div>
+            <!-- User login buttons -->    
+            <div v-if="loginModal.loginData.status == null">
+                <p>Choose your login:</p>
+                <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
+                <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
+                <br/>
+            </div>
+        </div>   
+
+        <!--
+        <section style="text-align:center; margin:1%;">
+            <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/>
+            <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
+        </section> 
+        -->
+
+    </section>
+    
+    <!-- Live chat container -->
+    <section id="social-awards-livechat" v-if="loginModal.loginData.status != null" :class="pageLayout.vertical ? 'social-awards-livechat-vertical' : 'social-awards-livechat-horizontal'" style="overflow-Y:auto;">
+        <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()" style="overflow-Y: auto; height:100%;">
+            <!-- Live chats -->
+                <transition-group name="chat" tag="section">
+                    <section v-for="(chat, index) in liveChat.chats" :key="index">
+                        <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+                    </section>
+                </transition-group>            
+        </div> 
+        <!-- New chat input -->
+         <div style="margin:0; ">
+            <form @submit.prevent="sendNewChat()">
+                <div style="display:flex; align-items: center; margin-top:6px; ">
+                    <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
+                    <button class="send-chat-button" type="submit">Send</button>
+                </div> 
+            </form>
+         </div>           
+    </section>    
 
     <!-- Login modal -->
     <div v-if="loginModal.toggle == true" class="login-modal">
@@ -49,38 +81,16 @@
                 </form>                
             </section>
         </div>
-    </div>         
-    
-    <!-- Live chat container -->
-    <div v-if="loginModal.loginData.status != null">
-        <!-- Live chats -->
-        <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()">
-            <transition-group name="chat" tag="section">
-                <section v-for="(chat, index) in liveChat.chats" :key="index">
-                    <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
-                </section>
-            </transition-group>
-        </div>
-        <!-- New chat input -->
-        <form @submit.prevent="sendNewChat()">
-            <div style="display:flex; align-items: center; margin-top:6px; ">
-                <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
-                <button class="send-chat-button" type="submit">Send</button>
-            </div> 
-        </form>     
     </div>    
 
     <!-- NOT IMPORTANT -->
     <!-- Fanfare audio -->
-    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio> 
+    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>     
     <!--
-    <section style="text-align:center; margin:1%;">
-        <button @click="toggleFanfare()" style="border:1px solid black; font-size:15px; padding:8px; background:red; color:white; border-radius:8px;">Announce Winner!</button><br/>
-        <img v-if="showWinner" src="https://easypaytestblobstorage.blob.core.windows.net/photos/8a03f7ef-db6b-4db6-ae7d-460a870ec88d.jpg" style="width:300px; border-radius:8px;" class="animate"/>
-    </section>
     <button @click="deleteChatExample()">Delete first chat test button</button>
     <button @click="getVoterData()">Get Voter Data</button>
     -->
+</div>
 </template>
 
 <script>
@@ -115,129 +125,201 @@ export default {
                 chats: [],
                 newChat: '',
                 autoScroll: true,
+            },
+            pageLayout: {
+                vertical: null
             }
         }
     },
     methods: {
-        async sendMessage() {
+        async sendMessage() 
+        {
             const data = {
                 message: 'Hello World!',
                 client_id: 999
             };
+
             const data_string = JSON.stringify(data);
-            if (this.connection.readyState === WebSocket.OPEN) {
+
+            if (this.connection.readyState === WebSocket.OPEN) 
+            {
                 this.connection.send(data_string);
-            } else {
+            }
+            else 
+            {
                 this.errors.disconnect = true;
             }   
         },
-        closeError(errorKey) {
+        closeError(errorKey) 
+        {
             this.errors[errorKey] = false;
         },
-        openLoginModal(user) {
+        openLoginModal(user) 
+        {
             this.loginModal.user = user;
             this.loginModal.toggle = true;
         },
-        closeLoginModal() {
+        closeLoginModal() 
+        {
             this.loginModal.toggle = false;
         },
         async submitLogin() {
             this.loginModal.toggle = false;
+
             const data = {
                 user_name: this.loginModal.loginData.username,
                 user_key: this.loginModal.loginData.pin,
                 user_type: this.loginModal.user
             };
+
             try {
-                const loginResponse = await axios.post('login-user', data);
-                if (loginResponse.data.user_id === -1) {
+                const serverResponse = await axios.post('login-user', data); // api request '/login-user'
+                 
+                if (serverResponse.data.user_id === -1) 
+                {
                     alert('Invalid Login! Try again.'); 
                 } 
-                else {
-                    this.loginModal.loginData.username = loginResponse.data.user_name;
-                    this.loginModal.loginData.status = loginResponse.data.user_type;
-                    this.loginModal.loginData.id = loginResponse.data.user_id;
+                else 
+                {
+                    // Fill in login state properties 
+                    this.loginModal.loginData.username = serverResponse.data.user_name;
+                    this.loginModal.loginData.status = serverResponse.data.user_type;
+                    this.loginModal.loginData.id = serverResponse.data.user_id;
+
+                    //console.log('[serverResponse]', serverResponse.data); // debug
+
+                    await this.getChatHistory();
+
                     this.liveChat.newChat = 'Joined the chat!';
                     this.sendNewChat();
-                    console.log('loginResponse', loginResponse.data);
-
-                    this.getChatHistory();
                 }                
             }
-            catch (error) {
-                alert(`[ERROR]: ${error.data.message}`);
+            catch (serverError) 
+            {
+                alert(`[serverError]: ${serverError.data.message}`);
             }
         },
-        async getChatHistory() {
+        async getChatHistory() 
+        {
             try {
-                const response = await axios.get('live-chats');
-                console.log('chat history', response.data);
-                this.liveChat.chats = response.data.chats;
+                const serverChatHistory = await axios.get('live-chats'); // api request '/live-chats'
+
+                //console.log('chat history', serverChatHistory.data); // debug
+
+                this.liveChat.chats = serverChatHistory.data.chats;
             }
-            catch (error) {
-                alert(`[error] ${error.response.data.message}`);
-                //alert(error.data.message);
+            catch (serverChatHistoryError) 
+            {
+                alert(`[serverChatHistoryError] ${serverChatHistoryError.response.data.message}`);
             }
         },
-        async toggleFanfare() {
+        async toggleFanfare() 
+        {
             await this.announceWinner();
+
             const audioFanfare = this.$refs.audioFanfare;
-            if (audioFanfare) {
-                if (this.isPlaying) {
+
+            if (audioFanfare) 
+            {
+                if (this.isPlaying) 
+                {
                     audioFanfare.pause();
-                } else {
+                } 
+                else 
+                {
                     audioFanfare.play();
                 }
+
                 this.isPlaying = !this.isPlaying;
             }
         },
-        async announceWinner() {
+        async announceWinner() 
+        {
             const data = {
                 message: 'announce-winner'
             };
+
             const data_string = JSON.stringify(data);
-            if (this.connection.readyState === WebSocket.OPEN) {
+
+            if (this.connection.readyState === WebSocket.OPEN) 
+            {
                 this.connection.send(data_string);
-            } else {
+            } 
+            else 
+            {
                 this.errors.disconnect = true;
             }   
         },
-        sendNewChat() {
+        sendNewChat() 
+        {
             const data = {
                 action: 'new-chat',
                 user: this.loginModal.loginData.username,
                 message: this.liveChat.newChat,
                 user_id: this.loginModal.loginData.id
             };
+
             const data_string = JSON.stringify(data);
+
             this.connection.send(data_string);
-            this.liveChat.newChat = '';
-            this.liveChat.autoScroll = true;
+
+            this.liveChat.newChat = ''; // clear new chat input box
+            this.liveChat.autoScroll = true; // scroll to bottom of chat
         },
-        deleteChatExample() {
+        deleteChatExample() 
+        {
             this.liveChat.chats.splice(0,1);
         },
-        scrollToBottom() {
+        scrollToBottom() 
+        {
             const chatContainer = this.$refs.liveChatContainer;
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            try {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            catch (scrollHeightError) {
+                console.log(scrollHeightError)
+            }
         },
-        handleChatScroll() {
+        handleChatScroll() 
+        {
             const chatContainer = this.$refs.liveChatContainer;
             const threshold = 10;
             const position = chatContainer.scrollTop + chatContainer.clientHeight;
             const height = chatContainer.scrollHeight;
-            if (position >= height - threshold) {
+            
+            if (position >= height - threshold) 
+            {
                 this.liveChat.autoScroll = true;
             } 
-            else {
+            else 
+            {
                 this.liveChat.autoScroll = false;
             }
         },
-        getVoterData() {
+        getVoterData() 
+        {
             const data = {
                 action: 'get-voters'
             };
+
             this.connection.send(JSON.stringify(data));
+        },
+        FullScreen() 
+        {
+            const page = document.getElementById('social-awards-page');
+
+            page.style.height = `${Math.floor(window.innerHeight)}px`;
+
+            this.getOrientation();
+
+            window.addEventListener('resize', function () {
+                page.style.height = `${Math.floor(window.innerHeight)}px`;
+            }, true);
+        },
+        getOrientation() 
+        {
+            this.pageLayout.vertical = (window.innerWidth < 600) ? true : false;
         }
     },
     created() {
@@ -245,57 +327,126 @@ export default {
         if (this.$route.path === '/awards')
             this.$store.dispatch('showNav', false);
 
-        console.log("[1] Starting Connection to Social Awards WebSocket Server...");
-        //this.connection = new WebSocket('wss://localhost:7088/ws');
-        this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws');
+        console.log("[1] Starting Connection to Social Awards WebSocket Server..."); // debug
+
+        this.connection = new WebSocket('wss://localhost:7088/ws'); // dev
+
+        //this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws'); // prod
 
         this.connection.onopen = (/*event*/) => {
-            //console.log(event);
+            //console.log(event); // debug
+
             console.log("[2] ...Successfully connected to Social Awards WebSocket.");
         }
 
-        this.connection.onmessage = (event) => {
-            //console.log(event);
+        // For receiving messages from websocket server
+        this.connection.onmessage = (event) => 
+        {
+            //console.log(event); // debug
+
             const data = JSON.parse(event.data);
-            //console.log('onmessage data', data);
-            if (data.message === 'announce-winner') {
+
+            //console.log('onmessage data', data); // debug
+            
+            if (data.message === 'announce-winner') 
+            {
                 this.showWinner = true;
             }
-            else if (data.action === 'new-chat') {
+            else if (data.action === 'new-chat') 
+            {
                 const newChatData = {
                     user: data.user,
                     message: data.message,
                     gender: data.gender
                 };
+
                 this.liveChat.chats.push(newChatData);
+
                 this.$nextTick(() => {
-                    if (this.liveChat.autoScroll) {
+                    if (this.liveChat.autoScroll) 
+                    {
                         this.scrollToBottom();
                     }
                 });
             }
-            else if (data.includes('get-voters')) {
+            else if (data.includes('get-voters'))
+             {
                 const parsedData = JSON.parse(data);
+
                 console.log('voter data', parsedData);
             }
         }
-        this.connection.onclose = (event) => {
+
+        this.connection.onclose = (event) => 
+        {
             console.log(event);
         }
-        this.connection.onerror = (error) => {
+
+        this.connection.onerror = (error) => 
+        {
             console.log('[websocket error]', error);
             this.errors.disconnect = true;
         }
     },
     updated() {
-        this.$nextTick(() => {
+        this.$nextTick(() => 
+        {
             //this.scrollToBottom();
         });
-    }
+    },
+    mounted() 
+    {
+        this.FullScreen(); 
+        window.addEventListener('resize', this.getOrientation);
+    },
 }
 </script>
 
 <style scoped>
+    #social-awards-page {
+        display: flex;
+        overflow: hidden; 
+        /* flex-direction:column; */
+    }
+
+    #social-awards-stage {
+        overflow-Y: auto;
+        padding: 5px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .social-awards-page-vertical {
+        flex-direction:column;
+    }
+
+    .social-awards-page-horizontal {
+        flex-direction: row;
+    }
+
+    #social-awards-livechat {
+        display: flex; 
+        flex-direction: column;
+        overflow-X: hidden;
+    }
+
+    .social-awards-livechat-vertical {
+        border-top: 2px solid black;
+        min-height: 31%;
+        max-height: 40%;
+        min-width: 35%;
+    }
+
+    .social-awards-livechat-horizontal {
+        border-left: 2px solid black;
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    #social-awards-title {
+        margin:0;
+    }
+
     @keyframes slideIn {
         from {
             transform:translateX(-100%);
@@ -394,31 +545,29 @@ export default {
         }
 
     #live-chat {
-        border: 2px solid black;
         border-radius: 5px; 
         display: flex;
+        font-size: 13px; 
         flex-direction: column;
-        height: 300px;
         overflow-y: scroll;
         overflow-x: hidden;
         width: 100%;
     }
         #live-chat section {
-            padding:4px;
+            padding: 2px;
         }
 
     .chat-input {
-        border: 1px solid black;
-        border-radius: 5px; 
-        font-size: 16px;
+        border: 2px solid black;
+        font-size: 15px;
         padding: 2px 4px;
         width: 100%;
     }
     .send-chat-button {
+        border: 2px solid black;
         background: limegreen;
-        border-radius:5px; 
         font-weight: bold;
-        padding: 3px 6px;
+        padding: 4px 6px;
     }
 
     .male {
@@ -447,15 +596,6 @@ export default {
             width: 300px;
             opacity: 1;
         }
-        /*0% {
-            transform: translateX(100%);
-            opacity: 0;
-            border-radius:1000px;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;  
-        }*/
     }
     
     .chat-enter-active, .chat-leave-active {
@@ -472,6 +612,9 @@ export default {
         }
         .created-by-title {
             font-size:18px;
+        }
+        #live-chat {
+            font-size: smaller;
         }
     }
 

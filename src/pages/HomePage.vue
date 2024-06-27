@@ -64,30 +64,40 @@ export default {
             sellers: null
         }
     },
-    components: {
+    components: 
+    {
         UserCatalog
     },
-    computed: {
+    computed: 
+    {
         ...mapGetters(['user'])
     },
-    async mounted() {
+    async mounted() 
+    {
         // Access URL parameter when the component is mounted
         this.username = this.$route.params.username;
 
         // if username param exists and no user is logged in, get user's catalog for display.
-        if (this.username && !this.user) {
+        if (this.username && !this.user) 
+        {
             // capitalize the username param's first letter
             this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+
             this.getUserCatalog();
         }
         // if username param DNE and user not logged in
-        else {
-            try {
+        else 
+        {
+            try 
+            {
                 const response = await axios.get("sellers"); 
-                console.log(response.data); 
+
+                // console.log(response.data); // debug
+
                 this.sellers = response.data.sellers; 
             }
-            catch (error) {
+            catch (error) 
+            {
                 alert(error.response.data.message); 
             }
         }

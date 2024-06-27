@@ -1,64 +1,84 @@
 <template>
-  <div>
+
+  <div style="padding: 10px;">
+
     <!-- Title -->
     <h2 style="text-align: center">
-      Software Job Applications Tracker<br />
-      (<span style="color: limegreen">{{ job_apps.length }}</span> applied over
-      <span style="color: red">{{ numberOfDays }}</span> days)<br />
-      (<span style="color: mediumorchid">{{ appliesPerDay }}</span> applied per
-      day)
+
+      Software Job Applications Tracker
+
+      <br />
+
+      (<span style="color: limegreen">{{ job_apps.length }}</span> applied over <span style="color: red">{{ numberOfDays }}</span> days)
+
+      <br />
+
+      (<span style="color: mediumorchid">{{ appliesPerDay }}</span> applied per day)
+
     </h2>
 
     <!-- Num Rejections and Pending -->
     <h4 style="line-height: 1.6">
+
       Pending:
-      <span style="color: limegreen">{{ statistics.num_inprogress }}</span> ({{
-        ((statistics.num_inprogress / job_apps.length) * 100).toFixed(2)
-      }}%)
+      <span style="color: limegreen">{{ statistics.num_inprogress }}</span> ({{ ((statistics.num_inprogress / job_apps.length) * 100).toFixed(2) }}%)
+
       <br />
+
       Rejections:
-      <span style="color: red">{{ statistics.num_rejections }}</span> ({{
-        ((statistics.num_rejections / job_apps.length) * 100).toFixed(2)
-      }}%)
+      <span style="color: red">{{ statistics.num_rejections }}</span> ({{((statistics.num_rejections / job_apps.length) * 100).toFixed(2)}}%)
+
     </h4>
 
     <!-- Daily applied count -->
     <section v-if="job_apps">
+
       <div v-for="(value, key) in job_map" :key="key">
-        <span style="font-weight: 400">{{ key }}</span
-        >: {{ value }}
+
+        <span style="font-weight: 400">{{ key }}</span>: {{ value }}
+
       </div>
+
     </section>
 
-    <!-- Jobs applied -->
     <hr />
+
+    <!-- Jobs applied -->
     <div v-for="(japp, index) in job_apps" :key="index">
+
       <!-- Company name -->
       <h2>{{ index + 1 }}. {{ japp.a }}</h2>
+
       <h4>
         <!-- Position title -->
         <span style="color: blue">{{ japp.b }}</span>
+
         <!-- Application status -->
         (<span v-if="japp.d" style="color: limegreen">In Progress</span>
         <span v-else style="color: red">Rejected</span>)
-        <!-- Dates applied and rejected -->
+
         <br />
+
+        <!-- Dates applied and rejected -->
         <i v-if="japp.e">Applied: {{ japp.e }}</i>
         <i v-if="japp.f"> | Rejected: {{ japp.f }}</i>
+
       </h4>
+
       <!-- Job requirements -->
-      <div style="line-height: 1.75">
-        <span v-for="(duty, index) in japp.c" :key="index">
-          {{ duty }},&nbsp;
-        </span>
-      </div>
+      <div style="line-height: 1.75"><span v-for="(duty, index) in japp.c" :key="index">{{ duty }},&nbsp;</span></div>
+
       <hr />
+
     </div>
+
   </div>
+
 </template>
 
 <script>
-export default {
+export default 
+{
   name: "JobApps",
   data() {
     return {
@@ -1371,8 +1391,9 @@ export default {
             "Algorithms",
             "Distributed Systems",
           ],
-          d: true,
+          d: false,
           e: "5/20/2024",
+          f: '6/22/2024'
         },
         {
           a: "DevDocs | (Remote) United States",
@@ -1471,8 +1492,9 @@ export default {
             "NoSQL",
             "SaaS eCommerce",
           ],
-          d: true,
+          d: false,
           e: "5/21/2024",
+          f: '6/26/2024'
         },
         {
           a: "SpaceX | Hawthorne, California",
@@ -1829,8 +1851,9 @@ export default {
             "JavaScript",
             "Unit Tests",
           ],
-          d: true,
-          e: "6/3/2024",
+          d: false,
+          e: '6/3/2024',
+          f: '6/21/2024'
         },
         {
           a: "Dot Foods, Inc. | Mount Sterling, Illinois",
@@ -2016,8 +2039,9 @@ export default {
             "C++",
             "Perl",
           ],
-          d: true,
+          d: false,
           e: "6/3/2024",
+          f: 'Mon 6/24/2024',
           g: "https://phh.tbe.taleo.net/phh04/ats/careers/v2/myJobs?org=DCSCORP2&cws=37",
         },
         {
@@ -2575,8 +2599,9 @@ export default {
             "A minimum of one year experience modifying programs with VBA and/or SQL is required",
             "Must have demonstrated troubleshooting skills as it pertains to the necessary databases",
           ],
-          d: true,
+          d: false,
           e: "6/11/2024",
+          f: '6/23/2024',
           g: "https://eiro.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile",
         },
         {
@@ -2656,7 +2681,9 @@ export default {
         {
           a: "Epic | Fresno, California",
           b: "Web Developer",
-          c: ["BS"],
+          c: [
+            "BS"
+          ],
           d: false,
           e: "6/11/2024",
           f: "6/18/2024",
@@ -2781,8 +2808,9 @@ export default {
             "Willingness to work on medical device software in a consulting environment which requires you to work on 2-3 different projects at the same time (and be able to “switch hats” several times during the week).",
             " 1 + years of experience in Medical Devices or other Safety Critical software or related field. Proficiency in creating test cases using C++, GTest and GMock framework, or a similar framework.",
           ],
-          d: true,
+          d: false,
           e: "6/11/2024",
+          f: '6/21/2024',
           g: "https://www.linkedin.com/jobs/view/3946912391/?alternateChannel=search&refId=Zwy6k%2FjHbSLqGeEiF8i%2Bbg%3D%3D&trackingId=h1XtLaSeZxVORqePA2PSkg%3D%3D&trk=d_flagship3_search_srp_jobs",
         },
         {
@@ -2834,37 +2862,604 @@ export default {
           e: '6/19/2024',
           g: 'https://www.indeed.com/cmp/Westlake-Financial-2/jobs?jk=421ca98e6e6c69a5&start=0'
         },
-      ],
-      preferred_companies: [
-        "SpaceX",
-        "Meta",
-        "NASA",
-        "Apple",
-        "Netflix",
-        "Playstation",
-        "Google",
-        "OpenAI",
-      ],
+        {
+          a: 'Kaynes | (Remote) United States',
+          b: 'Dotnet Developer',
+          c: [
+            '2+ years exp',
+            'C#',
+            '.NET Framework',
+            'ASP.NET',
+            '.NET Core',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'SQL',
+            'Git'
+          ],
+          d: false,
+          e: '6/21/2024',
+          f: '6/24/2024',
+          g: 'https://www.linkedin.com/jobs/view/3955835968/?alternateChannel=search&refId=LuhCHd9hNp6ylsXISAFbLQ%3D%3D&trackingId=DjKQHPtSLJqZ0gKUEC5Xbw%3D%3D&trk=d_flagship3_postapply_open_to_work'
+        },
+        {
+          a: 'In-N-Out | Irvine, California',
+          b: 'Software Engineer',
+          c: [
+            'Angular',
+            '.NET',
+            'Oracle',
+            'PL/SQL',
+            'BS',
+            'C#',
+            'JavaScript',
+            'LESS/SASS',
+            'HTML',
+            'SQL',
+            'React',
+            'RESTful API',
+            '.NET Core',
+            '3-5 years exp',
+            'WinForms',
+            'Azure DevOps',
+            'CI/CD'
+          ],
+          d: true,
+          e: '6/21/2024'
+        },
+        {
+          a: 'Phoenix Operations Group | San Diego, California',
+          b: 'Software Developer - TS/SCI Required',
+          c: [
+            'Java',
+            'C',
+            'C++',
+            'GUIs',
+            'SDLC',
+            'BS'
+          ],
+          d: true,
+          e: '6/21/2024'
+        },
+        {
+          a: 'Oracle | Santa Clara, California',
+          b: 'Software Developer',
+          c: [
+            'Java',
+            'REST',
+            'Docker and Kubernetes',
+            'Oracle Cloud, AWS, Google Cloud, or Azure',
+            'Git',
+            'IDEs (VSCode and IntelliJDEA)',
+            'MySQL',
+            'Python or Bash',
+            'HTML',
+            'JavaScript',
+            'ReactJs',
+            'NodeJs'
+          ],
+          d: true,
+          e: '6/21/2024',
+          g: 'https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/my-profile'
+        },
+        {
+          a: 'WSP | Denver, Colorado',
+          b: '.Net Developer',
+          c: [
+            '1-3 years exp',
+            'C# and .NET',
+            'BS',
+            'ASP.NET',
+            'Microsoft SQL Server',
+            'HTML5',
+            'JavaScript',
+            'CSS3',
+            'XML',
+            'JSON',
+            'Visual Studio',
+            'React (preferred), Vue, Angular'
+          ],
+          d: true,
+          e: '6/21/2024',
+          g: 'https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/my-profile'
+        },
+        {
+          a: 'Atomus | San Francisco, California',
+          b: 'Backend Software Engineer',
+          c: [
+            '3+ years exp',
+            'CI/CD',
+            'Operating Systems',
+            'Databases',
+            'NextJS',
+            'Postgres',
+            'Azure',
+            'TypeScript',
+            'Go'
+          ],
+          d: false,
+          e: '6/23/2024',
+          f: '6/26/2024'
+        },
+        {
+          a: 'SAIC | Point Mugu NAWC, California',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java Swing',
+            'C#',
+            'Python',
+            'Java',
+            'SQL',
+            'SECRET clearance'
+          ],
+          d: false,
+          e: '6/23/2024',
+          f: '6/24/2024',
+          g: 'https://www.indeed.com/cmp/SAIC/jobs'
+        },
+        {
+          a: 'Immigration and Customs Enforcement | (Remote) United States',
+          b: 'Information Technology Specialist (Information Security)',
+          c: [
+            'US Citizen'
+          ],
+          d: true,
+          e: '6/23/2024',
+          g: 'https://www.usajobs.gov/job/743747400/'
+        },
+        {
+          a: 'FYIN | Denver, Colorado',
+          b: '.NET Web Developer (eCommerce)',
+          c: [
+            '.NET Core / .NET Framework',
+            'HTML, CSS, JS, jQuery, ASP.NET MVC',
+            'Microsoft SQL Server / SQL',
+            'REST, SOAP, API',
+            'Angular, Vue,js',
+            'TFS or GIT',
+            'SDLC',
+            'OOP'
+          ],
+          d: true,
+          e: '6/24/2024'
+        },
+        {
+          a: "Red Hat | (Remote) United States",
+          b: 'Associate Software Engineer',
+          c: [
+            'BS',
+            'Python 3',
+            'Git',
+            'CI/CD',
+            'Linux'
+          ],
+          d: true,
+          e: '6/24/2024',
+          g: 'https://redhat.wd5.myworkdayjobs.com/en-US/jobs/job/Remote-US-IL/Associate-Software-Engineer_R-039703?q=software&a=bc33aa3152ec42d4995f4791a106ed09&c=48e76bf7cb5510011a9542195ab40001'
+        },
+        {
+          a: 'Genuine Parts Company | Atlanta, Georgia',
+          b: 'Software Engineer - Supply chain technology',
+          c: [
+            'BS',
+            '2+ years exp SQL',
+            '2+ years exp .NET and C#',
+            'Familiarity with Manhattan Associates WMOS software or any other WMS system'
+          ],
+          d: true,
+          e: '6/25/2024',
+          g: 'https://www.linkedin.com/jobs/view/3818324350/?alternateChannel=search&refId=PFC1bsI2Y%2F7GV9sZBqDncg%3D%3D&trackingId=0U7mjU6Q6AwR5utsqYhhRA%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Innovative Defense Technologies (IDT) | San Diego, California',
+          b: 'Junior IT Engineer',
+          c: [
+            'BS',
+            '2+ years of exp',
+            'Operating Systems',
+            'networking concepts– TCP/IP, Switching, Routing, Firewalls, Subnetting',
+            'Understanding or conceptual knowledge of container technologies such as Docker and Podman',
+            'Some experience with scripting (ex. Python, Bash, Powershell)'
+          ],
+          d: true,
+          e: '6/25/2024',
+          g: 'https://www.linkedin.com/jobs/view/3959890636/?alternateChannel=search&refId=b5cJxuKf1i%2FsQ%2B45L7oo1g%3D%3D&trackingId=e8F9R5rCF7mZZi3rKSkn2w%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'Costco Wholesale | Schaumburg, Illinois',
+          b: 'Software Developer 1',
+          c: [
+            'BS',
+            'JavaScript ES6',
+            'HTML',
+            'CSS',
+            'React and Redux',
+            'Jest and Jenikns',
+            'MySQL',
+            'AWS and Azure'
+          ],
+          d: true,
+          e: '6/25/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3945013197/?alternateChannel=search&refId=6GWAJonv9IB4un0EI%2FdnlQ%3D%3D&trackingId=f7OTe4PvEXLEn7p2UcVQCg%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://phf.tbe.taleo.net/phf02/ats/careers/v2/myJobs?org=COSTCO&cws=41'
+          ]
+        },
+        {
+          a: 'FLEETCOR | Louisville, Kentucky',
+          b: 'Application Developer',
+          c: [
+            'BS',
+            '1-2 years exp'
+          ],
+          d: true,
+          e: '6/25/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3938778896/?alternateChannel=search&refId=6GWAJonv9IB4un0EI%2FdnlQ%3D%3D&trackingId=%2FPvYjPDy9tIqX2VIfcguMg%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://us241.dayforcehcm.com/CandidatePortal/u/cp/en-US/fleetcor/AppliedJobs'
+          ]
+        },
+        {
+          a: 'Robert Half | Brookfield, Wisconsin',
+          b: 'Software & Data Developer',
+          c: [
+            'C# .NET',
+            'SQL',
+            'CRM systems',
+            'SSRS and Power BI',
+            'Web services'
+          ],
+          d: true,
+          e: '6/25/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3959195604/?alternateChannel=search&refId=6GWAJonv9IB4un0EI%2FdnlQ%3D%3D&trackingId=DSvGSuGvUP0LL53fYYR3Ow%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://www.roberthalf.com/us/en/job/brookfield-wi/software-data-developer/04600-0013010540-usen?ref_=rh_ja'
+          ]
+        },
+        {
+          a: 'Reputation | San Ramon, California',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Angular, React, Ember, Backbone, or jQuery, HTML5, CSS3, PHP, Node, Ruby, Ajax, C#, XML, SQL, MySQL, SCRUM, Jira, MongoDB'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3959192686/?eBP=NON_CHARGEABLE_CHANNEL&refId=6GWAJonv9IB4un0EI%2FdnlQ%3D%3D&trackingId=bT7HA%2Ffm8xCoZJXBgkXF1g%3D%3D&trk=flagship3_search_srp_jobs',
+            'https://reputation.wd1.myworkdayjobs.com/en-US/External/userHome',
+          ]
+        },
+        {
+          a: 'ExtensisHR | Sterling Heights, Michigan',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C#, WPF, Python',
+            'TCP/IP and PC Networking',
+            'CAN and LIN serial communications protocols'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3959883198/?alternateChannel=search&refId=%2BY89s%2BIUnhYMhBLgNir88A%3D%3D&trackingId=g4DGYT3rwwu%2F92aUgESwUQ%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://careers2-extensishr.icims.com/jobs/dashboard?hashed=1255477617'
+          ]
+        },
+        {
+          a: 'Hinkal | Menlo Park, California',
+          b: 'Front-end Developer',
+          c: [
+            '1+ years exp',
+            'BS/MS',
+            'React'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.linkedin.com/jobs/view/3958985822/?alternateChannel=search&refId=%2BY89s%2BIUnhYMhBLgNir88A%3D%3D&trackingId=T4MY1KXv0FGWWjC5mBixHQ%3D%3D&trk=d_flagship3_postapply_premium_top_choice'
+        },
+        {
+          a: 'ActioNet, Inc. | New Orleans, Louisiana',
+          b: 'Computer Programmer/Analyst - Junior Level',
+          c: [
+            '1+ year exp',
+            'Database development',
+            'Git',
+            'Java',
+            'SQL',
+            'Oracle'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.linkedin.com/jobs/view/3959883193/?alternateChannel=search&refId=%2BY89s%2BIUnhYMhBLgNir88A%3D%3D&trackingId=%2F2y4tqeLGv%2B1BzHcnSxbvA%3D%3D&trk=d_flagship3_search_srp_jobs'
+        },
+        {
+          a: 'T-Mobile | Atlanta, Georgia',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'Java',
+            'JavaScript',
+            'Angular',
+            'Node.js',
+            'Vue.js',
+            'SpringBoot',
+            'Kafka',
+            'MySQL',
+            'MongoDB',
+            'REST API',
+            'Splunk',
+            'Kubernetes',
+            'Python',
+            'TensorFlow',
+            'ML',
+            'deep learning',
+            'PCF'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3959427558/?alternateChannel=search&refId=Sz6R1YkTkjHq2FGxH9bQyg%3D%3D&trackingId=W8M99aXuDuUU4ydIPbHJdQ%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://tmobile.wd1.myworkdayjobs.com/en-US/External/userHome'
+          ]
+        },
+        {
+          a: 'Synergy Interactive | Chicago, Illinois',
+          b: 'Web Developer',
+          c: [
+            'HTML5/CSS3, JavaScript, jQuery, React',
+            'PHP and MySQL',
+            'WordPress'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3960792327/?alternateChannel=search&refId=N6agj2AaujEcjy4h8vRFjg%3D%3D&trackingId=XJkLfzHyzTH%2F6m1kDiV7Cw%3D%3D&trk=d_flagship3_postapply_immediate_screener_modal'
+          ]
+        },
+        {
+          a: 'Meta | Cambridge, Massachusetts',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'C, C++, Java, or C#',
+            'Python, PHP, or Haskell',
+            'SQL',
+            'HTML, CSS, JavaScript'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.ziprecruiter.com/co/Meta/Jobs/--in-United-States?id=Yozib578VTASnRBJEa3yEmsWZhE='
+        },
+        {
+          a: 'Thermo Fisher Scientific | Carlsbad, California',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'NoSQL, Cloud/AWS',
+            'GIT, SVN, JIRA/HP, Jenkins/Bamboo',
+            'Python, Perl, Ruby, Shell, AWK',
+            'Troubleshooting skills'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.ziprecruiter.com/co/Thermo-Fisher-Scientific/Jobs/--in-United-States?id=PpIoRcQrbrMgrSryPqAJEVt5QsI='
+        },
+        {
+          a: 'Stuller | Lafayetter, Louisiana',
+          b: 'Software UI/UX Developer',
+          c: [
+            'BS',
+            'C#, Python, Java',
+            'WPF or MAUI/Blazor',
+            '2-10 years exp',
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/Stuller/Jobs/--in-United-States?id=Jv_VDhjRXtJ_mtwtW6k2CFiVcN4=',
+            'https://secure4.saashr.com/ta/6052029.careers?rnd=UKG&Ext=careers&sft=VFXCHJKCLQ&ActiveSessionId=20231010533#applicant/applications'
+          ]
+        },
+        {
+          a: 'LineLeader | Dallas, Texas',
+          b: 'Full Stack Developer',
+          c: [
+            '3+ years exp',
+            'JavaScript and TypeScript',
+            'Node.js',
+            'MongoDB',
+            'Agile/Scrum',
+            'VueJS',
+            'GraphQL',
+            'AWS',
+            'PHP',
+            'MySQL'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.ziprecruiter.com/co/LineLeader/Jobs/--in-United-States'
+        },
+        {
+          a: 'Posted Software | Denver, Colorado',
+          b: 'Bubble Developer',
+          c: [
+            'We are looking for a developer to take the lead on a substantial new buildout of our gig work platform',
+            'This role will include integrating with our new 3rd party partners, building new features and workflows, QA testing, and maintenance of existing features'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.ziprecruiter.com/co/Posted-Software/Jobs/--in-United-States'
+        },
+        {
+          a: 'JDA | Dallas, Texas',
+          b: 'Software Engineer I',
+          c: [
+            '1-2 years exp',
+            'Git and Jenkins',
+            'REST, JSON, web services',
+            'Unix/Linux',
+            'Agile (Scrum or Kanban)',
+            'OOP, data structures and algorithms, Java, MVC, J2EE, Web development'
+          ],
+          d: true,
+          e: '6/26/2024'
+        },
+        {
+          a: 'SquareTrade | Denver, Colorado',
+          b: 'Associate Software Engineer',
+          c: [
+            '0-2 years exp',
+            'RESTful services using Java, SpringBoot, UI/UX using Angular',
+            'Kafka, SQS, Kinesis',
+            'PostgreSQL',
+            'Scrum and Agile'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/SquareTrade/Jobs/--in-United-States?id=Ljv1vQzECV8x0rFjDJoc7194cco='
+          ]
+        },
+        {
+          a: 'V2Soft | Dearborn, Michigan',
+          b: 'Software Engineer Associate',
+          c: [
+            'BS',
+            '1+ years exp',
+            'React or Angular',
+            'Java, JavaScript, TypeScript, C#, and C++, Node.js, Spring Boot'
+          ],
+          d: true,
+          e: '6/26/2024'
+        },
+        {
+          a: 'Sabanto | Itasca, Illinois',
+          b: 'Full Stack Engineer (Nodejs)',
+          c: [
+            'BS',
+            '4+ years exp JavaScript, Node.js, React or React Native',
+            '2+ years exp AWS',
+            'Git, CI/CD, RESTful APIs and GraphQL'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.ziprecruiter.com/co/Sabanto/Jobs/--in-United-States?id=dLswiZp+PTmhBH3_Bk_5Ox1b+cU='
+        },
+        {
+          a: 'One Day Doors & Closets | Lincoln, California',
+          b: 'Entry Level Full Stack Developer',
+          c: [
+            '0-3 years exp',
+            'React.js and TypeScript',
+            'Node.js and PHP',
+            'API integrations, CMS, CRUD/RESTful, SQL databases',
+            'Tailwind CSS, Next.js, Laravel, Sass, Figma, Elementor, Webflow'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.glassdoor.com/Jobs/One-Day-Doors-and-Closets-Jobs-E3257238.htm?filter.countryId=1'
+        },
+        {
+          a: 'Proofpoint | Texas',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp .NET/C#, Bootstrap/CSS, JavaScript, AI/ML, Azure, UI design, Mock-ups, Git'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.glassdoor.com/Jobs/Proofpoint-Jobs-E39140.htm?filter.countryId=1'
+        },
+        {
+          a: 'Hoffmann Brothers | Brentwood, Missouri',
+          b: 'Web Developer',
+          c: [
+            '3+ years exp',
+            'HTML, CSS, JavaScript',
+            'React or Angular',
+            'PHP, Python, Ruby, Laravel, and Django',
+            'WordPress and CMS, SEO, Git, Adobe XD, Figma, UI/UX'
+          ],
+          d: true,
+          e: '6/26/2024',
+          g: 'https://www.glassdoor.com/Jobs/Hoffmann-Brothers-Jobs-E1400533.htm?filter.countryId=1'
+        },
+        {
+          a: 'BOEING | Mesa, Arizona',
+          b: 'Entry Level Software Engineer',
+          c: [
+            'BS',
+            'Linux',
+            'C, C++, C#',
+            '1+ years internship exp',
+            'SDLC',
+            'Python or other scripting languages'
+          ],
+          d: true,
+          e: '6/27/2024',
+          g: [
+            'https://www.indeed.com/cmp/Boeing/jobs',
+            'https://boeing.wd1.myworkdayjobs.com/en-US/EXTERNAL_CAREERS/userHome'
+          ]
+        },
+        {
+          a: 'Safelite Group | Columbus, Ohio',
+          b: 'Full Stack Developer',
+          c: [
+            'BS',
+            '1-3 years exp',
+            'C#, .NET, HTML/CSS, JavaScript',
+            'Vue.JS, Knockout, Bootstrap',
+            'AWS, GCP, Azure'
+          ],
+          d: true,
+          e: '6/27/2024',
+          g: 'https://www.indeed.com/cmp/Safelite-9b768f42/jobs'
+        },
+        {
+          a: 'RealDash | Miami, Florida',
+          b: 'Full Stack Developer',
+          c: [
+            'HTML, CSS, JavaScript, PHP, JSON'
+          ],
+          d: true,
+          e: '6/27/2024',
+          g: 'https://www.indeed.com/cmp/Realdash/jobs'
+        }
+      ]
     };
   },
   methods: {
-    getAppliedVsRejectedStatistics() {
+    getAppliedVsRejectedStatistics() 
+    {
       var hash_map = {};
-      for (const job of this.job_apps) {
+
+      for (const job of this.job_apps) 
+      {
         // count inprogress and rejections
         if (job.d) this.statistics.num_inprogress++;
         else this.statistics.num_rejections++;
 
         // count daily jobs applied
-        if (job.e in hash_map) hash_map[job.e]++;
-        else if (job.e !== undefined) hash_map[job.e] = 1;
+        if (job.e in hash_map) { hash_map[job.e]++; }
+        else if (job.e !== undefined) { hash_map[job.e] = 1; }
       }
+
       return hash_map;
     },
   },
-  mounted() {
+
+  mounted() 
+  {
     this.job_map = this.getAppliedVsRejectedStatistics();
+
     this.numberOfDays = Object.keys(this.job_map).length;
+
     this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
   },
 };

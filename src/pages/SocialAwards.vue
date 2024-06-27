@@ -1,13 +1,19 @@
 <template>
+
 <div id="social-awards-page" :class="pageLayout.vertical ? 'social-awards-page-vertical' : 'social-awards-page-horizontal'">
+
     <section id="social-awards-stage">
+
         <div style="text-align:center; ">
+
             <!-- Social awards title -->
-            <h1 id="social-awards-title"><span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span></h1>
+            <h1 id="social-awards-title" v-if="loginModal.loginData.id == null">
+                <span class="welcome-title">Welcome to the <span style="color:dodgerblue;">Social Awards</span>!!!</span><br/><span class="created-by-title">Created by @<a href="https://instagram.com/shazebs" style="color:dodgerblue; text-decoration:underline;" target="_blank">shazebs</a></span>
+            </h1>
 
             <!-- User login status -->
-            <h3 v-if="loginModal.loginData.status == 'Host'">Host <span style="color:limegreen;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
-            <h3 v-if="loginModal.loginData.status == 'Voter'">Voter <span style="color:red;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+            <h3 v-if="loginModal.loginData.status == 'Host'">Host <span @click="Logout()" style="color:limegreen; cursor:pointer;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
+            <h3 v-if="loginModal.loginData.status == 'Voter'">Voter <span @click="Logout()" style="color:red; cursor:pointer;">{{ loginModal.loginData.username }}</span> is logged in!</h3>
 
             <!-- Disconnection error message -->
             <div class="error-message" v-if="errors.disconnect" :class="{'slide-in': errors.disconnect}">
@@ -37,60 +43,101 @@
     
     <!-- Live chat container -->
     <section id="social-awards-livechat" v-if="loginModal.loginData.status != null" :class="pageLayout.vertical ? 'social-awards-livechat-vertical' : 'social-awards-livechat-horizontal'" style="overflow-Y:auto;">
+        
         <div id="live-chat" ref="liveChatContainer" @scroll="handleChatScroll()" style="overflow-Y: auto; height:100%;">
+
             <!-- Live chats -->
                 <transition-group name="chat" tag="section">
+
                     <section v-for="(chat, index) in liveChat.chats" :key="index">
+
                         <span class="animate-chat"><label style="font-weight:bolder;" :class="chat.gender === 'M' ? 'male' : 'female'">{{ chat.user }}:</label> {{ chat.message }}</span>
+
                     </section>
-                </transition-group>            
+
+                </transition-group>    
+
         </div> 
+
         <!-- New chat input -->
          <div style="margin:0; ">
+
             <form @submit.prevent="sendNewChat()">
-                <div style="display:flex; align-items: center; margin-top:6px; ">
+
+                <div style="display:flex; align-items:center; ">
+
                     <input class="chat-input" required v-model="liveChat.newChat" placeholder="Send a Chat!"/>
+
                     <button class="send-chat-button" type="submit">Send</button>
+
                 </div> 
+
             </form>
-         </div>           
+
+         </div>    
+
     </section>    
 
     <!-- Login modal -->
     <div v-if="loginModal.toggle == true" class="login-modal">
+
         <div class="login-modal-content">
+
             <!-- header -->
             <section style="display:flex; justify-content: space-evenly; align-items: center; font-size:22px;">
+
                 <!-- Login modal title -->
-                <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">                 
+                <section style="font-size:20px; text-align:center; width:100%; align-items: center; ">   
+
                     <span v-if="loginModal.user === 'Host'" style="color:dodgerblue; font-weight:bolder;">{{ loginModal.user }} Login</span>
+
                     <span v-if="loginModal.user === 'Voter'" style="color:limegreen; font-weight:bolder;">{{ loginModal.user }} Login</span>
+
                 </section>
+
                 <!-- Login modal Close button -->
-                <section style="color:red;"><span @click="closeLoginModal()" class="modal-close-button">&times;</span></section>                
-            </section>            
-            <hr/>   
+                <section style="color:red;"><span @click="closeLoginModal()" class="modal-close-button">&times;</span></section>           
+
+            </section>    
+
+            <hr/>  
+
             <!-- User login input form -->         
             <section style="text-align:center; font-size:20px; ">
+
                 <form @submit.prevent="submitLogin()">
-                    <label style="display: inline-block; min-width:55px;">User:</label><input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
+
+                    <label style="display: inline-block; min-width:55px;">User:</label>
+                    <input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
+                    
                     <br/>
-                    <label style="display: inline-block; min-width:55px;">PIN:</label><input required  v-model="loginModal.loginData.pin" style="font-size:18px; text-align:center;"/>
+
+                    <label style="display: inline-block; min-width:55px;">PIN:</label>
+                    <input required  v-model="loginModal.loginData.pin" style="font-size:18px; text-align:center;"/>
+                    
                     <br/>
+
                     <button class="submit-login-button" type="submit">Access</button>
-                </form>                
+
+                </form>   
+
             </section>
+
         </div>
+
     </div>    
+     
+     <!-- Fanfare audio -->
+     <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>     
 
     <!-- NOT IMPORTANT -->
-    <!-- Fanfare audio -->
-    <audio ref="audioFanfare" src="/assets/fanfare.wav"></audio>     
     <!--
     <button @click="deleteChatExample()">Delete first chat test button</button>
     <button @click="getVoterData()">Get Voter Data</button>
     -->
+
 </div>
+
 </template>
 
 <script>
@@ -99,7 +146,8 @@ import { mapState } from 'vuex';
 
 export default {
     name: 'SocialAwards',
-    computed: {
+    computed: 
+    {
         ...mapState(['showNav'])
     },
     data() {
@@ -131,7 +179,8 @@ export default {
             }
         }
     },
-    methods: {
+    methods: 
+    {
         async sendMessage() 
         {
             const data = {
@@ -150,20 +199,31 @@ export default {
                 this.errors.disconnect = true;
             }   
         },
+        
         closeError(errorKey) 
         {
             this.errors[errorKey] = false;
         },
+
         openLoginModal(user) 
         {
             this.loginModal.user = user;
             this.loginModal.toggle = true;
         },
+
         closeLoginModal() 
         {
             this.loginModal.toggle = false;
         },
-        async submitLogin() {
+
+        async submitLogin() 
+        {
+            if (this.errors.disconnect)
+            {
+                alert('No server connection established, please refresh or try again later.');
+                return;
+            }
+
             this.loginModal.toggle = false;
 
             const data = {
@@ -185,6 +245,13 @@ export default {
                     this.loginModal.loginData.username = serverResponse.data.user_name;
                     this.loginModal.loginData.status = serverResponse.data.user_type;
                     this.loginModal.loginData.id = serverResponse.data.user_id;
+                    this.loginModal.loginData.pin = '';
+
+                    localStorage.setItem('award-token', JSON.stringify({
+                        username: this.loginModal.loginData.username,
+                        status: this.loginModal.loginData.status,
+                        id: this.loginModal.loginData.id
+                    }));
 
                     //console.log('[serverResponse]', serverResponse.data); // debug
 
@@ -199,9 +266,11 @@ export default {
                 alert(`[serverError]: ${serverError.data.message}`);
             }
         },
+
         async getChatHistory() 
         {
-            try {
+            try 
+            {
                 const serverChatHistory = await axios.get('live-chats'); // api request '/live-chats'
 
                 //console.log('chat history', serverChatHistory.data); // debug
@@ -210,9 +279,12 @@ export default {
             }
             catch (serverChatHistoryError) 
             {
-                alert(`[serverChatHistoryError] ${serverChatHistoryError.response.data.message}`);
+                console.log(serverChatHistoryError);
+
+                //alert(`[serverChatHistoryError] ${serverChatHistoryError.response.data.message}`);
             }
         },
+
         async toggleFanfare() 
         {
             await this.announceWinner();
@@ -233,6 +305,7 @@ export default {
                 this.isPlaying = !this.isPlaying;
             }
         },
+
         async announceWinner() 
         {
             const data = {
@@ -250,6 +323,7 @@ export default {
                 this.errors.disconnect = true;
             }   
         },
+
         sendNewChat() 
         {
             const data = {
@@ -266,21 +340,26 @@ export default {
             this.liveChat.newChat = ''; // clear new chat input box
             this.liveChat.autoScroll = true; // scroll to bottom of chat
         },
+
         deleteChatExample() 
         {
             this.liveChat.chats.splice(0,1);
         },
+        
         scrollToBottom() 
         {
-            const chatContainer = this.$refs.liveChatContainer;
+            const chatContainer = this.$refs.liveChatContainer;  
 
-            try {
+            try 
+            {
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
-            catch (scrollHeightError) {
-                console.log(scrollHeightError)
+            catch (scrollHeightError) 
+            {
+                //console.log(scrollHeightError) // debug
             }
         },
+
         handleChatScroll() 
         {
             const chatContainer = this.$refs.liveChatContainer;
@@ -297,6 +376,7 @@ export default {
                 this.liveChat.autoScroll = false;
             }
         },
+
         getVoterData() 
         {
             const data = {
@@ -305,38 +385,73 @@ export default {
 
             this.connection.send(JSON.stringify(data));
         },
+
         FullScreen() 
         {
             const page = document.getElementById('social-awards-page');
 
             page.style.height = `${Math.floor(window.innerHeight)}px`;
 
-            this.getOrientation();
+            this.getScreenOrientation();
 
-            window.addEventListener('resize', function () {
+            window.addEventListener('resize', () => 
+            {
                 page.style.height = `${Math.floor(window.innerHeight)}px`;
-            }, true);
+
+                this.getScreenOrientation();
+            }, 
+            true);
         },
-        getOrientation() 
+
+        getScreenOrientation() 
         {
             this.pageLayout.vertical = (window.innerWidth < 600) ? true : false;
+        },
+
+        Logout()
+        {
+            if (confirm("Are you sure you want to logout?"))
+            {
+                // clear session login data 
+                this.loginModal.loginData.username = '';
+                this.loginModal.loginData.status = null;
+                this.loginModal.loginData.id = null;
+
+                // remove login token from browser
+                localStorage.removeItem('award-token');
+            }            
         }
     },
-    created() {
+
+    async created() {
         // Turn off navigation bar.
-        if (this.$route.path === '/awards')
-            this.$store.dispatch('showNav', false);
+        if (this.$route.path === '/awards') this.$store.dispatch('showNav', false);
 
         console.log("[1] Starting Connection to Social Awards WebSocket Server..."); // debug
 
         //this.connection = new WebSocket('wss://localhost:7088/ws'); // dev
-
         this.connection = new WebSocket('wss://easypayapitest.azurewebsites.net/ws'); // prod
 
-        this.connection.onopen = (/*event*/) => {
+        this.connection.onopen = async (/*event*/) => {
             //console.log(event); // debug
 
-            console.log("[2] ...Successfully connected to Social Awards WebSocket.");
+            console.log("[2] ...Successfully connected to Social Awards WebSocket."); // debug
+
+            // Check if a session login token exists
+            var awardToken = localStorage.getItem('award-token');
+            if (awardToken) 
+            {
+                // parse login token data 
+                var tokenData = JSON.parse(awardToken);
+
+                // Set login session data 
+                this.loginModal.loginData.username = tokenData.username;
+                this.loginModal.loginData.status = tokenData.status;
+                this.loginModal.loginData.id = tokenData.id;
+
+                // retrieve chat history from server 
+                await this.getChatHistory();
+            }
         }
 
         // For receiving messages from websocket server
@@ -344,14 +459,17 @@ export default {
         {
             //console.log(event); // debug
 
+            // parse retrieved data from server 
             const data = JSON.parse(event.data);
 
             //console.log('onmessage data', data); // debug
             
+            // handle received data from server 
             if (data.message === 'announce-winner') 
             {
                 this.showWinner = true;
             }
+            // handle a new live chat
             else if (data.action === 'new-chat') 
             {
                 const newChatData = {
@@ -369,35 +487,45 @@ export default {
                     }
                 });
             }
+            // handle voter lists retrieval
             else if (data.includes('get-voters'))
-             {
+            {
                 const parsedData = JSON.parse(data);
 
-                console.log('voter data', parsedData);
+                console.log('voter data', parsedData); // debug
             }
         }
 
         this.connection.onclose = (event) => 
         {
-            console.log(event);
+            console.log(event); // debug
+
+            this.errors.disconnect = true; // UI error message popup
         }
 
         this.connection.onerror = (error) => 
         {
-            console.log('[websocket error]', error);
-            this.errors.disconnect = true;
+            console.log('[websocket error]', error); // debug 
+
+            this.errors.disconnect = true; // UI error message popup
         }
     },
+
     updated() {
         this.$nextTick(() => 
         {
             //this.scrollToBottom();
         });
     },
+
     mounted() 
     {
         this.FullScreen(); 
-        window.addEventListener('resize', this.getOrientation);
+
+        // window.addEventListener('resize', () => {
+        //     this.getScreenOrientation()
+        //     alert('hello')
+        // });
     },
 }
 </script>
@@ -406,7 +534,6 @@ export default {
     #social-awards-page {
         display: flex;
         overflow: hidden; 
-        /* flex-direction:column; */
     }
 
     #social-awards-stage {
@@ -439,8 +566,8 @@ export default {
 
     .social-awards-livechat-horizontal {
         border-left: 2px solid black;
-        min-width: 250px;
-        max-width: 250px;
+        min-width: 338px;
+        max-width: 35%;
     }
 
     #social-awards-title {
@@ -559,15 +686,17 @@ export default {
 
     .chat-input {
         border: 2px solid black;
+        border-radius: 0px;
         font-size: 15px;
         padding: 2px 4px;
         width: 100%;
     }
     .send-chat-button {
-        border: 2px solid black;
+        border-top: 2px solid black;
         background: limegreen;
         font-weight: bold;
-        padding: 4px 6px;
+        font-size: 15px;
+        padding: 2px 6px;
     }
 
     .male {
@@ -575,6 +704,10 @@ export default {
     }
     .female {
         color:hotpink;
+    }
+
+    h3 {
+        margin: 0;
     }
 
     .animate {

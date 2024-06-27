@@ -1,5 +1,7 @@
 <template>
+    
     <div class="signup-page">
+
         <!-- Signup page title -->
         <h1 style="color:#635bff; margin:0px; margin-bottom:10px;">Signup</h1>
 
@@ -8,31 +10,42 @@
             <!-- Password fails regex error -->
             <span></span>Password must contain at minimum eight characters, at least one letter and one number. <span @click="closeError('password_regex')">&times;</span>
         </div>
+
         <div class="error-message" v-if="errors.password_match" :class="{'slide-in': errors.password_match}">
             <!-- Password do not match error -->
             <span></span>Passwords do not match. <span @click="closeError('password_match')">&times;</span>
         </div>
+
         <div class="error-message" v-if="errors.username_exists" :class="{'slide-in': errors.username_exists}">
             <!-- Username already exists error -->
             <span></span>{{errors.username_exists_message}}<span @click="closeError('username_exists')">&times;</span>
         </div>
 
+
         <form @submit.prevent="handleSignup()" class="signup-form">
+
             <!-- Email -->
             <div><input class="signup-input" type="email" v-model="email" placeholder="Email" required/></div>
+
             <!-- Desired Username -->
             <div><input class="signup-input" type="text" v-model="username" placeholder="Username" required/></div>
+
             <!-- Desired Password -->
             <div><input class="signup-input" type="password" v-model="password" placeholder="Password" required/></div>
+
             <!-- Re-type password -->
             <div><input class="signup-input" type="password" v-model="password_retype" placeholder="Re-type Password" required/></div>
+
             <!-- Stripe API Key -->
             <div><textarea class="signup-textarea" type="text" v-model="stripeApiKey" placeholder="Stripe API Key" ></textarea></div>
+
             <!-- Submit registration button -->
             <div><button class="signup-button" type="submit">Join EasyPay! :)</button></div>
+
         </form>
 
     </div>
+
 </template>
 
 <script>

@@ -28,6 +28,11 @@
       Rejections:
       <span style="color: red">{{ statistics.num_rejections }}</span> ({{((statistics.num_rejections / job_apps.length) * 100).toFixed(2)}}%)
 
+      <br />
+
+      Interviews:
+      <span style="color:dodgerblue;">{{ statistics.num_interviews }}</span> ({{ ((statistics.num_interviews / job_apps.length) * 100).toFixed(2) }}%)
+
     </h4>
 
     <!-- Daily applied count -->
@@ -88,6 +93,7 @@ export default
       statistics: {
         num_rejections: 0,
         num_inprogress: 0,
+        num_interviews: 0,
       },
       job_apps: [
         {
@@ -1853,7 +1859,8 @@ export default
           ],
           d: false,
           e: '6/3/2024',
-          f: '6/21/2024'
+          f: '6/21/2024',
+          i: true
         },
         {
           a: "Dot Foods, Inc. | Mount Sterling, Illinois",
@@ -2822,8 +2829,9 @@ export default
             "SQL",
             "Cloud experience",
           ],
-          d: true,
+          d: false,
           e: "6/12/2024",
+          f: '6/28/2024',
           g: [
             "https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome",
           ],
@@ -3373,7 +3381,8 @@ export default
           ],
           d: true,
           e: '6/26/2024',
-          g: 'https://www.glassdoor.com/Jobs/Proofpoint-Jobs-E39140.htm?filter.countryId=1'
+          g: 'https://www.glassdoor.com/Jobs/Proofpoint-Jobs-E39140.htm?filter.countryId=1',
+          i: true
         },
         {
           a: 'Hoffmann Brothers | Brentwood, Missouri',
@@ -3400,8 +3409,9 @@ export default
             'SDLC',
             'Python or other scripting languages'
           ],
-          d: true,
+          d: false,
           e: '6/27/2024',
+          f: '2/28/2024',
           g: [
             'https://www.indeed.com/cmp/Boeing/jobs',
             'https://boeing.wd1.myworkdayjobs.com/en-US/EXTERNAL_CAREERS/userHome'
@@ -3442,12 +3452,26 @@ export default
       for (const job of this.job_apps) 
       {
         // count inprogress and rejections
-        if (job.d) this.statistics.num_inprogress++;
-        else this.statistics.num_rejections++;
+        if (job.d) 
+          this.statistics.num_inprogress++;
+        else 
+          this.statistics.num_rejections++;
 
         // count daily jobs applied
-        if (job.e in hash_map) { hash_map[job.e]++; }
-        else if (job.e !== undefined) { hash_map[job.e] = 1; }
+        if (job.e in hash_map) 
+        { 
+          hash_map[job.e]++; 
+        }
+        else if (job.e !== undefined) 
+        { 
+          hash_map[job.e] = 1; 
+        }
+
+        // if interviewed scheduled
+        if (job.i === true) 
+        {
+          this.statistics.num_interviews++; 
+        }
       }
 
       return hash_map;

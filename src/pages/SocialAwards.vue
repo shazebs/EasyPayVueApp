@@ -17,19 +17,29 @@
 
             <!-- Disconnection error message -->
             <div class="error-message" v-if="errors.disconnect" :class="{'slide-in': errors.disconnect}">
+
                 <span></span>
+
                 You are disconnected!<br/>
                 Try refreshing the page.
+
                 <span @click="closeError('disconnect')">&times;</span>
+
             </div>
 
             <!-- User login buttons -->    
             <div v-if="loginModal.loginData.status == null">
+
                 <p>Choose your login:</p>
+
                 <button @click="openLoginModal('Host')" class="host-login-button">Host</button>
+
                 <button @click="openLoginModal('Voter')" class="voter-login-button">Attendee</button>
+
                 <br/>
+
             </div>
+
         </div>   
 
         <!--
@@ -107,16 +117,19 @@
 
                 <form @submit.prevent="submitLogin()">
 
+                    <!-- display Login Username input -->
                     <label style="display: inline-block; min-width:55px;">User:</label>
                     <input required v-model="loginModal.loginData.username" style="font-size:18px; text-align:center;"/>
                     
                     <br/>
 
+                    <!-- display Login PIN input -->
                     <label style="display: inline-block; min-width:55px;">PIN:</label>
                     <input required  v-model="loginModal.loginData.pin" style="font-size:18px; text-align:center;"/>
                     
                     <br/>
 
+                    <!-- display Login Submit button -->
                     <button class="submit-login-button" type="submit">Access</button>
 
                 </form>   
@@ -258,6 +271,7 @@ export default {
                     await this.getChatHistory();
 
                     this.liveChat.newChat = 'Joined the chat!';
+
                     this.sendNewChat();
                 }                
             }

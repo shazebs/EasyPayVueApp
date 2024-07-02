@@ -1,5 +1,6 @@
 <template>
 
+  <!-- Page container -->
   <div style="padding: 10px;">
 
     <!-- Title -->
@@ -35,11 +36,13 @@
 
     </h4>
 
-    <!-- Daily applied count -->
+    <!-- Daily Job Applies container -->
     <section v-if="job_apps">
 
+      <!-- foreach day applied-->
       <div v-for="(value, key) in job_map" :key="key">
 
+        <!-- display daily applied count -->
         <span style="font-weight: 400">{{ key }}</span>: {{ value }}
 
       </div>
@@ -48,36 +51,41 @@
 
     <hr />
 
-    <!-- Jobs applied -->
+    <!-- foreach job applied  -->
     <div v-for="(japp, index) in job_apps" :key="index">
 
-      <!-- Company name -->
+      <!-- display Company Name -->
       <h2>{{ index + 1 }}. {{ japp.a }}</h2>
 
       <h4>
-        <!-- Position title -->
+        <!-- display Position Title -->
         <span style="color: blue">{{ japp.b }}</span>
 
-        <!-- Application status -->
+        <!-- display Application Pending Status -->
         (<span v-if="japp.d" style="color: limegreen">In Progress</span>
         <span v-else style="color: red">Rejected</span>)
 
         <br />
 
-        <!-- Dates applied and rejected -->
+        <!-- display Date Job Applied and/or Rejected -->
         <i v-if="japp.e">Applied: {{ japp.e }}</i>
         <i v-if="japp.f"> | Rejected: {{ japp.f }}</i>
 
       </h4>
 
-      <!-- Job requirements -->
-      <div style="line-height: 1.75"><span v-for="(duty, index) in japp.c" :key="index">{{ duty }},&nbsp;</span></div>
+      <!-- display Job Requirements -->
+      <div style="line-height: 1.75">
+
+        <!-- foreach Duty in Job Requirements, display Duty -->
+        <span v-for="(duty, index) in japp.c" :key="index">{{ duty }},&nbsp;</span>
+
+      </div>
 
       <hr />
 
     </div>
 
-  </div>
+  </div> <!-- End of page container -->
 
 </template>
 
@@ -1341,9 +1349,15 @@ export default
         {
           a: "Disney Entertainment & ESPN Technology | Santa Monica, California",
           b: "Software Engineer I",
-          c: ["JavaScript", "BS", "Write code", "Web based applications"],
-          d: true,
+          c: [
+            "JavaScript", 
+            "BS", 
+            "Write code", 
+            "Web based applications"
+          ],
+          d: false,
           e: "5/20/2024",
+          f: '7/1/2024',
           g: "https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/userHome",
         },
         {
@@ -2912,8 +2926,9 @@ export default
             'Azure DevOps',
             'CI/CD'
           ],
-          d: true,
-          e: '6/21/2024'
+          d: false,
+          e: '6/21/2024',
+          f: '7/1/2024',
         },
         {
           a: 'Phoenix Operations Group | San Diego, California',
@@ -3369,8 +3384,9 @@ export default
             'API integrations, CMS, CRUD/RESTful, SQL databases',
             'Tailwind CSS, Next.js, Laravel, Sass, Figma, Elementor, Webflow'
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '6/30/2024',
           g: 'https://www.glassdoor.com/Jobs/One-Day-Doors-and-Closets-Jobs-E3257238.htm?filter.countryId=1'
         },
         {
@@ -3440,31 +3456,71 @@ export default
           d: true,
           e: '6/27/2024',
           g: 'https://www.indeed.com/cmp/Realdash/jobs'
+        },
+        {
+          a: 'San Bernardino County | San Bernardino, California',
+          b: 'Programmer III',
+          c: [
+            'ASP.Net, or C#',
+            'SSRS / SSIS',
+            'SQL Server',
+            '.NET Core',
+            'Azure SQL',
+            'JavaScript',
+            'HTML/CSS'
+          ],
+          d: true,
+          e: '6/29/2024',
+          g: [
+            'https://www.indeed.com/cmp/SAN-Bernardino-County/jobs?jk=1795b0566ac99942&start=0',
+            'https://www.governmentjobs.com/careers/sanbernardino/jobs/4522663/programmer-iii'
+          ]
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'Web Developer I - Geodatabase',
+          c: [
+            '1+ years exp, JavaScript or TypeScript',
+            'BS',
+            'MySQL, SQL Server, Oracle',
+            'REST',
+          ],
+          d: true, 
+          e: '6/30/2024',
+          g: [
+            '',
+            'https://www.esri.com/careers/web-developer-i-geodatabase-4418677007#job-application'
+          ]
         }
       ]
     };
   },
-  methods: {
+  methods: 
+  {
     getAppliedVsRejectedStatistics() 
     {
-      var hash_map = {};
+      var job_map = {};
 
       for (const job of this.job_apps) 
       {
         // count inprogress and rejections
         if (job.d) 
+        {
           this.statistics.num_inprogress++;
+        }
         else 
+        {
           this.statistics.num_rejections++;
+        }
 
         // count daily jobs applied
-        if (job.e in hash_map) 
+        if (job.e in job_map) 
         { 
-          hash_map[job.e]++; 
+          job_map[job.e]++; 
         }
         else if (job.e !== undefined) 
         { 
-          hash_map[job.e] = 1; 
+          job_map[job.e] = 1; 
         }
 
         // if interviewed scheduled
@@ -3474,7 +3530,7 @@ export default
         }
       }
 
-      return hash_map;
+      return job_map;
     },
   },
 
@@ -3486,6 +3542,7 @@ export default
 
     this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
   },
+
 };
 </script>
 

@@ -31,7 +31,7 @@
 
                     <br />
 
-                    <button type="submit"> Submit </button>
+                    <button type="submit"> SUBMIT </button>
 
                 </form>
 
@@ -47,7 +47,19 @@
 
             <div id="developers" class="ui-segment" v-if="screens.developers.display">
 
-                <h1>Developers</h1>
+                <h1>!Software Developer Rankings!</h1>
+
+                <div v-for="(location, index) in Object.keys(locations)" :key="index"> 
+
+                    <h2 style="color:black;">{{ index+1 }}. {{ location }}</h2>
+
+                    <ol style="border-bottom: 2px dashed white; padding-bottom:15px;">
+
+                        <li v-for="(city, index) in locations[location].cities" :key="index">{{ city }}</li>
+
+                    </ol>
+                    
+                </div>
 
             </div>     
 
@@ -66,7 +78,6 @@
             </div>
         
         </transition-group>
-
 
     </div>
 
@@ -279,6 +290,7 @@ export default
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
     overflow-x: hidden;
 }
 
@@ -327,9 +339,21 @@ export default
 {
 }
 
+#login 
+{
+    text-align: center;
+}
+
 #developers 
 {
-    
+    max-height: 400px;
+}
+
+h1 
+{
+    color:black; 
+    text-align:center;
+    text-decoration:underline; 
 }
 
 </style>

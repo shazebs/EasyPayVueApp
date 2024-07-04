@@ -3491,6 +3491,69 @@ export default
             '',
             'https://www.esri.com/careers/web-developer-i-geodatabase-4418677007#job-application'
           ]
+        },
+        {
+          a: 'Career finder | Milwaukee, Wisconsin',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '.NET, C#, Angular, SQL Server, RESTful, SOAP',
+            'Azure DevOps, Testing, Waterfall, Agile, Scrum, Docker and Kubernetes'
+          ],
+          d: true,
+          e: '7/2/2024',
+          g: [
+            'https://www.indeed.com/cmp/Wec-Energy-Group/jobs',
+            'https://career8.successfactors.com/portalcareer?_s.crb=gzyx6wNppO4lSCU4%252baQQrV58zwhDehD%252f4%252bLleWRn1BI%253d'
+          ]
+        },
+        {
+          a: 'Plasser American Corp | Danbury, Connecticut',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            '.NET/C#/MS SQL Server',
+            'TFVS and/or Git',
+          ],
+          d: true,
+          e: '7/2/2024',
+          g: [
+            'https://www.indeed.com/cmp/Plasser-American-Corporation/jobs'
+          ]
+        },
+        {
+          a: 'Entrust Datacard | Shakopee, Minnesota',
+          b: 'Software Developer II (C#/.Net)',
+          c: [
+            '3+ years exp C#.NET or Java/J2EE',
+            'Visual Studio, VS Code, IntelliJ, Eclipse, Jira, Azure DevOps',
+            'RESTful API, HTML, CSS, JavaScript, SaaS',
+            '.NET Core or Spring (Boot), AngularJS, JQuery, noSQL'
+          ],
+          d: true,
+          e: '7/3/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Entrust-Jobs-E1104613.htm?filter.countryId=1',
+            'https://entrust.wd1.myworkdayjobs.com/en-US/EntrustCareers/userHome'
+          ]
+        },
+        {
+          a: 'Workday | Mason, Ohio',
+          b: 'Associate Full Stack Engineer (VNDLY)',
+          c: [
+            '1-3 years exp (including internships)',
+            'RESTful web services',
+            'Relational databases',
+            'Python, Django, Flask',
+            'Git/GitHub, Bitbucket, JavaScript, TDD, SaaS, AWS, React.js, HTML, CSS, Agile'
+          ],
+          d: true,
+          e: '7/3/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Workday-Jobs-E197851.htm?filter.countryId=1',
+            'https://workday.wd5.myworkdayjobs.com/en-US/Workday/userHome'
+          ]
         }
       ]
     };

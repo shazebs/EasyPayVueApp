@@ -46,17 +46,17 @@
 
                 <form @submit.prevent="Signup()">
 
-                    <input v-model="screens.signup.form.username" type="text" placeholder="Username" required />
+                    <input v-model="screens.signup.form.username" type="text" placeholder="New Username" required />
 
                     <br/>
 
-                    <input v-model="screens.signup.form.password" type="text" placeholder="Password" required />
+                    <input v-model="screens.signup.form.password" type="text" placeholder="New Password" required />
 
                     <br/><br/>
                     
                     <select v-model="screens.signup.form.state" required @change="SelectSignupState">
                         
-                        <option value='' disabled selected> Location </option>
+                        <option value='' disabled selected> State Residence </option>
                         
                         <option v-for="(state, index) in Object.keys(locations)" :key="index" :value='state'>
                             
@@ -102,19 +102,17 @@
                     
                     <section v-if="screens.signup.form.education !== '' && screens.signup.form.education !== 'No Degree'">
 
-                        <input v-model="screens.signup.form.school" placeholder="School" required />
+                        <input v-model="screens.signup.form.school" placeholder="School Name" required />
 
-                        <br/>
-
-                        <input v-model="screens.signup.form.major" placeholder="Major" required />
+                        <input v-model="screens.signup.form.major" placeholder="Degree Major" required />
 
                     </section>                    
 
                     <br/>
 
-                    <select v-model="screens.signup.form.experience" @change="SelectSignupExperienceLevel">
+                    <select v-model="screens.signup.form.experienceLevel" @change="SelectSignupExperienceLevel">
 
-                        <option value='' disabled selected> Experience Level</option>
+                        <option value='' disabled selected> Experience Level </option>
 
                         <option>Entry Level (0-2 years)</option>
 
@@ -126,23 +124,183 @@
 
                     <br/><br/>
 
-                    <input v-model="screens.signup.form.email" type="email" placeholder="(optional) Email" />
+                    <input v-model="screens.signup.form.email" type="email" placeholder="(optional) Email @" />
 
                     <br/>
                     
-                    <input v-model="screens.signup.form.website" type="url" placeholder="(optional) Website" />
+                    <input v-model="screens.signup.form.website" type="url" placeholder="(optional) Website https://" />
 
                     <br/>    
 
-                    <input v-model="screens.signup.form.photo" type="url" placeholder="(optional) Photo" />
+                    <input v-model="screens.signup.form.photo" type="url" placeholder="(optional) Photo https://" />
 
                     <br/>
 
-                    <img v-if="screens.signup.form.photo !== ''" :src="screens.signup.form.photo" class="signup-photo" target="_blank" />
+                    <img v-if="screens.signup.form.photo" :src="screens.signup.form.photo" class="signup-photo" target="_blank" />
 
                     <br/>
+
+                    Work History <button @click.prevent="AddWorkHistory()"> Add </button>
+
+                    <br/><br/>
+
+                    <div v-for="(work, workHistory_index) in screens.signup.form.workHistory" :key="workHistory_index">
+                        
+                        <input v-model="work.employer_name" placeholder="Employer Name"/> 
+
+                        <input v-model="work.position_name" placeholder="Position Name"/>
+                        
+                        <button @click.prevent="RemoveWorkHistory(workHistory_index)"> Remove </button>
+
+                        <br/>
+
+                        <select v-model="work.startMonth">
+
+                            <option value="" disabled selected> Start Month </option>
+
+                            <option v-for="(workStartMonth, startDateMonth_index) in dates.months" :key="startDateMonth_index" :value="workStartMonth">
+
+                                {{ workStartMonth }}
+
+                            </option>
+
+                        </select>
+
+                        <select v-model="work.startYear">
+
+                            <option value="" disabled selected> Start Year </option>
+
+                            <option v-for="(workStartYear, workStartYear_index) in dates.years" :key="workStartYear_index" :value="workStartYear.toString()">
+
+                                {{ workStartYear.toString() }}
+
+                            </option>
+
+                        </select>
+
+                        <br/>
+
+                        <select v-model="work.endMonth">
+
+                            <option value="" disabled selected> End Month </option>
+
+                            <option v-for="(workEndMonth, endDateMonth_index) in dates.months" :key="endDateMonth_index" :value="workEndMonth">
+
+                                {{ workEndMonth }}
+
+                            </option>
+
+                        </select>
+
+                        <select v-model="work.endYear">
+
+                            <option value="" disabled selected> End Year </option>
+
+                            <option v-for="(workEndYear, workEndYear_index) in dates.years" :key="workEndYear_index" :value="workEndYear.toString()">
+
+                                {{ workEndYear.toString() }}
+
+                            </option>
+
+                        </select>   
+
+                        <br/><br/>
+
+                    </div>   
+
+                    Project History <button @click.prevent="AddProjectHistory()"> Add </button>
+
+                    <br/><br/>
+
+                    <div v-for="(project, projectHistory_index) in screens.signup.form.projectHistory" :key="projectHistory_index">
+
+                        <input v-model="project.project_name" placeholder="Project Name"/>
+
+                        <input v-model="project.project_website" placeholder="(optional) Website"/>
+
+                        <button @click.prevent="RemoveProjectHistory(projectHistory_index)"> Remove </button>
+
+                        <br/>
+
+                        <select v-model="project.startMonth">
+
+                            <option value="" disabled selected> Start Month </option>
+
+                            <option v-for="(projectStartMonth, index) in dates.months" :key="index" :value="projectStartMonth">
+
+                                {{ projectStartMonth }}
+
+                            </option>
+
+                        </select>
+
+                        <select v-model="project.startYear">
+
+                            <option value="" disabled selected> Start Year </option>
+
+                            <option v-for="(projectStartYear, projectStartYear_index) in dates.years" :key="projectStartYear_index" :value="projectStartYear.toString()">
+
+                                {{ projectStartYear.toString() }}
+
+                            </option>
+
+                        </select>
+
+                        <br/>
+
+                        <select v-model="project.endMonth">
+
+                            <option value="" disabled selected> End Month </option>
+
+                            <option v-for="(projectEndMonth, index) in dates.months" :key="index" :value="projectEndMonth">
+
+                                {{ projectEndMonth }}
+
+                            </option>
+
+                        </select>
+
+                        <select v-model="project.endYear">
+
+                            <option value="" disabled selected> End Year </option>
+
+                            <option v-for="(projectEndYear, projectEndYear_index) in dates.years" :key="projectEndYear_index" :value="projectEndYear.toString()">
+
+                                {{ projectEndYear.toString() }}
+
+                            </option>
+
+                        </select>
+
+                        <!--<select v-show="false" v-model="project.skills" multiple @change="SkillSelection($event, project.skills)">
+
+                            <option value="" disabled selected> Choose Skills </option>
+
+                            <option value="C#"> C# </option>
+
+                            <option value="Java"> Java </option>
+
+                            <option value="JavaScript"> JavaScript </option>
+
+                            <option> Vue </option>
+
+                            <option> React </option>
+
+                            <option> Angular </option>
+
+                            <option> SQL Server </option>
+
+                        </select>-->
+                        
+                        <br/><br/>
+
+                    </div>
 
                     <button type="submit"> SUBMIT </button>
+
+                    <button @click.prevent="DebugVariables"> Debug </button>
+
+                    <br/><br/>
 
                 </form>
 
@@ -193,7 +351,8 @@
                                             <span v-if="developer[property] && property !== 'id' 
                                                                             && property !== 'password' 
                                                                             && property !== 'username' 
-                                                                            && property !== 'photo'">
+                                                                            && property !== 'photo'
+                                                                            ">
                                                 
                                                 {{ property.charAt(0).toUpperCase() + property.slice(1) }}: 
                                                 
@@ -204,6 +363,34 @@
                                                         {{ developer[property] }}
                                                     
                                                     </a>
+
+                                                    <ul v-else-if="property === 'workHistory'">
+                                                        
+                                                        <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index">
+
+                                                            {{ devWorkHistory.position_name }}, 
+
+                                                            {{ devWorkHistory.employer_name }}, 
+
+                                                            {{ devWorkHistory.startMonth }}, {{ devWorkHistory.startYear }} to {{ devWorkHistory.endMonth }}, {{ devWorkHistory.endYear }}
+
+                                                        </li>
+                                                    
+                                                    </ul>
+
+                                                    <ul v-else-if="property === 'projectHistory'">
+                                                        
+                                                        <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index">
+
+                                                            {{ devProjectHistory.project_name }}, 
+
+                                                            {{ devProjectHistory.project_website }}, 
+
+                                                            {{ devProjectHistory.startMonth }}, {{ devProjectHistory.startYear }} to {{ devProjectHistory.endMonth }}, {{ devProjectHistory.endYear }}
+
+                                                        </li>
+
+                                                    </ul>
 
                                                     <span v-else> {{ developer[property] }} </span>
                                                 
@@ -284,27 +471,33 @@ export default
 
                 signup: 
                 {
-                    display: false,
+                    display: true,
                     form: 
                     {
                         id: null,
                         username: '',
                         password: '',
+
                         state: '',
                         city: '',
+
                         email: null,
                         website: null,
                         photo: null,
+
                         education: '',
                         school: null,
                         major: null,
-                        experience: '',
+
+                        experienceLevel: '',
+                        workHistory: [],
+                        projectHistory: [],
                     }                    
                 },
 
                 developers: 
                 {
-                    display: true,
+                    display: false,
                     top100: []
                 },
 
@@ -401,6 +594,24 @@ export default
                 },
             },
 
+            dates: 
+            {
+                months: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ],
+            },
+            years: null,
         }
     },
 
@@ -420,6 +631,10 @@ export default
         }
 
         this.screens.developers.top100 = await this.GetTop100Developers();
+
+        console.log(this.screens.developers.top100) // debug 
+
+        this.dates.years = this.GetYearsRange();
     },
 
     beforeMount()
@@ -505,6 +720,8 @@ export default
         {
             try 
             {
+                console.log(this.screens.signup.form) // debug 
+
                 const api_signup_response = await axios.post('dev-signup', this.screens.signup.form);
 
                 alert(`Signup ${(api_signup_response.data.signup_success.result) ? 'SUCCESS' : 'FAILED' }`);
@@ -541,6 +758,106 @@ export default
             {
                 console.error(error); // debug
             }
+        },
+
+        /**
+         * Open a new work history form for the user.
+         */
+        AddWorkHistory()
+        {
+            this.screens.signup.form.workHistory.push(
+                {
+                    Id: 0,
+                    position_name: '',
+                    employer_name: '',
+                    startMonth: '',
+                    startYear: '',
+                    endMonth: '',
+                    endYear: ''
+                }
+            );
+        },
+
+        /**
+         * Remove current element from work history on signup form.
+         * @param {*} element 
+         */
+        RemoveWorkHistory(element)
+        {
+            if (confirm("Are you sure you want to delete?"))
+            {
+                this.screens.signup.form.workHistory.splice(element, 1);
+            }            
+        },
+
+        /**
+         * Add an element to project history on signup form.
+         */
+        AddProjectHistory()
+        {
+            this.screens.signup.form.projectHistory.push(
+                {
+                    Id: 0,
+                    project_name: '',
+                    project_website: '',
+                    startMonth: '',
+                    startYear: '',
+                    endMonth: '',
+                    endYear: '',
+                    skills: [],
+                }
+            );
+        },
+
+        /**
+        * Remove current element from project history on signup form.
+        * @param {*} element 
+        */
+        RemoveProjectHistory(element)
+        {
+            if (confirm("Are you sure you want to delete?"))
+            {
+                this.screens.signup.form.projectHistory.splice(element, 1);
+            }            
+        },
+
+        /**
+         * 
+         * @param {*} event 
+         * @param {*} eSkills 
+         */
+        SkillSelection(event, eSkills)
+        {
+            console.log(event) // debug
+
+            console.log(eSkills) // debug 
+
+            const skillSelected = Array.from(event.target.selectedOptions).map(option => option.value); 
+
+            console.log(skillSelected) // debug
+        },
+
+        /**
+         * 
+         */
+        DebugVariables()
+        {
+            console.log(this.screens.signup); // debug
+        },
+
+        /**
+         * 
+         */
+        GetYearsRange()
+        {
+            var years = []; 
+
+            for (let y = 2000; y < 2025; y++) 
+            {
+                years.push(y); 
+            }
+
+            return years;
         },
 
     }, 

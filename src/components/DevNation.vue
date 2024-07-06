@@ -154,7 +154,7 @@
 
                         <br/>
 
-                        <select v-model="work.startMonth">
+                        <select v-model="work.startMonth" required>
 
                             <option value="" disabled selected> Start Month </option>
 
@@ -166,7 +166,7 @@
 
                         </select>
 
-                        <select v-model="work.startYear">
+                        <select v-model="work.startYear" required>
 
                             <option value="" disabled selected> Start Year </option>
 
@@ -180,7 +180,7 @@
 
                         <br/>
 
-                        <select v-model="work.endMonth">
+                        <select v-model="work.endMonth" required>
 
                             <option value="" disabled selected> End Month </option>
 
@@ -192,7 +192,7 @@
 
                         </select>
 
-                        <select v-model="work.endYear">
+                        <select v-model="work.endYear" required>
 
                             <option value="" disabled selected> End Year </option>
 
@@ -222,7 +222,7 @@
 
                         <br/>
 
-                        <select v-model="project.startMonth">
+                        <select v-model="project.startMonth" required>
 
                             <option value="" disabled selected> Start Month </option>
 
@@ -234,7 +234,7 @@
 
                         </select>
 
-                        <select v-model="project.startYear">
+                        <select v-model="project.startYear" required>
 
                             <option value="" disabled selected> Start Year </option>
 
@@ -248,7 +248,7 @@
 
                         <br/>
 
-                        <select v-model="project.endMonth">
+                        <select v-model="project.endMonth" required>
 
                             <option value="" disabled selected> End Month </option>
 
@@ -260,7 +260,7 @@
 
                         </select>
 
-                        <select v-model="project.endYear">
+                        <select v-model="project.endYear" required>
 
                             <option value="" disabled selected> End Year </option>
 
@@ -308,7 +308,27 @@
 
             <div id="developers" class="ui-segment" v-if="screens.developers.display">
 
-                <h1 style="font-size:larger;"><span style="color:white;">¡</span>Software Developer <span style="color:blue;">U</span><span style="color:white;">.</span><span style="color:red;">S</span> (<span style="color:white;">Top {{ screens.developers.top100.length }}</span>) Rankings<span style="color:white;">!</span></h1>
+                <h1 style="font-size:larger; text-decoration:none;">
+                    
+                    <span style="color:yellow;">¡</span>Software Developer 
+                    
+                    <span style="color:blue;">U</span><span style="color:white;">.</span><span style="color:red;">S</span> 
+                    
+                    <span style="color:yellow;"> [ </span>
+                    
+                    <span style="color:white;">
+                    
+                        Top <img v-if="this.screens.developers.loadingGif" src="https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif" class="loading-gif"/> 
+                        
+                        {{ screens.developers.top100.length > 0 ? screens.developers.top100.length : '' }}
+                    
+                    </span>
+                    
+                    <span style="color:yellow;"> ] </span> 
+                    
+                    Rankings<span style="color:yellow;">!</span>
+                
+                </h1>
 
                 <div v-for="(location, index) in Object.keys(locations)" :key="index"> 
 
@@ -326,11 +346,13 @@
 
                                 <div v-if="screens.developers.top100.filter(developer => developer.city === city).length > 0" style="margin-bottom:15px;">  
 
-                                    <span>
+                                    <h3 class="city-name">
+                                        
+                                        {{ city }}
+
+                                        ( <span style="color:white;">Top {{ screens.developers.top100.filter(developer => developer.city === city).length }}</span> )
                                     
-                                        <h3 class="city-name">{{ city }} (Top {{ screens.developers.top100.filter(developer => developer.city === city).length }}) </h3>
-                                
-                                    </span>
+                                    </h3>
 
                                     <ol v-if="screens.developers.top100" style="line-height:2; list-style-type:lower-roman; padding-inline-start:0px;">
 
@@ -382,7 +404,7 @@
 
                                                                         {{ devWorkHistory.employer_name }} <span style="color:white"> | </span> 
 
-                                                                        {{ devWorkHistory.startMonth.substring(0,3) }} '{{ devWorkHistory.startYear.toString().substring(2) }} <span style="color:white;">--></span> {{ devWorkHistory.endMonth.substring(0,3) }} '{{ devWorkHistory.endYear.toString().substring(2) }}
+                                                                        {{ devWorkHistory.startMonth.substring(0,3) }}'{{ devWorkHistory.startYear.toString().substring(2) }} <span style="color:white;">--></span> {{ devWorkHistory.endMonth.substring(0,3) }}'{{ devWorkHistory.endYear.toString().substring(2) }}
 
                                                                     </li>
 
@@ -400,9 +422,15 @@
 
                                                                         {{ devProjectHistory.project_name }} <span style="color:white"> | </span> 
 
-                                                                        {{ devProjectHistory.project_website }} <span style="color:white"> | </span> 
+                                                                        <a :href="devProjectHistory.project_website" class="dev-website" target="_blank">
+                                                                            
+                                                                            {{ devProjectHistory.project_website }}
+                                                                        
+                                                                        </a> 
+                                                                        
+                                                                        <span style="color:white"> | </span> 
 
-                                                                        {{ devProjectHistory.startMonth.substring(0,3) }} {{ devProjectHistory.startYear }} <span style="color:white;">--></span> {{ devProjectHistory.endMonth.substring(0,3) }} {{ devProjectHistory.endYear }}
+                                                                        {{ devProjectHistory.startMonth.substring(0,3) }}'{{ devProjectHistory.startYear }} <span style="color:white;">--></span> {{ devProjectHistory.endMonth.substring(0,3) }}'{{ devProjectHistory.endYear }}
 
                                                                     </li>
 
@@ -429,8 +457,6 @@
                             </li>
 
                         </ol>
-
-                        <!-- <div v-if="index < Object.keys(locations).length-1" style="border-bottom:2px dashed red;"></div> -->
 
                     </div>                    
                     
@@ -518,7 +544,8 @@ export default
                 developers: 
                 {
                     display: true,
-                    top100: []
+                    top100: [],
+                    loadingGif: true,
                 },
 
                 profile: 
@@ -651,6 +678,8 @@ export default
         }
 
         this.screens.developers.top100 = await this.GetTop100Developers();
+
+        this.screens.developers.loadingGif = false;
 
         // console.log(this.screens.developers.top100) // debug 
 
@@ -955,7 +984,7 @@ export default
 
 .signup-photo
 {
-    border: 3px solid white;
+    border: 2px solid white;
     border-radius: 100px; 
     margin: 10px 0px;
     transition: all 0.1s ease-out;
@@ -996,14 +1025,14 @@ export default
 .developer-card
 {    
     border-radius: 8px;
-    margin: 0px 6px; 
-    transition: all 0.15s ease; 
+    margin: 15px 6px; 
+    transition: all 0.12s ease; 
 }
 
     .developer-card:hover
     {
-        border:2px solid ghostwhite;
-        box-shadow: black 0px 3px 8px;
+        border: 2px solid white;
+        box-shadow: black 0px 3px 10px;
     }
 
 h1 
@@ -1011,6 +1040,11 @@ h1
     color:black; 
     text-align:center;
     text-decoration:underline; 
+}
+
+.loading-gif
+{
+    width: 25px;
 }
 
 .city-name 

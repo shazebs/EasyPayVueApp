@@ -38,7 +38,6 @@ export default {
 <style scoped>
     header {
         border-bottom:2px dashed black;
-        border-top:2px dashed black;
         display:flex;
         justify-content: space-evenly;   
         margin:auto;

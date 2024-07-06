@@ -22,7 +22,7 @@
             <section v-for="(num_items, seller) in sellers" :key="seller">
                 <a :href="sellerUrl(seller)">{{ seller }}</a> <span style="font-size:105%;">({{ num_items }})</span>
             </section>
-        </div>
+        </div> 
 
         <!-- Show seller catalog display if user is not logged in and URL parameter is queried -->
         <div v-if="this.username && !this.user">
@@ -42,7 +42,13 @@
                     <button class="checkout-button" @click="checkoutItem(item)">Checkout</button>
                 </section>
             </section>
-        </div>
+        </div>        
+
+        <div v-if="loadingGif" style="text-align:center;">  
+            <img src="https://i.imgur.com/llF5iyg.gif" style="width:50px;"/>
+            <br/>
+            Please wait ...
+        </div> 
 
         <!-- test button -->
         <button v-if="false" @click="currentURL()">Check URL</button>
@@ -61,7 +67,8 @@ export default {
         return {
             username: null,
             userCatalog: null,
-            sellers: null
+            sellers: null,
+            loadingGif: true,
         }
     },
     components: 
@@ -95,6 +102,8 @@ export default {
                 // console.log(response.data); // debug
 
                 this.sellers = response.data.sellers; 
+
+                this.loadingGif = false;
             }
             catch (error) 
             {
@@ -136,6 +145,8 @@ export default {
 
                 // instantiate username's catalog items for display
                 this.userCatalog = response.data.catalog;
+
+                this.loadingGif = false;
             }
             catch (error) {
                 alert(error.response.data);

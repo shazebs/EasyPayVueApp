@@ -4,22 +4,32 @@
   <div style="padding: 10px;">
 
     <!-- Title -->
-    <h2 style="text-align: center">
+    <h2 style="margin-top:5px; text-align:center">
 
-      Software Job Applications Tracker
+      Software Developer "Job Applications Tracker"
+
+      <hr>
+
+      --<span style="color: limegreen">{{ job_apps.length }}</span> jobs applied 
+        
+      <span style="color:red;">{{ numberOfDays }}</span><span style="color:black;"> of </span>     
+
+      <span style="color:dodgerblue;">{{ numDaysPostGCUgraduation }}</span> 
+      
+      previous days 
+      
+      [<span style="color:gray">{{ (numberOfDays / numDaysPostGCUgraduation).toFixed(2) }}</span>%]--
 
       <br />
 
-      (<span style="color: limegreen">{{ job_apps.length }}</span> applied over <span style="color: red">{{ numberOfDays }}</span> days)
-
-      <br />
-
-      (<span style="color: mediumorchid">{{ appliesPerDay }}</span> applied per day)
+      --<span style="color: red">{{ appliesPerDay }}</span>/<span style="color:dodgerblue;">{{ (job_apps.length/numDaysPostGCUgraduation).toFixed(1) }}</span> applies daily--
 
     </h2>
 
+    <hr/>
+
     <!-- Num Rejections and Pending -->
-    <h4 style="line-height: 1.6">
+    <h4 style="margin:0; line-height:1.6;">
 
       Pending:
       <span style="color: limegreen">{{ statistics.num_inprogress }}</span> ({{ ((statistics.num_inprogress / job_apps.length) * 100).toFixed(2) }}%)
@@ -36,14 +46,13 @@
 
     </h4>
 
-    <!-- Daily Job Applies container -->
-    <section v-if="job_apps">
+    <div style="border-bottom:1px dashed black; text-align:left; padding-bottom:5px; margin-top:10px;">Daily Applies</div>
 
-      <!-- foreach day applied-->
-      <div v-for="(value, key) in job_map" :key="key">
+    <section v-if="job_apps" style="max-height:150px; overflow-Y:auto; padding:8px;">
 
-        <!-- display daily applied count -->
-        <span style="font-weight: 400">{{ key }}</span>: {{ value }}
+      <div v-for="(daily, dailyApplies_index) in Object.keys(job_map).reverse()" :key="dailyApplies_index">
+
+        <span style="font-weight: 400">{{ daily }}</span>: {{ job_map[daily] }}
 
       </div>
 
@@ -55,7 +64,7 @@
     <div v-for="(japp, index) in job_apps" :key="index">
 
       <!-- display Company Name -->
-      <h2>{{ index + 1 }}. {{ japp.a }}</h2>
+      <h2>{{ job_apps.length - index }}. {{ japp.a }}</h2>
 
       <h4>
         <!-- display Position Title -->
@@ -98,6 +107,8 @@ export default
       job_map: null,
       numberOfDays: 0,
       appliesPerDay: 0,
+      numDaysPostGCUgraduation: 0,
+      reverseJobsList: [],
       statistics: {
         num_rejections: 0,
         num_inprogress: 0,
@@ -3485,10 +3496,10 @@ export default
             'MySQL, SQL Server, Oracle',
             'REST',
           ],
-          d: true, 
+          d: false, 
           e: '6/30/2024',
+          f: '7/6/2024',
           g: [
-            '',
             'https://www.esri.com/careers/web-developer-i-geodatabase-4418677007#job-application'
           ]
         },
@@ -3554,6 +3565,32 @@ export default
             'https://www.glassdoor.com/Jobs/Workday-Jobs-E197851.htm?filter.countryId=1',
             'https://workday.wd5.myworkdayjobs.com/en-US/Workday/userHome'
           ]
+        },
+        {
+          a: 'Infor | United States Remote (St. Paul, MN, Dallas, TX, Alpharetta, GA)',
+          b: 'Software Engineer, Associate',
+          c: [
+            'C#, JavaScript, SQL',
+            'Agile, Scrum, React/Redux, TypeScript'
+          ],
+          d: true, 
+          e: '7/6/2024',
+          g: 'https://www.glassdoor.com/Jobs/Infor-Jobs-E15375.htm?filter.countryId=1'
+        },
+        {
+          a: 'Zoom | San Jose, California',
+          b: 'Software Development Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Cloud, Microservices, JavaScript, OOP'
+          ],
+          d: true,
+          e: '7/6/2024',
+          g: [
+            'Glassdoor',
+            'https://zoom.wd5.myworkdayjobs.com/en-US/Zoom/userHome'
+          ]
         }
       ]
     };
@@ -3593,17 +3630,35 @@ export default
         }
       }
 
+      console.log('job_map', job_map);
+
       return job_map;
     },
+
+    getDaysPassedSinceDate(date)
+    {
+      var targetDate = new Date(date);
+
+      var remainingTime = targetDate.getTime() - new Date().getTime();
+
+      var days = Math.floor( remainingTime / 86400000 ); 
+
+      return (days * -1) ;
+    },
+
   },
 
-  mounted() 
+  created() 
   {
     this.job_map = this.getAppliedVsRejectedStatistics();
 
     this.numberOfDays = Object.keys(this.job_map).length;
 
-    this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
+    this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(1);
+
+    this.numDaysPostGCUgraduation = this.getDaysPassedSinceDate("2024/04/27 00:00:00");
+
+    this.reverseJobsList = this.job_apps.reverse();
   },
 
 };

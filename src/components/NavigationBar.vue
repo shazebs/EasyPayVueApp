@@ -17,8 +17,13 @@ export default {
     computed: {
         ...mapGetters(['user', 'showNav'])
     },
-    methods: {
-        handleLogout() {
+    methods: 
+    {
+        /**
+         * Logout EasyPay user.
+         */
+        handleLogout() 
+        {
             if (confirm("Are you sure you want to logout?"))
             {
                 // nullify user state
@@ -30,7 +35,9 @@ export default {
                 // navigate to homepage after logout
                 this.$router.push('/'); 
             }
-        }
+        },
+
+
     }
 }
 </script>

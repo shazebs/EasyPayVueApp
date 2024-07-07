@@ -77,7 +77,7 @@
         <br />
 
         <!-- display Date Job Applied and/or Rejected -->
-        <i v-if="japp.e">Applied: {{ japp.e }}</i>
+        <i v-if="japp.e">Applied: {{ japp.e }}</i>        
         <i v-if="japp.f"> | Rejected: {{ japp.f }}</i>
 
       </h4>
@@ -3595,8 +3595,12 @@ export default
       ]
     };
   },
+
   methods: 
   {
+    /**
+     * 
+     */
     getAppliedVsRejectedStatistics() 
     {
       var job_map = {};
@@ -3630,11 +3634,15 @@ export default
         }
       }
 
-      console.log('job_map', job_map);
+      // console.log('job_map', job_map); // DEBUG 
 
       return job_map;
     },
 
+    /**
+     * 
+     * @param {*} date 
+     */
     getDaysPassedSinceDate(date)
     {
       var targetDate = new Date(date);
@@ -3648,6 +3656,9 @@ export default
 
   },
 
+  /**
+   * 
+   */
   created() 
   {
     this.job_map = this.getAppliedVsRejectedStatistics();

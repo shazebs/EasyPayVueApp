@@ -366,11 +366,17 @@
                                                 
                                                 <span style="color:white;">
 
-                                                    {{ developer.username.toUpperCase() }}
+                                                    <span style="font-size:large;">{{ developer.username.toUpperCase() }}</span> <span style="color:black; font-size:small;"> in <span style="color:white;">{{ developer.city }}<span style="color:black;">📍</span>{{ developer.state }}</span><span style="color:black;"></span></span>
                                                 
                                                 </span> 
                                                 
-                                                <br/>
+                                                <br/>                                             
+
+                                                <div style="font-size:small;">
+
+                                                    🎓<span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span> <span style="color:white;"> | </span> {{ developer.school }}
+
+                                                </div>
                                                 
                                                 <span v-for="(property, dev_index) in Object.keys(developer)" :key="dev_index">
 
@@ -378,29 +384,43 @@
                                                                                     && property !== 'password' 
                                                                                     && property !== 'username' 
                                                                                     && property !== 'photo'
+                                                                                    && property !== 'city'
+                                                                                    && property !== 'state'
+                                                                                    && property !== 'education'
+                                                                                    && property !== 'school'
+                                                                                    && property !== 'major'
+                                                                                    && property !== 'email'
+                                                                                    && property !== 'experienceLevel'
                                                                                     ">
                                                         
                                                         <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
                                                         
-                                                        <span style="color:black;">
+                                                        <span style="color:black; font-size:small;">
                                                             
-                                                            <a v-if="property === 'website'" :href="developer[property]" class="dev-website" target="_blank">
+                                                            <div v-if="property === 'website'">
+
+                                                                
+                                                                🌐 <a :href="developer[property]" class="dev-website" target="_blank">
                                                                 
                                                                 {{ developer[property] }}
-
-                                                                <br/>
                                                             
-                                                            </a>
+                                                                </a>
+
+                                                            </div>                                                            
 
                                                             <div v-else-if="property === 'workHistory'">
                                                                 
                                                                 <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
 
-                                                                    <span style="color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} </span> 
+                                                                    <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                                        
+                                                                        <span style="color:black;">(</span> {{ developer.workHistory.length }} <span style="color:black;">)</span>
+                                                                    
+                                                                    </div> 
 
                                                                     <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index">
 
-                                                                        <span style="color:blue;"> {{ devWorkHistory.position_name }} </span> <span style="color:white"> | </span>  
+                                                                        <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> <span style="color:white"> | </span>  
 
                                                                         {{ devWorkHistory.employer_name }} <span style="color:white"> | </span> 
 
@@ -416,11 +436,15 @@
 
                                                                 <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
                                                                     
-                                                                    <span style="color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} </span> 
+                                                                    <div style="border-bottom:2px dashed black; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                                        
+                                                                        ( <span style="color:black;"> {{ developer.projectHistory.length }} </span> )
+
+                                                                    </div> 
 
                                                                     <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index">
 
-                                                                        {{ devProjectHistory.project_name }} <span style="color:white"> | </span> 
+                                                                        <span style="font-weight:bolder;">{{ devProjectHistory.project_name }}</span> <span style="color:white"> | </span> 
 
                                                                         <a :href="devProjectHistory.project_website" class="dev-website" target="_blank">
                                                                             
@@ -1007,14 +1031,10 @@ export default
     color:white;
 }
 
-.dev-website 
-{
-    color: rebeccapurple;
-}
-
 .dev-website
 {
-    font-size: medium;
+    color: rebeccapurple;
+    font-size: smaller;
 }
 
     .dev-website:hover
@@ -1024,6 +1044,9 @@ export default
 
 .developer-card
 {    
+    border: 2px solid white;
+    box-shadow: black 0px 3px 10px;
+    
     border-radius: 8px;
     margin: 15px 6px; 
     transition: all 0.12s ease; 
@@ -1031,8 +1054,8 @@ export default
 
     .developer-card:hover
     {
-        border: 2px solid white;
-        box-shadow: black 0px 3px 10px;
+        /* border: 2px solid white;
+        box-shadow: black 0px 3px 10px; */
     }
 
 h1 

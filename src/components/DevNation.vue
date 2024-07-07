@@ -308,7 +308,7 @@
 
             <div id="developers" class="ui-segment" v-if="screens.developers.display">
 
-                <h1 style="font-size:larger; text-decoration:none;">
+                <h1 style="font-size:larger; text-decoration:none; margin:8px 0px;">
                     
                     <span style="color:yellow;">¡</span>Software Developer 
                     
@@ -340,13 +340,13 @@
 
                         </h1>
 
-                        <ol style="line-height:2; list-style-type:none; padding:0;">
+                        <ol style="line-height:2; list-style-type:none; padding:0; margin-top:0px;">
 
                             <li v-for="(city, index) in locations[location].cities" :key="index">
 
                                 <div v-if="screens.developers.top100.filter(developer => developer.city === city).length > 0" style="margin-bottom:15px;">  
 
-                                    <h3 class="city-name">
+                                    <h3 class="city-name" style="margin:0px;">
                                         
                                         {{ city }}
 
@@ -372,9 +372,9 @@
                                                 
                                                 <br/>                                             
 
-                                                <div style="font-size:small;">
+                                                <div v-if="developer.education !== 'No Degree'" style="font-size:small;">
 
-                                                    🎓<span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span> <span style="color:white;"> | </span> {{ developer.school }}
+                                                    🎓 <span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span> <span style="color:white;"> | </span> {{ developer.school }}
 
                                                 </div>
                                                 
@@ -398,7 +398,6 @@
                                                         <span style="color:black; font-size:small;">
                                                             
                                                             <div v-if="property === 'website'">
-
                                                                 
                                                                 🌐 <a :href="developer[property]" class="dev-website" target="_blank">
                                                                 
@@ -418,9 +417,11 @@
                                                                     
                                                                     </div> 
 
-                                                                    <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index">
+                                                                    <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index" style="line-height:1.4; margin:6px 0px;">
 
-                                                                        <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> <span style="color:white"> | </span>  
+                                                                        <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> <span style="color:white"> | </span><span v-if="devWorkHistory.yearDiff > 0">{{ devWorkHistory.yearDiff }} yrs. </span>{{ devWorkHistory.monthDiff }} mos. 
+                                                                        
+                                                                        <br/>
 
                                                                         {{ devWorkHistory.employer_name }} <span style="color:white"> | </span> 
 
@@ -436,23 +437,29 @@
 
                                                                 <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
                                                                     
-                                                                    <div style="border-bottom:2px dashed black; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                                    <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                                         
                                                                         ( <span style="color:black;"> {{ developer.projectHistory.length }} </span> )
 
                                                                     </div> 
 
-                                                                    <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index">
+                                                                    <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index" style="line-height:1.4; margin:6px 0px;">
 
-                                                                        <span style="font-weight:bolder;">{{ devProjectHistory.project_name }}</span> <span style="color:white"> | </span> 
+                                                                        <span style="font-weight:bolder;">{{ devProjectHistory.project_name }}</span> 
 
-                                                                        <a :href="devProjectHistory.project_website" class="dev-website" target="_blank">
+                                                                        <br/>
+
+                                                                        <span v-if="devProjectHistory.project_website">
+
+                                                                            <a :href="devProjectHistory.project_website" class="dev-website" target="_blank">
                                                                             
-                                                                            {{ devProjectHistory.project_website }}
+                                                                                {{ devProjectHistory.project_website }}
                                                                         
-                                                                        </a> 
+                                                                            </a> 
                                                                         
-                                                                        <span style="color:white"> | </span> 
+                                                                            <span style="color:white"> | </span> 
+
+                                                                        </span>
 
                                                                         {{ devProjectHistory.startMonth.substring(0,3) }}'{{ devProjectHistory.startYear }} <span style="color:white;">--></span> {{ devProjectHistory.endMonth.substring(0,3) }}'{{ devProjectHistory.endYear }}
 
@@ -696,6 +703,7 @@ export default
      */
     async created()
     {
+        // Turn of Navbar
         if (this.$route.path === '/dev-nation') 
         {
             this.$store.dispatch('showNav', false);
@@ -703,11 +711,11 @@ export default
 
         this.screens.developers.top100 = await this.GetTop100Developers();
 
-        this.screens.developers.loadingGif = false;
-
-        // console.log(this.screens.developers.top100) // debug 
-
+        this.CalculateDeveloperArrayExperience(); 
+        
         this.dates.years = this.GetYearsRange();
+
+        this.screens.developers.loadingGif = false;
     },
 
     beforeMount()
@@ -933,6 +941,43 @@ export default
             return years;
         },
 
+        /**
+         * 
+         * @param {*} workExperience 
+         */
+        CalculateDeveloperArrayExperience()
+        {
+            const developers_list = this.screens.developers.top100; 
+
+            for (let developer_index in developers_list)
+            {
+                for (let workExp_index in developers_list[developer_index].workHistory)
+                {
+                    const workExp = developers_list[developer_index].workHistory[workExp_index];
+
+                    const startDate = new Date(`${workExp.startYear}-${workExp.startMonth}-01`);
+                    const endDate = new Date(`${workExp.endYear}-${workExp.endMonth}-01`);
+                    
+                    const month1 = startDate.getMonth();
+                    const year1 = startDate.getFullYear();
+                    const month2 = endDate.getMonth();
+                    const year2 = endDate.getFullYear();
+
+                    let yearDiff = year2 - year1;
+                    let monthDiff = month2 - month1;
+
+                    if (monthDiff < 0) 
+                    {
+                        yearDiff--;
+                        monthDiff += 12;
+                    }
+
+                    developers_list[developer_index].workHistory[workExp_index].yearDiff = yearDiff;
+                    developers_list[developer_index].workHistory[workExp_index].monthDiff = (monthDiff);
+                }
+            }
+        },
+
     }, 
 }
 </script>
@@ -1044,23 +1089,21 @@ export default
 
 .developer-card
 {    
-    border: 2px solid white;
-    box-shadow: black 0px 3px 10px;
-    
     border-radius: 8px;
     margin: 15px 6px; 
     transition: all 0.12s ease; 
 }
 
     .developer-card:hover
-    {
-        /* border: 2px solid white;
-        box-shadow: black 0px 3px 10px; */
+    {        
+        border: 1px solid black;
+        box-shadow: black 0px 3px 10px;
     }
 
 h1 
 {
     color:black; 
+    margin: 0px;
     text-align:center;
     text-decoration:underline; 
 }

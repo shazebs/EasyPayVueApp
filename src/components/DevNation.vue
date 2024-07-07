@@ -348,7 +348,7 @@
 
                                     <h3 class="city-name" style="margin:0px;">
                                         
-                                        {{ city }}
+                                        <span style="color:white;"> {{ city }} </span>
 
                                         ( <span style="color:white;">Top {{ screens.developers.top100.filter(developer => developer.city === city).length }}</span> )
                                     
@@ -360,21 +360,33 @@
 
                                             <div class="developer-card" style="color:black; padding:10px;">
 
-                                                <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; width:100px;"/>  
+                                                <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; width:100px; margin:0px;"/>  
 
                                                 <br/>
                                                 
                                                 <span style="color:white;">
 
-                                                    <span style="font-size:large;">{{ developer.username.toUpperCase() }}</span> <span style="color:black; font-size:small;"> in <span style="color:white;">{{ developer.city }}<span style="color:black;">📍</span>{{ developer.state }}</span><span style="color:black;"></span></span>
+                                                    <span style="font-size:larger;"> {{ developer.username.toUpperCase() }} </span>
+                                                    
+                                                    <span style="color:black; font-size:small;"> 
+                                                        
+                                                        <br/>
+                                                        
+                                                        📍 near <span style="color:white;">{{ developer.city }}, {{ developer.state }}</span><span style="color:black;"></span>
+
+                                                    </span>
                                                 
                                                 </span> 
                                                 
                                                 <br/>                                             
 
-                                                <div v-if="developer.education !== 'No Degree'" style="font-size:small;">
+                                                <div v-if="developer.education !== 'No Degree'" style="font-size:small; line-height:1.4;">
 
-                                                    🎓 <span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span> <span style="color:white;"> | </span> {{ developer.school }}
+                                                    🎓 <span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span>
+                                                    
+                                                    <br/>
+                                                    
+                                                    <span style="padding-left:22px;">from {{ developer.school }} 🏫 </span>
 
                                                 </div>
                                                 
@@ -391,6 +403,7 @@
                                                                                     && property !== 'major'
                                                                                     && property !== 'email'
                                                                                     && property !== 'experienceLevel'
+                                                                                    && property !== 'expStats'
                                                                                     ">
                                                         
                                                         <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
@@ -405,7 +418,7 @@
                                                             
                                                                 </a>
 
-                                                            </div>                                                            
+                                                            </div>    
 
                                                             <div v-else-if="property === 'workHistory'">
                                                                 
@@ -413,7 +426,21 @@
 
                                                                     <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                                         
-                                                                        <span style="color:black;">(</span> {{ developer.workHistory.length }} <span style="color:black;">)</span>
+                                                                        <span style="color:black;">(</span> {{ developer.workHistory.length }} <span style="color:black;"> )</span>  
+                                                                        
+                                                                        <span style="color:black;"> <span style="color:red;"> --> </span> 
+                                                                                    
+                                                                            <span style="color:white;">
+                                                                            
+                                                                                <span v-if="developer.expStats.expYrs > 0"> {{ developer.expStats.expYrs }} yrs. </span>
+                                                                                
+                                                                                <span v-if="developer.expStats.expMos > 0">{{ developer.expStats.expMos }} mos. </span> 
+    
+                                                                            </span>
+
+                                                                            experience 
+    
+                                                                        </span>
                                                                     
                                                                     </div> 
 
@@ -439,7 +466,11 @@
                                                                     
                                                                     <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                                         
-                                                                        ( <span style="color:black;"> {{ developer.projectHistory.length }} </span> )
+                                                                        <span style="color:black;"> ( </span>
+                                                                        
+                                                                        <span style="color:white;"> {{ developer.projectHistory.length }} </span> 
+
+                                                                        <span style="color:black;"> ) </span>
 
                                                                     </div> 
 
@@ -716,6 +747,8 @@ export default
         this.dates.years = this.GetYearsRange();
 
         this.screens.developers.loadingGif = false;
+
+        // console.log(this.screens.developers);
     },
 
     beforeMount()
@@ -951,9 +984,13 @@ export default
 
             for (let developer_index in developers_list)
             {
+                var expStats = {}; 
+
                 for (let workExp_index in developers_list[developer_index].workHistory)
                 {
                     const workExp = developers_list[developer_index].workHistory[workExp_index];
+
+                    // console.log(workExp);
 
                     const startDate = new Date(`${workExp.startYear}-${workExp.startMonth}-01`);
                     const endDate = new Date(`${workExp.endYear}-${workExp.endMonth}-01`);
@@ -973,9 +1010,86 @@ export default
                     }
 
                     developers_list[developer_index].workHistory[workExp_index].yearDiff = yearDiff;
-                    developers_list[developer_index].workHistory[workExp_index].monthDiff = (monthDiff);
+                    developers_list[developer_index].workHistory[workExp_index].monthDiff = monthDiff+1;
+
+                    var currentYr = year1;
+                    var currentMo = month1;
+
+                    while (this.dates.months[currentMo] !== this.dates.months[month2] || currentYr !== year2)
+                    {
+                        if (expStats[`${currentYr}_${currentMo}`]) 
+                        {
+                            if (!expStats[`${currentYr}_${currentMo}`].includes(workExp.employer_name))
+                            {
+                                expStats[`${currentYr}_${currentMo}`].push(workExp.employer_name);
+                            }
+                        }
+                        else
+                        {                            
+                            expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
+                        }                        
+
+                        currentMo++;
+
+                        if (currentMo === 12)
+                        {
+                            currentMo = 0; 
+                            currentYr++; 
+                        }
+
+                        if (this.dates.months[currentMo] === this.dates.months[month2] && currentYr === year2)
+                        {
+                            expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
+                        }
+                    }
+                }
+
+                developers_list[developer_index].expStats = expStats;
+
+                var totalWorkExp = this.GetWorkExperienceByMonth(expStats);
+
+                developers_list[developer_index].expStats.expYrs = totalWorkExp.expYrs;
+
+                developers_list[developer_index].expStats.expMos = totalWorkExp.expMos;
+
+                // console.log(developers_list[developer_index]) // debug
+            }
+        },
+
+        GetWorkExperienceByMonth(expStats)
+        {
+            if (Object.keys(expStats).length === 0) 
+                return { expYrs: 0, expMos: 0 };
+
+            var expTimeline = Object.keys(expStats).sort();
+
+            let currentYear = expTimeline[0].substring(0,4); 
+
+            let monthsCounter = 0; 
+
+            let mo_index = 0; 
+
+            while (monthsCounter !== expTimeline.length)
+            {
+                if (expStats[`${currentYear}_${mo_index}`])
+                {
+                    monthsCounter++;
+                }
+
+                mo_index++; 
+
+                if (mo_index === 12)
+                {
+                    mo_index = 0; 
+                    currentYear++; 
                 }
             }
+
+            let numYrs = Math.floor(monthsCounter / 12);
+
+            let numMos = monthsCounter % 12;
+
+            return { expYrs: numYrs, expMos: numMos };
         },
 
     }, 
@@ -1089,15 +1203,16 @@ export default
 
 .developer-card
 {    
+    border: 1px solid black;
+    box-shadow: black 0px 3px 10px;
     border-radius: 8px;
     margin: 15px 6px; 
-    transition: all 0.12s ease; 
+    transition: all 0.15s ease; 
 }
 
     .developer-card:hover
     {        
-        border: 1px solid black;
-        box-shadow: black 0px 3px 10px;
+        border: 1px solid ghostwhite;
     }
 
 h1 

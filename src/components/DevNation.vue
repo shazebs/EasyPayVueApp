@@ -426,33 +426,47 @@
 
                                                                     <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                                         
-                                                                        <span style="color:black;">(</span> {{ developer.workHistory.length }} <span style="color:black;"> )</span>  
+                                                                        <span style="color:black;"> ( </span>
+                                                                            
+                                                                        <span style="color:red; font-size:medium;"> {{ developer.workHistory.length }} </span> 
                                                                         
-                                                                        <span style="color:black;"> <span style="color:red;"> --> </span> 
+                                                                        <span style="color:black;"> ) </span>
+                                                                        
+                                                                        <span style="color:black;"> 
+                                                                            
+                                                                            <span style="color:white;;"> --> </span> 
                                                                                     
-                                                                            <span style="color:white;">
+                                                                            <span style="color:blue;">
                                                                             
                                                                                 <span v-if="developer.expStats.expYrs > 0"> {{ developer.expStats.expYrs }} yrs. </span>
                                                                                 
                                                                                 <span v-if="developer.expStats.expMos > 0">{{ developer.expStats.expMos }} mos. </span> 
     
                                                                             </span>
-
-                                                                            experience 
     
                                                                         </span>
                                                                     
                                                                     </div> 
 
-                                                                    <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index" style="line-height:1.4; margin:6px 0px;">
+                                                                    <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index" style="line-height:1.3; margin:6px 0px;">
 
-                                                                        <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> <span style="color:white"> | </span><span v-if="devWorkHistory.yearDiff > 0">{{ devWorkHistory.yearDiff }} yrs. </span>{{ devWorkHistory.monthDiff }} mos. 
+                                                                        {{ devWorkHistory.employer_name }} 
                                                                         
                                                                         <br/>
 
-                                                                        {{ devWorkHistory.employer_name }} <span style="color:white"> | </span> 
+                                                                        <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> 
+                                                                        
+                                                                        <span style="color:white"> | </span>
+                                                                        
+                                                                        <span v-if="devWorkHistory.yearDiff > 0">{{ devWorkHistory.yearDiff }} yrs. </span>{{ devWorkHistory.monthDiff }} mos. 
+                                                                        
+                                                                        <span style="color:white"> | </span> 
 
-                                                                        {{ devWorkHistory.startMonth.substring(0,3) }}'{{ devWorkHistory.startYear.toString().substring(2) }} <span style="color:white;">--></span> {{ devWorkHistory.endMonth.substring(0,3) }}'{{ devWorkHistory.endYear.toString().substring(2) }}
+                                                                        {{ devWorkHistory.startMonth.substring(0,3) }}'{{ devWorkHistory.startYear.toString().substring(2) }} 
+                                                                        
+                                                                        <span style="color:white;">--></span> 
+                                                                        
+                                                                        {{ devWorkHistory.endMonth.substring(0,3) }}'{{ devWorkHistory.endYear.toString().substring(2) }}
 
                                                                     </li>
 
@@ -474,7 +488,7 @@
 
                                                                     </div> 
 
-                                                                    <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index" style="line-height:1.4; margin:6px 0px;">
+                                                                    <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index" style="line-height:1.3; margin:6px 0px;">
 
                                                                         <span style="font-weight:bolder;">{{ devProjectHistory.project_name }}</span> 
 
@@ -492,7 +506,11 @@
 
                                                                         </span>
 
-                                                                        {{ devProjectHistory.startMonth.substring(0,3) }}'{{ devProjectHistory.startYear }} <span style="color:white;">--></span> {{ devProjectHistory.endMonth.substring(0,3) }}'{{ devProjectHistory.endYear }}
+                                                                        {{ devProjectHistory.startMonth.substring(0,3) }}'{{ devProjectHistory.startYear }} 
+
+                                                                        <span style="color:white;">--></span> 
+                                                                        
+                                                                        {{ devProjectHistory.endMonth.substring(0,3) }}'{{ devProjectHistory.endYear }}
 
                                                                     </li>
 
@@ -734,7 +752,6 @@ export default
      */
     async created()
     {
-        // Turn of Navbar
         if (this.$route.path === '/dev-nation') 
         {
             this.$store.dispatch('showNav', false);
@@ -743,12 +760,12 @@ export default
         this.screens.developers.top100 = await this.GetTop100Developers();
 
         this.CalculateDeveloperArrayExperience(); 
+
+        this.screens.developers.loadingGif = false;
         
         this.dates.years = this.GetYearsRange();
 
-        this.screens.developers.loadingGif = false;
-
-        // console.log(this.screens.developers);
+        // console.log(this.screens.developers); // debug
     },
 
     beforeMount()
@@ -956,7 +973,7 @@ export default
          */
         DebugVariables()
         {
-            console.log(this.screens.signup); // debug
+            console.log(this.screens); // debug
         },
 
         /**
@@ -980,25 +997,23 @@ export default
          */
         CalculateDeveloperArrayExperience()
         {
-            const developers_list = this.screens.developers.top100; 
-
-            for (let developer_index in developers_list)
+            // Loop through developers 
+            for (let developer_index in this.screens.developers.top100)
             {
-                var expStats = {}; 
+                let expStats = {}; 
 
-                for (let workExp_index in developers_list[developer_index].workHistory)
+                // loop through each developer's work history experience
+                for (let workExp_index in this.screens.developers.top100[developer_index].workHistory)
                 {
-                    const workExp = developers_list[developer_index].workHistory[workExp_index];
+                    const workExp = this.screens.developers.top100[developer_index].workHistory[workExp_index];
 
-                    // console.log(workExp);
-
-                    const startDate = new Date(`${workExp.startYear}-${workExp.startMonth}-01`);
-                    const endDate = new Date(`${workExp.endYear}-${workExp.endMonth}-01`);
+                    let startDate = new Date(`${workExp.startYear}-${workExp.startMonth}-01`);
+                    let endDate = new Date(`${workExp.endYear}-${workExp.endMonth}-01`);
                     
-                    const month1 = startDate.getMonth();
-                    const year1 = startDate.getFullYear();
-                    const month2 = endDate.getMonth();
-                    const year2 = endDate.getFullYear();
+                    let month1 = startDate.getMonth();
+                    let year1 = startDate.getFullYear();
+                    let month2 = endDate.getMonth();
+                    let year2 = endDate.getFullYear();
 
                     let yearDiff = year2 - year1;
                     let monthDiff = month2 - month1;
@@ -1009,23 +1024,30 @@ export default
                         monthDiff += 12;
                     }
 
-                    developers_list[developer_index].workHistory[workExp_index].yearDiff = yearDiff;
-                    developers_list[developer_index].workHistory[workExp_index].monthDiff = monthDiff+1;
+                    // Set developer's year and month exeriences levels.
+                    this.screens.developers.top100[developer_index].workHistory[workExp_index].yearDiff = yearDiff;
+                    this.screens.developers.top100[developer_index].workHistory[workExp_index].monthDiff = monthDiff+1;
 
-                    var currentYr = year1;
-                    var currentMo = month1;
+                    let currentYr = year1;
+                    let currentMo = month1;
 
+                    // Loop through the duration of months and years for this work experience 
+                    // and track the current month/year on record with a name of the company worked for
                     while (this.dates.months[currentMo] !== this.dates.months[month2] || currentYr !== year2)
                     {
+                        // if expStats already has a key for year and month
                         if (expStats[`${currentYr}_${currentMo}`]) 
                         {
+                            // if expStats[current year and month] does not include the current employer name
                             if (!expStats[`${currentYr}_${currentMo}`].includes(workExp.employer_name))
                             {
+                                // Add employer name to expStats[year and month] worked
                                 expStats[`${currentYr}_${currentMo}`].push(workExp.employer_name);
                             }
                         }
                         else
-                        {                            
+                        {      
+                            // create a key for year and month                      
                             expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
                         }                        
 
@@ -1037,6 +1059,7 @@ export default
                             currentYr++; 
                         }
 
+                        // On loop ending: if end month for current workExp is reached, add it as a month worked
                         if (this.dates.months[currentMo] === this.dates.months[month2] && currentYr === year2)
                         {
                             expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
@@ -1044,31 +1067,47 @@ export default
                     }
                 }
 
-                developers_list[developer_index].expStats = expStats;
+                this.screens.developers.top100[developer_index].expStats = expStats; 
 
-                var totalWorkExp = this.GetWorkExperienceByMonth(expStats);
+                // console.log(expStats) // debug
+                
+                const totalWorkExp = this.GetWorkExperienceByMonth(expStats);
 
-                developers_list[developer_index].expStats.expYrs = totalWorkExp.expYrs;
-
-                developers_list[developer_index].expStats.expMos = totalWorkExp.expMos;
-
-                // console.log(developers_list[developer_index]) // debug
+                this.screens.developers.top100[developer_index].expStats.expYrs = totalWorkExp.expYrs;
+                this.screens.developers.top100[developer_index].expStats.expMos = totalWorkExp.expMos;
             }
         },
 
+        /**
+         * 
+         */
         GetWorkExperienceByMonth(expStats)
         {
             if (Object.keys(expStats).length === 0) 
-                return { expYrs: 0, expMos: 0 };
+                return { 
+                    expYrs: 0, 
+                    expMos: 0 
+                };
 
-            var expTimeline = Object.keys(expStats).sort();
+            let totalMonths = Object.keys(expStats).length;
+
+            let numYears = Math.floor(totalMonths / 12);
+
+            let numMonths = totalMonths % 12;
+
+            return { 
+                expYrs: numYears, 
+                expMos: numMonths 
+            };
+
+            /*
+            const expTimeline = Object.keys(expStats).sort();
 
             let currentYear = expTimeline[0].substring(0,4); 
 
             let monthsCounter = 0; 
 
             let mo_index = 0; 
-
             while (monthsCounter !== expTimeline.length)
             {
                 if (expStats[`${currentYear}_${mo_index}`])
@@ -1089,7 +1128,11 @@ export default
 
             let numMos = monthsCounter % 12;
 
-            return { expYrs: numYrs, expMos: numMos };
+            return { 
+                expYrs: numYrs, 
+                expMos: numMos 
+            };
+            */
         },
 
     }, 

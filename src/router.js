@@ -11,6 +11,7 @@ import Jobs from './components/JobApps.vue';
 import Awards from './pages/SocialAwards.vue';
 import Example from './pages/ExampleWorkspace.vue';
 import DevNation from './components/DevNation.vue';
+import GitNotes from './components/GitNotes.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -25,6 +26,7 @@ const routes = [
     { path: '/awards', component: Awards },
     { path: '/example', component: Example },
     { path: '/dev-nation', component: DevNation },
+    { path: '/git-notes', component: GitNotes },
 ];
 
 const router = createRouter({

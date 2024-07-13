@@ -372,7 +372,9 @@
                                                         
                                                         <br/>
                                                         
-                                                        📍 near <span style="color:white;">{{ developer.city }}, {{ developer.state }}</span><span style="color:black;"></span>
+                                                        📍 near <span style="color:white;">{{ developer.city }}<span style="color:white;">, </span>
+                                                        
+                                                        {{ developer.state }}</span><span style="color:black;"></span>
 
                                                     </span>
                                                 
@@ -760,12 +762,12 @@ export default
         this.screens.developers.top100 = await this.GetTop100Developers();
 
         this.CalculateDeveloperArrayExperience(); 
-
-        this.screens.developers.loadingGif = false;
         
         this.dates.years = this.GetYearsRange();
 
         // console.log(this.screens.developers); // debug
+
+        this.screens.developers.loadingGif = false;
     },
 
     beforeMount()
@@ -1148,6 +1150,7 @@ export default
     flex-direction: column;
     height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .ui-segment
@@ -1246,16 +1249,16 @@ export default
 
 .developer-card
 {    
-    border: 1px solid black;
-    box-shadow: black 0px 3px 10px;
+    border: 1px solid white;
     border-radius: 8px;
     margin: 15px 6px; 
     transition: all 0.15s ease; 
 }
 
     .developer-card:hover
-    {        
-        border: 1px solid ghostwhite;
+    {    
+        border-color: black;
+        box-shadow: black 0px 3px 6px;    
     }
 
 h1 
@@ -1273,7 +1276,7 @@ h1
 
 .city-name 
 {
-    border-bottom:2px dashed red;
+    border-bottom: 3px dashed red;
     color: red; 
     text-align: center;
 }

@@ -1759,8 +1759,9 @@ export default
             "Communication skills",
             "Cloud platforms",
           ],
-          d: true,
+          d: false,
           e: "5/28/2024",
+          f: '7/11/2024'
         },
         {
           a: "Cognizant | Lake Forest, California",
@@ -2028,8 +2029,9 @@ export default
             "Scrum",
             "BS",
           ],
-          d: true,
+          d: false,
           e: "6/3/2024",
+          f: '7/8/2024',
           g: "https://hcmportal.wd5.myworkdayjobs.com/en-US/Search/userHome",
         },
         {
@@ -2952,7 +2954,8 @@ export default
             'SDLC',
             'BS'
           ],
-          d: true,
+          d: false,
+          f: '7/8/2024',
           e: '6/21/2024'
         },
         {
@@ -3511,8 +3514,9 @@ export default
             '.NET, C#, Angular, SQL Server, RESTful, SOAP',
             'Azure DevOps, Testing, Waterfall, Agile, Scrum, Docker and Kubernetes'
           ],
-          d: true,
+          d: false,
           e: '7/2/2024',
+          f: '7/8/2024',
           g: [
             'https://www.indeed.com/cmp/Wec-Energy-Group/jobs',
             'https://career8.successfactors.com/portalcareer?_s.crb=gzyx6wNppO4lSCU4%252baQQrV58zwhDehD%252f4%252bLleWRn1BI%253d'
@@ -3559,8 +3563,9 @@ export default
             'Python, Django, Flask',
             'Git/GitHub, Bitbucket, JavaScript, TDD, SaaS, AWS, React.js, HTML, CSS, Agile'
           ],
-          d: true,
+          d: false,
           e: '7/3/2024',
+          f: '7/11/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Workday-Jobs-E197851.htm?filter.countryId=1',
             'https://workday.wd5.myworkdayjobs.com/en-US/Workday/userHome'

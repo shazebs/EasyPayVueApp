@@ -359,10 +359,55 @@
                                         <li v-for="(developer, index) in screens.developers.top100.filter(e => e.city === city)" :key="index" style="color:red;">
 
                                             <div class="developer-card" style="color:black; padding:10px;">
+                                                
+                                                <div style="border:2px dashed black; display:flex; flex-direction:row;">
 
-                                                <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; width:100px; margin:0px;"/>  
+                                                    <section style="display:flex; align-items:center;">
+                                                        
+                                                        <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; min-width:100px; width:100px; margin:0px;"/>  
 
-                                                <br/>
+                                                    </section>
+
+                                                    <section style="background:transparent; border: 2px dashed yellow; overflow-x:hidden; width:100%; align-items:center; display:flex;">
+
+                                                        <div :id="(`dev-exp-${developer.id}`)" 
+                                                             style="background:limegreen; 
+                                                                    border:2px dashed red; 
+                                                                    display:flex; 
+                                                                    flex-direction:row; 
+                                                                    flex-wrap:nowrap; 
+                                                                    justify-content:center;
+                                                                    height:30px; 
+                                                                    overflow-x:hidden; 
+                                                                    overflow-y:hidden; 
+                                                                    text-align:right;"> 
+                                                            
+                                                            <span v-if="developer.expStats.expYrs > 0">{{ developer.expStats.expYrs }} yrs. </span>
+
+                                                            &nbsp;
+                                                            
+                                                            <span v-if="developer.expStats.expYrs > 0 && developer.expStats.expMos > 0">{{ developer.expStats.expMos }} mos. </span>
+                                                            
+                                                            <!-- 
+                                                            <div v-for="(monthYear, index) in Object.keys(developer.expStats).sort().filter(e => e !== 'expYrs' && e !== 'expMos')" :key="index" 
+                                                                    style="background:limegreen; 
+                                                                           height:30px; 
+                                                                           border-right:2px solid white;
+                                                                           min-width:70px;
+                                                                           text-align:center;"> 
+                                                                
+                                                                {{ monthYear }}
+                                                            
+                                                            </div>
+                                                            -->                                                            
+
+                                                        </div> 
+
+                                                        <span v-if="developer.expStats.expYrs < 1 && developer.expStats.expMos > 0"> &nbsp; {{ developer.expStats.expMos }} mos. </span> <br/>
+
+                                                    </section>
+
+                                                </div>        
                                                 
                                                 <span style="color:white;">
 
@@ -761,18 +806,20 @@ export default
 
         this.screens.developers.top100 = await this.GetTop100Developers();
 
-        this.CalculateDeveloperArrayExperience(); 
+        this.CalculateDeveloperArrayExperience();         
         
+        // console.log(this.screens.developers.top100); // debug
+
+        this.setExperienceBars();
+        
+        this.screens.developers.loadingGif = false;     
+
         this.dates.years = this.GetYearsRange();
 
-        // console.log(this.screens.developers); // debug
-
-        this.screens.developers.loadingGif = false;
     },
 
     beforeMount()
     {
-
     },
 
     /**
@@ -785,7 +832,6 @@ export default
 
     updated() 
     {
-
     },
 
     methods:  
@@ -1137,6 +1183,25 @@ export default
             */
         },
 
+        setExperienceBars()
+        {
+            this.$nextTick(() => 
+            {
+                this.screens.developers.top100.forEach((e /*, i*/) => 
+                {
+                    let decimal = parseInt(e.expStats.expMos) / 12; 
+
+                    let fullNum = parseInt(e.expStats.expYrs) + decimal;
+
+                    let finalNum = Math.floor((fullNum / 5) * 100);
+
+                    let domElement = document.getElementById(`dev-exp-${e.id}`)
+
+                    domElement.style.width = `${finalNum}%`;
+                }); 
+            })
+        },
+
     }, 
 }
 </script>
@@ -1249,15 +1314,15 @@ export default
 
 .developer-card
 {    
-    border: 1px solid white;
+    /* border: 1px solid white; */
     border-radius: 8px;
     margin: 15px 6px; 
-    transition: all 0.15s ease; 
+    transition: all 0.08s ease; 
 }
 
     .developer-card:hover
     {    
-        border-color: black;
+        border: 2px solid black;
         box-shadow: black 0px 3px 6px;    
     }
 

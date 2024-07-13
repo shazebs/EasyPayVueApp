@@ -360,7 +360,7 @@
 
                                             <div class="developer-card" style="color:black; padding:10px;">
                                                 
-                                                <div style="border:2px dashed black; display:flex; flex-direction:row;">
+                                                <div style="display:flex; flex-direction:row;">
 
                                                     <section style="display:flex; align-items:center;">
                                                         
@@ -368,11 +368,11 @@
 
                                                     </section>
 
-                                                    <section style="background:transparent; border: 2px dashed yellow; overflow-x:hidden; width:100%; align-items:center; display:flex;">
+                                                    <section style="background:transparent; overflow-x:hidden; width:100%; align-items:center; display:flex; padding: 0px 5px;">
 
-                                                        <div :id="(`dev-exp-${developer.id}`)" 
+                                                        <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
                                                              style="background:limegreen; 
-                                                                    border:2px dashed red; 
+                                                                    border-radius:8px;
                                                                     display:flex; 
                                                                     flex-direction:row; 
                                                                     flex-wrap:nowrap; 
@@ -382,11 +382,11 @@
                                                                     overflow-y:hidden; 
                                                                     text-align:right;"> 
                                                             
-                                                            <span v-if="developer.expStats.expYrs > 0">{{ developer.expStats.expYrs }} yrs. </span>
+                                                            <span v-if="developer.expYrs > 0">{{ developer.expYrs }} yrs. </span>
 
                                                             &nbsp;
                                                             
-                                                            <span v-if="developer.expStats.expYrs > 0 && developer.expStats.expMos > 0">{{ developer.expStats.expMos }} mos. </span>
+                                                            <span v-if="developer.expYrs > 0 && developer.expMos > 0">{{ developer.expMos }} mos. </span>
                                                             
                                                             <!-- 
                                                             <div v-for="(monthYear, index) in Object.keys(developer.expStats).sort().filter(e => e !== 'expYrs' && e !== 'expMos')" :key="index" 
@@ -403,7 +403,7 @@
 
                                                         </div> 
 
-                                                        <span v-if="developer.expStats.expYrs < 1 && developer.expStats.expMos > 0"> &nbsp; {{ developer.expStats.expMos }} mos. </span> <br/>
+                                                        <span v-if="developer.expYrs < 1 && developer.expMos > 0"> &nbsp; {{ developer.expMos }} mos. </span> <br/>
 
                                                     </section>
 
@@ -451,6 +451,8 @@
                                                                                     && property !== 'email'
                                                                                     && property !== 'experienceLevel'
                                                                                     && property !== 'expStats'
+                                                                                    && property !== 'expYrs'
+                                                                                    && property !== 'expMos'
                                                                                     ">
                                                         
                                                         <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
@@ -485,9 +487,9 @@
                                                                                     
                                                                             <span style="color:blue;">
                                                                             
-                                                                                <span v-if="developer.expStats.expYrs > 0"> {{ developer.expStats.expYrs }} yrs. </span>
+                                                                                <span v-if="developer.expYrs > 0"> {{ developer.expYrs }} yrs. </span>
                                                                                 
-                                                                                <span v-if="developer.expStats.expMos > 0">{{ developer.expStats.expMos }} mos. </span> 
+                                                                                <span v-if="developer.expMos > 0">{{ developer.expMos }} mos. </span> 
     
                                                                             </span>
     
@@ -804,18 +806,15 @@ export default
             this.$store.dispatch('showNav', false);
         }
 
-        this.screens.developers.top100 = await this.GetTop100Developers();
-
-        this.CalculateDeveloperArrayExperience();         
+        this.screens.developers.top100 = await this.GetTop100Developers();  
         
         // console.log(this.screens.developers.top100); // debug
 
-        this.setExperienceBars();
+        this.setExperienceBars();        
+        
+        this.dates.years = this.GetYearsRange();
         
         this.screens.developers.loadingGif = false;     
-
-        this.dates.years = this.GetYearsRange();
-
     },
 
     beforeMount()
@@ -1041,157 +1040,16 @@ export default
 
         /**
          * 
-         * @param {*} workExperience 
          */
-        CalculateDeveloperArrayExperience()
-        {
-            // Loop through developers 
-            for (let developer_index in this.screens.developers.top100)
-            {
-                let expStats = {}; 
-
-                // loop through each developer's work history experience
-                for (let workExp_index in this.screens.developers.top100[developer_index].workHistory)
-                {
-                    const workExp = this.screens.developers.top100[developer_index].workHistory[workExp_index];
-
-                    let startDate = new Date(`${workExp.startYear}-${workExp.startMonth}-01`);
-                    let endDate = new Date(`${workExp.endYear}-${workExp.endMonth}-01`);
-                    
-                    let month1 = startDate.getMonth();
-                    let year1 = startDate.getFullYear();
-                    let month2 = endDate.getMonth();
-                    let year2 = endDate.getFullYear();
-
-                    let yearDiff = year2 - year1;
-                    let monthDiff = month2 - month1;
-
-                    if (monthDiff < 0) 
-                    {
-                        yearDiff--;
-                        monthDiff += 12;
-                    }
-
-                    // Set developer's year and month exeriences levels.
-                    this.screens.developers.top100[developer_index].workHistory[workExp_index].yearDiff = yearDiff;
-                    this.screens.developers.top100[developer_index].workHistory[workExp_index].monthDiff = monthDiff+1;
-
-                    let currentYr = year1;
-                    let currentMo = month1;
-
-                    // Loop through the duration of months and years for this work experience 
-                    // and track the current month/year on record with a name of the company worked for
-                    while (this.dates.months[currentMo] !== this.dates.months[month2] || currentYr !== year2)
-                    {
-                        // if expStats already has a key for year and month
-                        if (expStats[`${currentYr}_${currentMo}`]) 
-                        {
-                            // if expStats[current year and month] does not include the current employer name
-                            if (!expStats[`${currentYr}_${currentMo}`].includes(workExp.employer_name))
-                            {
-                                // Add employer name to expStats[year and month] worked
-                                expStats[`${currentYr}_${currentMo}`].push(workExp.employer_name);
-                            }
-                        }
-                        else
-                        {      
-                            // create a key for year and month                      
-                            expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
-                        }                        
-
-                        currentMo++;
-
-                        if (currentMo === 12)
-                        {
-                            currentMo = 0; 
-                            currentYr++; 
-                        }
-
-                        // On loop ending: if end month for current workExp is reached, add it as a month worked
-                        if (this.dates.months[currentMo] === this.dates.months[month2] && currentYr === year2)
-                        {
-                            expStats[`${currentYr}_${currentMo}`] = [`${workExp.employer_name}`]
-                        }
-                    }
-                }
-
-                this.screens.developers.top100[developer_index].expStats = expStats; 
-
-                // console.log(expStats) // debug
-                
-                const totalWorkExp = this.GetWorkExperienceByMonth(expStats);
-
-                this.screens.developers.top100[developer_index].expStats.expYrs = totalWorkExp.expYrs;
-                this.screens.developers.top100[developer_index].expStats.expMos = totalWorkExp.expMos;
-            }
-        },
-
-        /**
-         * 
-         */
-        GetWorkExperienceByMonth(expStats)
-        {
-            if (Object.keys(expStats).length === 0) 
-                return { 
-                    expYrs: 0, 
-                    expMos: 0 
-                };
-
-            let totalMonths = Object.keys(expStats).length;
-
-            let numYears = Math.floor(totalMonths / 12);
-
-            let numMonths = totalMonths % 12;
-
-            return { 
-                expYrs: numYears, 
-                expMos: numMonths 
-            };
-
-            /*
-            const expTimeline = Object.keys(expStats).sort();
-
-            let currentYear = expTimeline[0].substring(0,4); 
-
-            let monthsCounter = 0; 
-
-            let mo_index = 0; 
-            while (monthsCounter !== expTimeline.length)
-            {
-                if (expStats[`${currentYear}_${mo_index}`])
-                {
-                    monthsCounter++;
-                }
-
-                mo_index++; 
-
-                if (mo_index === 12)
-                {
-                    mo_index = 0; 
-                    currentYear++; 
-                }
-            }
-
-            let numYrs = Math.floor(monthsCounter / 12);
-
-            let numMos = monthsCounter % 12;
-
-            return { 
-                expYrs: numYrs, 
-                expMos: numMos 
-            };
-            */
-        },
-
         setExperienceBars()
         {
             this.$nextTick(() => 
             {
                 this.screens.developers.top100.forEach((e /*, i*/) => 
                 {
-                    let decimal = parseInt(e.expStats.expMos) / 12; 
+                    let decimal = parseInt(e.expMos) / 12; 
 
-                    let fullNum = parseInt(e.expStats.expYrs) + decimal;
+                    let fullNum = parseInt(e.expYrs) + decimal;
 
                     let finalNum = Math.floor((fullNum / 5) * 100);
 
@@ -1345,6 +1203,16 @@ h1
     color: red; 
     text-align: center;
 }
+
+.experience-bar
+{    
+    border: 1px solid white;
+}
+
+    .experience-bar:hover
+    {
+        box-shadow: black 0px 2px 4px;
+    }
 
 @media(max-width:600px)
 {

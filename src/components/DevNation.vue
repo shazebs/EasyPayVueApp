@@ -330,9 +330,227 @@
                 
                 </h1>
 
-                <div v-for="(location, index) in Object.keys(locations)" :key="index"> 
+                <div v-for="(developer, index) in screens.developers.top100" :key="index">
 
-                    <div v-if="screens.developers.top100.filter(developer => developer.state === location).length > 0"> 
+                    <div class="developer-card" style="color:black; padding:10px;">
+                                                
+                        <div style="display:flex; flex-direction:row;">
+
+                            <section style="display:flex; align-items:center;">
+                                
+                                <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; min-width:100px; width:100px; margin:0px;"/>  
+
+                            </section>
+
+                            <section style="overflow-x:hidden; width:100%; align-items:center; justify-content:center; display:flex; flex-direction:column; padding: 0px 5px;">
+
+                                <div style="width:100%; display:flex; align-items:center;">
+
+                                    <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
+                                        style="background:limegreen; 
+                                            border-radius:4px;
+                                            display:flex; 
+                                            flex-direction:row; 
+                                            flex-wrap:nowrap; 
+                                            justify-content:center;
+                                            align-items:center;
+                                            height:30px; 
+                                            overflow-x:hidden; 
+                                            overflow-y:hidden; 
+                                            text-align:right;"> 
+                                    
+                                        <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span>
+
+                                        &nbsp;
+                                        
+                                        <span v-if="developer.expYrs >= 5 && developer.expMos > 0">{{ developer.expMos }} mos. </span>                                                                                                   
+
+                                    </div> 
+
+                                    <span v-if="developer.expYrs > 0 && developer.expYrs < 5"> &nbsp;  {{ developer.expYrs }} yrs. </span>
+
+                                    <span v-if="developer.expYrs >= 0 && developer.expYrs < 5 && developer.expMos > 0"> &nbsp; {{ developer.expMos }} mos. </span> 
+
+                                </div>    
+
+                            </section>
+
+                        </div>        
+                        
+                        <div style="color:white; margin-top:10px; margin-bottom:4px;">
+                            
+                            <span style="color:#8FFF1F">RANKED <span style="font-size:x-large;">#{{ index + 1 }}</span></span> <br/>
+
+                            <span style="font-size:larger;"> {{ developer.username.toUpperCase() }} </span>
+                            
+                            <span style="color:black; font-size:small;"> 
+                                
+                                <br/>
+                                
+                                📍 near <span style="color:white;">{{ developer.city }}<span style="color:white;">, </span>
+                                
+                                {{ developer.state }}</span><span style="color:black;"></span>
+
+                            </span>
+                        
+                        </div>                                          
+
+                        <div v-if="developer.education !== 'No Degree'" style="font-size:small; line-height:1.4;">
+
+                            🎓 <span style="font-weight:bolder;">{{ developer.education }}</span> in <span style="font-weight:bolder;">{{ developer.major }}</span>
+                            
+                            <br/>
+                            
+                            <span style="padding-left:22px;">from {{ developer.school }} 🏫 </span>
+
+                        </div>
+                        
+                        <span v-for="(property, dev_index) in Object.keys(developer)" :key="dev_index">
+
+                            <span v-if="developer[property] && property !== 'id' 
+                                                            && property !== 'password' 
+                                                            && property !== 'username' 
+                                                            && property !== 'photo'
+                                                            && property !== 'city'
+                                                            && property !== 'state'
+                                                            && property !== 'education'
+                                                            && property !== 'school'
+                                                            && property !== 'major'
+                                                            && property !== 'email'
+                                                            && property !== 'experienceLevel'
+                                                            && property !== 'expStats'
+                                                            && property !== 'expYrs'
+                                                            && property !== 'expMos'
+                                                            ">
+                                
+                                <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
+                                
+                                <span style="color:black; font-size:small;">
+                                    
+                                    <div v-if="property === 'website'">
+                                        
+                                        🌐 <a :href="developer[property]" class="dev-website" target="_blank">
+                                        
+                                        {{ developer[property] }}
+                                    
+                                        </a>
+
+                                    </div>    
+
+                                    <div v-else-if="property === 'workHistory'">
+                                        
+                                        <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
+
+                                            <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                
+                                                <span style="color:black;"> ( </span>
+                                                    
+                                                <span style="color:red; font-size:medium;"> {{ developer.workHistory.length }} </span> 
+                                                
+                                                <span style="color:black;"> ) </span>
+                                                
+                                                <span style="color:black;"> 
+                                                    
+                                                    <span style="color:white;;"> --> </span> 
+                                                            
+                                                    <span style="color:blue;">
+                                                    
+                                                        <span v-if="developer.expYrs > 0"> {{ developer.expYrs }} yrs. </span>
+                                                        
+                                                        <span v-if="developer.expMos > 0">{{ developer.expMos }} mos. </span> 
+
+                                                    </span>
+
+                                                </span>
+                                            
+                                            </div> 
+
+                                            <li v-for="(devWorkHistory, workHistory_index) in developer[property]" :key="workHistory_index" style="line-height:1.3; margin:6px 0px;">
+
+                                                {{ devWorkHistory.employer_name }} 
+                                                
+                                                <br/>
+
+                                                <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> 
+                                                
+                                                <span style="color:white"> | </span>
+                                                
+                                                <span v-if="devWorkHistory.yearDiff > 0">{{ devWorkHistory.yearDiff }} yrs. </span>{{ devWorkHistory.monthDiff }} mos. 
+                                                
+                                                <span style="color:white"> | </span> 
+
+                                                {{ devWorkHistory.startMonth.substring(0,3) }}'{{ devWorkHistory.startYear.toString().substring(2) }} 
+                                                
+                                                <span style="color:white;">--></span> 
+                                                
+                                                {{ devWorkHistory.endMonth.substring(0,3) }}'{{ devWorkHistory.endYear.toString().substring(2) }}
+
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div v-else-if="property === 'projectHistory'">
+
+                                        <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
+                                            
+                                            <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                
+                                                <span style="color:black;"> ( </span>
+                                                
+                                                <span style="color:white;"> {{ developer.projectHistory.length }} </span> 
+
+                                                <span style="color:black;"> ) </span>
+
+                                            </div> 
+
+                                            <li v-for="(devProjectHistory, projectHistory_index) in developer[property]" :key="projectHistory_index" style="line-height:1.3; margin:6px 0px;">
+
+                                                <span style="font-weight:bolder;">{{ devProjectHistory.project_name }}</span> 
+
+                                                <br/>
+
+                                                <span v-if="devProjectHistory.project_website">
+
+                                                    <a :href="devProjectHistory.project_website" class="dev-website" target="_blank">
+                                                    
+                                                        {{ devProjectHistory.project_website }}
+                                                
+                                                    </a> 
+                                                
+                                                    <span style="color:white"> | </span> 
+
+                                                </span>
+
+                                                {{ devProjectHistory.startMonth.substring(0,3) }}'{{ devProjectHistory.startYear }} 
+
+                                                <span style="color:white;">--></span> 
+                                                
+                                                {{ devProjectHistory.endMonth.substring(0,3) }}'{{ devProjectHistory.endYear }}
+
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <span v-else> {{ developer[property] }} <br/> </span>
+                                
+                                </span>
+                            
+                            </span>
+
+                        </span>                                         
+
+                    </div>
+
+                </div>
+
+                <!-- DEPRECATED -->
+                <div v-show="false" v-for="(location, index) in Object.keys(locations)" :key="index">
+
+                    <div v-if="screens.developers.top100.filter(developer => developer.state === location).length > 0">
 
                         <h1 style="color:blue; text-align:center;">
 
@@ -344,7 +562,7 @@
 
                             <li v-for="(city, index) in locations[location].cities" :key="index">
 
-                                <div v-if="screens.developers.top100.filter(developer => developer.city === city).length > 0" style="margin-bottom:15px;">  
+                                <div v-if="screens.developers.top100.filter(developer => developer.city === city).length > 0" style="margin-bottom:15px;">
 
                                     <h3 class="city-name" style="margin:0px;">
                                         

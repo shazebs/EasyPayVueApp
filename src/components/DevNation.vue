@@ -372,21 +372,22 @@
 
                                                         <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
                                                              style="background:limegreen; 
-                                                                    border-radius:8px;
+                                                                    border-radius:4px;
                                                                     display:flex; 
                                                                     flex-direction:row; 
                                                                     flex-wrap:nowrap; 
                                                                     justify-content:center;
+                                                                    align-items:center;
                                                                     height:30px; 
                                                                     overflow-x:hidden; 
                                                                     overflow-y:hidden; 
                                                                     text-align:right;"> 
                                                             
-                                                            <span v-if="developer.expYrs > 0">{{ developer.expYrs }} yrs. </span>
+                                                            <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span>
 
                                                             &nbsp;
                                                             
-                                                            <span v-if="developer.expYrs > 0 && developer.expMos > 0">{{ developer.expMos }} mos. </span>
+                                                            <span v-if="developer.expYrs >= 5 && developer.expMos > 0">{{ developer.expMos }} mos. </span>
                                                             
                                                             <!-- 
                                                             <div v-for="(monthYear, index) in Object.keys(developer.expStats).sort().filter(e => e !== 'expYrs' && e !== 'expMos')" :key="index" 
@@ -403,7 +404,10 @@
 
                                                         </div> 
 
-                                                        <span v-if="developer.expYrs < 1 && developer.expMos > 0"> &nbsp; {{ developer.expMos }} mos. </span> <br/>
+
+                                                        <span v-if="developer.expYrs > 0 && developer.expYrs < 5"> &nbsp;  {{ developer.expYrs }} yrs. </span>
+
+                                                        <span v-if="developer.expYrs >= 0 && developer.expYrs < 5 && developer.expMos > 0"> &nbsp; {{ developer.expMos }} mos. </span> 
 
                                                     </section>
 
@@ -1051,7 +1055,7 @@ export default
 
                     let fullNum = parseInt(e.expYrs) + decimal;
 
-                    let finalNum = Math.floor((fullNum / 5) * 100);
+                    let finalNum = Math.floor((fullNum / 10) * 100);
 
                     let domElement = document.getElementById(`dev-exp-${e.id}`)
 
@@ -1180,6 +1184,7 @@ export default
 
     .developer-card:hover
     {    
+        background:peru;
         border: 2px solid black;
         box-shadow: black 0px 3px 6px;    
     }

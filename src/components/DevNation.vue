@@ -346,7 +346,7 @@
 
                                 <section style="overflow-x:hidden; width:100%; align-items:center; justify-content:center; display:flex; flex-direction:column; padding: 0px 5px;">
 
-                                    <div style="width:100%; display:flex; align-items:center;">
+                                    <div style="width:100%; color: white; display:flex; align-items:center;">
 
                                         <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
                                             style="background:limegreen; 
@@ -380,7 +380,11 @@
                             
                             <div style="color:white; margin-top:10px; margin-bottom:4px;">
                                 
-                                <span style="color:#8FFF1F">RANKED <span style="font-size:x-large;">#{{ index + 1 }}</span></span> <br/>
+                                <span style="color:#8FFF1F">RANKED <span style="font-size:x-large;">#{{ index + 1 }} </span></span>  
+                                
+                                <img src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" style="width:25px; margin-left:6px;"/> 
+                                
+                                <br/>
 
                                 <span style="font-size:larger;"> {{ developer.username.toUpperCase() }} </span>
                                 
@@ -1284,8 +1288,18 @@ export default
                     let finalNum = Math.floor((fullNum / 10) * 100);
 
                     let domElement = document.getElementById(`dev-exp-${e.id}`)
-
+                    
                     domElement.style.width = `${finalNum}%`;
+
+                    // change experience bar color 
+                    if (finalNum >= 50) 
+                    {
+                        domElement.style.backgroundColor = '#5929ff';
+                    }
+                    else if (finalNum >= 20)
+                    {
+                        domElement.style.backgroundColor = '#f5f64a';
+                    }
                 }); 
             })
         },
@@ -1440,7 +1454,7 @@ h1
 
 .experience-bar
 {    
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
     .experience-bar:hover

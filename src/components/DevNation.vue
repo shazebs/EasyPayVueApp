@@ -308,7 +308,7 @@
 
             <div id="developers" class="ui-segment" v-if="screens.developers.display" style="padding:0px;">
 
-                <h1 style="font-size:larger; text-decoration:none; padding:5px 0px; background:dodgerblue;">
+                <h1 style="font-size:larger; text-decoration:none; padding:10px 0px; background:dodgerblue;">
                     
                     <span style="color:yellow;">¡</span>Software Developer 
                     
@@ -330,7 +330,7 @@
                 
                 </h1>
 
-                <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div id="developer-list-container" style="">
 
                     <div v-for="(developer, index) in screens.developers.top100" :key="index">
 
@@ -446,7 +446,7 @@
                                             
                                             <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
 
-                                                <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                <div style="border-bottom:2px dashed white; color:white; padding-bottom:4px;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                     
                                                     <span style="color:black;"> ( </span>
                                                         
@@ -500,7 +500,7 @@
 
                                             <ul v-if="developer[property].length > 0" style="padding-left:0px; list-style-type:none;">
                                                 
-                                                <div style="border-bottom:2px dashed white; color:white;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
+                                                <div style="border-bottom:2px dashed white; color:white; padding-bottom:4px;"> {{ property.charAt(0).toUpperCase() + property.slice(1) }} 
                                                     
                                                     <span style="color:black;"> ( </span>
                                                     
@@ -1399,6 +1399,14 @@ export default
     max-height: 400px;
 }
 
+#developer-list-container
+{
+    align-items:center;
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:center; 
+}
+
 .city:hover 
 {
     color:white;
@@ -1420,9 +1428,9 @@ export default
     background: dodgerblue;
     border: 1px solid white;
     border-radius: 8px;
-    margin: 8px; 
+    margin: 15px 8px; 
     max-width: 400px; 
-    transition: all 0.09s ease; 
+    transition: all 0.1s ease; 
 }
 
     .developer-card:hover
@@ -1467,6 +1475,11 @@ h1
     #dev-nation-ui
     {        
         font-size: small;
+    }
+
+    #developer-list-container
+    {
+        display: block;
     }
 }
 

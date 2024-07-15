@@ -308,7 +308,7 @@
 
             <div id="developers" class="ui-segment" v-if="screens.developers.display" style="padding:0px;">
 
-                <h1 style="font-size:larger; text-decoration:none; padding:10px 0px; background:dodgerblue;">
+                <h1 style="font-size:larger; text-decoration:none; padding-top:12px; background:dodgerblue;">
                     
                     <span style="color:yellow;">¡</span>Software Developer 
                     
@@ -1470,7 +1470,7 @@ h1
         box-shadow: black 0px 2px 4px;
     }
 
-@media(max-width:600px)
+@media(max-width:850px)
 {
     #dev-nation-ui
     {        
@@ -1480,6 +1480,12 @@ h1
     #developer-list-container
     {
         display: block;
+        /* justify-content: start; */
+    }
+
+    .developer-card 
+    {
+        max-width: 100%;
     }
 }
 

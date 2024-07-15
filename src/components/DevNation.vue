@@ -1298,12 +1298,7 @@ export default
 
 #dev-nation-ui 
 {
-    background-image:url('https://media1.giphy.com/media/4N1FZFE5AGO3qrUGkw/giphy.gif');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-
-    /* background: dodgerblue; */
+    background: dodgerblue;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1458,12 +1453,6 @@ h1
     #dev-nation-ui
     {        
         font-size: small;
-    }
-
-    .developer-card 
-    {        
-        max-height: 415px; 
-        overflow-y: auto;
     }
 }
 

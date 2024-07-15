@@ -306,9 +306,9 @@
 
             </div>
 
-            <div id="developers" class="ui-segment" v-if="screens.developers.display">
+            <div id="developers" class="ui-segment" v-if="screens.developers.display" style="padding:0px;">
 
-                <h1 style="font-size:larger; text-decoration:none; margin:8px 0px;">
+                <h1 style="font-size:larger; text-decoration:none; padding:5px 0px; background:dodgerblue;">
                     
                     <span style="color:yellow;">¡</span>Software Developer 
                     
@@ -350,7 +350,6 @@
 
                                         <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
                                             style="background:limegreen; 
-                                                border-radius:4px;
                                                 display:flex; 
                                                 flex-direction:row; 
                                                 flex-wrap:nowrap; 
@@ -1299,7 +1298,12 @@ export default
 
 #dev-nation-ui 
 {
-    background: dodgerblue;
+    background-image:url('https://media1.giphy.com/media/4N1FZFE5AGO3qrUGkw/giphy.gif');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    /* background: dodgerblue; */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1315,6 +1319,7 @@ export default
 
 #navbar 
 {
+    background: dodgerblue;
     border-bottom: 2px dashed white;
     text-align: center;
 }
@@ -1403,17 +1408,18 @@ export default
 
 .developer-card
 {    
+    background: dodgerblue;
     border: 1px solid white;
     border-radius: 8px;
-    margin: 15px 6px; 
+    margin: 8px; 
     max-width: 400px; 
-    transition: all 0.08s ease; 
+    transition: all 0.09s ease; 
 }
 
     .developer-card:hover
     {    
-        background:peru;
-        border: 2px solid black;
+        background: peru;
+        border-color: black;
         box-shadow: black 0px 3px 6px;    
     }
 
@@ -1439,7 +1445,7 @@ h1
 
 .experience-bar
 {    
-    border: 1px solid white;
+    border: 1px solid black;
 }
 
     .experience-bar:hover
@@ -1452,6 +1458,12 @@ h1
     #dev-nation-ui
     {        
         font-size: small;
+    }
+
+    .developer-card 
+    {        
+        max-height: 415px; 
+        overflow-y: auto;
     }
 }
 

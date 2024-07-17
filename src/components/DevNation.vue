@@ -340,29 +340,17 @@
 
                                 <section style="display:flex; align-items:center;">
                                     
-                                    <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; min-width:100px; width:100px; margin:0px;"/>  
+                                    <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo"/>  
 
                                 </section>
 
-                                <section style="overflow-x:hidden; width:100%; align-items:center; justify-content:center; display:flex; flex-direction:column; padding: 0px 5px;">
+                                <section class="experience-bar-container" style="">
 
                                     <div style="width:100%; color: white; display:flex; align-items:center;">
 
-                                        <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
-                                            style="background:limegreen; 
-                                                display:flex; 
-                                                flex-direction:row; 
-                                                flex-wrap:nowrap; 
-                                                justify-content:center;
-                                                align-items:center;
-                                                height:30px; 
-                                                overflow-x:hidden; 
-                                                overflow-y:hidden; 
-                                                text-align:right;"> 
+                                        <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"> 
                                         
-                                            <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span>
-
-                                            &nbsp;
+                                            <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span> &nbsp;
                                             
                                             <span v-if="developer.expYrs >= 5 && developer.expMos > 0">{{ developer.expMos }} mos. </span>                                                                                                   
 
@@ -382,7 +370,7 @@
                                 
                                 <span style="color:#8FFF1F">RANKED <span style="font-size:x-large;">#{{ index + 1 }} </span></span>  
                                 
-                                <img src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" style="width:25px; margin-left:6px;"/> 
+                                <img class="flag-icon" src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"/> 
                                 
                                 <br/>
 
@@ -395,6 +383,8 @@
                                     📍 near <span style="color:white;">{{ developer.city }}<span style="color:white;">, </span>
                                     
                                     {{ developer.state }}</span><span style="color:black;"></span>
+
+                                    <img class="flag-icon" :src="getStateFlag(developer.state)"/> 
 
                                 </span>
                             
@@ -428,7 +418,7 @@
                                                                 && property !== 'expMos'
                                                                 ">
                                     
-                                    <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
+                                    <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}: -->
                                     
                                     <span style="color:black; font-size:small;">
                                         
@@ -588,46 +578,19 @@
 
                                                     <section style="display:flex; align-items:center;">
                                                         
-                                                        <img :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'" class="signup-photo" style="background:white; min-width:100px; width:100px; margin:0px;"/>  
+                                                        <img class="signup-photo" :src="developer.photo !== null ? developer.photo : 'https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png'"/>  
 
                                                     </section>
 
-                                                    <section style="background:transparent; overflow-x:hidden; width:100%; align-items:center; display:flex; padding: 0px 5px;">
+                                                    <section style="border:2px dashed yellow; background:white; overflow-x:hidden; width:100%; align-items:center; display:flex; padding: 0px 5px;">
 
-                                                        <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"
-                                                             style="background:limegreen; 
-                                                                    border-radius:4px;
-                                                                    display:flex; 
-                                                                    flex-direction:row; 
-                                                                    flex-wrap:nowrap; 
-                                                                    justify-content:center;
-                                                                    align-items:center;
-                                                                    height:30px; 
-                                                                    overflow-x:hidden; 
-                                                                    overflow-y:hidden; 
-                                                                    text-align:right;"> 
+                                                        <div :id="(`dev-exp-${developer.id}`)" class="experience-bar"> 
                                                             
-                                                            <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span>
-
-                                                            &nbsp;
+                                                            <span v-if="developer.expYrs >= 5">{{ developer.expYrs }} yrs. </span> &nbsp;
                                                             
-                                                            <span v-if="developer.expYrs >= 5 && developer.expMos > 0">{{ developer.expMos }} mos. </span>
-                                                            
-                                                            <!-- 
-                                                            <div v-for="(monthYear, index) in Object.keys(developer.expStats).sort().filter(e => e !== 'expYrs' && e !== 'expMos')" :key="index" 
-                                                                    style="background:limegreen; 
-                                                                           height:30px; 
-                                                                           border-right:2px solid white;
-                                                                           min-width:70px;
-                                                                           text-align:center;"> 
-                                                                
-                                                                {{ monthYear }}
-                                                            
-                                                            </div>
-                                                            -->                                                            
+                                                            <span v-if="developer.expYrs >= 5 && developer.expMos > 0">{{ developer.expMos }} mos. </span> 
 
                                                         </div> 
-
 
                                                         <span v-if="developer.expYrs > 0 && developer.expYrs < 5"> &nbsp;  {{ developer.expYrs }} yrs. </span>
 
@@ -682,8 +645,6 @@
                                                                                     && property !== 'expYrs'
                                                                                     && property !== 'expMos'
                                                                                     ">
-                                                        
-                                                        <!-- {{ property.charAt(0).toUpperCase() + property.slice(1) }}:  -->
                                                         
                                                         <span style="color:black; font-size:small;">
                                                             
@@ -1035,8 +996,6 @@ export default
         }
 
         this.screens.developers.top100 = await this.GetTop100Developers();  
-        
-        // console.log(this.screens.developers.top100); // debug
 
         this.setExperienceBars();        
         
@@ -1072,7 +1031,6 @@ export default
 
             ui.style.height = `${Math.floor(window.innerHeight)}px`;
 
-            // commented out because of zoom-in bug on mobile browser iPhone XR
             window.addEventListener('resize', () => 
             {
                 ui.style.height = `${Math.floor(window.innerHeight)}px`;
@@ -1279,30 +1237,50 @@ export default
         {
             this.$nextTick(() => 
             {
-                this.screens.developers.top100.forEach((e /*, i*/) => 
+                this.screens.developers.top100.forEach((developer /*, i*/) => 
                 {
-                    let decimal = parseInt(e.expMos) / 12; 
+                    let yrsMos = parseInt(developer.expYrs) + (parseInt(developer.expMos) / 12);
 
-                    let fullNum = parseInt(e.expYrs) + decimal;
+                    let expBarWidthPercentage = (yrsMos / 10) * 100;
 
-                    let finalNum = Math.floor((fullNum / 10) * 100);
-
-                    let domElement = document.getElementById(`dev-exp-${e.id}`)
-                    
-                    domElement.style.width = `${finalNum}%`;
+                    let domElement = document.getElementById(`dev-exp-${developer.id}`)
+                                       
+                    domElement.style.width = `${expBarWidthPercentage.toFixed(2)}%`; // set experience bar width
 
                     // change experience bar color 
-                    if (finalNum >= 50) 
+                    if (expBarWidthPercentage >= 100)
                     {
                         domElement.style.backgroundColor = '#5929ff';
                     }
-                    else if (finalNum >= 20)
+                    else if (expBarWidthPercentage >= 50) 
                     {
-                        domElement.style.backgroundColor = '#f5f64a';
+                        domElement.style.backgroundColor = '#9A3334';
+                    }
+                    else if (expBarWidthPercentage >= 20)
+                    {
+                        domElement.style.backgroundColor = '#1E36FF';
                     }
                 }); 
             })
         },
+
+        getStateFlag(state)
+        {
+            switch(state)
+            {
+                case 'Arizona': 
+                    return 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Arizona.svg/1200px-Flag_of_Arizona.svg.png';
+
+                case 'California':
+                    return 'https://cdn.britannica.com/46/7046-004-BB1F8E32/state-flag-Bear-Flag-California-red-star-July-9-1846.jpg'
+
+                case 'New_Mexico': 
+                    return 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_New_Mexico.svg/1200px-Flag_of_New_Mexico.svg.png';
+
+                default:
+                    break;
+            }
+        }
 
     }, 
 }
@@ -1381,11 +1359,13 @@ export default
 
 .signup-photo
 {
+    background:transparent; 
     border: 2px solid white;
     border-radius: 100px; 
-    margin: 10px 0px;
+    margin: 0px;
     transition: all 0.1s ease-out;
-    width: 200px;
+    width:100px; 
+    min-width:100px; 
 }
 
     .signup-photo:hover 
@@ -1401,10 +1381,10 @@ export default
 
 #developer-list-container
 {
-    align-items:center;
-    display:flex; 
-    flex-wrap:wrap; 
-    justify-content:center; 
+    align-items: center;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
 }
 
 .city:hover 
@@ -1460,15 +1440,37 @@ h1
     text-align: center;
 }
 
+.experience-bar-container
+{
+    align-items:cemter;
+    display:flex; 
+    margin-left: 6px; 
+    overflow: hidden; 
+    width: 100%; 
+}
+
 .experience-bar
 {    
-    /* border: 1px solid black; */
+    align-items:center;
+    background:limegreen; 
+    border-radius: 3px;
+    justify-content:center;
+    display:flex; 
+    flex-direction:row; 
+    flex-wrap:nowrap; 
+    overflow: hidden;
 }
 
     .experience-bar:hover
     {
         box-shadow: black 0px 2px 4px;
     }
+
+.flag-icon
+{
+    margin-left:6px;
+    width:25px; 
+}
 
 @media(max-width:850px)
 {

@@ -2448,8 +2448,9 @@ export default
             "Data structures and Algorithms",
             "Vault version control",
           ],
-          d: true,
+          d: false,
           e: "6/10/2024",
+          f: '7/16/2024',
           g: "https://www.linkedin.com/jobs/view/3945772858/",
         },
         {

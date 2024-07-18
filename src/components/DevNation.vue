@@ -368,25 +368,33 @@
                             
                             <div style="color:white; margin-top:10px; margin-bottom:4px;">
                                 
-                                <span style="color:#8FFF1F">RANKED <span style="font-size:x-large;">#{{ index + 1 }} </span></span>  
+                                <div style="display:flex; align-items:center; padding:2px;">  
+
+                                    <div style="color:#8FFF1F; display:flex; align-items:center;">
+                                        
+                                        RANKED <span style="font-size:x-large; padding-left:3px; "> #{{ index + 1 }} </span> 
+                                    
+                                    </div>  
                                 
-                                <img class="flag-icon" src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"/> 
-                                
-                                <br/>
+                                    <img class="flag-icon" src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" style="transform:translateY(2px);"/> 
+
+                                </div>
 
                                 <span style="font-size:larger;"> {{ developer.username.toUpperCase() }} </span>
                                 
-                                <span style="color:black; font-size:small;"> 
-                                    
-                                    <br/>
-                                    
-                                    📍 near <span style="color:white;">{{ developer.city }}<span style="color:white;">, </span>
-                                    
-                                    {{ developer.state }}</span><span style="color:black;"></span>
+                                <div style="color:black; font-size:small; display:flex; align-items:center; margin:5px 0px;"> 
 
-                                    <img class="flag-icon" :src="getStateFlag(developer.state)"/> 
+                                    <span>
+                                    
+                                        📍 near <span style="color:white;">{{ developer.city }}<span style="color:white;">, </span>
+                                        
+                                        {{ developer.state }}</span>
+                                
+                                    </span>
 
-                                </span>
+                                    <img class="flag-icon" :src="getStateFlag(developer.state)" style="transform:translateY(1px);"/> 
+
+                                </div>
                             
                             </div>                                          
 
@@ -1264,6 +1272,10 @@ export default
             })
         },
 
+        /**
+         * Get the Photo URL associated with State name.
+         * @param {*} state 
+         */
         getStateFlag(state)
         {
             switch(state)
@@ -1276,6 +1288,9 @@ export default
 
                 case 'New_Mexico': 
                     return 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_New_Mexico.svg/1200px-Flag_of_New_Mexico.svg.png';
+
+                case 'Washington':
+                    return 'https://www.sos.wa.gov/sites/default/files/2022-05/official_state_flag_384x256px.gif';
 
                 default:
                     break;

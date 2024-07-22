@@ -1262,7 +1262,7 @@ export default
                     }
                     else if (expBarWidthPercentage >= 50) 
                     {
-                        domElement.style.backgroundColor = '#9A3334';
+                        domElement.style.backgroundColor = '#c70505';
                     }
                     else if (expBarWidthPercentage >= 20)
                     {
@@ -1396,7 +1396,7 @@ export default
 
 #developer-list-container
 {
-    align-items: center;
+    align-items: start;
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
@@ -1479,6 +1479,7 @@ h1
     .experience-bar:hover
     {
         box-shadow: black 0px 2px 4px;
+        cursor: pointer;
     }
 
 .flag-icon
@@ -1486,6 +1487,12 @@ h1
     margin-left:6px;
     width:25px; 
 }
+
+    .flag-icon:hover
+    {
+        box-shadow: black 0px 2px 4px;
+        cursor: pointer;
+    }
 
 @media(max-width:850px)
 {

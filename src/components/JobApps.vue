@@ -39,16 +39,30 @@
       Rejections:
       <span style="color: red">{{ statistics.num_rejections }}</span> ({{((statistics.num_rejections / job_apps.length) * 100).toFixed(2)}}%)
 
+      <br/>
+
+      FORECAST: <big style="color:dodgerblue;">1</big> interview per <big style="color:limegreen;">{{ avgAppliesForInterview }}</big> jobs applied.
+      <br/>
+
+      <span v-if="appsBetweenInterviews[appsBetweenInterviews.length-1] < avgAppliesForInterview"> ADVICE: Apply to <big style="color:brown">{{ avgAppliesForInterview - appsBetweenInterviews[appsBetweenInterviews.length-1] }}</big> more jobs to acquire your next interview! </span>
+
+      <hr />
+
+      Total interviews acquired:
+      <span style="color:dodgerblue; font-size:large;">{{ statistics.num_interviews }}</span> ({{ ((statistics.num_interviews / job_apps.length) * 100).toFixed(2) }}%)
+
+      <br />
+      
+      <span style="color:red;">REJECTED w/interview: </span> <big>{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
       <br />
 
-      Interviews:
-      <span style="color:dodgerblue;">{{ statistics.num_interviews }}</span> ({{ ((statistics.num_interviews / job_apps.length) * 100).toFixed(2) }}%)
+      <span style="color:limegreen;">PENDING w/interview: </span> <big style="color:dodgerblue;">{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
 
     </h4>
 
     <div style="border-bottom:1px dashed black; text-align:left; padding-bottom:5px; margin-top:10px;">Daily Applies</div>
 
-    <section v-if="job_apps" style="max-height:150px; overflow-Y:auto; padding:8px;">
+    <section v-if="job_apps" style="max-height:72px; overflow-Y:auto; padding:8px;">
 
       <div v-for="(daily, dailyApplies_index) in Object.keys(job_map).reverse()" :key="dailyApplies_index">
 
@@ -64,7 +78,12 @@
     <div v-for="(japp, index) in job_apps" :key="index">
 
       <!-- display Company Name -->
-      <h2>{{ job_apps.length - index }}. {{ japp.a }}</h2>
+      <h2 v-if="japp.i !== undefined">
+        <span style="color:dodgerblue;">{{ job_apps.length - index }}. {{ japp.a }}</span>
+        <span v-if="japp.i === false" style="color:red; font-size:medium;"> REJECTED w/interview</span>
+        <span v-else-if="japp.i === true" style="color:limegreen;"> PENDING w/interview</span>
+      </h2>
+      <h2 v-else>{{ job_apps.length - index }}. {{ japp.a }}</h2>
 
       <h4>
         <!-- display Position Title -->
@@ -107,6 +126,8 @@ export default
       job_map: null,
       numberOfDays: 0,
       appliesPerDay: 0,
+      appsBetweenInterviews: [],
+      avgAppliesForInterview: 0,
       numDaysPostGCUgraduation: 0,
       reverseJobsList: [],
       statistics: {
@@ -1886,7 +1907,7 @@ export default
           d: false,
           e: '6/3/2024',
           f: '6/21/2024',
-          i: true
+          i: false
         },
         {
           a: "Dot Foods, Inc. | Mount Sterling, Illinois",
@@ -2653,8 +2674,9 @@ export default
             "GIT",
             "Kanban",
           ],
-          d: true,
+          d: false,
           e: "6/11/2024",
+          f: '7/18/2024',
           g: "https://www.linkedin.com/jobs/view/3947177128/?alternateChannel=search&refId=qzFnp3Dv%2BkwWpwlj%2FWCjRA%3D%3D&trackingId=%2Fjdq2bO2MXqKqX5wmwwYGg%3D%3D&trk=d_flagship3_search_srp_jobs",
         },
         {
@@ -3597,6 +3619,228 @@ export default
             'Glassdoor',
             'https://zoom.wd5.myworkdayjobs.com/en-US/Zoom/userHome'
           ]
+        },
+        {
+          a: 'Fox Corporation | Blue Ash, Ohio',
+          b: 'Software Engineer I',
+          c: [
+            'C#, SQL, .NET 6+, ASP.NET Web API, Blazor, Entity Framework'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Fox-Corporation-Jobs-E2938629.htm?filter.countryId=1',
+            'https://fox.wd1.myworkdayjobs.com/en-US/Domestic/userHome',
+          ]
+        },
+        {
+          a: 'ForeFlight LLC | Austin, Texas',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            'Java',
+            'JavaScript',
+            'TypeScript',
+            'Python',
+            'React',
+            'Node.js',
+            'SQL',
+            'NoSQL',
+            'AWS, Azure'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/ForeFlight-Jobs-E1171602.htm?filter.countryId=1'
+          ]
+        },
+        {
+          a: 'Vertaforce | East Lansing, Michigan',
+          b: 'Software Engineer I',
+          c: [
+            'No exp required',
+            'Popular coding languages, Agile and Scrum, NoSQL'
+          ],
+          d: false,
+          e: '7/17/2024',
+          f: '7/20/2024',
+          g: 'https://www.glassdoor.com/Jobs/Vertafore-Jobs-E35307.htm?filter.countryId=1'
+        },
+        {
+          a: 'Horrocks | Pleasant Grove, Utah',
+          b: 'Junior Front-End Software Developer',
+          c: [
+            'BS',
+            '1-3 years exp',
+            '1 year exp UI/UX',
+            'HTML/CSS/JavaScript',
+            'RESTful API\'S',
+            'React',
+            'GIT',
+            'ArcGIS Platform and JavaScript API',
+            'Tailwind CSS, TypeScript, Vite'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Horrocks-Jobs-E312491.htm?filter.countryId=1'
+        },
+        {
+          a: 'Fedex | Collierville, Tennessee',
+          b: 'Full Stack Developer I',
+          c: [
+            'BS',
+            '0-1 years exp',
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/FedEx-Jobs-E246.htm?filter.countryId=1'
+        },
+        {
+          a: 'Home Depot / THD | Atlanta, Georgia',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript/Typescript Framworks, OOP, Java, Version Control',
+            'SQL/NoSQL, CI/CD, Microservices'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/The-Home-Depot-Jobs-E655.htm?filter.countryId=1',
+            'https://homedepot.wd5.myworkdayjobs.com/en-US/CareerDepot/userHome'
+          ]
+        },
+        {
+          a: 'Humana | Kentucky',
+          b: 'Junior Full Stack Engineer',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'Angular, React, SpringBoot, .Net, Vue'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Humana-Jobs-E340.htm?filter.countryId=1'
+        },
+        {
+          a: 'Loopback Analytics | Dallas, Texas',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'React.js, C#, HTML, CSS, JavaScript, RESTful API, SQL, Git, Angular, Vue.js, AWS, Azure, DevOps'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Loopback-Analytics-Jobs-E918837.htm?filter.countryId=1'
+        },
+        {
+          a: 'Deltek, Inc. | (Remote) United States',
+          b: 'Software Engineer',
+          c: [
+            'Java, C, C#, .NET'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Deltek-Jobs-E6642.htm?filter.countryId=1'
+        },
+        {
+          a: 'Accenture Federal Services | San Antonio, Texas',
+          b: 'Full Stack Java Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Ruby on Rails, Spring MVC, Spring Boot, Angular, NodeJS, ReactJS, Express',
+            'REST/SOAP APIs, Git/Bitbucket, Jenkins, SQL, IntelliJ, Unit Testing',
+            'Maven, NPM, Jira, IOS, Android, Mongo/Dynamo DB, etc.'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Accenture-Federal-Services-Jobs-E8502974.htm?filter.countryId=1'
+        },
+        {
+          a: 'T-Mobile | Bellevue, Washington',
+          b: 'Associate Engineer, Software',
+          c: [
+            'BS',
+            'Less than 2 years exp'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/T-Mobile-Jobs-E9302.htm?filter.countryId=1',
+            'https://tmobile.wd1.myworkdayjobs.com/en-US/External/userHome'
+          ]
+        },
+        {
+          a: 'Fairfax Software | (Remote) United States',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'C#, .NET/WCF, SQL, Unit Testing, REST API, ReactJS',
+            'JavaScript, HTML5, CSS, SDLC'
+          ],
+          d: true,
+          e: '7/17/2024',
+          g: 'https://www.glassdoor.com/Jobs/Fairfax-Software-Jobs-E335048.htm?filter.countryId=1'
+        },
+        {
+          a: 'Pittsburgh Steelers | Pittsburgh, Pennsylvania',
+          b: 'Jr Software Developer',
+          c: [
+            'BS plus 1+ years exp',
+            'SQL, C#, JavaScript, HTML, CSS, AngularJS, Azure, Blazor, REST APIs'
+          ],
+          d: true,
+          e: '7/18/2024',
+          g: 'https://www.glassdoor.com/Jobs/Pittsburgh-Steelers-Jobs-E5272.htm'
+        },
+        {
+          a: 'Lumina Spes Group Inc | Scottsdale, Arizona',
+          b: 'Full Stack Software Engineer',
+          c: [
+            'BS',
+            'Angular, RESTful Web API, Nest.js, TypeScript',
+            'PostgreSQL, SQL, Git, OpenAPI, Azure, CI/CD, Docker, Kubernetes'
+          ],
+          d: true,
+          e: '7/20/2024'
+        },
+        {
+          a: 'Orenco Systems | Sutherlin, Oregon',
+          b: 'Full-Stack Developer',
+          c: [
+            'BS',
+            'Visual Studio',
+            'SQL, .NET, C#, C++, Java, HTML, XML'
+          ],
+          d: true,
+          e: '7/20/2024',
+          g: 'https://www.glassdoor.com/Jobs/Orenco-Systems-Jobs-E1175837.htm'
+        },
+        {
+          a: 'TMG GD LIMITED | (Remote) United States',
+          b: 'web developer',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript, Bootstrap, SASS, Git, Adobe Photoshop'
+          ],
+          d: true,
+          e: '7/20/2024',
+          g: 'https://www.glassdoor.com/Jobs/TMG-Jobs-E764017.htm'
+        },
+        {
+          a: 'Match Made Tech | Irvine, California',
+          b: 'Java Backend Engineer (Hybrid)',
+          c: [
+            'BS',
+            'Agile, Java, Spring, NodeJS, TypeScript, Python, Git, Jira',
+            'PostgreSQL, MySQL, SQL Server, NoSQL, Redis, MongoDB',
+            'JavaScript testing frameworks',
+            'Maven, NPM, Docker, Kubernetes, React, Angular, Vue'
+          ],
+          d: true,
+          e: '7/20/2024',
+          g: 'https://www.glassdoor.com/Jobs/Match-Made-in-Therapy-Jobs-E7718473.htm'
         }
       ]
     };
@@ -3610,9 +3854,12 @@ export default
     getAppliedVsRejectedStatistics() 
     {
       var job_map = {};
+      let betweenInterviewsCounter = 0; 
 
       for (const job of this.job_apps) 
       {
+        betweenInterviewsCounter++; 
+
         // count inprogress and rejections
         if (job.d) 
         {
@@ -3634,13 +3881,21 @@ export default
         }
 
         // if interviewed scheduled
-        if (job.i === true) 
+        if (job.i !== undefined) 
         {
           this.statistics.num_interviews++; 
+          this.appsBetweenInterviews.push(betweenInterviewsCounter);
+          betweenInterviewsCounter = 0;
         }
       }
+      
+      this.appsBetweenInterviews.push(betweenInterviewsCounter);
 
-      // console.log('job_map', job_map); // DEBUG 
+      console.log(this.appsBetweenInterviews) // debug
+
+      console.log(this.appsBetweenInterviews[this.appsBetweenInterviews.length-1])
+
+      this.avgAppliesForInterview = Math.floor(this.appsBetweenInterviews.slice(0, -1).reduce((total, e) => total + e, 0) / (this.appsBetweenInterviews.length-1) );
 
       return job_map;
     },
@@ -3671,7 +3926,7 @@ export default
 
     this.numberOfDays = Object.keys(this.job_map).length;
 
-    this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(1);
+    this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
 
     this.numDaysPostGCUgraduation = this.getDaysPassedSinceDate("2024/04/27 00:00:00");
 
@@ -3679,6 +3934,8 @@ export default
   },
 
 };
+
+// https://www.linkedin.com/posts/robynnstorey_resumewriting-jobsearch-hiring-activity-7217195973033263106-xl1w?utm_source=share&utm_medium=member_desktop
 </script>
 
 <style scoped></style>

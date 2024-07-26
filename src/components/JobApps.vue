@@ -41,10 +41,10 @@
 
       <br/>
 
-      FORECAST: <big style="color:dodgerblue;">1</big> interview per <big style="color:limegreen;">{{ avgAppliesForInterview }}</big> jobs applied.
+      RESULT: <big style="color:dodgerblue;">1</big> interview per <big style="color:limegreen;">{{ avgAppliesForInterview }}</big> jobs applied.
       <br/>
 
-      <span v-if="appsBetweenInterviews[appsBetweenInterviews.length-1] < avgAppliesForInterview"> ADVICE: Apply to <big style="color:brown">{{ avgAppliesForInterview - appsBetweenInterviews[appsBetweenInterviews.length-1] }}</big> more jobs to acquire your next interview! </span>
+      <span v-if="appsBetweenInterviews[appsBetweenInterviews.length-1] < avgAppliesForInterview"> FORECAST: Apply to <big style="color:brown">{{ avgAppliesForInterview - appsBetweenInterviews[appsBetweenInterviews.length-1] }}</big> more jobs to acquire your next interview! </span>
 
       <hr />
 
@@ -1691,8 +1691,9 @@ export default
             "CI/CD",
             "DevOps",
           ],
-          d: true,
+          d: false,
           e: "5/21/2024",
+          f: '7/23/2024'
         },
         {
           a: "Aristocrat Gaming | Reno, Nevada",
@@ -1887,8 +1888,9 @@ export default
             "Test Automation",
             "Mobile app development",
           ],
-          d: true,
+          d: false,
           e: "6/3/2024",
+          f: '7/22/2024'
         },
         {
           a: "Outcomes Operating Inc | Dublin, Ohio",
@@ -3718,8 +3720,9 @@ export default
             '0-2 years exp',
             'Angular, React, SpringBoot, .Net, Vue'
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '7/24/2024',
           g: 'https://www.glassdoor.com/Jobs/Humana-Jobs-E340.htm?filter.countryId=1'
         },
         {
@@ -3841,7 +3844,81 @@ export default
           d: true,
           e: '7/20/2024',
           g: 'https://www.glassdoor.com/Jobs/Match-Made-in-Therapy-Jobs-E7718473.htm'
-        }
+        },
+        {
+          a: 'Best Buy | Richfield, Minnesota',
+          b: 'Software Engineer II',
+          c: [
+            'BS',
+            '5+ years exp',
+            '2+ years exp Agile, Java, HTML, XML, MySQL, RESTful API',
+          ],
+          d: false,
+          e: '7/22/2024',
+          f: '7/23/2024',
+          g: 'https://www.ziprecruiter.com/co/Best-Buy/Jobs/--in-United-States?id=dcy_mznIPn8IMFWLkT89j+r9O2M='
+        },
+        {
+          a: 'enlatics | Colorado City, Colorado',
+          b: 'Front End Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+          ],
+          d: true,
+          e: '7/22/2024',
+          g: 'https://www.ziprecruiter.com/co/enlatics/Jobs/--in-United-States'
+        },
+        {
+          a: 'G. Loomis, Inc. | Woodland, Washington',
+          b: 'Application Developer',
+          c: [
+            'BS',
+            '1-3 years exp',
+            'SQL, JavaScript, HTML, REST API, JSON'
+          ],
+          d: true,
+          e: '7/22/2024',
+          g: 'https://www.indeed.com/cmp/G.-Loomis,-Inc./jobs'
+        },
+        {
+          a: 'Hype Pharm, The Agency | Chandler, Arizona',
+          b: 'Web Developer & SEO Specialist (In-House Marketing Agency)',
+          c: [
+            '3+ years exp',
+            'HTML'
+          ],
+          d: true,
+          e: '7/22/2024',
+          g: 'https://www.indeed.com/cmp/Hype-Pharm,-the-Agency/jobs'
+        },
+        {
+          a: 'Wells Fargo | Westlake, Texas',
+          b: 'Engineering Associate',
+          c: [
+            '6+ months exp',
+            'Java, React, JavaScript'
+          ],
+          d: true,
+          e: '7/23/2024',
+          g: [
+            'https://www.indeed.com/cmp/Wells-Fargo/jobs',
+            'https://wd1.myworkdaysite.com/en-US/recruiting/wf/WellsFargoJobs/userHome'
+          ]
+        },
+        {
+          a: 'Infusion Software Inc | Chandler, Arizona',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Spring, HTML5, Vue, React, JavaScript, Git/GitHub',
+            'Maven, Gradle, Jira'
+          ],
+          d: true,
+          e: '7/24/2024',
+          g: 'https://www.glassdoor.com/Jobs/Keap-Jobs-E332306.htm'
+        },
       ]
     };
   },

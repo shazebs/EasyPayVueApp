@@ -626,8 +626,9 @@ export default
             "AWS",
             "GCP",
           ],
-          d: true,
+          d: false,
           e: "5/9/2024",
+          f: '7/25/2025'
         },
         {
           a: "Robert Half | Los Angeles, California",
@@ -1166,8 +1167,9 @@ export default
             "Spring Planning",
             "Sprint Grooming",
           ],
-          d: true,
+          d: false,
           e: "5/14/2024",
+          f: '7/25/2024'
         },
         {
           a: "McDonald's Corporation | Chicago, Illinois",
@@ -3919,8 +3921,137 @@ export default
           e: '7/24/2024',
           g: 'https://www.glassdoor.com/Jobs/Keap-Jobs-E332306.htm'
         },
+        {
+          a: 'Harvest Power | Islip Terrace, New York',
+          b: 'Junior Software Developer',
+          c: [
+            'APIs, JSON, REST, SOAP, HTML'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Harvest-Power-LLC/jobs'
+        },
+        {
+          a: 'Beyond The Brand Media LLC | Goffstown, New Hampshire',
+          b: 'Web Developer for Established Web Agency',
+          c: [
+            '1+ years exp',
+            'HTML, CSS, JavaScript, PHP, WordPress'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Beyond-the-Brand-Media-LLC/jobs'
+        },
+        {
+          a: 'Stax.ai | Scottsdale, Arizona',
+          b: 'Front-End Software Developer',
+          c: [
+            'HTML5, CSS3, JavaScript, SolidJS, Golang, Python, Git'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Stax.ai,-Inc./jobs'
+        },
+        {
+          a: 'Antra, Inc. | Virginia, Nebraska',
+          b: 'Entry Level Angular Developer',
+          c: [
+            'BS',
+            'OOP',
+            'JavaScript',
+            'Angular.js',
+            'React.js',
+            'Express.js',
+            'CSS',
+            'Agile, Scrum, Version control'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Antra,-Inc/jobs'
+        },
+        {
+          a: 'Technology Recovery Group, LTD | Westlake, Ohio',
+          b: 'Software Engineer 1',
+          c: [
+            'BS',
+            '1+ years exp',
+            '.NET Core, C#, Git, MVC, ASP.NET, SQL Server, HTML, CSS, JSON, REST API',
+            'JavaScript, JQuery, Bootstrap'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Trg-be6a68b9/jobs'
+        },
+        {
+          a: 'Vision IT | Richmond, Virginia',
+          b: 'Angular Developer',
+          c: [
+            'Angular, HTML, CSS, JavaScript, RESTful API, OOP',
+            'SQL, Wireframes, Bootstrap, C#, XML'
+          ],
+          d: true, 
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Vision-IT/jobs'
+        },
+        {
+          a: 'United States Cold Storage Inc | Camden, New Jersey',
+          b: 'Full Stack Java Developer',
+          c: [
+            'BS',
+            'Java',
+            'SQL Server, Oracle, ORM, JavaScript, Angular, TypeScript',
+            'REST, Git, Maven, Confluence, Jira'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/United-States-Cold-Storage/jobs'
+        },
+        {
+          a: 'The State of FLorida | Tallahassee, Florida',
+          b: 'Systems Programmer I',
+          c: [
+            'BS',
+            '4+ years exp',
+            'T-SQL, C#, MVC, Bootstrap, SQL Server, Azure, DevOps, GitHub',
+            'Azure AD, Agile, Scrum, Kanban'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/State-of-Florida/jobs'
+        },
+        {
+          a: 'ExecHires | Los Angeles, California',
+          b: 'Software Engineer',
+          c: [
+            'Python, AI, PyTorch'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.indeed.com/cmp/Exechires/jobs'
+        },
+        {
+          a: 'Focus Camera | Brooklyn, New York',
+          b: 'In-Office Junior Web Developer - Brooklyn, NY',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript, PHP, Node.js, Express, Django, Ruby on Rails',
+            'Git, Shopify, RESTful API, SQL, MySQL, MongoDB, Unit Testing',
+            'Agile/Scrum'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'Glassdoor'
+        },
+        {
+          a: 'GitHub | (Remote) United States',
+          b: 'Software Engineer II, Billing',
+          c: [],
+          d: true,
+          e: '7/25/2024',
+          g: 'Glassdoor'
+        }
       ]
-    };
+    }
   },
 
   methods: 

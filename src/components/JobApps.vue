@@ -4157,6 +4157,36 @@ export default
           d: true,
           e: '7/28/2024',
           g: 'https://www.glassdoor.com/Jobs/The-Marlin-Alliance-Jobs-E809656.htm'
+        },
+        {
+          a: 'Meta | Burlingame, California',
+          b: 'Software Engineer, Computer Vision',
+          c: [
+            'BS',
+            'C++',
+            'API, C#, MS or PhD'
+          ],
+          d: true,
+          e: '7/28/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Meta-Jobs-E40772.htm',
+            'https://www.metacareers.com/profile/home/'
+          ]
+        },
+        {
+          a: 'YouTube | Mountain View, California',
+          b: 'Software Engineer III',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'C++'
+          ],
+          d: true,
+          e: '7/28/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/YouTube-Jobs-E40803.htm',
+            'https://www.google.com/about/careers/applications/dashboard'
+          ]
         }
       ]
     }

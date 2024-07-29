@@ -53,7 +53,7 @@
 
       <br />
       
-      <span style="color:red;">REJECTED w/interview: </span> <big>{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
+      <span style="color:red;">REJECTED w/interview: </span> <big>{{ job_apps.filter(e => e.i !== undefined && e.i === false).length }}</big>
       <br />
 
       <span style="color:limegreen;">PENDING w/interview: </span> <big style="color:dodgerblue;">{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
@@ -3436,10 +3436,11 @@ export default
           c: [
             '2+ years exp .NET/C#, Bootstrap/CSS, JavaScript, AI/ML, Azure, UI design, Mock-ups, Git'
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '7/26/2024',
           g: 'https://www.glassdoor.com/Jobs/Proofpoint-Jobs-E39140.htm?filter.countryId=1',
-          i: true
+          i: false
         },
         {
           a: 'Hoffmann Brothers | Brentwood, Missouri',
@@ -3684,8 +3685,9 @@ export default
             'ArcGIS Platform and JavaScript API',
             'Tailwind CSS, TypeScript, Vite'
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '7/26/2024',
           g: 'https://www.glassdoor.com/Jobs/Horrocks-Jobs-E312491.htm?filter.countryId=1'
         },
         {
@@ -4049,6 +4051,112 @@ export default
           d: true,
           e: '7/25/2024',
           g: 'Glassdoor'
+        },
+        {
+          a: 'Adobe | San Jose, California',
+          b: '2025 University Graduate - Software Development Engineer',
+          c: [
+            'BS',
+            '0-1+ years exp',
+            'Python, Java, C++',
+            'C#, Ruby, PHP, React, Vue, Angular, JQuery',
+            'DevOps'
+          ],
+          d: true,
+          e: '7/25/2024',
+          g: 'https://www.glassdoor.com/Jobs/Adobe-Jobs-E1090.htm'
+        },
+        {
+          a: 'California Institute of Technology | Pasadena, California',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Gravitational wave analysis'
+          ],
+          d: true,
+          e: '7/26/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Caltech-California-Jobs-E22139.htm',
+            'https://phf.tbe.taleo.net/phf03/ats/careers/v2/myJobs?org=CALTECH&cws=37'
+          ]
+        },
+        {
+          a: 'California State University, Long Beach | Long Beach, California',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, C#, VB.NET, XML, HTML, JavaScript, SQL, PL/SQL'
+          ],
+          d: true,
+          e: '7/26/2024',
+          g: 'https://www.glassdoor.com/Jobs/CSU-Long-Beach-Jobs-E112602.htm'
+        },
+        {
+          a: 'Pennymac | Agoura Hills, California',
+          b: 'Software Development Engineer in Test [SDET]',
+          c: [
+            'JavaScript, Node.js, Python, Selenium, Jest, REST APIs, GraphQL',
+            'Postman, JIRA, CI/CD, SQL Server, PostgreSQL, AWS'
+          ],
+          d: true,
+          e: '7/26/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Pennymac-Jobs-E230027.htm',
+            'https://careers-pennymac.icims.com/jobs/dashboard?hashed=1781592878'
+          ]
+        },
+        {
+          a: 'ByteDance | San Jose, California',
+          b: 'Recommendation Platform Backend Engineer Graduate [TikeTok E-Commerce Recommendation Infrastructure] - 2024 Start[BS/MS]',
+          c: [
+            'BS',
+            'C++, Python3, Flask, FastAPI, MySQL, MongoDB, Redis'
+          ],
+          d: true,
+          e: '7/26/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/ByteDance-Jobs-E1624196.htm',
+            'https://jobs.bytedance.com/en/position/application'
+          ]
+        },
+        {
+          a: 'TikTok | San Jose, California',
+          b: 'Software Engineer Graduate (Intelligent Creation Backend/Frontend) - 2025 Start (BS/MS)',
+          c: [
+            'BS',
+            'Internship exp',
+            'Python, Java, C++, Go, Git, Agile, Scrum'
+          ],
+          d: true,
+          e: '7/28/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/TikTok-Jobs-E2230881.htm',
+            'https://careers.tiktok.com/position/application'
+          ]
+        },
+        {
+          a: 'Plaid | San Francisco, California',
+          b: 'Software Engineer - Investments',
+          c: [
+            '1+ years exp',
+          ],
+          d: true,
+          e: '7/28/2024',
+          g: 'https://www.glassdoor.com/Jobs/Plaid-Jobs-E1156368.htm'
+        },
+        {
+          a: 'The Marlin Alliance | San Diego, California',
+          b: 'Angular Software Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Angular 2+, JavaScript, Git, C#, C, C++, Java'
+          ],
+          d: true,
+          e: '7/28/2024',
+          g: 'https://www.glassdoor.com/Jobs/The-Marlin-Alliance-Jobs-E809656.htm'
         }
       ]
     }

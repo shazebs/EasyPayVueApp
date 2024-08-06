@@ -3310,12 +3310,13 @@ export default
             'Python, Perl, Ruby, Shell, AWK',
             'Troubleshooting skills'
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '8/1/2024',
           g: 'https://www.ziprecruiter.com/co/Thermo-Fisher-Scientific/Jobs/--in-United-States?id=PpIoRcQrbrMgrSryPqAJEVt5QsI='
         },
         {
-          a: 'Stuller | Lafayetter, Louisiana',
+          a: 'Stuller | Lafayette, Louisiana',
           b: 'Software UI/UX Developer',
           c: [
             'BS',
@@ -3328,7 +3329,8 @@ export default
           g: [
             'https://www.ziprecruiter.com/co/Stuller/Jobs/--in-United-States?id=Jv_VDhjRXtJ_mtwtW6k2CFiVcN4=',
             'https://secure4.saashr.com/ta/6052029.careers?rnd=UKG&Ext=careers&sft=VFXCHJKCLQ&ActiveSessionId=20231010533#applicant/applications'
-          ]
+          ],
+          i: true,
         },
         {
           a: 'LineLeader | Dallas, Texas',
@@ -3542,13 +3544,14 @@ export default
             '.NET, C#, Angular, SQL Server, RESTful, SOAP',
             'Azure DevOps, Testing, Waterfall, Agile, Scrum, Docker and Kubernetes'
           ],
-          d: false,
+          d: true,
           e: '7/2/2024',
-          f: '7/8/2024',
+          f: '',
           g: [
             'https://www.indeed.com/cmp/Wec-Energy-Group/jobs',
             'https://career8.successfactors.com/portalcareer?_s.crb=gzyx6wNppO4lSCU4%252baQQrV58zwhDehD%252f4%252bLleWRn1BI%253d'
-          ]
+          ],
+          i: true
         },
         {
           a: 'Plasser American Corp | Danbury, Connecticut',
@@ -3771,8 +3774,9 @@ export default
             'BS',
             'Less than 2 years exp'
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '7/30/2024',
           g: [
             'https://www.glassdoor.com/Jobs/T-Mobile-Jobs-E9302.htm?filter.countryId=1',
             'https://tmobile.wd1.myworkdayjobs.com/en-US/External/userHome'
@@ -3820,8 +3824,9 @@ export default
             'Visual Studio',
             'SQL, .NET, C#, C++, Java, HTML, XML'
           ],
-          d: true,
+          d: false,
           e: '7/20/2024',
+          f: '8/1/2024',
           g: 'https://www.glassdoor.com/Jobs/Orenco-Systems-Jobs-E1175837.htm'
         },
         {
@@ -3967,9 +3972,11 @@ export default
             'CSS',
             'Agile, Scrum, Version control'
           ],
-          d: true,
+          d: false,
           e: '7/25/2024',
-          g: 'https://www.indeed.com/cmp/Antra,-Inc/jobs'
+          f: '8/1/2024',
+          g: 'https://www.indeed.com/cmp/Antra,-Inc/jobs',
+          i: false
         },
         {
           a: 'Technology Recovery Group, LTD | Westlake, Ohio',
@@ -4040,8 +4047,9 @@ export default
             'Git, Shopify, RESTful API, SQL, MySQL, MongoDB, Unit Testing',
             'Agile/Scrum'
           ],
-          d: true,
+          d: false,
           e: '7/25/2024',
+          f: '8/3/2024',
           g: 'Glassdoor'
         },
         {
@@ -4186,6 +4194,145 @@ export default
           g: [
             'https://www.glassdoor.com/Jobs/YouTube-Jobs-E40803.htm',
             'https://www.google.com/about/careers/applications/dashboard'
+          ]
+        },
+        {
+          a: 'Delta Air Lines, Inc. | Atlanta, Georgia',
+          b: 'Associate Software Development Engineer',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'Java/J2EE framework, OOP, Design Patterns, Relational DBs, Oracle, Linux/Unix',
+            'Shell Scripting, MS SQL, JQuery, AngularJS, Swagger, Springboot',
+            'AWS, DevOps, GIT, GitHub, Bitbucket, CI/CD, TDD, SDLC, Agile'
+          ],
+          d: true,
+          e: '8/1/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Delta-Air-Lines-Jobs-E197.htm',
+            'https://delta.avature.net/en_US/careers/Profile'
+          ]
+        },
+        {
+          a: 'LEGO | Irvine, California',
+          b: 'Backend Software Engineer',
+          c: [
+            '2+ years exp',
+            'C#, .Net Framework, .NET Core, NoSQL, SQL, AWS, CDN, DNS, E-Commerce, APIs'
+          ],
+          d: true,
+          e: '8/3/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/the-LEGO-Group-Jobs-E3944.htm',
+            'https://lego.wd3.myworkdayjobs.com/en-US/LEGO_External/userHome'
+          ]
+        },
+        {
+          a: 'Triunity Software | San Francisco, California',
+          b: 'Jr Junior Java Developer',
+          c: [
+            'Java 8 or higher, OOP, Spring framework'
+          ],
+          d: true,
+          e: '8/4/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Triunity-Software-Inc-Jobs-E5916226.htm'
+          ]
+        },
+        {
+          a: 'SoCal Z | Colton, California',
+          b: 'Web Developer',
+          c: [
+            'Drupal, MongoDB, Java, GraphQL, RESTful APIs, Redux, WordPress',
+            'UI/UX designs, JavaScript, HTML, CSS, Angular, Front-end'
+          ],
+          d: true,
+          e: '8/4/2024',
+          g: [
+            'https://www.indeed.com/cmp/Socal-Z-Inc./jobs'
+          ]
+        },
+        {
+          a: 'U-Haul | Phoenix, Arizona',
+          b: 'Applications Programmer',
+          c: [
+            'BS',
+            '1-2 years exp',
+            'Java, C#, Python, SQL Server, MySQL, Oracle, HTML'          
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/U-Haul-Jobs-E236315.htm',
+            'https://uhaul.wd1.myworkdayjobs.com/en-US/UhaulJobs/userHome'
+          ]
+        },
+        {
+          a: 'Apple | New York, New York',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'Java, Scala, JVM, SQL, NoSQL, NewSQL'
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Apple-Jobs-E1138.htm',
+            'https://jobs.apple.com/app/en-us/profile/roles'
+          ]
+        },
+        {
+          a: 'Education At Work | Tempe, Arizona',
+          b: 'Programmer/Developer',
+          c: [
+            'BS',
+            'HTML, JavaScript, Bootstrap, jQuery, TFS, GitHub, SOAP, REST',
+            'C#, ASP.NET, SQL, SDLC, Azure DevOps, Active Directory, Web API'
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Education-at-Work-Jobs-E955643.htm'
+          ]
+        },
+        {
+          a: 'ProIT Inc. | Sunnyvale, California',
+          b: 'Vue.js Developer',
+          c: [
+            'JavaScript, ES6, Vue.js, Vue CLI, Vuex, Vue Router, ReactJS, DOM, Git, NPM, CSS3'
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'Glassdoor'
+          ]
+        },
+        {
+          a: 'Apple | San Diego, California',
+          b: 'Software Quality Engineer - Mail, Messages, and FaceTime',
+          c: [
+            'BS',
+            'QA methodologies, Python, Swift, UI'
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Apple-Jobs-E1138.htm',
+            'https://jobs.apple.com/app/en-us/profile/roles'
+          ]
+        },
+        {
+          a: 'BEUMER Group | Somerset, New Jersey',
+          b: 'Software Systems Engineer II',
+          c: [
+            'BS/MS',
+            'C++, C#, SQL',
+            'TCP sockets, Restful APRIs, Angular'
+          ],
+          d: true,
+          e: '8/5/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Beumer-Jobs-E264397.htm'
           ]
         }
       ]

@@ -2444,8 +2444,9 @@ export default
           a: "Toast | Ontario, Oregon",
           b: "Software Engineer II",
           c: ["OOP", "Full-Stack", "Logging and Metrics"],
-          d: true,
+          d: false,
           e: "6/10/2024",
+          f: '8/6/2024'
         },
         {
           a: "Dexian Inc | San Francisco, California",
@@ -3264,8 +3265,9 @@ export default
             'deep learning',
             'PCF'
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '8/6/2024',
           g: [
             'https://www.linkedin.com/jobs/view/3959427558/?alternateChannel=search&refId=Sz6R1YkTkjHq2FGxH9bQyg%3D%3D&trackingId=W8M99aXuDuUU4ydIPbHJdQ%3D%3D&trk=d_flagship3_search_srp_jobs',
             'https://tmobile.wd1.myworkdayjobs.com/en-US/External/userHome'
@@ -3513,8 +3515,9 @@ export default
             'JavaScript',
             'HTML/CSS'
           ],
-          d: true,
+          d: false,
           e: '6/29/2024',
+          f: '8/6/2024',
           g: [
             'https://www.indeed.com/cmp/SAN-Bernardino-County/jobs?jk=1795b0566ac99942&start=0',
             'https://www.governmentjobs.com/careers/sanbernardino/jobs/4522663/programmer-iii'
@@ -3924,8 +3927,9 @@ export default
             'Java, Spring, HTML5, Vue, React, JavaScript, Git/GitHub',
             'Maven, Gradle, Jira'
           ],
-          d: true,
+          d: false,
           e: '7/24/2024',
+          f: '8/6/2024',
           g: 'https://www.glassdoor.com/Jobs/Keap-Jobs-E332306.htm'
         },
         {
@@ -4333,6 +4337,120 @@ export default
           e: '8/5/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Beumer-Jobs-E264397.htm'
+          ]
+        },
+        {
+          a: 'Autodesk | (Remote) Oregon, United States',
+          b: 'Software Development Engineer, Platform Services',
+          c: [
+            '2+ years exp',
+            'Go, Java, Python, .NET, DevOps, AWS, Agile, Lambda, Cloud'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3992981256/?alternateChannel=search&refId=gBZHJvtEdSivg4iSONQ%2BZw%3D%3D&trackingId=Ubxwoej53PqJe7aeoSlU8Q%3D%3D',
+            'https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/userHome'
+          ]
+        },
+        {
+          a: 'Paycor | (Remote) West Virginia, United States',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1+ years exp',
+            '.NET, C#, MVC, Spring Boot, NodeJS, AWS Lambda, Docker, REST Web API, GraphQL, MySQL, SQL Server, DynamoDB, TDD, Junit, Jest, Agile'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/Paycor/Jobs?id=6I+Twdeh_5ofQ5nhD+8IDXyoS08='
+          ]
+        },
+        {
+          a: 'American Express | Phoenix, Arizona',
+          b: 'Backend Software Engineer, Digital Banking-Payments',
+          c: [
+            'Kotlin, Java 17+, Spring Boot, Micronaut, Quarkus, API, PostgreSQL, Agile, Distributed Systems'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/American-Express/Jobs?id=zNbKYp_nTuWHNrc9DSntre6xTgE=',
+            'https://axp.taleo.net/careersection/2/mysubmissions.ftl?lang=en'
+          ]
+        },
+        {
+          a: 'Ping, Inc. | Phoenix, Arizona',
+          b: 'Software Quality Assurance Analyst',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Jira, MS Office, Agile, Scrum, API testing'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/Ping,-Inc./Jobs'
+          ]
+        },
+        {
+          a: 'Noblis | Reston, Virginia',
+          b: 'Software Developer (All Levels)',
+          c: [
+            'BS',
+            '0-3 years exp',
+            'Top Secret with SCI and Polygraph',
+            'Python, Java, TypeScript, JavaScript, Go, Rust, C, PostgreSQL, MySQL, MongoDB, Oracle, SDLC, Git, REST, GraphQL, AWS, Azure, FastAPI, Vue.js, React, Angular, Flask, Express, Spring Boot',
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Noblis-Jobs-E39879.htm',
+            'https://jobs-noblis.icims.com/jobs/dashboard?hashed=-188325108'
+          ]
+        },
+        {
+          a: 'ATC (American Technology Consulting) | Johnston, Iowa',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'JavaScript, HTML, CSS, React, ASP.NET, C#, JQuery, SQL',
+            'Visual Studio 2022, Github'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/American-Technology-Consulting-Jobs-E597510.htm'
+          ]
+        },
+        {
+          a: 'ATSC IES INC | Gilbert, Arizona',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'JSON & XML',
+            'Java, Python, C++, etc.',
+            'Junit/testNG, netBeans'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'Glassdoor'
+          ]
+        },
+        {
+          a: 'Apex Imaging Services | Pomona, California',
+          b: 'Systems Developer',
+          c: [
+            'BS',
+            'Java, Python, QuickBase, CI/CD'
+          ],
+          d: true,
+          e: '8/6/2024',
+          g: [
+            'Glassdoor'
           ]
         }
       ]

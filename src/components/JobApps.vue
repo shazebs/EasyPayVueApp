@@ -4293,8 +4293,9 @@ export default
             'HTML, JavaScript, Bootstrap, jQuery, TFS, GitHub, SOAP, REST',
             'C#, ASP.NET, SQL, SDLC, Azure DevOps, Active Directory, Web API'
           ],
-          d: true,
+          d: false,
           e: '8/5/2024',
+          f: '8/7/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Education-at-Work-Jobs-E955643.htm'
           ]
@@ -4451,6 +4452,51 @@ export default
           e: '8/6/2024',
           g: [
             'Glassdoor'
+          ]
+        },
+        {
+          a: 'Powermind Solutions INC. | Georgia, United States',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Java, Angular, Oracle, AWS, DevOps'
+          ],
+          d: true,
+          e: '8/7/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/PowerMind-Solutions-Jobs-E718601.htm'
+          ]
+        },
+        {
+          a: 'Twitch Interactive, Inc. | Seattle, Washington',
+          b: 'Software Development Engineer',
+          c: [
+            'BS',
+            '3+ years non-intern exp',
+            'Go, Python'
+          ],
+          d: true,
+          e: '8/7/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Amazon-Jobs-E6036.htm',
+            'https://account.amazon.jobs/en-US/applicant'
+          ]
+        },
+        {
+          a: 'Equifax | Alpharetta, Georgia',
+          b: 'Software Engineer - Full Stack Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Python, JavaScript, Maven, Gradle, HTML, CSS, GCP, AWS, Azure',
+            'Angular 16+, Spring, Spring Cloud, Spring Boot, GIT, NoSQL, Scrum, XP, Agile, JUnit, Github, Confluence, Selenium'
+          ],
+          d: true,
+          e: '8/7/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Equifax-Jobs-E232.htm',
+            'https://equifax.wd5.myworkdayjobs.com/en-US/External/userHome'
           ]
         }
       ]

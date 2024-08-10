@@ -448,13 +448,13 @@
                                                     
                                                     <span style="color:black;"> ( </span>
                                                         
-                                                    <span style="color:red; font-size:medium;"> {{ developer.workHistory.length }} </span> 
+                                                    <span style="color:white; font-size:medium;"> {{ developer.workHistory.length }} </span> 
                                                     
                                                     <span style="color:black;"> ) </span>
                                                     
-                                                    <span style="color:black;"> 
+                                                    <span v-show="false" style="color:black;"> 
                                                         
-                                                        <span style="color:white;;"> --> </span> 
+                                                        <span style="color:white;"> --> </span> 
                                                                 
                                                         <span style="color:blue;">
                                                         
@@ -474,7 +474,7 @@
                                                     
                                                     <br/>
 
-                                                    <span style="font-weight:bolder;"> {{ devWorkHistory.position_name }} </span> 
+                                                    <span style="font-weight:bold; color:yellow;"> {{ devWorkHistory.position_name }} </span> 
                                                     
                                                     <span style="color:white"> | </span>
                                                     
@@ -1396,7 +1396,7 @@ export default
 
 #developer-list-container
 {
-    align-items: start;
+    align-items: center;
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 

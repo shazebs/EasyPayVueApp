@@ -207,7 +207,7 @@ export default
             "Deployment",
             "Security",
           ],
-          d: true,
+          d: false,
         },
         {
           a: "Alphatec Spine",
@@ -993,8 +993,9 @@ export default
             "Test-Driven Development",
             "Continuous Deployment",
           ],
-          d: true,
+          d: false,
           e: "5/13/2024",
+          f: '5/15/2024'
         },
         {
           a: "Deloitte | Rosslyn, Virginia",
@@ -1310,8 +1311,9 @@ export default
             "Make an impact while contributing to a cross-functional team",
             "Display leadership qualities",
           ],
-          d: true,
+          d: false,
           e: "5/17/2024",
+          f: '8/8/2024',
         },
         {
           a: "GEICO | Chevy Chase, Maryland",
@@ -1668,7 +1670,7 @@ export default
             "Analyze, debug, and solve problems",
             "Communication skills",
           ],
-          d: true,
+          d: false,
           e: "5/21/2024",
           g: "https://jobs.apple.com/app/en-us/profile/roles",
         },
@@ -3637,8 +3639,9 @@ export default
           c: [
             'C#, SQL, .NET 6+, ASP.NET Web API, Blazor, Entity Framework'
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '8/9/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Fox-Corporation-Jobs-E2938629.htm?filter.countryId=1',
             'https://fox.wd1.myworkdayjobs.com/en-US/Domestic/userHome',
@@ -4264,8 +4267,9 @@ export default
             '1-2 years exp',
             'Java, C#, Python, SQL Server, MySQL, Oracle, HTML'          
           ],
-          d: true,
+          d: false,
           e: '8/5/2024',
+          f: '8/9/2024',
           g: [
             'https://www.glassdoor.com/Jobs/U-Haul-Jobs-E236315.htm',
             'https://uhaul.wd1.myworkdayjobs.com/en-US/UhaulJobs/userHome'
@@ -4278,8 +4282,9 @@ export default
             '2+ years exp',
             'Java, Scala, JVM, SQL, NoSQL, NewSQL'
           ],
-          d: true,
+          d: false,
           e: '8/5/2024',
+          f: '8/8/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Apple-Jobs-E1138.htm',
             'https://jobs.apple.com/app/en-us/profile/roles'
@@ -4347,8 +4352,9 @@ export default
             '2+ years exp',
             'Go, Java, Python, .NET, DevOps, AWS, Agile, Lambda, Cloud'
           ],
-          d: true,
+          d: false,
           e: '8/6/2024',
+          f: '8/8/2024',
           g: [
             'https://www.linkedin.com/jobs/view/3992981256/?alternateChannel=search&refId=gBZHJvtEdSivg4iSONQ%2BZw%3D%3D&trackingId=Ubxwoej53PqJe7aeoSlU8Q%3D%3D',
             'https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/userHome'
@@ -4476,8 +4482,9 @@ export default
             '3+ years non-intern exp',
             'Go, Python'
           ],
-          d: true,
+          d: false,
           e: '8/7/2024',
+          f: '8/9/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Amazon-Jobs-E6036.htm',
             'https://account.amazon.jobs/en-US/applicant'
@@ -4497,6 +4504,20 @@ export default
           g: [
             'https://www.glassdoor.com/Jobs/Equifax-Jobs-E232.htm',
             'https://equifax.wd5.myworkdayjobs.com/en-US/External/userHome'
+          ]
+        },
+        {
+          a: 'Grand Canyon University | Phoenix, Arizona',
+          b: 'Jr. Developer',
+          c: [
+            'BS',
+            'SQL Server, .NET, C#, ASP.NET, ADO.NET, VBScript, XML, HTML, JavaScript, Python, Perl, Bash, TCP/IP, ARM, Linux'
+          ],
+          d: true,
+          e: '8/9/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Grand-Canyon-Education-Jobs-E2186155.htm',
+            'https://gcu.wd1.myworkdayjobs.com/en-US/GCE/userHome'
           ]
         }
       ]

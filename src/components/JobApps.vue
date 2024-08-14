@@ -4339,8 +4339,9 @@ export default
             'C++, C#, SQL',
             'TCP sockets, Restful APRIs, Angular'
           ],
-          d: true,
+          d: false,
           e: '8/5/2024',
+          f: '8/10/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Beumer-Jobs-E264397.htm'
           ]
@@ -4395,8 +4396,9 @@ export default
             '2+ years exp',
             'Jira, MS Office, Agile, Scrum, API testing'
           ],
-          d: true,
+          d: false,
           e: '8/6/2024',
+          f: '8/13/2024',
           g: [
             'https://www.ziprecruiter.com/co/Ping,-Inc./Jobs'
           ]
@@ -4499,8 +4501,9 @@ export default
             'Java, Python, JavaScript, Maven, Gradle, HTML, CSS, GCP, AWS, Azure',
             'Angular 16+, Spring, Spring Cloud, Spring Boot, GIT, NoSQL, Scrum, XP, Agile, JUnit, Github, Confluence, Selenium'
           ],
-          d: true,
+          d: false,
           e: '8/7/2024',
+          f: '8/14/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Equifax-Jobs-E232.htm',
             'https://equifax.wd5.myworkdayjobs.com/en-US/External/userHome'
@@ -4513,13 +4516,14 @@ export default
             'BS',
             'SQL Server, .NET, C#, ASP.NET, ADO.NET, VBScript, XML, HTML, JavaScript, Python, Perl, Bash, TCP/IP, ARM, Linux'
           ],
-          d: true,
+          d: false,
           e: '8/9/2024',
+          f: '8/13/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Grand-Canyon-Education-Jobs-E2186155.htm',
             'https://gcu.wd1.myworkdayjobs.com/en-US/GCE/userHome'
           ]
-        }
+        },
       ]
     }
   },
@@ -4614,6 +4618,7 @@ export default
 };
 
 // https://www.linkedin.com/posts/robynnstorey_resumewriting-jobsearch-hiring-activity-7217195973033263106-xl1w?utm_source=share&utm_medium=member_desktop
+
 </script>
 
 <style scoped></style>

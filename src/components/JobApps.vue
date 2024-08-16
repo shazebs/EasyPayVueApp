@@ -44,7 +44,9 @@
       RESULT: <big style="color:dodgerblue;">1</big> interview per <big style="color:limegreen;">{{ avgAppliesForInterview }}</big> jobs applied.
       <br/>
 
-      <span v-if="appsBetweenInterviews[appsBetweenInterviews.length-1] < avgAppliesForInterview"> FORECAST: Apply to <big style="color:brown">{{ avgAppliesForInterview - appsBetweenInterviews[appsBetweenInterviews.length-1] }}</big> more jobs to acquire your next interview! </span>
+      <span v-if="appsBetweenInterviews[appsBetweenInterviews.length-1] < avgAppliesForInterview"> FORECAST: Apply to <big style="color:brown">{{ avgAppliesForInterview - appsBetweenInterviews[appsBetweenInterviews.length-1] }}</big> more jobs to acquire your next interview! 📈 </span>
+
+      <span v-else> FORECAST: You should have gotten another interview <big style="color:red">{{ appsBetweenInterviews[appsBetweenInterviews.length-1] - avgAppliesForInterview }}</big> applies ago! 😢 </span>
 
       <hr />
 
@@ -3377,8 +3379,9 @@ export default
             'Agile (Scrum or Kanban)',
             'OOP, data structures and algorithms, Java, MVC, J2EE, Web development'
           ],
-          d: true,
-          e: '6/26/2024'
+          d: false,
+          e: '6/26/2024',
+          f: '8/15/2024',
         },
         {
           a: 'SquareTrade | Denver, Colorado',
@@ -3914,8 +3917,9 @@ export default
             '6+ months exp',
             'Java, React, JavaScript'
           ],
-          d: true,
+          d: false,
           e: '7/23/2024',
+          f: '8/15/2024',
           g: [
             'https://www.indeed.com/cmp/Wells-Fargo/jobs',
             'https://wd1.myworkdaysite.com/en-US/recruiting/wf/WellsFargoJobs/userHome'
@@ -4104,8 +4108,9 @@ export default
             '2+ years exp',
             'Java, C#, VB.NET, XML, HTML, JavaScript, SQL, PL/SQL'
           ],
-          d: true,
+          d: false,
           e: '7/26/2024',
+          f: '8/14/2024',
           g: 'https://www.glassdoor.com/Jobs/CSU-Long-Beach-Jobs-E112602.htm'
         },
         {
@@ -4381,8 +4386,9 @@ export default
           c: [
             'Kotlin, Java 17+, Spring Boot, Micronaut, Quarkus, API, PostgreSQL, Agile, Distributed Systems'
           ],
-          d: true,
+          d: false,
           e: '8/6/2024',
+          f: '8/15/2024',
           g: [
             'https://www.ziprecruiter.com/co/American-Express/Jobs?id=zNbKYp_nTuWHNrc9DSntre6xTgE=',
             'https://axp.taleo.net/careersection/2/mysubmissions.ftl?lang=en'
@@ -4524,6 +4530,141 @@ export default
             'https://gcu.wd1.myworkdayjobs.com/en-US/GCE/userHome'
           ]
         },
+        {
+          a: 'LA Clippers | Inglewood, California',
+          b: 'Full-Stack Developer, Basketball',
+          c: [
+            'BS',
+            'Python, R, JavaScript, GitHub, BitBucket, HTML, CSS, Bootstrap, Tailwind, SQL, Postgres, Azure, AWS, Svelte, APIs'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/LA-Clippers-Jobs-E3584914.htm'
+          ]
+        },
+        {
+          a: 'Netflix | Los Gatos, California',
+          b: 'Software Engineer (L4) - Continuous Integration',
+          c: [
+            'Java, Jenkins, GraphQL, APIs, databases'
+          ],
+          d: true, 
+          e: '8/15/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Netflix-Jobs-E11891.htm'
+          ]
+        },
+        {
+          a: 'Netflix | Los Gatos, California',
+          b: 'Frontend Engineer L4 - Delivery',
+          c: [
+            '3-5 years exp',
+            'JavaScript, TypeScript, React, Material UI, REST, GraphQL, Jest, HTML, CSS',
+          ],
+          d: true, 
+          e: '8/15/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Netflix-Jobs-E11891.htm'
+          ]
+        },
+        {
+          a: 'Lockheed Martin | Sunnyvale, California',
+          b: 'Software Engineer, Entry Level',
+          c: [
+            'BS',
+            'C/C++, C#, Java, JSON, TCP/IP'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Lockheed-Martin-Jobs-E404.htm'
+          ]
+        },
+        {
+          a: 'Xylem | Morrisville, North Carolina',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Java, C++, UNIX, Linux, Data Structures & Algorithms, REST/SOAP, SQL database, Unit Testing, Agile'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.indeed.com/cmp/Xylem/jobs',
+            'https://xylem.wd5.myworkdayjobs.com/en-US/xylem-careers/userHome'
+          ]
+        },
+        {
+          a: 'Amentum | Fort Belvoir, Virginia',
+          b: 'Software Engineer II',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Active Secret Clearance'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.indeed.com/cmp/Amentum/jobs',
+            'https://pae.wd1.myworkdayjobs.com/en-US/Amentum_Careers/userHome'
+          ]
+        },
+        {
+          a: 'State Farm | Bloomington, Illinois',
+          b: 'Software Engineer',
+          c: [
+            'Python, JavaScript, Java, React, Vue, AWS, Terraform, Scalr, Docker, CI/CD, GitLab'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.indeed.com/cmp/State-Farm-319b4913/jobs'
+          ]
+        },
+        {
+          a: 'Apple | Cupertino, California',
+          b: 'Software Engineer, Shortcuts',
+          c: [
+            'BS',
+            'Objective-C, Swift, AppKit, SwiftUI, UIKit, Xcode'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.indeed.com/cmp/Apple/jobs',
+            'https://jobs.apple.com/app/en-us/profile/roles'
+          ]
+        },
+        {
+          a: 'Toyota | Plano, Texas',
+          b: 'Software Engineer - EV',
+          c: [
+            'BS',
+            'Java, Golang'
+          ],
+          d: true,
+          e: '8/15/2024',
+          g: [
+            'https://www.indeed.com/cmp/Toyota-North-America-9/jobs',
+            'https://toyota.wd5.myworkdayjobs.com/en-US/TMNA/userHome?Job_Application_ID=JOB_APPLICATION-3-976223'
+          ]
+        },
+        {
+          a: 'Disney Entertainment & ESPN Technology | New York, New York',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            'AWS, Golang, APIs, CI/CD, Kubernetes, Jenkins, Spinnaker'
+          ],
+          d: true,
+          e: '8/16/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Walt-Disney-Company-Jobs-E717.htm',
+            'https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/userHome'
+          ]
+        }
       ]
     }
   },

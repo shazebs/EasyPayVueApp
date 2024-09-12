@@ -59,6 +59,9 @@
       <br />
 
       <span style="color:limegreen;">PENDING w/interview: </span> <big style="color:dodgerblue;">{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
+      <br/>
+
+      <span style="color:purple;">JOB OFFERS: </span> <big style="color:limegreen; font-weight:bold;">{{ statistics.num_jobOffers }}</big>
 
     </h4>
 
@@ -136,6 +139,7 @@ export default
         num_rejections: 0,
         num_inprogress: 0,
         num_interviews: 0,
+        num_jobOffers: 0,
       },
       job_apps: [
         {
@@ -708,8 +712,9 @@ export default
             "MS",
             "Test-driven development",
           ],
-          d: true,
+          d: false,
           e: "5/12/2024",
+          f: '8/21/2024'
         },
         {
           a: "Engtal | North Billerica, Michigan",
@@ -1846,8 +1851,9 @@ export default
             "Programming and documentation knowledge",
             "One or more computer programming languages",
           ],
-          d: true,
+          d: false,
           e: "6/3/2024",
+          f: '8/17/2024',
           g: "https://usc.wd5.myworkdayjobs.com/en-US/ExternalUSCCareers/userHome",
         },
         {
@@ -2341,8 +2347,9 @@ export default
             "RabbitMQ",
             "Unit Testing",
           ],
-          d: true,
+          d: false,
           e: "6/10/2024",
+          f: '9/9/2024'
         },
         {
           a: "Reli | Cerritos, California",
@@ -3330,13 +3337,14 @@ export default
             'WPF or MAUI/Blazor',
             '2-10 years exp',
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '8/28/2024',
           g: [
             'https://www.ziprecruiter.com/co/Stuller/Jobs/--in-United-States?id=Jv_VDhjRXtJ_mtwtW6k2CFiVcN4=',
             'https://secure4.saashr.com/ta/6052029.careers?rnd=UKG&Ext=careers&sft=VFXCHJKCLQ&ActiveSessionId=20231010533#applicant/applications'
           ],
-          i: true,
+          i: false,
         },
         {
           a: 'LineLeader | Dallas, Texas',
@@ -3559,7 +3567,8 @@ export default
             'https://www.indeed.com/cmp/Wec-Energy-Group/jobs',
             'https://career8.successfactors.com/portalcareer?_s.crb=gzyx6wNppO4lSCU4%252baQQrV58zwhDehD%252f4%252bLleWRn1BI%253d'
           ],
-          i: true
+          i: true,
+          j: true,
         },
         {
           a: 'Plasser American Corp | Danbury, Connecticut',
@@ -3629,8 +3638,9 @@ export default
             '2+ years exp',
             'Java, Cloud, Microservices, JavaScript, OOP'
           ],
-          d: true,
+          d: false,
           e: '7/6/2024',
+          f: '8/24/2024',
           g: [
             'Glassdoor',
             'https://zoom.wd5.myworkdayjobs.com/en-US/Zoom/userHome'
@@ -4081,8 +4091,9 @@ export default
             'C#, Ruby, PHP, React, Vue, Angular, JQuery',
             'DevOps'
           ],
-          d: true,
+          d: false,
           e: '7/25/2024',
+          f: '8/25/2024',
           g: 'https://www.glassdoor.com/Jobs/Adobe-Jobs-E1090.htm'
         },
         {
@@ -4537,8 +4548,9 @@ export default
             'BS',
             'Python, R, JavaScript, GitHub, BitBucket, HTML, CSS, Bootstrap, Tailwind, SQL, Postgres, Azure, AWS, Svelte, APIs'
           ],
-          d: true,
+          d: false,
           e: '8/15/2024',
+          f: '9/5/2024',
           g: [
             'https://www.glassdoor.com/Jobs/LA-Clippers-Jobs-E3584914.htm'
           ]
@@ -4617,8 +4629,9 @@ export default
           c: [
             'Python, JavaScript, Java, React, Vue, AWS, Terraform, Scalr, Docker, CI/CD, GitLab'
           ],
-          d: true,
+          d: false,
           e: '8/15/2024',
+          f: '8/20/2024',
           g: [
             'https://www.indeed.com/cmp/State-Farm-319b4913/jobs'
           ]
@@ -4663,6 +4676,364 @@ export default
           g: [
             'https://www.glassdoor.com/Jobs/Walt-Disney-Company-Jobs-E717.htm',
             'https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/userHome'
+          ]
+        },
+        {
+          a: 'Quorso | Ontario, California',
+          b: 'Full Stack Software Engineer',
+          c: [
+            'JavaScript, TypeScript, REST, Rails, '
+          ],
+          d: true,
+          e: '8/19/2024',
+          g: [
+            'https://www.indeed.com/cmp/Quorso/jobs'
+          ]
+        },
+        {
+          a: 'Altera.AI | Menlo Park, California',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'Python, Java, Go, SQL, NoSQL, Docker, Kubernetes, AWS, Azure, CI/CD'
+          ],
+          d: true,
+          e: '8/19/2024',
+          g: [
+            'https://www.indeed.com/cmp/Altera-Corporation/jobs'
+          ]
+        },
+        {
+          a: 'Fortinet | Sunnyvale, California',
+          b: 'Full Stack Engineer',
+          c: [
+            'Typescript, Nodejs, Docker, Linux, Git, NoSQL, Couchbase, DevOps, GitOps, Terraform'
+          ],
+          d: true,
+          e: '8/19/2024',
+          g: [
+            'https://www.indeed.com/cmp/Fortinet/jobs',
+            'https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/my-profile'
+          ]
+        },
+        {
+          a: 'Ascendion | Costa Mesa, California',
+          b: 'Full Stack Engineer',
+          c: [
+            'BS',
+            'React, NodeJS, JavaScript, HTML, CSS, Java/J2EE, SQL, Unix, Oracle, Jboss, SOAP, REST, AWS'
+          ],
+          d: true,
+          e: '8/19/2024',
+          g: [
+            'https://www.indeed.com/cmp/Ascendion/jobs'
+          ]
+        },
+        {
+          a: 'Blizzard Entertainment | Irvine, California',
+          b: 'Game Designer, WoW Classic',
+          c: [
+            ''
+          ],
+          d: false,
+          e: '8/19/2024',
+          f: '8/23/2024',
+          g: [
+            'https://www.indeed.com/cmp/Blizzard-Entertainment/jobs'
+          ]
+        },
+        {
+          a: 'Kohler | Palo Alto, California',
+          b: 'Software Engineering Intern - Kohler Ventures',
+          c: [
+            'IoT'
+          ],
+          d: true,
+          e: '8/19/2024',
+          g: [
+            'https://www.ziprecruiter.com/co/KOHLER/Jobs/--in-United-States?id=o5O+ohFAhIKO+pBA2agsn0mPxI4='
+          ]
+        },
+        {
+          a: 'Corelation Inc | San Diego, California',
+          b: 'Core Developer I',
+          c: [
+            'BS',
+            '1-2 years exp',
+            'C++, SQL, XML, AIX, Agile, Scrum'
+          ],
+          d: false,
+          e: '8/21/2024',
+          f: '9/11/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Corelation-Jobs-E1161444.htm'
+          ]
+        },
+        {
+          a: 'Tricon Residential | Tustin, California',
+          b: 'Software Developer - TriPOD',
+          c: [
+            'BS',
+            '.NET Core, NodeJS, ASP.CORE MVC, MySQL, Git, AWS, Razor, Docker, Kubernetes',
+            'RESTful APIs'
+          ],
+          d: true,
+          e: '8/21/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Tricon-Residential-Jobs-E1107797.htm',
+            'https://tricon.wd3.myworkdayjobs.com/en-US/tricon/userHome'
+          ]
+        },
+        {
+          a: 'Lytx | San Diego, California',
+          b: 'Software Engineer II',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C#, Java, Python, JavaScript, Ruby, Unit Testing, RESTful APIs, SQL, NoSQL'
+          ],
+          d: true,
+          e: '8/21/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Lytx-Jobs-E813859.htm',
+            'https://lytx.wd1.myworkdayjobs.com/en-US/Lytx/userHome'
+          ]
+        },
+        {
+          a: 'ASML | San Diego, California',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '3-5 years exp',
+            'Core Java',
+            'C/C++, Postgres, Shell scripting, DevOps, Jenkins, GitHub',
+            'Redhat, OOP'
+          ],
+          d: true,
+          e: '9/3/2024',
+          g: [
+            'https://www.indeed.com/cmp/Asml/jobs',
+            'https://asml.wd3.myworkdayjobs.com/en-US/ASMLEXT1/userHome'
+          ]
+        },
+        {
+          a: 'Curacao | Los Angeles, California',
+          b: 'Junior Data Analyst',
+          c: [
+            'BS',
+            'Python'
+          ],
+          d: true,
+          e: '9/3/2024',
+          g: 'https://www.indeed.com/cmp/Curacao/jobs'
+        },
+        {
+          a: 'Syncreon | Perris, California',
+          b: 'IT QA Analyst - Associate',
+          c: [
+            'BS'
+          ],
+          d: true,
+          e: '9/3/2024',
+          g: [
+            'https://www.indeed.com/cmp/Syncreon/jobs',
+            'https://career5.successfactors.eu/career?company=syncreonam&site=&lang=en_US&login_ns=login&loginFlowRequired=true&showLogOutMsg=true&brandUrl=&_s.crb=73E1O%252bb4PvIwHdaFqdC%252bpypOmRR%252bT18aOmZs5J%252fdlaM%253d'
+          ]
+        },
+        {
+          a: 'Arup | Los Angeles, California',
+          b: 'Graduate Software Developer (Available 2025)',
+          c: [
+            'BS',
+            'Python, PowerBI, Tableau, AI, ML, AR, VR, AWS, Azure'
+          ],
+          d: true,
+          e: '9/3/2024',
+          g: [
+            'https://www.indeed.com/cmp/Arup/jobs',
+            'https://tas-arupjobs.taleo.net/careersection/careersection/ex/mysubmissions.ftl?lang=en'
+          ]
+        },
+        {
+          a: 'Blizzard Entertainment | Irvine, California',
+          b: 'Senior Software Engineer - Tools | Overwatch',
+          c: [
+            'BS',
+            'C#, C++, WPF, SQL Databases'
+          ],
+          d: true,
+          e: '9/3/2024',
+          g: [
+            'https://www.indeed.com/cmp/Blizzard-Entertainment/jobs'
+          ]
+        },
+        {
+          a: 'Peraton | Colorado Springs, Colorado',
+          b: 'Software Development, Senior Associate',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, AngularJS, HTML, CSS, JavaScript, Bootstrap, Eclipse, JUnit, Git'
+          ],
+          d: false,
+          e: '9/4/2024',
+          f: '9/4/2024',
+          g: [
+            'https://www.indeed.com/cmp/Peraton/jobs'
+          ]
+        },
+        {
+          a: 'ZipRecruiter | Santa Monica, California',
+          b: 'Software Engineer - New Grad',
+          c: [
+            'Python, Java, Go, C++, JavaScript',
+            'Kubernetes, HTML, CSS, React, Big Data, IOS, Mobile, Android'
+          ],
+          d: true,
+          e: '9/5/2024',
+          f: '9/10/2024',
+          g: [
+            'ZipRecruiter'
+          ]
+        },
+        {
+          a: 'Summit Interconnect, Inc | Anaheim, California',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            'Python, Node.js, MySQL, MongoDB',
+            'HTML5, CSS3, JavaScript, React, Vue.js, RESTful APIs, CI/CD, Git, AWS, Azure, GCP, Docker, Kubernetes, Agile/Scrum, GitHub',
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?lang=en_US&cid=734c8047-a53a-4286-8a05-2b1b38e7c95e&ccId=19000101_000001'
+          ]
+        },
+        {
+          a: 'StrongMind | Chandler, Arizona',
+          b: 'Junior Software Engineer',
+          c: [
+            'BS',
+            'Ruby/Rails, JS/TS, C#, Python/Django, Agile, UX'
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'https://recruiting2.ultipro.com/STR1017SMINC/JobBoard/e883a137-8797-484c-bf4d-c3d514ec5e38/?q=&o=postedDateDesc&w=&wc=&we=&wpst='
+          ]
+        },
+        {
+          a: 'Crelate | Boise, Idaho',
+          b: 'Junior Software Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            '.NET / C#, SQL'
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'https://app.crelate.com/portal/bes/'
+          ]
+        },
+        {
+          a: 'Urban Air Adventure Parks | Moreno Valley, California',
+          b: 'Full Stack Software Developer',
+          c: [
+            '3+ years exp',
+            'HTML, CSS, JavaScript, React',
+            'Node.js, Express, MongoDB'
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'ZipRecruiter'
+          ]
+        },
+        {
+          a: 'Intelliswift Software Inc | San Jose, California',
+          b: 'Software Developer - JAVA',
+          c: [
+            'React, Nodejs, Flask, REST, NoSQL, AWS / Azure, Apache Storm, Elastic Search'
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'ZipRecruiter',
+            'https://www.intelliswift.com/careers/current-openings'
+          ]
+        },
+        {
+          a: 'Electronic Arts | Software Engineer I',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C++ or Python, Visual Studio, HTML, CSS, JavaScript'
+          ],
+          d: true,
+          e: '9/5/2024',
+          g: [
+            'ZipRecruiter',
+            'https://ea.gr8people.com/jobs'
+          ]
+        },
+        {
+          a: 'WEX Inc, Bodega Bay, California',
+          b: 'Software Engineer - Entry Level',
+          c: [
+            'BS',
+            'Java, C#, TypeScript'
+          ],
+          d: true,
+          e: '9/6/2024',
+          g: [
+            'ZipRecruiter',
+            'https://careers.wexinc.com/us/en/home'
+          ]
+        },
+        {
+          a: 'Micron Technology | Boise, Idaho',
+          b: 'IT Software Engineer',
+          c: [
+            'BS',
+            '1-3+ years exp',
+            'Clustering, Coding, C++, NET, Database'
+          ],
+          d: true,
+          e: '9/9/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3966178295/?alternateChannel=search&refId=EIUnwsiV7Zo3F0NxhBwa2g%3D%3D&trackingId=pKzjwNmYx8nxi%2FM35BAD6w%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://micron.wd1.myworkdayjobs.com/en-US/External/userHome'
+          ]
+        },
+        {
+          a: 'PF1 Professional Services, Inc. | Florida, United States',
+          b: 'Java Software Engineer',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'JS, React, Agile, AWS, Azure'
+          ],
+          d: true,
+          e: '9/11/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/4024026282/?alternateChannel=search&refId=aDmONyeT0FDd8NnR6ceSyQ%3D%3D&trackingId=MAoVUUN355FPiVBQNzlx3g%3D%3D&trk=d_flagship3_postapply_open_to_work'
+          ]
+        },
+        {
+          a: 'Alto Pharmacy | (Remote) United States',
+          b: 'Early Career Software Engineer',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'C#, C/C++, Ruby, Rust, Golang, Java, Python, TypeScript, JavaScript, AWS, Google Cloud, Azure, PostgreSQL, Git, Github, Slack, Angular, React, .NET, Spring Boot, Rails'
+          ],
+          d: true,
+          e: '9/11/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/4022264240/?alternateChannel=search&refId=aDmONyeT0FDd8NnR6ceSyQ%3D%3D&trackingId=otjhCyipUnIjNfqjwOQfEw%3D%3D&trk=d_flagship3_search_srp_jobs'
           ]
         }
       ]
@@ -4709,6 +5080,12 @@ export default
           this.statistics.num_interviews++; 
           this.appsBetweenInterviews.push(betweenInterviewsCounter);
           betweenInterviewsCounter = 0;
+
+          if (job.j !== undefined && job.j === true)
+          {
+            this.statistics.num_jobOffers++; 
+            console.log('= ', this.statistics.num_jobOffers);
+          }
         }
       }
       

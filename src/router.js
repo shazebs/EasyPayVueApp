@@ -12,6 +12,7 @@ import Awards from './pages/SocialAwards.vue';
 import Example from './pages/ExampleWorkspace.vue';
 import DevNation from './components/DevNation.vue';
 import GitNotes from './components/GitNotes.vue';
+import UnrealEngine5 from './components/UnrealEngine5.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -27,6 +28,7 @@ const routes = [
     { path: '/example', component: Example },
     { path: '/dev-nation', component: DevNation },
     { path: '/git-notes', component: GitNotes },
+    { path: '/unreal', component: UnrealEngine5 },
 ];
 
 const router = createRouter({

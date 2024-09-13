@@ -4861,8 +4861,9 @@ export default
             'BS',
             'C#, C++, WPF, SQL Databases'
           ],
-          d: true,
+          d: false,
           e: '9/3/2024',
+          f: '9/13/2024',
           g: [
             'https://www.indeed.com/cmp/Blizzard-Entertainment/jobs'
           ]

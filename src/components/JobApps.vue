@@ -3560,15 +3560,15 @@ export default
             '.NET, C#, Angular, SQL Server, RESTful, SOAP',
             'Azure DevOps, Testing, Waterfall, Agile, Scrum, Docker and Kubernetes'
           ],
-          d: true,
+          d: false,
           e: '7/2/2024',
           f: '',
           g: [
             'https://www.indeed.com/cmp/Wec-Energy-Group/jobs',
             'https://career8.successfactors.com/portalcareer?_s.crb=gzyx6wNppO4lSCU4%252baQQrV58zwhDehD%252f4%252bLleWRn1BI%253d'
           ],
-          i: true,
-          j: true,
+          i: false,
+          j: false,
         },
         {
           a: 'Plasser American Corp | Danbury, Connecticut',
@@ -4657,8 +4657,9 @@ export default
             'BS',
             'Java, Golang'
           ],
-          d: true,
+          d: false,
           e: '8/15/2024',
+          f: '9/13/2024',
           g: [
             'https://www.indeed.com/cmp/Toyota-North-America-9/jobs',
             'https://toyota.wd5.myworkdayjobs.com/en-US/TMNA/userHome?Job_Application_ID=JOB_APPLICATION-3-976223'
@@ -4809,8 +4810,9 @@ export default
             'C/C++, Postgres, Shell scripting, DevOps, Jenkins, GitHub',
             'Redhat, OOP'
           ],
-          d: true,
+          d: false,
           e: '9/3/2024',
+          f: '9/16/2024',
           g: [
             'https://www.indeed.com/cmp/Asml/jobs',
             'https://asml.wd3.myworkdayjobs.com/en-US/ASMLEXT1/userHome'
@@ -5036,7 +5038,36 @@ export default
           g: [
             'https://www.linkedin.com/jobs/view/4022264240/?alternateChannel=search&refId=aDmONyeT0FDd8NnR6ceSyQ%3D%3D&trackingId=otjhCyipUnIjNfqjwOQfEw%3D%3D&trk=d_flagship3_search_srp_jobs'
           ]
-        }
+        },
+        {
+          a: 'TD Bank | New York, New York',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '2+ years exp',
+          ],
+          d: true,
+          e: '9/18/2024',
+          g: [
+            'https://td.wd3.myworkdayjobs.com/en-US/TD_Bank_Careers?q=software',
+            'https://td.wd3.myworkdayjobs.com/en-US/TD_Bank_Careers/userHome'
+          ]
+        },
+        {
+          a: 'TKC Holdings | West Des Moines, Iowa',
+          b: '.Net Software Developer I',
+          c: [
+            'BS, 0-3+ years exp',
+            '.Net, MVC, JavaScript, HTML5, CSS'
+          ],
+          d: true,
+          e: '9/18/2024',
+          g: [
+            'https://careers.tkcholdings.com/why-us/jobs?keywords=software',
+            'https://corporatecareers-tkcholdings.icims.com/jobs/dashboard?hashed=-1027616988'
+          ]
+        },
+        
       ]
     }
   },

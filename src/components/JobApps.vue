@@ -61,7 +61,13 @@
       <span style="color:limegreen;">PENDING w/interview: </span> <big style="color:dodgerblue;">{{ job_apps.filter(e => e.i !== undefined && e.i === true).length }}</big>
       <br/>
 
-      <span style="color:purple;">JOB OFFERS: </span> <big style="color:limegreen; font-weight:bold;">{{ statistics.num_jobOffers }}</big>
+      <span style="color:purple;">JOB OFFERS: </span> 
+      <big style="font-weight:bold;">
+      
+        <span v-if="statistics.num_jobOffers > 0" style="color:limegreen;">{{ statistics.num_jobOffers }}</span>
+        <span v-else style="color:red;">{{ statistics.num_jobOffers }}</span>w 
+      
+      </big>
 
     </h4>
 
@@ -5065,6 +5071,20 @@ export default
           g: [
             'https://careers.tkcholdings.com/why-us/jobs?keywords=software',
             'https://corporatecareers-tkcholdings.icims.com/jobs/dashboard?hashed=-1027616988'
+          ]
+        },
+        {
+          a: 'ASSYST, Inc. | Sterling, Virginia',
+          b: 'Junior Software Developer',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript, Java, C#, Python, Angular, React, Vue, Agile Scrum',
+            'Debug, Design, Test, Collaborate, UI'
+          ],
+          d: true,
+          e: '9/18/2024',
+          g: [
+            'https://assyst.catsone.com/careers/112636-ASSYST-Inc/'
           ]
         },
         

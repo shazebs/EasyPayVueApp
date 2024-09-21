@@ -65,7 +65,7 @@
       <big style="font-weight:bold;">
       
         <span v-if="statistics.num_jobOffers > 0" style="color:limegreen;">{{ statistics.num_jobOffers }}</span>
-        <span v-else style="color:red;">{{ statistics.num_jobOffers }}</span>w 
+        <span v-else style="color:red;">{{ statistics.num_jobOffers }}</span> 
       
       </big>
 
@@ -5087,7 +5087,34 @@ export default
             'https://assyst.catsone.com/careers/112636-ASSYST-Inc/'
           ]
         },
-        
+        {
+          a: 'VideoAmp | Los Angeles, California',
+          b: 'Entry Backend Engineer',
+          c: [
+            'BS',
+            'Go, Java, C#, C++, GitHub'
+          ],
+          d: true,
+          e: '9/20/2024',
+          g: [
+            'https://videoamp.com/jobs'
+          ]
+        },
+        {
+          a: 'Komatsu | Tucson, Arizona',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1-5 years exp',
+            'C#, Java, SDLC, ASP.NET MVC, Spring, HTML, CSS, JavaScript, TCP/IP, Entity Framework, JPA, Hibernate, Linux, Windows',
+            'Docker, Kubernetes, RabbitMQ, Kafka, ZeroMQ'
+          ],
+          d: true,
+          e: '9/20/2024',
+          g: [
+            'https://komatsu.jobs/'
+          ]
+        }
       ]
     }
   },

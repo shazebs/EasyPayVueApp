@@ -5114,6 +5114,268 @@ export default
           g: [
             'https://komatsu.jobs/'
           ]
+        },
+        {
+          a: 'Compass | Seattle, Washington',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1-2 years exp',
+            'Java, Python, C#, Go, SQL, AWS, ElasticSearch, Kubernetes, Redis, Lambda, Kafka, Databricks'
+          ],
+          d: true,
+          e: '9/20/2024',
+          g: [
+            'https://www.compass.com/careers/jobs'
+          ]
+        },
+        {
+          a: 'OpenPath Products | Annapolis, Marlyand',
+          b: 'Mobile and IoT Quality Assurance Automation Engineer',
+          c: [
+            'BS',
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://www.indeed.com/cmp/Openpath-Products-1/jobs'
+          ]
+        },
+        {
+          a: 'Mesa Natural Gas Solutions LLC | Loveland, Colorado',
+          b: 'Applications Analyst I',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'SQL'
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://247mesa.com/careers/'
+          ]
+        },
+        {
+          a: 'The Travelers Companies, Inc. | Hartford, Connecticut',
+          b: 'Software Engineer I - full stack AWS / Python',
+          c: [
+            'BS',
+            '1-3+ years exp',
+            'SQL, Python, JavaScript, AWS'
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://careers.travelers.com/'
+          ]
+        },
+        {
+          a: 'Leading Edge Fundraising | (Remote) United States',
+          b: 'Software Developer',
+          c: [
+            '1+ years exp',
+            '.NET, C#, Microsoft SQL, PHP, Azure, Angular, React, Vue, Blazor'
+          ],
+          d: true, 
+          e: '9/23/2024',
+          g: [
+            'https://www.indeed.com/cmp/Adrenaline-Fundraising-4/jobs'
+          ]
+        },
+        {
+          a: 'TherapyNotes.com | (Remote) United States',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '1-3+ years exp',
+            'OOP, ASP.NET Core, C#, JavaScript, TypeScript, CSS, SASS, HTML, APIs, SOA, PostgreSQL, Entity Framework Core'
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://www.therapynotes.com/careers/'
+          ]
+        },
+        {
+          a: 'Reynolds and Reynolds | Andover, Massachusetts',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS',
+            'C#, .NET, Linux, iOS, Android'
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://www.reyrey.com/company/careers/job-openings'
+          ]
+        },
+        {
+          a: 'Reynolds and Reynolds | Tallahassee, Florida',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS',
+            'JavaScript, React, Redux, Java, SQL'
+          ],
+          d: true,
+          e: '9/23/2024',
+          g: [
+            'https://www.reyrey.com/company/careers/job-openings'
+          ]
+        },
+        {
+          a: 'Pressure Products Company | Charleston, West Virginia',
+          b: 'Web Designer',
+          c: [
+            'BS',
+            'GCU transcript'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.indeed.com/cmp/Pressure-Products-Company-1/jobs'
+          ]
+        },
+        {
+          a: 'Dynamic Animation Systems, Inc. | McLean, Virginia',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            'JavaScript/TypeScript, Java, C++, Python, Agile, React, Angular, Gradle, Podman, Docker, Linux, Scala, Rust, Go'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.indeed.com/cmp/Pressure-Products-Company-1/jobs'
+          ]
+        },
+        {
+          a: 'Boothwyn Pharmacy | Kennett Square, Pennsylvania',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '3-5+ years exp',
+            'JavaScript, C#, .NET, Azure, AWS, APIs, SignalR, Git, DevOps, React, Express, SQL, Ruby on Rails, RESTful, HIPAA, Agile'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Boothwyn-Pharmacy-Jobs-E731392.htm'
+          ]
+        },
+        {
+          a: 'Comcast Corporation | United States',
+          b: 'Full Stack Software Engineer 2 (Angular/Java)',
+          c: [
+            'BS',
+            '2-5 years exp',
+            'Angular, RESTful APIs, Java, SQL/JDBC, Spring/Spring Boot, NPM/Webpack, RxJS, PostgreSQL, Docker, Kubernetes, AWS, SDLC, Agile, Git, Microservices, '
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+          'https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers/userHome',
+            'https://jobs.comcast.com/search-jobs/software%20engineer/45483/1'
+          ]
+        },
+        {
+          a: 'Comcast Corporation | United States',
+          b: 'Engineer 3, Software Development & Engineering - 3435',
+          c: [
+            'BS',
+            '2+ years exp',
+            'PHP, REST API, SOAP API, JQuery, MySQL, JSON, VueJS, React, Django, Drupal'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers/userHome',
+            'https://jobs.comcast.com/search-jobs/software%20engineer/45483/1'
+          ]
+        },
+        {
+          a: 'Motion Recruitment | Fort Worth, Texas',
+          b: 'IT Applications Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, XML, HTML, JavaScript, CSS, GIT, JQuery, Angular, SOAP/REST, GitHub, MySQL, PostgreSQL, Sockets, TCP/IP, Agile, Postman, HTTP Analyzer, Dynatrace'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://motionrecruitment.com/tech-jobs'
+          ]
+        },
+        {
+          a: 'ELM Utility Services | Missoula, Montana',
+          b: 'Application Developer',
+          c: [
+            'BS',
+            '3-5 years exp',
+            'T-SQL, C#, .NET Core, ASP.NET Core, RESTful API, OAuth, Azure, SQL database, CORS'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://elmllc.easyapply.co/'
+          ]
+        },
+        {
+          a: 'Town Fair Tire | East Haven, Connecticut',
+          b: 'Junior C#.NET Developer',
+          c: [
+            'BS',
+            '1-3+ years exp',
+            '.NET, C#, ASP.NET, ADO.NET, SQL Server, REST, SOAP,, Visual Studio, Git, HTML, CSS, JavaScript, JSON, AJAX, Jira, .NET Core, Agile'
+          ],
+          d: true, 
+          e: '9/24/2024',
+          g: [
+            'https://www.indeed.com/cmp/Town-Fair-Tire-4/jobs'
+          ]
+        },
+        {
+          a: 'Cahoon Farms Inc | Wolcott, New York',
+          b: 'IT Technician and Programmer',
+          c: [
+            '2+ years exp',
+            'Microsoft Visual FoxPro, Python, PostgreSQL, Docker, Django, Excel, PowerAps, PowerAutomate'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.indeed.com/cmp/Cahoon-Farms-Inc/jobs'
+          ]
+        },
+        {
+          a: 'Founders Software | Buffalo, New York',
+          b: 'Web Application Developer',
+          c: [
+            'BS',
+            '5+ years exp',
+            'C# .NET Framework 4.8 & .NET Core 7',
+            'Azure SQL, Angular 15+, DevOps CI/CD, VS Code, Visual Studio 2022, Postman, SSMS, Docker, GitHub, Scrum, AWS, REST APIs'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.indeed.com/cmp/Founders-Software-1/jobs'
+          ]
+        },
+        {
+          a: 'SYSCO | Houston, Texas',
+          b: 'Associate Software Engineer - GSC - US',
+          c: [
+            'BS',
+            '0-2+ years exp',
+            'Java, JavaScript, C#, Python, Ruby, Groovy, Salesforce, Git, Scrum, XP, Kanban, DevOps, Agile'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://careers.sysco.com/search-jobs/software/1105/1',
+            'https://wd5.myworkdaysite.com/en-US/recruiting/sysco/syscoprivatecareers/userHome'
+          ]
         }
       ]
     }

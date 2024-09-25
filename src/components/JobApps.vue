@@ -5376,6 +5376,61 @@ export default
             'https://careers.sysco.com/search-jobs/software/1105/1',
             'https://wd5.myworkdaysite.com/en-US/recruiting/sysco/syscoprivatecareers/userHome'
           ]
+        },
+        {
+          a: 'Microsoft | Redmond, Washington',
+          b: 'Software Engineer II',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C, C++, C#, Java, JavaScript, Python'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Microsoft-Jobs-E1651.htm'
+          ]
+        },
+        {
+          a: 'Sacramento Kings | Sacramento, California',
+          b: 'Associate Basketball Data Engineer',
+          c: [
+            'SQL, APIs, R, Git, HTML, CSS'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.teamworkonline.com/basketball-jobs/sacramento-kings-jobs/sacramento-kings',
+            'https://kings.wd1.myworkdayjobs.com/en-US/KingsCareers/userHome'
+          ]
+        },
+        {
+          a: 'Bethesda Game Studios | Rockville, Maryland',
+          b: 'Backend Programmer',
+          c: [
+            '2+ years exp',
+            'RESTful APIs, Go, Linux, AWS, Azure, Docker, CI/CD, NoSQL, MongoDB, Redis, GitHub, C++, TypeScript, React, Redux, Splunk'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://www.glassdoor.com/Jobs/Bethesda-Softworks-Jobs-E1047242.htm',
+            'https://jobs.zenimax.com/jobs?department=C8723&located=&location='
+          ]
+        },
+        {
+          a: 'Adobe | Seattle, Washington',
+          b: '2025 University Graduate - Software Development Engineer',
+          c: [
+            'BS',
+            '0-1+ years exp',
+            'Python, Java, C++, C#, Ruby, PHP, React, Angular, Vue, jQuery'
+          ],
+          d: true,
+          e: '9/24/2024',
+          g: [
+            'https://careers.adobe.com/us/en/search-results?keywords=software'
+          ]
         }
       ]
     }

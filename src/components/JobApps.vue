@@ -5489,7 +5489,7 @@ export default
 
       console.log(this.appsBetweenInterviews) // debug
 
-      console.log(this.appsBetweenInterviews[this.appsBetweenInterviews.length-1])
+      console.log(`${this.appsBetweenInterviews[this.appsBetweenInterviews.length-1]} applies since last interview.`)
 
       this.avgAppliesForInterview = Math.floor(this.appsBetweenInterviews.slice(0, -1).reduce((total, e) => total + e, 0) / (this.appsBetweenInterviews.length-1) );
 

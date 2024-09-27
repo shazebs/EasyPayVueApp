@@ -5385,8 +5385,9 @@ export default
             '2+ years exp',
             'C, C++, C#, Java, JavaScript, Python'
           ],
-          d: true,
+          d: false,
           e: '9/24/2024',
+          f: '9/25/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Microsoft-Jobs-E1651.htm'
           ]
@@ -5430,6 +5431,35 @@ export default
           e: '9/24/2024',
           g: [
             'https://careers.adobe.com/us/en/search-results?keywords=software'
+          ]
+        },
+        {
+          a: 'Stripe | Seattle, San Francisco, New York, United States',
+          b: 'Software Engineer, Intern (Summer & Winter)',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Ruby, JavaScript, Scala, Go, HTTP',
+          ],
+          d: true,
+          e: '9/26/2024',
+          g: [
+            'https://stripe.com/jobs/search'
+          ]
+        },
+        {
+          a: 'Shopee | Singapore, Singapore',
+          b: 'Backend Engineer - Marketplace (Campus Recruitment 2023/2024)',
+          c: [
+            'BS',
+            'Java, Python, Golang, C++, MySQL',
+            'Data Structures, Algorithms, Operating Systems, Networks, Databases'
+          ],
+          d: true, 
+          e: '9/26/2024',
+          g: [
+            'https://www.linkedin.com/jobs/view/3965129278/?alternateChannel=search&refId=o6ivVNkhMXnpiDGExuRY7w%3D%3D&trackingId=y1m5e63C8MgOFZ7Ojr2xgA%3D%3D&trk=d_flagship3_search_srp_jobs',
+            'https://careers.shopee.sg/'
           ]
         }
       ]

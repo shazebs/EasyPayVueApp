@@ -5010,8 +5010,9 @@ export default
             '1-3+ years exp',
             'Clustering, Coding, C++, NET, Database'
           ],
-          d: true,
+          d: false,
           e: '9/9/2024',
+          f: '9/28//2024',
           g: [
             'https://www.linkedin.com/jobs/view/3966178295/?alternateChannel=search&refId=EIUnwsiV7Zo3F0NxhBwa2g%3D%3D&trackingId=pKzjwNmYx8nxi%2FM35BAD6w%3D%3D&trk=d_flagship3_search_srp_jobs',
             'https://micron.wd1.myworkdayjobs.com/en-US/External/userHome'

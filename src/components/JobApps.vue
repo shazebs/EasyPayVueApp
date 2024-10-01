@@ -5164,8 +5164,9 @@ export default
             '1-3+ years exp',
             'SQL, Python, JavaScript, AWS'
           ],
-          d: true,
+          d: false,
           e: '9/23/2024',
+          f: '9/29/2024',
           g: [
             'https://careers.travelers.com/'
           ]
@@ -5271,8 +5272,9 @@ export default
             '2-5 years exp',
             'Angular, RESTful APIs, Java, SQL/JDBC, Spring/Spring Boot, NPM/Webpack, RxJS, PostgreSQL, Docker, Kubernetes, AWS, SDLC, Agile, Git, Microservices, '
           ],
-          d: true,
+          d: false,
           e: '9/24/2024',
+          f: '9/30/2024',
           g: [
           'https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers/userHome',
             'https://jobs.comcast.com/search-jobs/software%20engineer/45483/1'
@@ -5371,8 +5373,9 @@ export default
             '0-2+ years exp',
             'Java, JavaScript, C#, Python, Ruby, Groovy, Salesforce, Git, Scrum, XP, Kanban, DevOps, Agile'
           ],
-          d: true,
+          d: false,
           e: '9/24/2024',
+          f: '9/28/2024',
           g: [
             'https://careers.sysco.com/search-jobs/software/1105/1',
             'https://wd5.myworkdaysite.com/en-US/recruiting/sysco/syscoprivatecareers/userHome'
@@ -5461,6 +5464,21 @@ export default
           g: [
             'https://www.linkedin.com/jobs/view/3965129278/?alternateChannel=search&refId=o6ivVNkhMXnpiDGExuRY7w%3D%3D&trackingId=y1m5e63C8MgOFZ7Ojr2xgA%3D%3D&trk=d_flagship3_search_srp_jobs',
             'https://careers.shopee.sg/'
+          ]
+        },
+        {
+          a: 'Maxar Technologies | Herndon, Virginia',
+          b: 'Junior Full Stack Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'JavaScript, Java, Python, TypeScript, React, Angular, Git, AWS, Kubernetes'
+          ],
+          d: true,
+          e: '9/30/2024',
+          g: [
+            'https://maxar.wd1.myworkdayjobs.com/MAXAR?utm_source=Maxar-careers&utm_medium=website&_gl=1*ugw9k9*_gcl_au*MTc5NzMyOTk4My4xNzI3NzUzMzk5*_ga*MzM3MTUyNzg0LjE3Mjc3NTMzOTk.*_ga_PLMRYWTSEB*MTcyNzc1MzM5OS4xLjAuMTcyNzc1MzM5OS42MC4wLjA.',
+            'https://maxar.wd1.myworkdayjobs.com/en-US/MAXAR/userHome'
           ]
         }
       ]

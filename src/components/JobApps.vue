@@ -1254,8 +1254,9 @@ export default
             "ADX",
             "Jira",
           ],
-          d: true,
+          d: false,
           e: "5/15/2024",
+          f: '5/17/2024',
           g: "https://ea.gr8people.com/my-jobs",
         },
         {
@@ -4981,8 +4982,9 @@ export default
             '1+ years exp',
             'C++ or Python, Visual Studio, HTML, CSS, JavaScript'
           ],
-          d: true,
+          d: false,
           e: '9/5/2024',
+          f: '10/1/2024',
           g: [
             'ZipRecruiter',
             'https://ea.gr8people.com/jobs'

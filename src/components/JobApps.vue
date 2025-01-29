@@ -5482,6 +5482,21 @@ export default
             'https://maxar.wd1.myworkdayjobs.com/MAXAR?utm_source=Maxar-careers&utm_medium=website&_gl=1*ugw9k9*_gcl_au*MTc5NzMyOTk4My4xNzI3NzUzMzk5*_ga*MzM3MTUyNzg0LjE3Mjc3NTMzOTk.*_ga_PLMRYWTSEB*MTcyNzc1MzM5OS4xLjAuMTcyNzc1MzM5OS42MC4wLjA.',
             'https://maxar.wd1.myworkdayjobs.com/en-US/MAXAR/userHome'
           ]
+        },
+        {
+          a: 'Goldman Sachs | Dallas, Texas',
+          b: 'Asset & Wealth Management - Software Engineer - Dallas - Associate',
+          c: [
+            'BS',
+            'Java, JavaScript, Spring Boot',
+            'Distributed systems, Microservices, Agile, Rx* variants, Kafka, Spring Framework, AWS, React, Angular, Adobe, NoSQL'
+          ],
+          d: true,
+          e: '1/29/2025',
+          g: [
+            'https://www.indeed.com/cmp/Goldman-Sachs/jobs',
+            'https://higher.gs.com/results?&page=1&sort=RELEVANCE'
+          ]
         }
       ]
     }

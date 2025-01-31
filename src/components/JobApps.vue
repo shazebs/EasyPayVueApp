@@ -5497,6 +5497,33 @@ export default
             'https://www.indeed.com/cmp/Goldman-Sachs/jobs',
             'https://higher.gs.com/results?&page=1&sort=RELEVANCE'
           ]
+        },
+        {
+          a: 'Emerson | Austin, Texas',
+          b: 'Software Engineeer',
+          c: [
+            'BS',
+            'Operating Systems, Computer System Architecture, Data Structures, OOP',
+            'C#, Azure, DevOps, Git, Agile, CI/CD'
+          ],
+          d: true,
+          e: '1/31/2025',
+          g: [
+            'https://www.indeed.com/cmp/Emerson/jobs'
+          ]
+        },
+        {
+          a: 'Liberty Software | Grapevine, Texas',
+          b: 'Jr. .NET Developer',
+          c: [
+            'BS',
+            '.NET, C#, VB.NET, WinForms, WPF, ASP.NET, SQL Server, SQLite, MySQL, UX/UI'
+          ],
+          d: true,
+          e: '1/31/2025',
+          g: [
+            'https://www.indeed.com/cmp/Liberty-Software/jobs'
+          ]
         }
       ]
     }

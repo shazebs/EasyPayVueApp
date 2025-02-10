@@ -52,6 +52,7 @@
 
     <div>
         <h1>General Notes!:</h1>
+        
     </div>
 
 </template>

@@ -28,6 +28,10 @@
 
     <hr/>
 
+    C++, Python, React, GoLang, PostgreSQL, MongoDB, Kotlin, Swift, Objective-C
+
+    <hr/>
+
     <!-- Num Rejections and Pending -->
     <h4 style="margin:0; line-height:1.6;">
 
@@ -5523,6 +5527,111 @@ export default
           e: '1/31/2025',
           g: [
             'https://www.indeed.com/cmp/Liberty-Software/jobs'
+          ]
+        },
+        {
+          a: 'CVS Health | Irving, Texas',
+          b: 'Associate Software Engineer',
+          c: [
+            'BS/MS',
+            'Java, Angular, React',
+            'Cloud Development'
+          ],
+          d: true,
+          e: '2/6/2025',
+          f: '2/7/2025'
+        },
+        {
+          a: 'Tenaska, Inc. | Irving, Texas',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            'OOP, HTML5, Vue.js, TypeScript, SCSS',
+            '2+ years exp, JavaScript, C#, .NET, T-SQL, Docker, Kubernetes, Git'
+          ],
+          d: true,
+          e: '2/6/2025'
+        },
+        {
+          a: 'IsoTalent | Diamond Bar, California',
+          b: 'Full Stack Developer',
+          c: [
+            '5+ years exp',
+            '.NET, .NET Core, MS SQL Server, HTML5, CSS3, JavaScript, Bootstrap, RESTful APIs, Visual Studio, SOAP, Drupal, PHP, MySQL, Python, Knockout.js, Apache'
+          ],
+          d: true,
+          g: [
+            'https://www.linkedin.com/jobs/view/4147214629/?alternateChannel=search&refId=yj%2B5E%2FMCNGoZEbJB06tsTA%3D%3D&trackingId=bPpvyKG1oQWWov0nKmae0w%3D%3D&trk=d_flagship3_postapply_open_to_work'
+          ]
+        },
+        {
+          a: 'Mckinney Trailer Rentals | Brea, California',
+          b: '.NET Developer',
+          c: [
+            'BS',
+            '2+ years exp (preferred)',
+            'C#, .NET Framework',
+            'SQL Server, REST APIs, Version Control, '
+          ],
+          d: true,
+          e: '2/9/2025',
+          g: [
+            'https://www.indeed.com/cmp/Mckinney-Trailer-Rentals/jobs'
+          ]
+        },
+        {
+          a: 'Cadent | US-Remote',
+          b: 'Frontend Engineer Intern',
+          c: [
+            'BS student',
+            'JavaScript, ES6, SASS, HTML, CSS',
+            'React, Angular, Jest, Redux, Redux Sagas, Agile'
+          ],
+          d: true,
+          e: '2/9/2025'
+        },
+        {
+          a: 'Cadent | San Jose, California',
+          b: 'Associate Frontend Engineer',
+          c: [
+            '1-5 years exp',
+            'React, Zustand, Redux, HTML, CSS, Node, npm, Angular, .NET, C#'
+          ],
+          d: true,
+          e: '2/9/2025'
+        },
+        {
+          a: 'Cadent | San Jose, California',
+          b: 'QA Engineer Intern',
+          c: [
+            'Java, SQL, REST API, Microservices, Test Cases'
+          ],
+          d: true,
+          e: '2/9/2025'
+        },
+        {
+          a: 'XIFIN | San Diego, California',
+          b: 'Associate Software Engineer',
+          c: [
+            'BS',
+            '3+ years exp',
+            'Java, Spring, JDBC, MVC, JavaScript, CSS, React, Vue, Angular, HL7/HL7 FHIR, '
+          ],
+          d: true,
+          e: '2/9/2025'
+        },
+        {
+          a: 'XIFIN | San Diego, California',
+          b: 'Software Support Engineer',
+          c: [
+            'BS',
+            '3-6 years exp',
+            'SQL, .NET, Java, JIRA, GitHub'
+          ],
+          d: true,
+          e: '2/9/2025',
+          g: [
+            'https://workforcenow.adp.com/mascsr/applicant/mdf/recruitment/postLogin.html?cid=85ae6907-4097-4143-b4cc-63fd5b28b345&ccId=19000101_000001&type=JS&lang=en_US&jobId=554015&jobId=554015&requisitionId=9200979486017_1&params=jobId&OTP_login=true&selectedMenuKey=CurrentOpenings&jobId=552831&jobId=552831'
           ]
         }
       ]

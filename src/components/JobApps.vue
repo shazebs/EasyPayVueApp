@@ -5633,6 +5633,18 @@ export default
           g: [
             'https://workforcenow.adp.com/mascsr/applicant/mdf/recruitment/postLogin.html?cid=85ae6907-4097-4143-b4cc-63fd5b28b345&ccId=19000101_000001&type=JS&lang=en_US&jobId=554015&jobId=554015&requisitionId=9200979486017_1&params=jobId&OTP_login=true&selectedMenuKey=CurrentOpenings&jobId=552831&jobId=552831'
           ]
+        },
+        {
+          a: 'Happy Dad | Santa Ana, California',
+          b: 'Full Stack Engineer',
+          c: [
+            'React, Python, SQL, Docker, AWS, Azure, GCP'
+          ],
+          d: true,
+          e: '2/9/2025'
+        },
+        {
+          
         }
       ]
     }

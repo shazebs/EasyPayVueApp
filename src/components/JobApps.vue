@@ -5644,8 +5644,284 @@ export default
           e: '2/9/2025'
         },
         {
-          
-        }
+          a: 'Department of Motor Vehicles | Sacramento County, California',
+          b: 'Information Technology Associate',
+          c: [
+            'BS',
+            'Java, JSP, Salesforce, AWS, Postgres, Node.js, React.js, SDLC'
+          ],
+          d: true,
+          e: '2/12/2025',
+          g: [
+            'https://calcareers.ca.gov/CalHrSecured/Applications/JobApplicationRecord.aspx?q=kI1z6JIKIgR3ZYAJ4jCaklZEk%2f9wlWvMcYvDpL0Ac3x7Yam0VPeN0XxJto%2bWZfe5t11Px0jQx8JlKMu3fczuOHq7Cvav5a%2b2DRdBCf3G9vwdnaMoTJY32xY0hx9UWCdJEbEjxtfBPKvg7sOCOhdMZ9ueCtFUfPfZ6y3ab8AKWts%3d'
+          ]
+        },
+        {
+          a: 'Cherry Aerospace | Santa Ana, California',
+          b: 'Junior Developer (Consultant)',
+          c: [
+            '1-2 years exp',
+            'JavaScript, .NET Core, Java, SQL Scripts, Visual Studio IDE, Blazor, .NET Core, C#, C++',
+          ],
+          d: true,
+          e: '2/12/2025'
+        },
+        {
+          a: 'Curtin Maritime | Long Beach, California',
+          b: 'Junior Solutions Developer (MS Dynamics)',
+          c: [
+            'BS',
+            '2+ years exp',
+            'TypeScript, JavaScript, C#, Dynamics 365, Azure DevOps'
+          ],
+          d: true,
+          e: '2/12/2025'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Application Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C#, Python, .NET, Go, Scala, Java, Angular, React, JavaScript, Kubernetes, Docker, PostgreSQL, SQL Server, Apache Kafka, RabbitMQ, Gradle, CI/CD'
+          ],
+          d: true,
+          e: '2/13/2025'
+        },
+        {
+          a: 'Exelon | Baltimore, Maryland',
+          b: 'Software Engineer (L1) - EAM',
+          c: [
+            'BS',
+            '2-5 years exp',
+            'Java, .NET, C#, HTML, Angular, TypeScript, APIs, SQL, Azure, CI/CD'
+          ],
+          d: true,
+          e: '2/14/2025',
+          g: [
+            'https://www.indeed.com/cmp/Exelon/jobs'
+          ]
+        },
+        {
+          a: 'Paramount Acceptance | Remote - Utah',
+          b: 'Full Stack Developer',
+          c: [
+            'SQL, C#, Angular, JavaScript, CSS, ASP.NET MVC, Entity Framework, MS SQL, Git, TFVC'
+          ],
+          d: true,
+          e: '2/14/2025'
+        },
+        {
+          a: 'Federated Wireless Inc | Boston, Masachussetts',
+          b: 'Full Stack Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'RESTful APIs, CI/CD, Unit Tests, Java, Agile, Python, Mongo, PostgreSQL, AWS, HTML5, CSS/SASS, JavaScript, React, Redux, NodeJS, Jira, Atlassian, Docker, Kubernetes'
+          ],
+          d: true,
+          e: '2/14/2025',
+          g: [
+            'https://www.indeed.com/cmp/Federated-Wireless/jobs'
+          ]
+        },
+        {
+          a: 'HII | Newport News, Virginia',
+          b: 'Engineer Software I',
+          c: [
+            'BS',
+            '0 years exp'
+          ],
+          d: true,
+          e: '2/14/2025',
+          g: [
+            'https://www.indeed.com/cmp/Hii-9/jobs'
+          ]
+        },
+        {
+          a: 'Instrumentation & Control Solution - ICS | Indore, West Virginia',
+          b: 'Web Application Developer',
+          c: [
+            '1-3 years exp',
+            'C#, .NET Core, HTML, JavaScript, MVC, MS SQL'
+          ],
+          d: true,
+          e: '2/14/2025'
+        },
+        {
+          a: 'F2Onsite | Waco, Texas',
+          b: 'Software Developer',
+          c: [
+            '3-5 years exp',
+            'C#, .NET, SQL, Blazor, React, Angular'
+          ],
+          d: true,
+          e: '2/14/2025'
+        },
+        {
+          a: 'Riverside Research Institute | Dayton, Ohio',
+          b: 'Junior Software Engineer/Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'TS/SCI, C++, Java, Python, XML, Git'
+          ],
+          d: true,
+          e: '2/14/2025'
+        },
+        {
+          a: 'Good Day Farm | Little Rock, Arkansas',
+          b: 'Back End Software Engineer',
+          c: [
+            '3+ years exp',
+            'C#, .NET, REST API, GraphQL, Azure, SQL Server, PostgreSQL, CI/CD, DevOps, Docker, Kubernetes'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'General Dynamics | Scottsdale, Arizona',
+          b: 'Software Engineer Entry Level',
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'Ho2 Systems LLC | Austin, Texas',
+          b: 'Java Software Engineer',
+          c: [
+            'SDLC, Java, J2EE, Agile, JavaScript, Spring Boot, RESTful APIs, SOAP, DevOps, CI/CD, SQL, ORM, Microservices'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'IntePros | Pitssburgh, Pennsylvania',
+          b: 'Back-End Engineer / Development',
+          c: [
+            'BS',
+            'Spring, Spring Boot, Java, JUnit, Swagger, REST, GraphQL APIs, Angular, Python, C++, Groovy, CI/CD, Snowflake, Jenkins, Docker'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'Lowe\'s Companies, Inc. | Charlotte, North Carolina',
+          b: 'Software Engineer - Java/Kafka',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'Jenkins, Git, Gradle, JFrog, SDLC, Java/Spring, PostgreSQL, MongoDB, ElasticSearch, Redis, Microservices, CI/CD'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'Lensa | Littleton, Colorado',
+          b: 'Software Engineers - All Levels',
+          c: [
+            'Java, ML, Data Analytics, XML, JSON, DevSecOps, Docker, Kubernetes'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'Walton\'s Inc. | Wichita, Kansas',
+          b: 'Junior .NET Developer',
+          c: [
+            'BS',
+            'ASP.NET Core, .NET Core, C#, JavaScript, CSS, HTML, SQL, Blazor, OOP, Visual Studio, RESTful JSON APIs, Postman, Git, GitHub'
+          ],
+          d: true,
+          e: '2/15/2025'
+        },
+        {
+          a: 'Xyant Services | Bentonville, Arkansas',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS',
+          ],
+          d: true, 
+          e: '2/17/2025'
+        },
+        {
+          a: 'Scalavue AI | New York New York',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Python, JavaScript, Java, Go, C#, AWS, Azure, GCP, CI/CD'
+          ],
+          d: true,
+          e: '2/18/2025'
+        },
+        {
+          a: 'EnergyBot | Dallas, Texas',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Java, Kotlin, JavaScript, AWS, Azure, Google Cloud, TDD'
+          ],
+          d: true,
+          e: '2/18/2025'
+        },
+        {
+          a: 'State Farm | Bloomington, Illinois',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Python, JavaScript, Java',
+            'AWS, Docker, Terraform, Scalr, GitLab, CI/CD'
+          ],
+          d: true,
+          e: '2/18/2025'
+        },
+        {
+          a: 'Creative Financial Staffing (CFS) | Plymouth, Indiana',
+          b: 'Application Developer',
+          c: [
+            'BS',
+            'C#, .NET Core, SQL Server, RFID, ZPL, ZDesigner'
+          ],
+          d: true,
+          e: '2/19/2025'
+        },
+        {
+          a: 'Arrow Search Partners | Miami, Florida',
+          b: 'Software Engineer',
+          c: [
+            '2-4 years exp',
+            'Unix/Linux, Java, C++'
+          ],
+          d: true,
+          e: '2/19/2025'
+        },
+        {
+          a: 'Florida Power & Light | Palm Beach Gardens, Florida',
+          b: 'Software Development Eng I',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Angular, AWS, TypeScript, GitHub, LLMs, Jira, APIs, DevOps'
+          ],
+          d: true,
+          e: '2/19/2025',
+          g: [
+            'https://career8.successfactors.com/portalcareer?_s.crb=4u%252bKLwHFUuM%252b2ku9%252fqMegH1vBKW7zRYXR5kkzXWQeiM%253d'
+          ]
+        },
+        {
+          a: 'Microsoft | Redmond, Washington',
+          b: 'Software Engineer II',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'C#, .NET, Cloud, CI/CD, Azure'
+          ],
+          d: true,
+          e: '2/19/2025'
+        },
       ]
     }
   },

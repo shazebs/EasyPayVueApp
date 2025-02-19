@@ -143,8 +143,8 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapState } from 'vuex';
-import axios from 'axios'; 
 
 export default {
     name: 'UserCatalog',
@@ -165,7 +165,7 @@ export default {
     methods: {
         calculateProfit(price) {
             // calculate profit after stripe's fee
-            let stripeFee = price * 0.029 + 0.3;
+            let stripeFee = (price * 0.029) + 0.3;
             return Math.round((price - stripeFee) * 100) / 100; 
         },
         checkoutFromForm() {

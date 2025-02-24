@@ -814,8 +814,8 @@
 
 <script>
 
-import { mapState } from 'vuex';
 import axios from 'axios';
+import { mapState } from 'vuex';
 
 export default 
 {
@@ -1347,9 +1347,9 @@ export default
     transition: all 0.5s ease;
 }
 
-.screen-leave-active 
+/* .screen-leave-active 
 {
-}
+} */
 
 .screen-enter-from
 {
@@ -1357,9 +1357,9 @@ export default
     transform: translateY(30px);
 }
 
-.screen-leave-to
+/* .screen-leave-to
 {
-}
+} */
 
 #login 
 {

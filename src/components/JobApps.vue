@@ -77,7 +77,7 @@
 
     <div style="border-bottom:1px dashed black; text-align:left; padding-bottom:5px; margin-top:10px;">Daily Applies</div>
 
-    <section v-if="job_apps" style="max-height:72px; overflow-Y:auto; padding:8px;">
+    <section v-if="job_apps" style="max-height:150px; overflow-Y:auto; padding:8px;">
 
       <div v-for="(daily, dailyApplies_index) in Object.keys(job_map).reverse()" :key="dailyApplies_index">
 
@@ -5921,6 +5921,27 @@ export default
           ],
           d: true,
           e: '2/19/2025'
+        },
+        {
+          a: 'MetroStar | Reston, Virginia',
+          b: 'Associate Software Developer',
+          c: [
+            'BS',
+            '0-3 years exp',
+            'C#, MVC, Web API, aspx Web Forms, REST API, ADO.net, SQL Server, webhooks'
+          ],
+          d: true,
+          e: '2/20/2025'
+        },
+        {
+          a: 'Randstad Digital Americas | Roanoke, Texas',
+          b: 'Full Stack Engineer',
+          c: [
+            'BS',
+            'C#, .NET, HTTP, APIs, Azure DevOps, GitHub, Visual Studio, WebStorm, MS Unit, NUnit, xUnit, MicroServices Architecture, Automated Testing, Continous Delivery'
+          ],
+          d: true,
+          e: '2/20/2025'
         },
       ]
     }

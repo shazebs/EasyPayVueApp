@@ -156,6 +156,7 @@ export default
           a: "PlayStation Global",
           b: "Full Stack Software Engineer II (Contract Role)",
           c: [
+            "BS",
             "jQuery",
             "Java",
             "Spring Framework",
@@ -169,7 +170,6 @@ export default
             "Node.js",
             "Redis",
             "DynamoDB",
-            "BS",
             "Git",
             "CI/CD",
             "API",
@@ -186,10 +186,10 @@ export default
           a: "SpaceX",
           b: "Full Stack Software Engineer (Starlink)",
           c: [
+            "BS",
             "HTML",
             "CSS",
             "TypeScript",
-            "BS",
             "Python",
             "C#",
             ".NET",
@@ -305,7 +305,7 @@ export default
             "Python",
             "Flask",
             "SQL",
-            "MS SQL Server",
+            "SQL Server",
             "MongoDB",
             "Redis",
             "Kubernetes",
@@ -339,7 +339,7 @@ export default
             "Algorithms",
             "Software Design",
             "AWS",
-            "Terraforms",
+            "Terraform",
             "Git",
             "Bitbucket",
             "AEM",
@@ -5557,7 +5557,7 @@ export default
           b: 'Full Stack Developer',
           c: [
             '5+ years exp',
-            '.NET, .NET Core, MS SQL Server, HTML5, CSS3, JavaScript, Bootstrap, RESTful APIs, Visual Studio, SOAP, Drupal, PHP, MySQL, Python, Knockout.js, Apache'
+            '.NET, .NET Core, SQL Server, HTML5, CSS3, JavaScript, Bootstrap, RESTful APIs, Visual Studio, SOAP, Drupal, PHP, MySQL, Python, Knockout.js, Apache'
           ],
           d: true,
           g: [
@@ -5571,7 +5571,7 @@ export default
             'BS',
             '2+ years exp (preferred)',
             'C#, .NET Framework',
-            'SQL Server, REST APIs, Version Control, '
+            'SQL Server, REST APIs, Version Control'
           ],
           d: true,
           e: '2/9/2025',
@@ -5661,7 +5661,7 @@ export default
           b: 'Junior Developer (Consultant)',
           c: [
             '1-2 years exp',
-            'JavaScript, .NET Core, Java, SQL Scripts, Visual Studio IDE, Blazor, .NET Core, C#, C++',
+            'JavaScript, .NET Core, Java, SQL, Visual Studio, Blazor, C#, C++',
           ],
           d: true,
           e: '2/12/2025'
@@ -5672,7 +5672,7 @@ export default
           c: [
             'BS',
             '2+ years exp',
-            'TypeScript, JavaScript, C#, Dynamics 365, Azure DevOps'
+            'TypeScript, JavaScript, C#, Dynamics 365, Azure, DevOps'
           ],
           d: true,
           e: '2/12/2025'
@@ -5706,7 +5706,7 @@ export default
           a: 'Paramount Acceptance | Remote - Utah',
           b: 'Full Stack Developer',
           c: [
-            'SQL, C#, Angular, JavaScript, CSS, ASP.NET MVC, Entity Framework, MS SQL, Git, TFVC'
+            'SQL, C#, Angular, JavaScript, CSS, ASP.NET MVC, Entity Framework, SQL Server, Git, TFVC'
           ],
           d: true,
           e: '2/14/2025'
@@ -5717,7 +5717,7 @@ export default
           c: [
             'BS',
             '1+ years exp',
-            'RESTful APIs, CI/CD, Unit Tests, Java, Agile, Python, Mongo, PostgreSQL, AWS, HTML5, CSS/SASS, JavaScript, React, Redux, NodeJS, Jira, Atlassian, Docker, Kubernetes'
+            'RESTful APIs, CI/CD, Unit Tests, Java, Agile, Python, Mongo, PostgreSQL, AWS, HTML5, CSS, SASS, JavaScript, React, Redux, NodeJS, Jira, Atlassian, Docker, Kubernetes'
           ],
           d: true,
           e: '2/14/2025',
@@ -5743,7 +5743,7 @@ export default
           b: 'Web Application Developer',
           c: [
             '1-3 years exp',
-            'C#, .NET Core, HTML, JavaScript, MVC, MS SQL'
+            'C#, .NET Core, HTML, JavaScript, MVC, SQL Server'
           ],
           d: true,
           e: '2/14/2025'
@@ -5799,7 +5799,7 @@ export default
           b: 'Back-End Engineer / Development',
           c: [
             'BS',
-            'Spring, Spring Boot, Java, JUnit, Swagger, REST, GraphQL APIs, Angular, Python, C++, Groovy, CI/CD, Snowflake, Jenkins, Docker'
+            'Spring, Spring Boot, Java, JUnit, Swagger, RESTful APIs, GraphQL, Angular, Python, C++, Groovy, CI/CD, Snowflake, Jenkins, Docker'
           ],
           d: true,
           e: '2/15/2025'
@@ -5829,7 +5829,7 @@ export default
           b: 'Junior .NET Developer',
           c: [
             'BS',
-            'ASP.NET Core, .NET Core, C#, JavaScript, CSS, HTML, SQL, Blazor, OOP, Visual Studio, RESTful JSON APIs, Postman, Git, GitHub'
+            'ASP.NET Core, .NET Core, C#, JavaScript, CSS, HTML, SQL, Blazor, OOP, Visual Studio, RESTful APIs, Postman, Git, GitHub'
           ],
           d: true,
           e: '2/15/2025'
@@ -5874,8 +5874,9 @@ export default
             'Python, JavaScript, Java',
             'AWS, Docker, Terraform, Scalr, GitLab, CI/CD'
           ],
-          d: true,
-          e: '2/18/2025'
+          d: false,
+          e: '2/18/2025',
+          f: '2/19/2025'
         },
         {
           a: 'Creative Financial Staffing (CFS) | Plymouth, Indiana',
@@ -5943,6 +5944,59 @@ export default
           d: true,
           e: '2/20/2025'
         },
+        {
+          a: 'Visa | Austin, Texas',
+          b: 'Software Engineer - Full Stack (Hybrid/Onsite)',
+          c: [
+            'BS',
+            '2+ years exp (preferred)',
+            'HTML, CSS, JavaScript, Python, Java, PHP, C++, APIs, GUI'
+          ],
+          d: true,
+          e: '2/25/2025'
+        },
+        {
+          a: 'ByteDance | San Jose, California',
+          b: 'Backend Software Engineer, Lemon8',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Go, Java, C++, Python, APIs'
+          ],
+          d: true,
+          e: '2/25/2025'
+        },
+        {
+          a: 'VoyceMe | New York, New York',
+          b: 'Software Engineer',
+          c: [
+            '5+ years exp',
+            'HTML, CSS, JavaScript, TypeScript, React, Git'
+          ],
+          d: true,
+          e: '2/26/2025'
+        },
+        {
+          a: 'Stripe | San Francisco, California',
+          b: 'Backend/API Engineer - Payments & Risk',
+          c: [
+            '2+ years exp',
+            'Go, Java, C, C++'
+          ],
+          d: true,
+          e: '2/26/2025'
+        },
+        {
+          a: 'Airbnb | (Remote) United States',
+          b: 'Software Engineer, Trust Graph',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Scala, Python, Java, C++, A/B testing'
+          ],
+          d: true,
+          e: '2/26/2025'
+        }
       ]
     }
   },
@@ -5998,13 +6052,25 @@ export default
       
       this.appsBetweenInterviews.push(betweenInterviewsCounter);
 
-      console.log(this.appsBetweenInterviews) // debug
+      //console.log(this.appsBetweenInterviews) // debug
 
-      console.log(`${this.appsBetweenInterviews[this.appsBetweenInterviews.length-1]} applies since last interview.`)
+      //console.log(`${this.appsBetweenInterviews[this.appsBetweenInterviews.length-1]} applies since last interview.`)
 
       this.avgAppliesForInterview = Math.floor(this.appsBetweenInterviews.slice(0, -1).reduce((total, e) => total + e, 0) / (this.appsBetweenInterviews.length-1) );
 
       return job_map;
+    },
+
+    countJobKeywords() {
+      // console.log('Reverse Jobs List object:', this.reverseJobsList);
+      for (const job of this.job_apps) {
+        // console.log(job.b);
+        if (job.c) {
+          for (const keyword of job.c) {
+            console.log(keyword);
+          }
+        }        
+      }
     },
 
     /**
@@ -6038,6 +6104,8 @@ export default
     this.numDaysPostGCUgraduation = this.getDaysPassedSinceDate("2024/04/27 00:00:00");
 
     this.reverseJobsList = this.job_apps.reverse();
+
+    //this.countJobKeywords();
   },
 
 };

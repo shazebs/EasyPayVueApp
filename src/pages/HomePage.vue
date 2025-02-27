@@ -57,9 +57,9 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapGetters } from 'vuex';
-import UserCatalog from '../components/UserCatalog.vue'; 
-import axios from 'axios'; 
+import UserCatalog from '../components/UserCatalog.vue';
 
 export default {
     name: 'HomePage',

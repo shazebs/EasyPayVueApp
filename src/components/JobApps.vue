@@ -28,7 +28,7 @@
 
     <hr/>
 
-    C++, Python, React, GoLang, PostgreSQL, MongoDB, Kotlin, Swift, Objective-C
+    Python (FastAPI, Flask) React (React Native, Redux), TypeScript, PostgreSQL, AWS, Docker, Kubernetes 
 
     <hr/>
 
@@ -5782,8 +5782,9 @@ export default
         {
           a: 'General Dynamics | Scottsdale, Arizona',
           b: 'Software Engineer Entry Level',
-          d: true,
-          e: '2/15/2025'
+          d: false,
+          e: '2/15/2025',
+          f: '2/27/2025'
         },
         {
           a: 'Ho2 Systems LLC | Austin, Texas',
@@ -5952,8 +5953,9 @@ export default
             '2+ years exp (preferred)',
             'HTML, CSS, JavaScript, Python, Java, PHP, C++, APIs, GUI'
           ],
-          d: true,
-          e: '2/25/2025'
+          d: false,
+          e: '2/25/2025',
+          f: '2/28/2025'
         },
         {
           a: 'ByteDance | San Jose, California',
@@ -5994,9 +5996,99 @@ export default
             '2+ years exp',
             'Scala, Python, Java, C++, A/B testing'
           ],
+          d: false,
+          e: '2/26/2025',
+          f: '3/6/2025'
+        },
+        {
+          a: 'GenPark | Seattle, Washington',
+          b: 'Front End Engineer Intern',
+          c: [
+            'BS'
+          ],
           d: true,
-          e: '2/26/2025'
-        }
+          e: '2/27/2025'
+        },
+        {
+          a: 'Raytheon | Richardson, Texas',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '0-1 years exp',
+            'Java, C++, Jira, Bitbucket, Confluence, Eclipse, Intellij, Agile'
+          ],
+          d: true,
+          e: '2/27/2025',
+          g: [
+            'https://globalhr.wd5.myworkdayjobs.com/en-US/REC_RTX_Ext_Gateway/userHome'
+          ]
+        },
+        {
+          a: 'Morningstar | Chicago, Illinois',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C#, Java, Spring, Spring Boot, SQL, PostgreSQL, RESTful APIs, Microservices, Python, TDD, AWS, Node.js, NumPy, Vue.js, React, Angular, Docker, Kubernetes'
+          ],
+          d: false,
+          e: '2/27/2025',
+          f: '3/3/2025'
+        },
+        {
+          a: 'Palantir | New York, New York',
+          b: 'Forward Deployed Software Engineer',
+          c: [
+            '1+ years exp',
+            'Python, Java, C++, TypeScript, JavaScript'
+          ],
+          d: false,
+          e: '3/1/2025',
+          f: '3/5/2025'
+        },
+        {
+          a: 'GEI Consultants | Charlottesville, Virginia',
+          b: 'Jr. Web Application Data Engineer',
+          c: [],
+          d: true,
+          e: '3/2/2025'
+        },
+        {
+          a: 'TikTok | Los Angeles, California',
+          b: 'Software Engineer Graduate (TikTok Short Video)',
+          c: [
+            'BS',
+            'Python, Java, Golang, C#, C++'
+          ],
+          d: true,
+          e: '3/2/2025'
+        },
+        {
+          a: 'Disney | Glendale, California',
+          b: 'Software Engineer II',
+          c: [],
+          d: true,
+          e: '3/2/2025'
+        },
+        {
+          a: 'Auria | Colorado Springs, Colorado',
+          b: 'Software Engineer',
+          c: [],
+          d: true,
+          e: '3/3/2025'
+        },
+        {
+          a: 'AppLovin | Palo Alto, California',
+          b: 'Backend Engineer, New Grad',
+          c: [
+            'BS',
+            '0-2+ years exp',
+            'C++, Java'
+          ],
+          d: true,
+          e: '3/5/2025'
+        },
+
       ]
     }
   },

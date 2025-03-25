@@ -5932,8 +5932,9 @@ export default
             '0-3 years exp',
             'C#, MVC, Web API, aspx Web Forms, REST API, ADO.net, SQL Server, webhooks'
           ],
-          d: true,
-          e: '2/20/2025'
+          d: false,
+          e: '2/20/2025',
+          f: '3/24/2025'
         },
         {
           a: 'Randstad Digital Americas | Roanoke, Texas',
@@ -6050,8 +6051,9 @@ export default
           a: 'GEI Consultants | Charlottesville, Virginia',
           b: 'Jr. Web Application Data Engineer',
           c: [],
-          d: true,
-          e: '3/2/2025'
+          d: false,
+          e: '3/2/2025',
+          f: '3/21/2025'
         },
         {
           a: 'TikTok | Los Angeles, California',
@@ -6088,7 +6090,312 @@ export default
           d: true,
           e: '3/5/2025'
         },
+        {
+          a: 'Siemens | Grand Prairie, Texas',
+          b: 'Entry Level Software Developer - C#',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C#, MS SQL, ASP.NET, Entity Framework, Docker, HTML, CSS, React.js'
+          ],
+          d: false,
+          e: '3/15/2025',
+          f: '3/20/2025',
+          g: [
+            'https://jobs.siemens.com/careerhub/explore/jobs/563156123878474'
+          ]
+        },
+        {
+          a: 'The Dot Corp | Irvine, California',
+          b: '.NET Developer',
+          c: [
+            'BS',
+            '5+ years exp',
+            'C#, .NET 6+, Angular, SQL Server, Entity Framework, jQuery, HTML, CSS, JavaScript, Blazor, PostgreSQL, TDD, CI/CD, Agile, Scrum, Redis, RabbitMQ, PowerShell, SDLC'
+          ],
+          d: true,
+          e: '3/16/2025'
+        },
+        {
+          a: 'Vimeo | New York, New York',
+          b: 'Web Platform Operations Contractor',
+          c: [],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'Chime | San Francisco, California',
+          b: 'AI Automation Intern - Eventing Platform',
+          c: [
+            'BS',
+            'Python, SQL, AI/ML'
+          ],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'Illumio | Sunnyvale, California',
+          b: 'Engineering Intern, Core PCE Platform',
+          c: [
+            'BS',
+            'Docker, Kubernetes, Jenkins, Python, RESTful APIs'
+          ],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'RTI (Real-Time Innovations) | Sunnyvale, California',
+          b: 'Applications Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C, C++, Python'
+          ],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'Patreon | San Francisco, California',
+          b: 'Backend Software Engineer',
+          c: [
+            '3+ years exp',
+            'Python, PostgreSQL, Redis, Kubernetes, CI/CD, RESTful APIs'
+          ],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'Patreon | San Francisco, California',
+          b: 'Fullstack Software Engineer',
+          c: [
+            '3+ years exp',
+            'Python, Typescript, Javascript'
+          ],
+          d: true,
+          e: '3/17/2025'
+        },
+        {
+          a: 'Orion Innovation | Dallas, Texas',
+          b: 'Full Stack Engineer',
+          c: [
+            'Angular 10+, TypeScript, .NET Core, C#, Azure, SQL, RESTful, Service Bus, DevOps, Git, Agile'
+          ],
+          d: true,
+          e: '3/19/2025'
+        },
+        {
+          a: 'Lyft | San Francisco, California',
+          b: 'Software Engineer - Backend',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Python, Go, AWS, NoSQL'
+          ],
+          d: true,
+          e: '3/20/2025'
+        },
+        {
+          a: 'Twitch | San Francisco, California',
+          b: 'Software Development Engineer',
+          c: [
+            '1+ years exp',
+            'Python, SQL, AWS'
+          ],
+          d: true,
+          e: '3/20/2025'
+        },
+        {
+          a: 'Chalk | San Francisco, California',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'Python, Rust'
+          ],
+          d: true,
+          e: '3/20/2025'
+        },
+        {
+          a: 'Verizon | Basking Ridge, New Jersey',
+          b: 'Engr 1 - Software Development',
+          c: [
+            'BS',
+            'LLM, GenAI, AWS'
+          ],
+          d: false,
+          e: '3/21/2025',
+          f: '3/21/2025',
+          g: [
+            'https://verizon.wd12.myworkdayjobs.com/en-US/verizon-careers/userHome'
+          ]
+        },
+        {
+          a: 'Visa | Mentor, Ohio',
+          b: 'SW Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'API, Git, Agile, Java, Python, Ruby, GenAI'
+          ],
+          d: true,
+          e: '3/21/2025'
+        },
+        {
+          a: 'Abbott Laboratories | Saint Paul, Minnesota',
+          b: 'Software Verification Engineer I',
+          c: [
+            'BS',
+            '2+ months exp',
+            'Linux, Windows'
+          ],
+          d: true,
+          e: '3/21/2025'
+        },
+        {
+          a: 'Manhattan Associates | Atlanta, Georgia',
+          b: 'Software Engineer - Campus 2025',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C++, C#, SQL Server, Linux, UNIX, Java, Visual Basic'
+          ],
+          d: true,
+          e: '3/21/2025',
+          g: [
+            'https://manh.wd5.myworkdayjobs.com/en-US/External/userHome'
+          ]
+        },
+        {
+          a: 'Nokia | United States',
+          b: 'Jr. Software Engineer',
+          c: [
+            'BS',
+            'Python, JavaScript, Bash, C, C++, Golang, Git, Linux, Agile, Scrum'
+          ],
+          d: true,
+          e: '3/21/2025',
+          g: [
+            'https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile'
+          ]
+        },
+        {
+          a: 'Slash Financial | San Francisco, California',
+          b: 'Software Engineer, Frontend - 2025',
+          c: [
+            'JavaScript, CSS'
+          ],
+          d: true,
+          e: '3/21/2025'
+        },
+        {
+          a: 'Amazon.com Services LLC | Beaumont, California',
+          b: 'Area Manager II',
+          c: [
+            'BS',
+            '2+ years exp'
+          ],
+          d: false,
+          e: '3/21/2025',
+          f: '3/23/2025',
+          g: [
+            'https://www.amazon.jobs/en-US/applicant'
+          ]
+        },
+        {
+          a: 'Amazon.com Services LLC | Moreno Valley, California',
+          b: 'Area Manager II, ONT8',
+          c: [
+            'BS',
+            '2+ years exp'
+          ],
+          d: false,
+          e: '3/21/2025',
+          f: '3/23/2025'
+        },
+        {
+          a: 'Airbnb | San Francisco, California',
+          b: 'API Sales and Integration Specialist',
+          c: [],
+          d: true,
+          e: '3/24/2025',
+          g: [
+            'https://magnit-airbnb.talentnet.community/jobs/applied'
+          ]
+        },
+        {
+          a: 'Sierra Nevada Corporation | Lone Tree, Colorado',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '0-2 years exp',
+            'C, C#, C++, HTML, Java, Python, Bash, Agile/Scrum'
+          ],
+          d: true,
+          e: '3/24/2025',
+          g: [
 
+          'https://snc.wd1.myworkdayjobs.com/en-US/SNC_External_Career_Site/userHome'
+          ]
+        },
+        {
+          a: 'Microsoft | Redmond, Washington',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C, C++, C#, Java, JavaScript, Python'
+          ],
+          d: true,
+          e: '3/24/2025',
+          g: [
+            'https://jobs.careers.microsoft.com/actioncenter/submitted'
+          ]
+        },
+        {
+          a: 'Uber | Seattle, Washington',
+          b: 'Software Engineer II, Matching Platform',
+          c: [
+            'BS',
+            '3+ years exp',
+            'C, C++, Java, Python, Go'
+          ],
+          d: true,
+          e: '3/24/2025'
+        },
+        {
+          a: 'Uber | San Francisco, California',
+          b: 'Software Engineer - Backend',
+          c: [
+            '2+ years exp',
+            'Golang, Java, Node.js, Python'
+          ],
+          d: true,
+          e: '3/24/2025'
+        },
+        {
+          a: 'Uber | Sunnyvale, California',
+          b: 'Software Engineer II, Web Platform',
+          c: [
+            '3+ years exp',
+            'JavaScript, HTTP, HTML, CSS, Web APIs, CORS, CSP, CSRF, XSS, UI/UX, HCI'
+          ],
+          d: true,
+          e: '3/24/2025'
+        },
+        {
+          a: 'Blue Origin | Seattle, Washington',
+          b: 'Software Development Engineer II',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Docker, Kubernetes, Python, Java, Go, Rust, Apache Kafka, RabbitMQ, ActiveMQ, CI/CD, Angular, React, JavaScript, SQL, Microservices'
+          ],
+          d: true,
+          e: '3/25/2025',
+          g: [
+            'https://blueorigin.wd5.myworkdayjobs.com/en-US/BlueOrigin/userHome'
+          ]
+        },
+        
       ]
     }
   },

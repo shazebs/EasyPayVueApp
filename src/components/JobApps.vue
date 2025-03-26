@@ -6062,8 +6062,9 @@ export default
             'BS',
             'Python, Java, Golang, C#, C++'
           ],
-          d: true,
-          e: '3/2/2025'
+          d: false,
+          e: '3/2/2025',
+          f: '3/25/2025'
         },
         {
           a: 'Disney | Glendale, California',
@@ -6395,7 +6396,43 @@ export default
             'https://blueorigin.wd5.myworkdayjobs.com/en-US/BlueOrigin/userHome'
           ]
         },
-        
+        {
+          a: 'Alarm.com | Tysons Corner, Virginia',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '0+ years exp',
+            'C#, Ember.js, Angular, React, SQL, .NET, SQL Server, Kafka'
+          ],
+          d: true,
+          e: '3/25/2025'
+        },
+        {
+          a: 'Aretum | (Remote) United States',
+          b: 'Software Developer - Future Opportunities',
+          c: [
+            'BS',
+            '2+ years exp',
+            'Java, Python, JavaScript, .NET, Git, SQL Server, Oracle, PostgreSQL'
+          ],
+          d: true,
+          e: '3/25/2025'
+        },
+        {
+          a: 'FactSet | New York, New York',
+          b: 'Software Engineer - Mercury Front-end Developer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Vue, Vuex, JavaScript, TypeScript, RESTful APIs, C#, PostgreSQL'
+          ],
+          d: true,
+          e: '3/25/2025',
+          g: [
+            'https://factset.wd1.myworkdayjobs.com/en-US/FactSetCareers/userHome'
+          ]
+        },
+
       ]
     }
   },

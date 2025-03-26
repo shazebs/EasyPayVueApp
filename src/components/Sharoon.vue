@@ -1,6 +1,6 @@
 <template>
     <div style="padding:1%;">
-        <section style="margin: 2% 0;">
+        <section style="margin: 1% 0;">
             <button v-if="showAll" @click="showAll = !showAll">Show Selected Only</button>
             <button v-else @click="showAll = !showAll">Show All</button>
         </section>
@@ -12,6 +12,7 @@
             <div style="width:auto; padding:5px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
                 <!-- change selection status -->
                 <section>
+                    <span>{{ index+1 }}. </span>
                     <span v-if="!item.selected" style="color:red;">Not selected</span>
                     <span v-else style="color:green;">Selected!</span>
                 </section>

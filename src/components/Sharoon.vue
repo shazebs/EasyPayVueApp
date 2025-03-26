@@ -1,19 +1,27 @@
 <template>
     <div style="padding:1%;">
-        <section v-for="(item, index) in clothes" :key="index" class="cloth">
+        <section style="margin: 2% 0;">
+            <button v-if="showAll" @click="showAll = !showAll">Show Selected Only</button>
+            <button v-else @click="showAll = !showAll">Show All</button>
+        </section>
+
+        <section v-for="(item, index) in showAll ? clothes : clothes.filter(x => x.selected)" :key="index" class="cloth">
             <div>
-                <img :src="item.image_url" style="width:250px;"/>
+                <img :src="item.image_url" style="width:100%; max-width:650px;"/>
             </div>
-            <div style="width:100%; padding:5px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+            <div style="width:auto; padding:5px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <!-- change selection status -->
                 <section>
                     <span v-if="!item.selected" style="color:red;">Not selected</span>
                     <span v-else style="color:green;">Selected!</span>
                 </section>
+                <!-- change selection button -->
                 <section>
-                    <button @click="changeSelection(item.id)" style="border:2px solid black;">Select</button>
+                    <button @click="changeSelection(item.id)">Select</button>
                 </section>
             </div>
         </section>
+
     </div>
 </template>
 
@@ -24,7 +32,9 @@ export default {
     name: 'ShroomyzPage',
     data() {
         return {
-            clothes: null
+            clothes: null,
+            selectedClothes: null,
+            showAll: true
         }
     },
     methods: {
@@ -62,5 +72,9 @@ export default {
     display: flex;
     border:2px solid black;
     margin-bottom: 1%;
+}
+
+button {
+    border:2px solid black;
 }
 </style>

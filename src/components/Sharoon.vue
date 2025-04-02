@@ -22,7 +22,6 @@
                 </section>
             </div>
         </section>
-
     </div>
 </template>
 
@@ -34,7 +33,6 @@ export default {
     data() {
         return {
             clothes: null,
-            selectedClothes: null,
             showAll: true
         }
     },

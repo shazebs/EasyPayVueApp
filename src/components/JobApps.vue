@@ -460,7 +460,7 @@ export default
           e: "5/6/2024",
         },
         {
-          a: "U-Haul | Remote",
+          a: "U-Haul | (Remote) United States",
           b: "Mobile API Developer",
           c: [
             "3+ years experience",
@@ -490,7 +490,7 @@ export default
           f: "5/8/2024",
         },
         {
-          a: "Upstart Network, Inc. | Remote",
+          a: "Upstart Network, Inc. | (Remote) United States",
           b: "Software Engineer, Home Lending",
           c: [
             "1+ year experience",
@@ -612,7 +612,7 @@ export default
           f: "5/17/2024",
         },
         {
-          a: "Crowns Now Inc | Remote",
+          a: "Crowns Now Inc | (Remote) United States",
           b: "Web Developer",
           c: [
             "1 year experience",
@@ -772,7 +772,7 @@ export default
           e: "5/12/2024",
         },
         {
-          a: "Stashlete, Inc. | Atlanta, Georgia (Remote)",
+          a: "Stashlete, Inc. | Atlanta, Georgia",
           b: "Full Stack Developer",
           c: [
             "API",
@@ -1164,7 +1164,7 @@ export default
           e: "5/14/2024",
         },
         {
-          a: "StockX | Remote",
+          a: "StockX | (Remote) United States",
           b: "Associate Software Development Engineer in Test",
           c: [
             "2-3 years exp",
@@ -1831,7 +1831,7 @@ export default
             "Kafka",
             "Messaging systems",
           ],
-          d: true,
+          d: false,
           e: "5/29/2024",
           g: "https://athene.wd5.myworkdayjobs.com/en-US/Apollo_Careers/userHome",
         },
@@ -2328,7 +2328,7 @@ export default
           g: "https://account.amazon.jobs/en-US",
         },
         {
-          a: "Confluent | Austin, Texas (Remote)",
+          a: "Confluent | Austin, Texas",
           b: "Software Engineer",
           c: [
             "BS graduate 2023 January - June 2024",
@@ -2688,7 +2688,7 @@ export default
           g: "https://eiro.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile",
         },
         {
-          a: "Gannett | USA TODAY NETWORK | (Remote) United States",
+          a: "USA TODAY NETWORK | (Remote) United States",
           b: "Website Developer",
           c: [
             "Experience in Website Development",
@@ -3122,8 +3122,9 @@ export default
             'CI/CD',
             'Linux'
           ],
-          d: true,
+          d: false,
           e: '6/24/2024',
+          f: '12/6/2024',
           g: 'https://redhat.wd5.myworkdayjobs.com/en-US/jobs/job/Remote-US-IL/Associate-Software-Engineer_R-039703?q=software&a=bc33aa3152ec42d4995f4791a106ed09&c=48e76bf7cb5510011a9542195ab40001'
         },
         {
@@ -3213,8 +3214,9 @@ export default
             '2+ years exp',
             'Angular, React, Ember, Backbone, or jQuery, HTML5, CSS3, PHP, Node, Ruby, Ajax, C#, XML, SQL, MySQL, SCRUM, Jira, MongoDB'
           ],
-          d: true,
+          d: false,
           e: '6/26/2024',
+          f: '7/2/2024',
           g: [
             'https://www.linkedin.com/jobs/view/3959192686/?eBP=NON_CHARGEABLE_CHANNEL&refId=6GWAJonv9IB4un0EI%2FdnlQ%3D%3D&trackingId=bT7HA%2Ffm8xCoZJXBgkXF1g%3D%3D&trk=flagship3_search_srp_jobs',
             'https://reputation.wd1.myworkdayjobs.com/en-US/External/userHome',
@@ -3459,7 +3461,7 @@ export default
           g: 'https://www.glassdoor.com/Jobs/One-Day-Doors-and-Closets-Jobs-E3257238.htm?filter.countryId=1'
         },
         {
-          a: 'Proofpoint | Texas',
+          a: 'Proofpoint | ?, Texas',
           b: 'Software Engineer',
           c: [
             '2+ years exp .NET/C#, Bootstrap/CSS, JavaScript, AI/ML, Azure, UI design, Mock-ups, Git'
@@ -3605,7 +3607,7 @@ export default
             'RESTful API, HTML, CSS, JavaScript, SaaS',
             '.NET Core or Spring (Boot), AngularJS, JQuery, noSQL'
           ],
-          d: true,
+          d: false,
           e: '7/3/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Entrust-Jobs-E1104613.htm?filter.countryId=1',
@@ -3631,7 +3633,7 @@ export default
           ]
         },
         {
-          a: 'Infor | United States Remote (St. Paul, MN, Dallas, TX, Alpharetta, GA)',
+          a: 'Infor | (Remote) United States',
           b: 'Software Engineer, Associate',
           c: [
             'C#, JavaScript, SQL',
@@ -3742,15 +3744,16 @@ export default
             'HTML, CSS, JavaScript/Typescript Framworks, OOP, Java, Version Control',
             'SQL/NoSQL, CI/CD, Microservices'
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '11/6/2024',
           g: [
             'https://www.glassdoor.com/Jobs/The-Home-Depot-Jobs-E655.htm?filter.countryId=1',
             'https://homedepot.wd5.myworkdayjobs.com/en-US/CareerDepot/userHome'
           ]
         },
         {
-          a: 'Humana | Kentucky',
+          a: 'Humana | ?, Kentucky',
           b: 'Junior Full Stack Engineer',
           c: [
             'BS',
@@ -4254,8 +4257,9 @@ export default
             '2+ years exp',
             'C#, .Net Framework, .NET Core, NoSQL, SQL, AWS, CDN, DNS, E-Commerce, APIs'
           ],
-          d: true,
+          d: false,
           e: '8/3/2024',
+          f: '9/19/2024',
           g: [
             'https://www.glassdoor.com/Jobs/the-LEGO-Group-Jobs-E3944.htm',
             'https://lego.wd3.myworkdayjobs.com/en-US/LEGO_External/userHome'
@@ -4374,7 +4378,7 @@ export default
           ]
         },
         {
-          a: 'Autodesk | (Remote) Oregon, United States',
+          a: 'Autodesk | Oregon, United States',
           b: 'Software Development Engineer, Platform Services',
           c: [
             '2+ years exp',
@@ -4389,7 +4393,7 @@ export default
           ]
         },
         {
-          a: 'Paycor | (Remote) West Virginia, United States',
+          a: 'Paycor | West Virginia, United States',
           b: 'Software Engineer I',
           c: [
             'BS',
@@ -4612,7 +4616,7 @@ export default
             '1+ years exp',
             'Java, C++, UNIX, Linux, Data Structures & Algorithms, REST/SOAP, SQL database, Unit Testing, Agile'
           ],
-          d: true,
+          d: false,
           e: '8/15/2024',
           g: [
             'https://www.indeed.com/cmp/Xylem/jobs',
@@ -4627,7 +4631,7 @@ export default
             '1+ years exp',
             'Active Secret Clearance'
           ],
-          d: true,
+          d: false,
           e: '8/15/2024',
           g: [
             'https://www.indeed.com/cmp/Amentum/jobs',
@@ -4683,7 +4687,7 @@ export default
             'BS',
             'AWS, Golang, APIs, CI/CD, Kubernetes, Jenkins, Spinnaker'
           ],
-          d: true,
+          d: false,
           e: '8/16/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Walt-Disney-Company-Jobs-E717.htm',
@@ -4789,7 +4793,7 @@ export default
             '.NET Core, NodeJS, ASP.CORE MVC, MySQL, Git, AWS, Razor, Docker, Kubernetes',
             'RESTful APIs'
           ],
-          d: true,
+          d: false,
           e: '8/21/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Tricon-Residential-Jobs-E1107797.htm',
@@ -4804,8 +4808,9 @@ export default
             '1+ years exp',
             'C#, Java, Python, JavaScript, Ruby, Unit Testing, RESTful APIs, SQL, NoSQL'
           ],
-          d: true,
+          d: false,
           e: '8/21/2024',
+          f: '10/10/2024',
           g: [
             'https://www.glassdoor.com/Jobs/Lytx-Jobs-E813859.htm',
             'https://lytx.wd1.myworkdayjobs.com/en-US/Lytx/userHome'
@@ -5059,7 +5064,7 @@ export default
             'BS',
             '2+ years exp',
           ],
-          d: true,
+          d: false,
           e: '9/18/2024',
           g: [
             'https://td.wd3.myworkdayjobs.com/en-US/TD_Bank_Careers?q=software',
@@ -5294,8 +5299,9 @@ export default
             '2+ years exp',
             'PHP, REST API, SOAP API, JQuery, MySQL, JSON, VueJS, React, Django, Drupal'
           ],
-          d: true,
+          d: false,
           e: '9/24/2024',
+          f: '11/18/2024',
           g: [
             'https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers/userHome',
             'https://jobs.comcast.com/search-jobs/software%20engineer/45483/1'
@@ -5408,8 +5414,9 @@ export default
           c: [
             'SQL, APIs, R, Git, HTML, CSS'
           ],
-          d: true,
+          d: false,
           e: '9/24/2024',
+          f: '10/4/2024',
           g: [
             'https://www.teamworkonline.com/basketball-jobs/sacramento-kings-jobs/sacramento-kings',
             'https://kings.wd1.myworkdayjobs.com/en-US/KingsCareers/userHome'
@@ -5444,7 +5451,7 @@ export default
           ]
         },
         {
-          a: 'Stripe | Seattle, San Francisco, New York, United States',
+          a: 'Stripe | United States',
           b: 'Software Engineer, Intern (Summer & Winter)',
           c: [
             'BS',
@@ -5480,7 +5487,7 @@ export default
             '2+ years exp',
             'JavaScript, Java, Python, TypeScript, React, Angular, Git, AWS, Kubernetes'
           ],
-          d: true,
+          d: false,
           e: '9/30/2024',
           g: [
             'https://maxar.wd1.myworkdayjobs.com/MAXAR?utm_source=Maxar-careers&utm_medium=website&_gl=1*ugw9k9*_gcl_au*MTc5NzMyOTk4My4xNzI3NzUzMzk5*_ga*MzM3MTUyNzg0LjE3Mjc3NTMzOTk.*_ga_PLMRYWTSEB*MTcyNzc1MzM5OS4xLjAuMTcyNzc1MzM5OS42MC4wLjA.',
@@ -5580,7 +5587,7 @@ export default
           ]
         },
         {
-          a: 'Cadent | US-Remote',
+          a: 'Cadent | (Remote) United States',
           b: 'Frontend Engineer Intern',
           c: [
             'BS student',
@@ -5703,7 +5710,7 @@ export default
           ]
         },
         {
-          a: 'Paramount Acceptance | Remote - Utah',
+          a: 'Paramount Acceptance | Salt Lake City, Utah',
           b: 'Full Stack Developer',
           c: [
             'SQL, C#, Angular, JavaScript, CSS, ASP.NET MVC, Entity Framework, SQL Server, Git, TFVC'
@@ -5712,7 +5719,7 @@ export default
           e: '2/14/2025'
         },
         {
-          a: 'Federated Wireless Inc | Boston, Masachussetts',
+          a: 'Federated Wireless Inc | Boston, Massachussetts',
           b: 'Full Stack Software Engineer',
           c: [
             'BS',
@@ -5921,8 +5928,9 @@ export default
             '1-2+ years exp',
             'C#, .NET, Cloud, CI/CD, Azure'
           ],
-          d: true,
-          e: '2/19/2025'
+          d: false,
+          e: '2/19/2025',
+          f: '3/28/2025'
         },
         {
           a: 'MetroStar | Reston, Virginia',
@@ -5986,8 +5994,9 @@ export default
             '2+ years exp',
             'Go, Java, C, C++'
           ],
-          d: true,
-          e: '2/26/2025'
+          d: false,
+          e: '2/26/2025',
+          f: '3/31/2025'
         },
         {
           a: 'Airbnb | (Remote) United States',
@@ -6018,8 +6027,9 @@ export default
             '0-1 years exp',
             'Java, C++, Jira, Bitbucket, Confluence, Eclipse, Intellij, Agile'
           ],
-          d: true,
+          d: false,
           e: '2/27/2025',
+          f: '3/11/2025',
           g: [
             'https://globalhr.wd5.myworkdayjobs.com/en-US/REC_RTX_Ext_Gateway/userHome'
           ]
@@ -6064,13 +6074,14 @@ export default
           ],
           d: false,
           e: '3/2/2025',
-          f: '3/25/2025'
+          f: '3/25/2025',
+          i: false
         },
         {
           a: 'Disney | Glendale, California',
           b: 'Software Engineer II',
           c: [],
-          d: true,
+          d: false,
           e: '3/2/2025'
         },
         {
@@ -6237,8 +6248,9 @@ export default
             '2+ years exp',
             'API, Git, Agile, Java, Python, Ruby, GenAI'
           ],
-          d: true,
-          e: '3/21/2025'
+          d: false,
+          e: '3/21/2025',
+          f: '3/26/2025'
         },
         {
           a: 'Abbott Laboratories | Saint Paul, Minnesota',
@@ -6369,8 +6381,9 @@ export default
             '2+ years exp',
             'Golang, Java, Node.js, Python'
           ],
-          d: true,
-          e: '3/24/2025'
+          d: false,
+          e: '3/24/2025',
+          f: '3/26/2025'
         },
         {
           a: 'Uber | Sunnyvale, California',
@@ -6426,17 +6439,309 @@ export default
             '1+ years exp',
             'Vue, Vuex, JavaScript, TypeScript, RESTful APIs, C#, PostgreSQL'
           ],
-          d: true,
+          d: false,
           e: '3/25/2025',
+          f: '3/27/2025',
           g: [
             'https://factset.wd1.myworkdayjobs.com/en-US/FactSetCareers/userHome'
           ]
+        },
+        {
+          a: 'Curbee | (Remote) United States',
+          b: 'Software Engineer - Full Stack',
+          c: [
+            '2+ years exp',
+            'JavaScript, TypeScript, Node.js, React, AWS, Google Cloud, RESTful APIs'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'Postscript | Phoenix, Arizona',
+          b: 'Sales Associate',
+          c: [
+            '1+ years exp'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'PrePass | Phoenix, Arizona',
+          b: 'Software Engineer - C#',
+          c: [
+            'BS',
+            '3+ years exp',
+            'C#, Visual Studio, .NET Framework, .NET Core, Azure, DevOps, SQL, Swagger, API, Agile, Git, OOP'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'PrePass | Phoenix, Arizona',
+          b: 'Site Support Analyst',
+          c: [
+            '1-2 years exp',
+            'SQL, Excel, Power BI, PowerPoint, MS Word'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'Perplexity | San Francisco, California',
+          b: 'Backend Software Engineer - API',
+          c: [
+            '4+ years exp',
+            'APIs, LLM'
+          ],
+          d: false,
+          e: '3/26/2025',
+          f: '3/27/2025'
+        },
+        {
+          a: 'ByteDance | Seattle, Washington',
+          b: 'Frontend Software Engineer - Customer Service Platforms',
+          c: [
+            'BS',
+            'JavaScript, HTML, CSS, React, Vue, Angular, Agile'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'ByteDance | Seattle, Washington',
+          b: 'Software Engineer, Payment Network',
+          c: [
+            'BS',
+            'Java, Go, C++, C#, Python, Backend, E-Commerce'
+          ],
+          d: true,
+          e: '3/26/2025'
+        },
+        {
+          a: 'UPS | Parsippany, New Jersey',
+          b: 'Software Development Engineer II',
+          c: [
+            'BS',
+            '3+ years exp',
+            'C#, ASP.NET Core, SQL, Angular, Agile, Scrum, CI/CD'
+          ],
+          d: true,
+          e: '3/27/2025',
+          g: [
+            'https://hcmportal.wd5.myworkdayjobs.com/en-US/Search/userHome'
+          ]
+        },
+        {
+          a: 'Hydrow, Inc. | Boston, Massachussetts',
+          b: 'Co-op: Software Engineering',
+          c: [
+            'TypeScript, React, Java, Kotlin, Python, Node.js, C++, Go, JavaScript, HTML/CSS, SQL'
+          ],
+          d: true,
+          e: '3/29/2025'
+        },
+        {
+          a: 'Axelgaard Manufacturing Co., Ltd. | Fallbrook, California',
+          b: 'Junior/Mid-Level Full Stack Developer (On-site)',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C#, Blazor, Entity Framework Core, MVC, .NET Core, .NET 6+, RESTful APIs, HTML, CSS, Bootstrap, JavaScript, SQL Server, VS Code, MS Office'
+          ],
+          d: true,
+          e: '3/29/2025'
+        },
+        {
+          a: 'CACI | Riverside, California',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '5+ years exp',
+            'Java, C#, Python, JavaScript, React, Angular, Vue.js, Node.js, .NET, Java, AWS, Azure, Google Cloud, PostgreSQL, MySQL, NoSQL, MongoDB, Agile, Git, CompTIA Security+, Secret Clearance'
+          ],
+          d: true,
+          e: '3/31/2025'
+        },
+        {
+          a: 'Acevedo & Associates Brokered by KW | Redlands, California',
+          b: 'Real Estate Administrative Assistant',
+          c: [],
+          d: true,
+          e: '3/31/2025'
+        },
+        {
+          a: 'White Cap | Riverside, California',
+          b: 'Receiving Associate',
+          c: [],
+          d: true,
+          e: '3/31/2025',
+          g: [
+            'https://whitecap.wd1.myworkdayjobs.com/en-US/Careers/userHome'
+          ]
+        },
+        {
+          a: 'Country Lake Mobile Home Community | San Jacinto, California',
+          b: 'Assistant Mobile Home Park Manager',
+          c: [
+            '3+ years exp',
+            'Driver License'
+          ],
+          d: true,
+          e: '3/31/2025'
+        },
+        {
+          a: 'The Mission Inn Hotel and Spa | Riverside, California',
+          b: 'Spa Manager',
+          c: [],
+          d: true,
+          e: '3/31/2025'
+        },
+        {
+          a: 'Pronix | Phoenix, Arizona',
+          b: 'Lead .Net Full Stack Developer',
+          c: [
+            '.NET, C#, ASP.NET, Angular, Docker, Kubernetes, CI/CD, Jenkins, Azure Cloud, API'
+          ],
+          d: true,
+          e: '3/31/2025'
+        },
+        {
+          a: 'Radiant | El Segundo, California',
+          b:  'Software Engineer - New Graduate',
+          c: [
+            'BS',
+            'C++, C#, Python, Git'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Sandhills Global | Scottsdale, Arizona',
+          b: 'Software Developer, E-Commerce',
+          c: [
+            'SEO, C#, VB, ASP.NET, MSSQL, IIS, .NET Framework, .NET Core, JavaScript, jQuery, React.js, CSS, HTML5, Agile'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Reputation | Scottsdale, Arizona',
+          b: 'Software Engineer (Full Stack)',
+          c: [
+            '2-5 years exp',
+            'JavaScript, Java/J2EE, React, Node.js, Spring Boot, NoSQL, MongoDB, Elasticsearch, BigQuery, GraphQL, RabbitMQ, Redis, CI/CD, Unit Testing'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'OneOrigin | Scottsdale, Arizona',
+          b: 'Full Stack Developer',
+          c: [
+            'JavaScript, Node.js, Express, PostgreSQL, NoSQL, MongoDB, Firebase, SQL, AWS, Vue.js, Next.js, React'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Ehub Global Solution | Phoenix, Arizona',
+          b: 'EX AMEX with React Developer',
+          c: [
+            'React, OneApp'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'ALOE-ETS | Apache Junction, Arizona',
+          b: 'SharePoint Application Developer',
+          c: [
+            'CSS, Java, C++, SDLC, React, PostgreSQL'
+          ],
+          d: true, 
+          e: '4/1/2025'
+        },
+        {
+          a: 'Amazon | Tempe, Arizona',
+          b: 'Front-End Engineer, Seller Partner Growth',
+          c: [
+            '1-2+ years exp',
+            'HTML, CSS, JavaScript, TypeScript, Node, AWS, Java, Angular, React'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Ford Audio Video | Phoenix, Arizona',
+          b: 'Business Software Developer (Back-End)',
+          c: [
+            'BS',
+            'DevOps, Agile, Jira, ODBC, RDBMS, PASOE, 4GL/ABL, Bitbucket'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Innovative Aftermarket Group | Chandler, Arizona',
+          b: 'Software Engineer (.NET)',
+          c: [
+            'BS',
+            '2-4 years exp',
+            'MSSQL, .NET, Azure, AWS, APIs, DevOps'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'USAA | Phoenix, Arizona',
+          b: 'Software Engineer - Intermediate Level',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'Java, Spring Boot, REST, APIs, Objective-C, Cobol, JavaScript, Kotlin, C++, HTML, CSS, SQL, Git, CI/CD, GitLab, Docker, Kubernetes, Gradle, Maven, TDD, Srum, Agile'
+          ],
+          d: true,
+          e: '4/1/2025',
+          g: [
+            'https://usaa.wd1.myworkdayjobs.com/en-US/USAAJOBSWD/userHome'
+          ]
+        },
+        {
+          a: 'University of Arizona (ASU) | Tucson, Arizona',
+          b: 'Application Development Programmer Analyst I',
+          c: [
+            'BS',
+            '1+ years exp',
+            'HTML, CSS, XML, JSON, C#, Python, JavaScript, API, PCI, QuickBase, EMu, Authorize.net, Honeycode, PastPerfect, Zoho, Airtable, Power BI'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Thundr, Inc. | Tempe, Arizona',
+          b: 'Graduate Software Engineer',
+          c: [
+            'BS',
+            'JavaScript, React, Elixir, Rust, Python, AWS, Azure'
+          ],
+          d: true,
+          e: '4/1/2025'
+        },
+        {
+          a: 'Sumitomo Mitsui Banking Corporation | Scottsdale, Arizona',
+          b: 'Software Engineer - Web (Hybrid)',
+          c: [
+            'BS',
+            '2-4 years exp',
+            'JavaScript, HTML5, CSS3, TypeScript, OOP, DOM, React, Azure, DevOps, CI/CD, Docker, Kubernetes, Git, Angular, Vue.js'
+          ],
+          d: true,
+          e: '4/1/2025'
         },
 
       ]
     }
   },
-
   methods: 
   {
     /**
@@ -6509,6 +6814,50 @@ export default
       }
     },
 
+    getMostCommonCitiesAppliedTo() {
+      var cities = {};
+      var states = {}; 
+
+      this.job_apps.forEach(function(job) {
+        let words = job.a.split("|");
+        let location = '';
+        
+        if (words[1]) 
+          location = (words[1]).split(",");
+        if (words[1] === undefined || location[1] === undefined) 
+          return;
+
+        const city = words[1].trim();
+        const state = location[1].trim();
+
+        if (!cities[city]) {
+          cities[city] = 1;
+        } else {
+          cities[city] += 1;
+        }
+        
+        if (!states[state]) {
+          states[state] = 1;
+        } else {
+          states[state] += 1;
+        }
+
+      }); 
+
+      let sortedCities = Object.entries(cities).sort((a,b) => b[1] - a[1]); 
+
+      console.log(sortedCities);
+      // sortedCities.forEach(([city, value]) => {
+      //   console.log(`${city.trim()}: ${value}`);
+      // });      
+
+      let sortedStates = Object.entries(states).sort((a,b) => b[1] - a[1]); 
+      console.log(sortedStates);
+      // sortedStates.forEach(([state, value]) => {
+      //   console.log(`${state.trim()}: ${value}`);
+      // });  
+    },
+
     /**
      * 
      * @param {*} date 
@@ -6542,6 +6891,8 @@ export default
     this.reverseJobsList = this.job_apps.reverse();
 
     //this.countJobKeywords();
+
+    this.getMostCommonCitiesAppliedTo();
   },
 
 };

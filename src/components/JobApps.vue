@@ -28,7 +28,7 @@
 
     <hr/>
 
-    Python (FastAPI, Flask) React (React Native, Redux), TypeScript, PostgreSQL, AWS, Docker, Kubernetes 
+    Docker, Kubernetes, AWS, Azure, Java, Golang, React, C#, Python, PostgreSQL
 
     <hr/>
 
@@ -3732,8 +3732,9 @@ export default
             'BS',
             '0-1 years exp',
           ],
-          d: true,
+          d: false,
           e: '7/17/2024',
+          f: '4/17/2025',
           g: 'https://www.glassdoor.com/Jobs/FedEx-Jobs-E246.htm?filter.countryId=1'
         },
         {
@@ -5544,7 +5545,7 @@ export default
             'Java, Angular, React',
             'Cloud Development'
           ],
-          d: true,
+          d: false,
           e: '2/6/2025',
           f: '2/7/2025'
         },
@@ -6173,8 +6174,9 @@ export default
             '3+ years exp',
             'Python, PostgreSQL, Redis, Kubernetes, CI/CD, RESTful APIs'
           ],
-          d: true,
-          e: '3/17/2025'
+          d: false,
+          e: '3/17/2025',
+          f: '4/4/2025'
         },
         {
           a: 'Patreon | San Francisco, California',
@@ -6213,8 +6215,9 @@ export default
             '1+ years exp',
             'Python, SQL, AWS'
           ],
-          d: true,
-          e: '3/20/2025'
+          d: false,
+          e: '3/20/2025',
+          f: '4/2/2025'
         },
         {
           a: 'Chalk | San Francisco, California',
@@ -6260,8 +6263,9 @@ export default
             '2+ months exp',
             'Linux, Windows'
           ],
-          d: true,
-          e: '3/21/2025'
+          d: false,
+          e: '3/21/2025',
+          f: '4/10/2025',
         },
         {
           a: 'Manhattan Associates | Atlanta, Georgia',
@@ -6284,8 +6288,9 @@ export default
             'BS',
             'Python, JavaScript, Bash, C, C++, Golang, Git, Linux, Agile, Scrum'
           ],
-          d: true,
+          d: false,
           e: '3/21/2025',
+          f: '5/9/2025',
           g: [
             'https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/my-profile'
           ]
@@ -6296,8 +6301,9 @@ export default
           c: [
             'JavaScript, CSS'
           ],
-          d: true,
-          e: '3/21/2025'
+          d: false,
+          e: '3/21/2025',
+          f: '5/1/2025'
         },
         {
           a: 'Amazon.com Services LLC | Beaumont, California',
@@ -6371,8 +6377,9 @@ export default
             '3+ years exp',
             'C, C++, Java, Python, Go'
           ],
-          d: true,
-          e: '3/24/2025'
+          d: false,
+          e: '3/24/2025',
+          f: '4/3/2025'
         },
         {
           a: 'Uber | San Francisco, California',
@@ -6392,8 +6399,9 @@ export default
             '3+ years exp',
             'JavaScript, HTTP, HTML, CSS, Web APIs, CORS, CSP, CSRF, XSS, UI/UX, HCI'
           ],
-          d: true,
-          e: '3/24/2025'
+          d: false,
+          e: '3/24/2025',
+          f: '4/8/2025'
         },
         {
           a: 'Blue Origin | Seattle, Washington',
@@ -6403,8 +6411,9 @@ export default
             '2+ years exp',
             'Docker, Kubernetes, Python, Java, Go, Rust, Apache Kafka, RabbitMQ, ActiveMQ, CI/CD, Angular, React, JavaScript, SQL, Microservices'
           ],
-          d: true,
+          d: false,
           e: '3/25/2025',
+          f: '4/2/2025',
           g: [
             'https://blueorigin.wd5.myworkdayjobs.com/en-US/BlueOrigin/userHome'
           ]
@@ -6418,7 +6427,8 @@ export default
             'C#, Ember.js, Angular, React, SQL, .NET, SQL Server, Kafka'
           ],
           d: true,
-          e: '3/25/2025'
+          e: '3/25/2025',
+          i: true,
         },
         {
           a: 'Aretum | (Remote) United States',
@@ -6473,8 +6483,9 @@ export default
             '3+ years exp',
             'C#, Visual Studio, .NET Framework, .NET Core, Azure, DevOps, SQL, Swagger, API, Agile, Git, OOP'
           ],
-          d: true,
-          e: '3/26/2025'
+          d: false,
+          e: '3/26/2025',
+          f: '4/3/2025'
         },
         {
           a: 'PrePass | Phoenix, Arizona',
@@ -6559,8 +6570,9 @@ export default
             '5+ years exp',
             'Java, C#, Python, JavaScript, React, Angular, Vue.js, Node.js, .NET, Java, AWS, Azure, Google Cloud, PostgreSQL, MySQL, NoSQL, MongoDB, Agile, Git, CompTIA Security+, Secret Clearance'
           ],
-          d: true,
-          e: '3/31/2025'
+          d: false,
+          e: '3/31/2025',
+          f: '4/11/2025'
         },
         {
           a: 'Acevedo & Associates Brokered by KW | Redlands, California',
@@ -6573,8 +6585,9 @@ export default
           a: 'White Cap | Riverside, California',
           b: 'Receiving Associate',
           c: [],
-          d: true,
+          d: false,
           e: '3/31/2025',
+          f: '4/12/2025',
           g: [
             'https://whitecap.wd1.myworkdayjobs.com/en-US/Careers/userHome'
           ]
@@ -6631,8 +6644,9 @@ export default
             '2-5 years exp',
             'JavaScript, Java/J2EE, React, Node.js, Spring Boot, NoSQL, MongoDB, Elasticsearch, BigQuery, GraphQL, RabbitMQ, Redis, CI/CD, Unit Testing'
           ],
-          d: true,
-          e: '4/1/2025'
+          d: false,
+          e: '4/1/2025',
+          f: '4/15/2025'
         },
         {
           a: 'OneOrigin | Scottsdale, Arizona',
@@ -6668,8 +6682,9 @@ export default
             '1-2+ years exp',
             'HTML, CSS, JavaScript, TypeScript, Node, AWS, Java, Angular, React'
           ],
-          d: true,
-          e: '4/1/2025'
+          d: false,
+          e: '4/1/2025',
+          f: '4/3/2025'
         },
         {
           a: 'Ford Audio Video | Phoenix, Arizona',
@@ -6700,8 +6715,9 @@ export default
             '1-2+ years exp',
             'Java, Spring Boot, REST, APIs, Objective-C, Cobol, JavaScript, Kotlin, C++, HTML, CSS, SQL, Git, CI/CD, GitLab, Docker, Kubernetes, Gradle, Maven, TDD, Srum, Agile'
           ],
-          d: true,
+          d: false,
           e: '4/1/2025',
+          f: '5/14/2025',
           g: [
             'https://usaa.wd1.myworkdayjobs.com/en-US/USAAJOBSWD/userHome'
           ]
@@ -6735,10 +6751,739 @@ export default
             '2-4 years exp',
             'JavaScript, HTML5, CSS3, TypeScript, OOP, DOM, React, Azure, DevOps, CI/CD, Docker, Kubernetes, Git, Angular, Vue.js'
           ],
-          d: true,
-          e: '4/1/2025'
+          d: false,
+          e: '4/1/2025',
+          f: '4/13/2025',
         },
-
+        {
+          a: 'Snowflake | Menlo Park, California',
+          b: 'Software Engineer - Growth Platform',
+          c: [
+            '2+ years exp',
+            'Java, Python, JavaScript, React, SQL, API'
+          ],
+          d: true,
+          e: '4/9/2025'
+        },
+        {
+          a: 'Vitu | (Remote) United States',
+          b: '.NET Developer',
+          c: [
+            'BS',
+            '3+ years exp',
+            'CI/CD, Agile, Git, REST, SOAP, API, .NET Core, C#, SOLID, GCP, AWS, Azure, Jenkins, Kubernetes, Docker, Linux, ADO.NET, RabbitMQ, ASP.NET'
+          ],
+          d: true,
+          e: '4/14/2025'
+        },
+        {
+          a: 'Impact Networking LLC | Chicago, Illinois', 
+          b: 'Application Developer',
+          c: [
+            '1+ years exp',
+            'JavaScript, TypeScript, Node.js, C#, .NET, Java, REST APIs, LLMs, Azure'
+          ],
+          d: false,
+          e: '4/14/2025',
+          f: '4/18/2025'
+        },
+        {
+          a: 'Amentum | Fredericksburg, Virginia',
+          b: 'Entry Level Software Engineer',
+          c: [
+            'BS',
+            'C/C++, C#, Java, Python, Security Clearance'
+          ],
+          d: true,
+          e: '4/14/2025'
+        },
+        {
+          a: 'Battelle | Washington, DC',
+          b: 'Software Engineer (Entry Level)',
+          c: [
+            '1+ years exp',
+            'JavaScript, C#, ASP.NET, Security Clearance'
+          ],
+          d: false,
+          e: '4/14/2025',
+          f: '5/14/2025'
+        },
+        {
+          a: 'General Dynamics Information Technology | Hanover, Maryland',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '0+ years exp',
+            'Security Clearance'
+          ],
+          d: false,
+          e: '4/15/2025',
+          f: '4/28/2025',
+          g: [
+            'https://gdit.wd5.myworkdayjobs.com/en-US/External_Career_Site/login'
+          ]
+        },
+        {
+          a: 'Munters Corporation (MUS) | Saint Paul, Minnesota',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            'Java, React, TypeScript, APIs, Microservices, Event-driven architecture, CI/CD, Git'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'LiveRamp | San Francisco, California',
+          b: 'Associate Software Development Engineer, Healthcare',
+          c: [],
+          d: true,
+          e: '4/15/2025',
+          g: [
+            'https://liveramp.wd5.myworkdayjobs.com/en-US/LiveRampCareers/login'
+          ]
+        },
+        {
+          a: 'AMEX | Phoenix, Arizona',
+          b: 'Engineer - Java/JavaScript/React',
+          c: [
+            'Java, React, JavaScript, CSS, SQL, HTML, CI/CD, DevOps, Eclipse, VS Code, Postman, CLI, Jira'
+          ],
+          d: false,
+          e: '4/15/2025',
+          f: '5/6/2025'
+        },
+        {
+          a: 'Greptile | San Francisco, California',
+          b: 'Software Engineer (Frontend)',
+          c: [
+            'BS',
+            '1+ years exp',
+            'JavaScript, ReactJS, TypeScript'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'Qualcomm | San Diego, California',
+          b: 'Software Engineer - Enterprise Applications',
+          c: [
+            'BS',
+            '2+ years exp',
+            'JavaScript, TypeScript, ReactJS, Python, C#, PHP, Flask, ASP.NET Core, Django, Laravel, Git, Agile, SQL Server, MongoDB, NoSQL, CI/CD, Jenkins, AWS, Microservices, OOP'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'General Atomics Aeronautical Systems | Poway, California',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            'Security Clearance'
+          ],
+          d: true,
+          e: '4/15/2025',
+          g: [
+            'https://sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=25539&siteid=5313#home'
+          ]
+        },
+        {
+          a: 'Toyota North America | Plano, Texas',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '1-3+ years exp',
+            'Python, JavaScript, OOP, AWS, React.js, Lambda, NLP, NLTK, spaCy, CI/CD, Agile, Unit Testing'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'Rivian | Palo Alto, California',
+          b: 'Software Engineer - Backend',
+          c: [
+            'BS',
+            '2+ years exp',
+            'JavaScript, TypeScript, Python, Java, SQL, NoSQL, ORM, AWS, GraphQL, Swagger, REST, Docker Kubernetes'
+          ],
+          d: true,
+          e: '4/15/2025',
+          g: [
+            'https://us-careers-rivian.icims.com/jobs/dashboard?hashed=1619056354'
+          ]
+        },
+        {
+          a: 'The MIL Corporation | Lexington Park, Maryland',
+          b: 'Junior Software Engineer (Software Engineering, Junior Analyst)',
+          c: [
+            'BS',
+            'C++, Python, Java, JavaScript, Git, Agile, IDEs, Secret Clearance'
+          ],
+          d: false,
+          e: '4/15/2025',
+          f: '4/18/2025',
+          g: [
+            'https://phh.tbe.taleo.net/phh03/ats/careers/v2/jobSearch?org=MILCORP&cws=38'
+          ]
+        },
+        {
+          a: 'Creative Financial Staffing (CFS) | Fernley, Nevada',
+          b: 'Software Developers All Levels',
+          c: [
+            'BS',
+            '4+ years exp',
+            'C#, .NET, Distributed Systems, React Native, Flutter, ERP, MRP, Delphi'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Application Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Python, C#, .NET, Go, Scala, Java, CI/CD, Gradle, Make, Bazel, Pip, NPM, RabbitMQ, ActiveMQ, Docker, Kubernetes, Angular, React, JavaScript, PostgreSQL, SQL Server, Apache Kafka'
+          ],
+          d: true,
+          e: '4/15/2025'
+        },
+        {
+          a: 'Cox Automotive | Carmel, Indiana',
+          b: 'Software Engineer I (BACKEND)',
+          c: [
+            'BS',
+            'Agile, RESTful API, GitHub, Spring Boot, Java, AWS, Azure, CI/CD, MSSQL'
+          ],
+          d: false,
+          e: '4/16/2025',
+          f: '4/24/2025',
+          g: [
+            'https://cox.wd1.myworkdayjobs.com/en-US/Cox_External_Career_Site_1/userHome'
+          ]
+        },
+        {
+          a: 'Amazon | Newark, New Jersey',
+          b: 'Software Development Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Java, C++, C#, Microservices'
+          ],
+          d: false,
+          e: '4/16/2025',
+          f: '4/18/2025',
+          g: [
+            'https://account.amazon.jobs/en-US/applicant'
+          ]
+        },
+        {
+          a: 'Zoom | San Jose, California',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'React, Vue, HTML/CSS, REST API, Websocket, JavaScript, MochaJS, Python, PHP, Java, Shell'
+          ],
+          d: false,
+          e: '4/16/2025',
+          f: '5/11/2025',
+          g: [
+            'https://zoom.wd5.myworkdayjobs.com/en-US/Zoom/login'
+          ]
+        },
+        {
+          a: 'Qualtrics | Seattle, Washington',
+          b: 'Software Engineer I, Data Platform',
+          c: [
+            'BS',
+            '1-4 years exp'
+          ],
+          d: true,
+          e: '4/16/2025'
+        },
+        // new resume from headless headhunter
+        {
+          a: 'Audible | Newark, New Jersey',
+          b: 'Software Development Engineer, Consumer Domains',
+          c: [
+            'BS',
+            '1+ years exp'
+          ],
+          d: true,
+          e: '4/19/2025'
+        },
+        {
+          a: 'JPMorganChase | Plano, Texas',
+          b: 'Software Engineer III - Fullstack C#/.Net',
+          c: [
+            'BS',
+            '3+ years exp',
+            '.NET, .NET Core, C#, JavaScript, SQL, Angular, React, PostgreSQL, Docker, Kubernetes, MySQL, AWS, Kafka, Agile, CI/CD'
+          ],
+          d: true,
+          e: '4/19/2025',
+          g: [
+            'https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/my-profile/sign-in'
+          ]
+        },
+        {
+          a: 'Comcast Corporation | Englewood, Colorado',
+          b: 'Engineer 1, Software Development & Engineering',
+          c: [
+            'SQL, Java, Spring Boot'
+          ],
+          d: true,
+          e: '4/25/2025',
+          g: [
+            'https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers/login'
+          ]
+        },
+        {
+          a: 'Whatnot | Los Angeles, California',
+          b: 'Frontend Engineer (Web), Logistics',
+          c: [
+            'BS',
+            'React, GraphQL, API, Next.js'
+          ],
+          d: false,
+          e: '4/29/2025',
+          f: '5/15/2025'
+        },
+        {
+          a: 'Microsoft | Redmond, Washington',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C, C++, C#, Java, JavaScript, Python, AuthN/AuthZ'
+          ],
+          d: false,
+          e: '4/30/2025',
+          f: '5/16/2025'
+        },
+        {
+          a: 'Paycom Payroll LLC | Oklahoma City, Oklahoma',
+          b: 'Deployment Engineer 11:00PM-7:30AM Shift',
+          c: [
+            'BS/MS',
+            '1+ years exp',
+            'SQL, DevOps, Git, Python, PowerShell, Bash, C#, PHP, CI/CD'
+          ],
+          d: true,
+          e: '4/30/2025'
+        },
+        {
+          a: 'The University of Denver | Denver, Colorado',
+          b: 'Application Developer I',
+          c: [
+            'BS',
+            '0-2+ years exp',
+            'HTML, JavaScript, AJAX, AngularJS, Java, SQL, PL/SQL, Cognos, Tableau'
+          ],
+          d: true,
+          e: '4/30/2025'
+        },
+        {
+          a: 'General Dynamics Information Technology | Fort Bragg, North Carolina',
+          b: 'Software Developer, Junior',
+          c: [
+            'BS',
+            '1+ years exp',
+            'TS/SCI, Angular, React, Azure, DevOps, SQL Server, .NET Core, Entity Framework, JavaScript'
+          ],
+          d: false,
+          e: '4/30/2025',
+          f: '5/1/2025',
+          g: [
+            'https://gdit.wd5.myworkdayjobs.com/en-US/External_Career_Site/login'
+          ]
+        },
+        {
+          a: 'Softheon | Pittsburgh, Pennsylvania',
+          b: 'Software Engineer I - Membership',
+          c: [
+            'BS',
+            '0-2 years exp',
+            '.NET, Angular'
+          ],
+          d: false,
+          e: '5/4/2025',
+          f: '5/8/2025'
+        },
+        {
+          a: 'Orion180 | Irving, Texas',
+          b: 'Jr Software Developer',
+          c: [
+            'BS',
+            'TypeScript, C#, .NET Core, LINQ, Entity Framework, RESTful APIs, SQL, Agile, Scrum, Vue.js, Bootstrap, Angular, React'
+          ],
+          d: true,
+          e: '5/4/2025',
+          g: [
+            'https://workforcenow.cloud.adp.com/mascsr/default/mdf/recruitment/recruitment.html?lang=en_US&cid=fd5fd617-57c0-46d5-ae82-14dffaf043c3&ccId=19000101_000001'
+          ]
+        },
+        {
+          a: 'Valitana LLC | Stamford, Connecticut',
+          b: 'Junior Full Stack Developer',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'C#, .NET, ASP.NET Core, Angular, SOLID, UI/UX, Git, Agile'
+          ],
+          d: true,
+          e: '5/6/2025'
+        },
+        {
+          a: 'CVS Health | Denver, Colorado',
+          b: 'Associate Software Developer',
+          c: [
+            'BS',
+            '0-2 years exp'
+          ],
+          d: false,
+          e: '5/6/2025',
+          f: '5/9/2025',
+          g: [
+            'https://cvshealth.wd1.myworkdayjobs.com/en-US/CVS_Health_Careers/login'
+          ]
+        },
+        {
+          a: 'SpaceX | Redmond, Washington',
+          b: 'Full Stack Software Engineer (Starlink Operations)',
+          c: [
+            'BS',
+            'C#, Java, MS SQL, PostgreSQL, Git, Docker, Kubernetes, React, Angular, .NET'
+          ],
+          d: false,
+          e: '5/6/2025',
+          f: '5/9/2025'
+        },
+        {
+          a: 'SpaceX | Hawthorne, California',
+          b: 'Software Engineer, Design Software (Starship)',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C#, .NET, Go, Scala, Java, Gradle, Terraform, Apache Kafka, RabbitMQ, Ansible, Puppet, Docker, Kubernetes, Angular, React, JavaScript, PostgreSQL, SQL Server'
+          ],
+          d: false,
+          e: '5/6/2025',
+          f: '5/10/2025'
+        },
+        {
+          a: 'FedEx | Collierville, Tennessee',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            'SDLC, Power BI'
+          ],
+          d: true,
+          e: '5/6/2025'
+        },
+        {
+          a: 'Howmet Aerospace | Fontana, California',
+          b: 'Engineer, Continuous Improvement/IT',
+          c: [
+            'BS',
+            '1+ years exp',
+            'SQL, C#, ASP.NET, Visual Basic, Excel, MS Power Apps, SharePoint, SAP Crystal Reports'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'Agiline Software | Ontario, California',
+          b: 'Software Engineer',
+          c: [
+            '2+ years exp',
+            'C++, C#, JavaScript, Python, SQL, XML, Agile, Scrum, Waterfall, UML, ER Diagram, Oracle'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'Twitch | San Francisco, California',
+          b: 'Software Engineer I',
+          c: [
+            'BS',
+            '1+ years exp',
+            'Golang, TypeScript, React, AWS, DynamoDB, Lambda'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'CompIQ | Mechanicsburg, Pennsylvania',
+          b: 'Software Developer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'C#, .NET Framework, .NET Core, Azure, RESTful APIs, Python, Blazor, DevOps, Linux'
+          ],
+          d: false,
+          e: '5/7/2025',
+          f: '5/12/2025',
+        },
+        {
+          a: 'Tyler Technologies | Lawrenceville, Georgia',
+          b: 'Entry Level .Net Software Developer, Enterprise Permits & Licensing',
+          c: [
+            'BS',
+            '1-3 years exp',
+            'Angular, JavaScript, TypeScript, jQuery, ReactJS, API, .NET, C#, OOP'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'DISH Network | Englewood, Colorado',
+          b: 'Engineer I - Software',
+          c: [
+            '2-3+ years exp',
+            'JavaScript, Angular, React, PHP, MongoDB, ElasticSearch, DevOps, Linux, Bash, Docker, CI/CD'
+          ],
+          d: false,
+          e: '5/7/2025',
+          f: '5/16/2025'
+        },
+        {
+          a: 'CarMax | Richmond, Virginia',
+          b: 'Senior Software Engineer',
+          c: [
+            'BS',
+            '5+ years exp',
+            '.NET, C#, Azure, AWS, REST APIs, Unit Testing'
+          ],
+          d: false,
+          e: '5/7/2025',
+          f: '5/16/2025',
+          g: [
+            'https://carmax.wd1.myworkdayjobs.com/en-US/External/login'
+          ]
+        }, 
+        {
+          a: 'Voya Financial | New York, New York',
+          b: 'Microsoft .Net Software Developer',
+          c: [
+            '1-3+ years exp',
+            'HTML, CSS, JavaScript, React, Angular, Vue.js, C#, Python, Git, CI/CD, RESTful APIs, Unit Tests, Agile'
+          ],
+          d: true,
+          e: '5/7/2025',
+          g: [
+            'https://godirect.wd5.myworkdayjobs.com/en-US/voya_jobs/login'
+          ]
+        },
+        {
+          a: 'Illumina | San Deigo, California',
+          b: 'Software Engineer 2',
+          c: [
+            'BS',
+            '3+ years exp',
+            'C#, Java, Python, C++'
+          ],
+          d: true,
+          e: '5/7/2025',
+          g: [
+            'https://illumina.wd1.myworkdayjobs.com/en-US/illumina-careers/login'
+          ]
+        },
+        {
+          a: 'Rakuten | San Mateo, California',
+          b: 'Software Engineer - Web',
+          c: [
+            'BS',
+            '1-2+ years exp',
+            'JavaScript, HTML, CSS, VueJS, NodeJS, React, Dependency Injection'
+          ],
+          d: true,
+          e: '5/7/2025',
+          g: [
+            'https://rakuten.wd1.myworkdayjobs.com/en-US/RakutenRewards/login'
+          ]
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'Product Engineer II - .NET Maps SDK',
+          c: [
+            'BS',
+            '2+ years exp',
+            '.NET, C#, API, GIS, Visual Studio'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'Esri | Redlands, California',
+          b: 'Software Engineer II - Cloud',
+          c: [
+            'BS',
+            '2+ years exp',
+            'HTML, CSS, JavaScript, React.js, Vue.js, Angular, .NET, Microservices, RESTful API, Redux, Vuex, Git, GitHub, Bitbucket, Eclipse, Intellij, AWS, Azure, Google Cloud, Docker, CI/CD, SQL Server, Oracle, PostgreSQL, UI/UX, Express.js'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'Micron | Boise, Idaho',
+          b: 'Software Engineer',
+          c: [
+            'MS',
+            'Java, C#, Python, C++, RESTful APIs, .NET, AWS, Azure, Google Cloud, SQL, NoSQL, Unit Tests, Git, Agile, Scrum, ASP.NET'
+          ],
+          d: true,
+          e: '5/7/2025'
+        },
+        {
+          a: 'Cake Mortgage Corp. | Chatsworth, California',
+          b: 'Junior Software Engineer',
+          c: [
+            'BS',
+            'Python, REST APIs, Git'
+          ],
+          d: true,
+          e: '5/8/2025'
+        },
+        {
+          a: 'Cake Mortgage Corp. | Chatsworth, California',
+          b: 'Junior Web Developer',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript, REST APIs, React, Python, Git'
+          ],
+          d: true,
+          e: '5/8/2025'
+        },
+        {
+          a: 'Schweitzer Engineering Laboratories, Inc. | Pullman, Washington',
+          b: 'Software Engineer - Full Stack (On-Site)',
+          c: [
+            'BS',
+            'HTML, CSS, JavaScript, HTTP/HTTPS, C#, .NET, ASP.NET, React, TypeScript, Git, xUnit, Azure, AWS, SQL Server, NoSQL, Agile'
+          ],
+          d: false,
+          e: '5/8/2025',
+          f: '5/15/2025'
+        },
+        {
+          a: 'Ascendion | (Remote) California',
+          b: 'Dotnet Developer',
+          c: [
+            'HTML, JavaScript, ASP.NET, C#, .NET, REST, SOAP, jQuery, JSON, SQL, AJAX, XML, APIs'
+          ],
+          d: true,
+          e: '5/8/2025'
+        },
+        {
+          a: 'General Dynamics Information Technology | Richmond, Virginia',
+          b: 'Programmer Associate',
+          c: [
+            'BS',
+            '0+ years exp',
+            'JavaScript'
+          ],
+          g: [
+            'https://gdit.wd5.myworkdayjobs.com/en-US/External_Career_Site/login'
+          ]
+        },
+        {
+          a: 'Booz Allen | Fort Walton Beach, Florida',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '3+ years exp',
+            'PHP, Python, JavaScript, WordPress, Drupal, Agile, Secret Clearance, APIs, HTML, CSS, C#, C/C++, .NET, React, Angular, NodeJS, AWS, Azure, Google Cloud, Git'
+          ],
+          d: false,
+          e: '5/8/2025',
+          f: '5/14/2025',
+          g: [
+            'https://bah.wd1.myworkdayjobs.com/en-US/BAH_Jobs/login'
+          ]
+        },
+        {
+          a: 'CSI | Oklahoma City, Oklahoma',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '3+ years exp'
+          ],
+          d: false,
+          e: '5/11/2025',
+          f: '5/14/2025',
+          g: [
+            'https://csiweb.wd1.myworkdayjobs.com/en-US/CSI_Careers/login'
+          ]
+        },
+        {
+          a: 'AARATECH | San Francisco, California',
+          b: 'Software Engineer',
+          c: [
+            '.NET Framework, C#, ASP.NET, AJAX, SQL Server, Entity Framework, HTML, CSS, JavaScript, RESTful APIs'
+          ],
+          d: true,
+          e: '5/12/2025'
+        },
+        {
+          a: 'Republic National Distributing Company | Atlanta, Georgia',
+          b: 'Software Engineer - Associate',
+          c: [
+            'BS',
+            '0-2+ years exp',
+            'C, C++, C#, Java, .NET, HTML, CSS, JavaScript, ASP.NET, jQuery, React.js, Angular, RESTful APIs, MSSQL'
+          ],
+          d: true,
+          e: '5/12/2025'
+        },
+        {
+          a: 'Reynolds and Reynolds | College Station, Texas',
+          b: 'Entry Level Software Developer',
+          c: [
+            'BS',
+            '.NET, Linux, iOS, Android, Windows'
+          ],
+          d: true,
+          e: '5/15/2025'
+        },
+        {
+          a: 'Walgreens | Deerfield, Illinois',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '2+ years exp',
+            'SDLC, APIs, Microservices, Automation, Agile'
+          ],
+          d: true,
+          e: '5/118/2025',
+        },
+        {
+          a: 'State of Indiana | Indianapolis, Indiana',
+          b: 'Junior Web Developer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C#, .NET, ASP.NET Core, MVC, Entity Framework, HTML5, CSS3, Bootstrap, JavaScript, jQuery, React, Angular, REST, Oracle, SQL, PL/SQL, '
+          ],
+          d: true,
+          e: '5/19/2025',
+          g: [
+            'https://career8.successfactors.com/career?company=indianaoff&site=&lang=en_US&login_ns=login&loginFlowRequired=true&showLogOutMsg=true&brandUrl=&_s.crb=pH6Ek0MlWin3vS9lPX1Otf9iqIcdm94P40Bux9qfPG4%253d'
+          ]
+        },
+        {
+          a: 'Microsoft | (Remote) United States',
+          b: 'Software Engineer',
+          c: [
+            'BS',
+            '1+ years exp',
+            'C, C++, C#, Java, JavaScript, Python, Distributed Systems'
+          ],
+          d: true,
+          e: '5/19/2025'
+        },
+        
       ]
     }
   },
@@ -6844,9 +7589,8 @@ export default
 
       }); 
 
-      let sortedCities = Object.entries(cities).sort((a,b) => b[1] - a[1]); 
-
-      console.log(sortedCities);
+      // let sortedCities = Object.entries(cities).sort((a,b) => b[1] - a[1]); 
+      // console.log(sortedCities);
       // sortedCities.forEach(([city, value]) => {
       //   console.log(`${city.trim()}: ${value}`);
       // });      
@@ -6887,6 +7631,7 @@ export default
     this.appliesPerDay = (this.job_apps.length / this.numberOfDays).toFixed(2);
 
     this.numDaysPostGCUgraduation = this.getDaysPassedSinceDate("2024/04/27 00:00:00");
+    // this.numDaysPostGCUgraduation = this.getDaysPassedSinceDate("2025/01/29 00:00:00");
 
     this.reverseJobsList = this.job_apps.reverse();
 

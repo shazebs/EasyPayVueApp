@@ -7,9 +7,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import NavigationBar from './components/NavigationBar.vue';
 import SpinLoader from './components/SpinLoader.vue';
-import { mapState } from 'vuex'; 
 
 export default {
   name: 'App',
@@ -22,7 +22,9 @@ export default {
   },
   created() {
     var token = localStorage.getItem('token');
-    if (token) this.$store.dispatch('user', JSON.parse(token));
+    if (token) {
+      this.$store.dispatch('user', JSON.parse(token));
+    }
   },
 }
 </script>
